@@ -1,0 +1,40 @@
+PATOGEN MALL V5 — layout/gameplay pass
+
+Priority in this version: layout + player integration. Bot AI was intentionally left out so the map can be integrated cleanly with the teammates' mechanics.
+
+FIXES
+- Removed the entire legacy collision tree from main.tscn. There is no editor-authored ghost Collision node anymore.
+- Collision is generated only once at runtime from scripts/mall_layout.gd.
+- Store visuals and collision share the same canonical store rectangles and door widths.
+- Cinema, Arcade, Market and Cafe have real door gaps on their inward-facing sides.
+- Sports entrance is 144 px wide and has a broad north approach.
+- Central plaza benches, planters, kiosks and fountain have explicit collision where appropriate.
+- Player spawn moved to a safe central-plaza position, clear of the fountain.
+- Removed the old staircase blockers from shop approaches.
+
+LAYOUT
+- Reworked the mall into a clearer conventional shopping-centre plan with a central atrium, four-way circulation, perimeter stores and wide decision points.
+- Repositioned Cinema, Arcade, Market and south retail shops to avoid overlaps and bottlenecks.
+- Added a central upper mezzanine with two broad staircase connections.
+- Staircases are walkable: only the mezzanine guard rails collide.
+- Added stable NavigationMarkers for future teammate AI integration without adding a NavigationRegion yet.
+
+PATOGEN ZONES
+- Added real collisionless Area2D zones under GameplayZones.
+- Hot zones: Food Court, Arcade, Atrium.
+- Cold zones: Market, Cinema, Mezzanine.
+- Each zone exposes metadata: zone_id, zone_type, intensity.
+- All zones join group: patogen_condition_zone.
+
+INTEGRATION
+- Added scripts/mall_layout.gd as the single source of truth for layout, doors and zones.
+- Added PatogenMall_MapOnly.tscn for direct instancing into the teammates' project.
+- Updated MAP_INTEGRATION.md with integration notes.
+
+VALIDATION
+- Static geometry checks show 13 stores with no rectangle overlaps.
+- Door center positions are consistent with the canonical store rectangles.
+- The previous NavigationPolygon/add_polygon implementation was removed from this version; bot navigation can be added after the team's mechanics are integrated.
+
+NOTE
+Godot itself was not available in the execution environment, so this package was not run through the Godot editor/executable here. The project was structurally checked and the scripts were reviewed for the prior parser-error source and duplicate legacy collision layout.

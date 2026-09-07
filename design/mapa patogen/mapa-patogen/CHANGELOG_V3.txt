@@ -1,0 +1,33 @@
+PATOGEN MALL — polished V3
+==============================
+
+Changes in this pass:
+- Reworked the mall into a conventional shopping-centre plan: central atrium,
+  continuous public promenades, anchor stores, food court, cinema, arcade,
+  market and south-side service/loading zones.
+- Replaced the previous highly irregular visual abstraction with a cleaner,
+  readable retail architecture while keeping the dark Patogen atmosphere.
+- Added storefront glass bands, doors, signs, shop display islands, escalators,
+  planters, benches, ceiling lights, entrances and loading bays.
+- Added subtle moving shoppers and kept hot/cold Patogen activity areas as
+  restrained overlays instead of making them dominate the mall art.
+- Rebuilt collision geometry at runtime from the same store dimensions used by
+  the visual script.
+- Disabled the legacy collision layout so old walls cannot conflict with the
+  new map.
+- Added real doorway gaps to storefront collision walls.
+- Aligned exterior collision gaps exactly with the eight visible public
+  entrances.
+- Expanded and corrected camera limits to match the new 3200 x 2300 map.
+- Spawned the player in the central atrium/promande area.
+
+Main source of truth for layout:
+  scripts/mall_main.gd   -> gameplay collision
+  scripts/mall_visual.gd -> visual presentation
+
+Godot version target: 4.7.x
+
+V4.0.1 HOTFIX — NavigationPolygon API
+- Fixed NavigationPolygon.add_polygon() usage: Godot expects PackedInt32Array vertex indices, not PackedVector2Array points.
+- Fixed shadowed Node.name parameter in _add_wall() by renaming it to wall_name.
+- This removes the reported parser/runtime issue and keeps the procedural navigation mesh compatible with Godot 4.x.
