@@ -1,17 +1,23 @@
-extends Node2D
-## PATOGEN MALL V5 — gameplay-first map source of truth.
-## The visual layout, collision layout and gameplay zones share one canonical geometry file.
 
+extends Node2D
+
+## PATOGEN MALL V5 — fuente principal de la geometría del mapa.
+## El diseño visual, las colisiones y las zonas usan las mismas posiciones.
+
+# Carga el archivo que contiene las posiciones y tamaños del mapa
 const Layout = preload("res://scripts/mall_layout.gd")
 
+# Obtiene las dimensiones y configuraciones principales del mapa
 const MAP_WIDTH := Layout.MAP_WIDTH
 const MAP_HEIGHT := Layout.MAP_HEIGHT
 const WALL_THICKNESS := Layout.WALL_THICKNESS
 const PLAYER_LAYER := Layout.PLAYER_LAYER
 
+# Referencias al jugador y a su cámara
 var camera: Camera2D
 var player: CharacterBody2D
 
+# Obtiene las tiendas y zonas definidas en el archivo Layout
 var stores: Array = Layout.STORES
 var mezzanine: Rect2 = Layout.MEZZANINE
 var stair_left: Rect2 = Layout.STAIR_LEFT
@@ -20,22 +26,25 @@ var condition_zones: Array = Layout.HOT_COLD_ZONES
 
 
 func _ready() -> void:
+	# Busca al jugador y su cámara
 	player = get_node_or_null("Player") as CharacterBody2D
 	if player != null:
 		camera = player.get_node_or_null("Camera2D") as Camera2D
 
+	# Configura los límites, colisiones y zonas del mapa
 	_apply_camera_limits()
 	_create_mall_collision()
 	_create_condition_zones()
 	_create_navigation_markers()
 
-	# Safe spawn: clear of fountain, stairs, furniture and store walls.
+	# Coloca al jugador en una posición segura al comenzar
 	if player != null:
 		player.position = Layout.PLAYER_SPAWN
 		player.collision_layer = PLAYER_LAYER
 		player.collision_mask = PLAYER_LAYER
 
 
+# Establece los límites que puede recorrer la cámara
 func _apply_camera_limits() -> void:
 	if camera == null:
 		return
@@ -47,6 +56,7 @@ func _apply_camera_limits() -> void:
 	camera.reset_smoothing()
 
 
+# Crea todas las colisiones principales del centro comercial
 func _create_mall_collision() -> void:
 	var root := StaticBody2D.new()
 	root.name = "MallCollision"
@@ -55,6 +65,7 @@ func _create_mall_collision() -> void:
 	root.collision_mask = PLAYER_LAYER
 	add_child(root)
 
+	# Crea las diferentes partes de las colisiones
 	_create_outer_walls(root)
 	_create_store_walls(root)
 	_create_mezzanine_walls(root)
@@ -62,6 +73,7 @@ func _create_mall_collision() -> void:
 	_create_public_furniture_collisions(root)
 
 
+# Crea una pared rectangular con colisión
 func _add_wall(body: StaticBody2D, center: Vector2, size: Vector2, wall_name: String) -> void:
 	var shape := RectangleShape2D.new()
 	shape.size = size
@@ -73,13 +85,14 @@ func _add_wall(body: StaticBody2D, center: Vector2, size: Vector2, wall_name: St
 	body.add_child(collision)
 
 
+# Crea las paredes exteriores del centro comercial
 func _create_outer_walls(body: StaticBody2D) -> void:
 	const LEFT := 205.0
 	const RIGHT := 2995.0
 	const TOP := 125.0
 	const BOTTOM := 2175.0
 
-	# 3 north entrances + 3 south entrances.
+	# Crea las paredes superiores e inferiores dejando entradas
 	for y in [TOP, BOTTOM]:
 		_add_wall(
 			body,
@@ -109,7 +122,7 @@ func _create_outer_walls(body: StaticBody2D) -> void:
 			"Outer_FarRight_" + str(y)
 		)
 
-	# West/East side entries line up with the main atrium lanes.
+	# Crea las paredes laterales dejando entradas hacia el atrio
 	for x in [LEFT, RIGHT]:
 		_add_wall(
 			body,
@@ -126,6 +139,7 @@ func _create_outer_walls(body: StaticBody2D) -> void:
 		)
 
 
+# Crea las paredes de cada tienda
 func _create_store_walls(body: StaticBody2D) -> void:
 	for store in stores:
 		var r: Rect2 = store["rect"]
@@ -133,6 +147,7 @@ func _create_store_walls(body: StaticBody2D) -> void:
 		var prefix := str(store["name"]).replace(" ", "_")
 		var door_width := float(store["door_width"])
 
+		# Según el lado de la tienda se colocan las paredes
 		match side:
 			"south":
 				_add_wall(
@@ -141,18 +156,21 @@ func _create_store_walls(body: StaticBody2D) -> void:
 					Vector2(r.size.x, WALL_THICKNESS),
 					prefix + "_Back"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.position.x, r.position.y + r.size.y * 0.5),
 					Vector2(WALL_THICKNESS, r.size.y),
 					prefix + "_Left"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.end.x, r.position.y + r.size.y * 0.5),
 					Vector2(WALL_THICKNESS, r.size.y),
 					prefix + "_Right"
 				)
+
 				_add_store_front_with_door(
 					body,
 					r,
@@ -168,18 +186,21 @@ func _create_store_walls(body: StaticBody2D) -> void:
 					Vector2(r.size.x, WALL_THICKNESS),
 					prefix + "_Back"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.position.x, r.position.y + r.size.y * 0.5),
 					Vector2(WALL_THICKNESS, r.size.y),
 					prefix + "_Left"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.end.x, r.position.y + r.size.y * 0.5),
 					Vector2(WALL_THICKNESS, r.size.y),
 					prefix + "_Right"
 				)
+
 				_add_store_front_with_door(
 					body,
 					r,
@@ -189,26 +210,28 @@ func _create_store_walls(body: StaticBody2D) -> void:
 				)
 
 			"east":
-				# Store is on the WEST side; entrance faces EAST.
-				# Back wall stays on the LEFT; front wall/door is on the RIGHT.
+				# La tienda está al oeste y la entrada apunta hacia el este
 				_add_wall(
 					body,
 					Vector2(r.position.x, r.position.y + r.size.y * 0.5),
 					Vector2(WALL_THICKNESS, r.size.y),
 					prefix + "_Back"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.position.x + r.size.x * 0.5, r.position.y),
 					Vector2(r.size.x, WALL_THICKNESS),
 					prefix + "_Top"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.position.x + r.size.x * 0.5, r.end.y),
 					Vector2(r.size.x, WALL_THICKNESS),
 					prefix + "_Bottom"
 				)
+
 				_add_store_front_with_door(
 					body,
 					r,
@@ -218,26 +241,28 @@ func _create_store_walls(body: StaticBody2D) -> void:
 				)
 
 			"west":
-				# Store is on the EAST side; entrance faces WEST.
-				# Back wall stays on the RIGHT; front wall/door is on the LEFT.
+				# La tienda está al este y la entrada apunta hacia el oeste
 				_add_wall(
 					body,
 					Vector2(r.end.x, r.position.y + r.size.y * 0.5),
 					Vector2(WALL_THICKNESS, r.size.y),
 					prefix + "_Back"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.position.x + r.size.x * 0.5, r.position.y),
 					Vector2(r.size.x, WALL_THICKNESS),
 					prefix + "_Top"
 				)
+
 				_add_wall(
 					body,
 					Vector2(r.position.x + r.size.x * 0.5, r.end.y),
 					Vector2(r.size.x, WALL_THICKNESS),
 					prefix + "_Bottom"
 				)
+
 				_add_store_front_with_door(
 					body,
 					r,
@@ -247,6 +272,7 @@ func _create_store_walls(body: StaticBody2D) -> void:
 				)
 
 
+# Crea la pared frontal de una tienda dejando espacio para la puerta
 func _add_store_front_with_door(
 	body: StaticBody2D,
 	r: Rect2,
@@ -254,10 +280,10 @@ func _add_store_front_with_door(
 	prefix: String,
 	door_width: float
 ) -> void:
-	# The gap is centered on the exact visual doorway and is intentionally 12px
-	# wider than the player radius on each side to prevent snagging.
+	# Calcula la mitad del ancho de la puerta
 	var half := door_width * 0.5
 
+	# Crea la pared dependiendo de la orientación de la tienda
 	match side:
 		"south", "north":
 			var y := r.end.y if side == "south" else r.position.y
@@ -298,9 +324,9 @@ func _add_store_front_with_door(
 			)
 
 
+# Crea las colisiones de la zona superior o mezzanine
 func _create_mezzanine_walls(body: StaticBody2D) -> void:
-	# The mezzanine is a walkable upper gallery. Only its guard rails collide;
-	# the stair rectangles remain free so the player can enter the upper level.
+	# La mezzanine permite caminar, pero sus barandas tienen colisión
 	var r := mezzanine
 
 	_add_wall(
@@ -324,7 +350,7 @@ func _create_mezzanine_walls(body: StaticBody2D) -> void:
 		"Mezzanine_BackRail"
 	)
 
-	# Front rail leaves the two stair landings completely open.
+	# La parte frontal deja libres las zonas de las escaleras
 	_add_wall(
 		body,
 		Vector2((stair_left.end.x + stair_right.position.x) * 0.5, r.end.y),
@@ -333,8 +359,9 @@ func _create_mezzanine_walls(body: StaticBody2D) -> void:
 	)
 
 
+# Crea las colisiones de la zona central del atrio
 func _create_atrium_collisions(body: StaticBody2D) -> void:
-	# Fountain: central obstacle with generous circulation ring.
+	# Crea la fuente como un obstáculo circular
 	var fountain := CircleShape2D.new()
 	fountain.radius = 62.0
 
@@ -344,7 +371,7 @@ func _create_atrium_collisions(body: StaticBody2D) -> void:
 	fountain_collision.shape = fountain
 	body.add_child(fountain_collision)
 
-	# Decorative benches around the fountain.
+	# Agrega colisiones a los bancos del atrio
 	var bench_positions: Array = Layout.ATRIUM_BENCHES
 	for i in range(bench_positions.size()):
 		_add_wall(
@@ -355,7 +382,9 @@ func _create_atrium_collisions(body: StaticBody2D) -> void:
 		)
 
 
+# Crea las colisiones de los objetos públicos
 func _create_public_furniture_collisions(body: StaticBody2D) -> void:
+	# Colisiones de los bancos
 	var benches: Array = Layout.PUBLIC_BENCHES
 	for i in range(benches.size()):
 		_add_wall(
@@ -365,6 +394,7 @@ func _create_public_furniture_collisions(body: StaticBody2D) -> void:
 			"PublicBench_" + str(i)
 		)
 
+	# Colisiones de los canteros
 	var planters: Array = Layout.PLANTERS
 	for i in range(planters.size()):
 		_add_wall(
@@ -374,7 +404,7 @@ func _create_public_furniture_collisions(body: StaticBody2D) -> void:
 			"Planter_" + str(i)
 		)
 
-	# Kiosks are placed beside, never inside, primary door approaches.
+	# Colisiones de los kioscos
 	for i in range(Layout.KIOSKS.size()):
 		var p: Vector2 = Layout.KIOSKS[i]
 		_add_wall(
@@ -385,15 +415,19 @@ func _create_public_furniture_collisions(body: StaticBody2D) -> void:
 		)
 
 
+# Crea las zonas de temperatura del mapa
 func _create_condition_zones() -> void:
 	var root := Node2D.new()
 	root.name = "GameplayZones"
 	add_child(root)
+
+	# Indica que estas zonas sirven para detectar condiciones del juego
 	root.set_meta(
 		"purpose",
 		"Patogen hot/cold zones; collisionless detection layer"
 	)
 
+	# Crea un Area2D para cada zona
 	for def in condition_zones:
 		var area := Area2D.new()
 		area.name = str(def["id"])
@@ -402,10 +436,13 @@ func _create_condition_zones() -> void:
 		area.monitoring = true
 		area.monitorable = true
 		area.add_to_group("patogen_condition_zone")
+
+		# Guarda información de la zona
 		area.set_meta("zone_id", str(def["id"]))
 		area.set_meta("zone_type", str(def["type"]))
 		area.set_meta("intensity", float(def["intensity"]))
 
+		# Crea la forma rectangular del área
 		var shape := CollisionShape2D.new()
 		var rect_shape := RectangleShape2D.new()
 		rect_shape.size = def["rect"].size
@@ -413,17 +450,19 @@ func _create_condition_zones() -> void:
 		shape.position = def["rect"].size * 0.5
 		area.add_child(shape)
 
+		# Coloca la zona en su posición correspondiente
 		area.position = def["rect"].position
 		root.add_child(area)
 
 
+# Crea puntos de referencia para facilitar la navegación de los bots
 func _create_navigation_markers() -> void:
-	# Integration-friendly marker nodes. Teammates can build/replace their AI nav
-	# graph around these stable IDs without having to reverse-engineer the map.
+	# Los marcadores permiten identificar lugares importantes del mapa
 	var root := Node2D.new()
 	root.name = "NavigationMarkers"
 	add_child(root)
 
+	# Posiciones de los puntos importantes
 	var points := {
 		"Spawn": Vector2(1600, 1180),
 		"NorthHub": Vector2(1600, 780),
@@ -439,6 +478,7 @@ func _create_navigation_markers() -> void:
 		"SportsDoor": Vector2(640, 1740)
 	}
 
+	# Crea un marcador para cada punto
 	for key in points:
 		var marker := Marker2D.new()
 		marker.name = key
