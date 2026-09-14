@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dbqe54hgsss86"]
+
+[ext_resource type="Script" uid="uid://3upkgkhl6f0q" path="res://scripts/zona_temperatura.gd" id="1_06my4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbs7t"]
+size = Vector2(243, 246)
+
+[node name="ZonaTemperatura" type="Area2D" unique_id=299111074]
+script = ExtResource("1_06my4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1635527787]
+position = Vector2(38.5, -31)
+shape = SubResource("RectangleShape2D_pbs7t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1430357299]
+offset_left = -87.0
+offset_top = -154.0
+offset_right = 166.0
+offset_bottom = 94.0
+color = Color(1, 0, 0, 0.30980393)

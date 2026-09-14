@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/mall_main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/mall_visual.gd" id="2_visual"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+metadata/map_identity = "Patogen Mall V5 map-only integration scene"
+metadata/layout_policy = "wide circulation;aligned storefront doors;central atrium;second-floor mezzanine"
+metadata/condition_catalog = "hot;cold"
+metadata/integration = "No Player node; designed to be instanced in the teammates' gameplay scene"
+
+[node name="VisualOverhaul" type="Node2D" parent="."]
+z_index = -20
+script = ExtResource("2_visual")
