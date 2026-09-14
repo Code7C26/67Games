@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bnoia3hmux6ig"]
+
+[ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="1_ekubr"]
+[ext_resource type="Script" uid="uid://bm0uxxq2o2j7c" path="res://scripts/Mapa.gd" id="1_rccca"]
+[ext_resource type="PackedScene" uid="uid://b7mdnixqkn31a" path="res://scenes/Bot.tscn" id="2_u1vf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maugy"]
+size = Vector2(1156, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uylti"]
+size = Vector2(20, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjlfa"]
+size = Vector2(1162, 28.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3jmh"]
+size = Vector2(28, 654)
+
+[node name="mapa" type="Node2D" unique_id=92998635]
+script = ExtResource("1_rccca")
+
+[node name="Pato1" parent="." unique_id=1385956632 instance=ExtResource("1_ekubr")]
+position = Vector2(942, 361)
+speed = null
+player_id = null
+
+[node name="Pato2" parent="." unique_id=1181928021 instance=ExtResource("1_ekubr")]
+position = Vector2(125, 306)
+speed = null
+player_id = 2
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=1669568578]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes" unique_id=1896101920]
+position = Vector2(577, 0)
+shape = SubResource("RectangleShape2D_maugy")
+
+[node name="ColorRect" type="ColorRect" parent="Paredes" unique_id=1490745245]
+offset_left = -9.0
+offset_top = -7.0
+offset_right = 1151.0
+offset_bottom = 11.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes" unique_id=1605520269]
+position = Vector2(0, 319.5)
+shape = SubResource("RectangleShape2D_uylti")
+
+[node name="ColorRect2" type="ColorRect" parent="Paredes" unique_id=473760661]
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 12.0
+offset_bottom = 649.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Paredes" unique_id=1868915640]
+position = Vector2(574, 634.25)
+shape = SubResource("RectangleShape2D_bjlfa")
+
+[node name="ColorRect3" type="ColorRect" parent="Paredes" unique_id=1861692502]
+offset_left = -11.0
+offset_top = 622.0
+offset_right = 1155.0
+offset_bottom = 646.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Paredes" unique_id=260428910]
+position = Vector2(1142, 317)
+shape = SubResource("RectangleShape2D_b3jmh")
+
+[node name="ColorRect4" type="ColorRect" parent="Paredes" unique_id=1906044285]
+offset_left = 1129.0
+offset_top = -7.0
+offset_right = 1156.0
+offset_bottom = 647.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1189617468]
+position = Vector2(576, 324)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Bots" type="Node2D" parent="." unique_id=1097526477]
+
+[node name="Bot" parent="Bots" unique_id=1589400054 instance=ExtResource("2_u1vf7")]
+position = Vector2(635, 536)
+
+[node name="Bot2" parent="Bots" unique_id=677714518 instance=ExtResource("2_u1vf7")]
+position = Vector2(392, 504)
+
+[node name="Bot3" parent="Bots" unique_id=1404966709 instance=ExtResource("2_u1vf7")]
+position = Vector2(864, 120)
+
+[node name="Bot4" parent="Bots" unique_id=1006278904 instance=ExtResource("2_u1vf7")]
+position = Vector2(964, 481)
+
+[node name="Bot5" parent="Bots" unique_id=848155044 instance=ExtResource("2_u1vf7")]
+position = Vector2(811, 301)
+
+[node name="Bot6" parent="Bots" unique_id=1426158218 instance=ExtResource("2_u1vf7")]
+position = Vector2(399, 128)
+
+[node name="Bot7" parent="Bots" unique_id=1415178313 instance=ExtResource("2_u1vf7")]
+position = Vector2(169, 450)
+
+[node name="Bot8" parent="Bots" unique_id=1254264687 instance=ExtResource("2_u1vf7")]
+position = Vector2(215, 163)
+
+[node name="Bot9" parent="Bots" unique_id=1853820049 instance=ExtResource("2_u1vf7")]
+position = Vector2(609, 133)
+
+[node name="Bot10" parent="Bots" unique_id=1574224104 instance=ExtResource("2_u1vf7")]
+position = Vector2(1021, 231)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=721501520]
+
+[node name="LabelContador" type="Label" parent="HUD" unique_id=1162768566]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerInicio" type="Timer" parent="." unique_id=178917896]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="TimerJuego" type="Timer" parent="." unique_id=660780678]
+wait_time = 30.0
+one_shot = true
