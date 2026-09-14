@@ -1,53 +1,84 @@
-# 67Games
+# Patogen
 
-> *Un juego de estrategia 2D y simulación táctica de propagación patógena desarrollado en Godot Engine.*
+> Prototipo de videojuego 2D en Godot donde el jugador recorre un centro comercial diseñado para futuras mecánicas de propagación y condiciones ambientales.
 
-![Godot Engine](https://img.shields.io/badge/Godot-v4.x-478CBF?style=for-the-badge&logo=godotengine&logoColor=white)
-![Status](https://img.shields.io/badge/Status-En_Desarrollo-orange?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Estado](https://img.shields.io/badge/Estado-Prototipo%20jugable-orange)
+![Motor](https://img.shields.io/badge/Godot-4.7-478CBF?logo=godotengine&logoColor=white)
+![Lenguaje](https://img.shields.io/badge/Lenguaje-GDScript-478CBF)
 
----
+## Cómo ejecutar el proyecto
 
-## Descripción General
+1. Instalar [Godot Engine 4.7](https://godotengine.org/download/), o una versión 4.x compatible.
+2. Clonar este repositorio:
 
-**Outbreak Rivals** es un videojuego de estrategia e infectividad táctica en vista superior (*top-down 2D*). El jugador asume el control de una cepa patógena en evolución con el objetivo de propagarse y dominar el entorno antes de que los sistemas de control o cepas rivales neutralicen la infección.
+   ```bash
+   git clone https://github.com/Code7C26/67Games.git
+   ```
 
-A diferencia de los simuladores tradicionales, el juego combina **decisiones tácticas previas a la partida** (basadas en factores ambientales como temperatura, humedad e higiene del entorno) con un **sistema de comportamiento de multitudes en tiempo real**.
+3. Abrir Godot y seleccionar **Importar**.
+4. Elegir el archivo `design/mapa-patogen/project.godot`.
+5. Abrir el proyecto importado y presionar **F6** para ejecutar la escena actual o **F5** para ejecutar el proyecto completo.
 
----
+Al iniciar, se carga la escena principal `main.tscn` del mapa Patogen Mall.
 
-## Características Principales
+### Controles
 
-* **Estrategia Adaptativa al Entorno:** Las condiciones del mapa (clima, densidad de población, niveles de desinfección) alteran directamente la tasa de transmisibilidad de tus síntomas.
-* **Árbol de Mutaciones:** Gasta puntos de ADN para evolucionar atributos de *Transmisión*, *Síntomas* y *Resistencia*.
-* **IA de Multitudes (NPCs):** Un motor de simulación en 2D donde los bots reaccionan con comportamientos de pánico, aislamiento o búsqueda de atención médica según la gravedad del brote.
-* **Modo Táctico:** Analiza el informe demográfico e higiénico del escenario antes de empezar y arma el combo de enfermedades perfecto para ese mapa.
-* **Desarrollado en Godot 4:** Aprovecha la arquitectura de nodos nativa en 2D y scripts optimizados en GDScript para un rendimiento fluido.
+| Acción | Teclas |
+| --- | --- |
+| Mover a la izquierda | `A` o flecha izquierda |
+| Mover a la derecha | `D` o flecha derecha |
+| Mover hacia arriba | `W` o flecha arriba |
+| Mover hacia abajo | `S` o flecha abajo |
 
----
+## Estado técnico actual
 
-## Tecnologías Utilizadas
+El proyecto se encuentra en etapa de **prototipo jugable de mapa e integración**. Actualmente incluye:
 
-* **Motor de Videojuegos:** [Godot Engine 4.x](https://godotengine.org/)
-* **Lenguaje Principal:** GDScript
-* **Control de Versiones:** Git / GitHub
-* **Diseño e Interfaz:** Pixel Art 2D
+- Mapa 2D de un centro comercial con 13 locales, atrio central y mezzanine.
+- Personaje temporal controlable con movimiento en ocho direcciones y cámara con límites del mapa.
+- Colisiones generadas por código para paredes, locales, puertas, mobiliario, fuente y barandas.
+- Accesos transitables en Cinema, Arcade, Market, Café y Sports.
+- Seis zonas de condición para futuras mecánicas de Patogen:
+  - **Hot:** Food Court, Arcade y Atrium.
+  - **Cold:** Market, Cinema y Mezzanine.
+- Marcadores de navegación estables para incorporar la IA de NPCs en una siguiente etapa.
+- Sprites de personaje y NPC disponibles en `assets/`.
 
----
+### Pendiente
 
-## Estructura del Repositorio
+- Integrar el personaje definitivo, sus animaciones y las mecánicas principales del equipo.
+- Conectar las zonas hot/cold con el sistema de propagación del juego.
+- Implementar navegación y comportamiento de los NPCs.
+- Añadir interfaz, objetivos, condiciones de victoria y derrota, y exportaciones jugables.
+
+## Estructura del repositorio
 
 ```text
-├── assets/             # Sprites, texturas, fuentes y efectos de sonido
-│   ├── sprites/        # Personajes, mapas e interfaz
-│   └── audio/          # SFX y música de fondo
-├── scenes/             # Escenas de Godot (.tscn)
-│   ├── ui/             # Menús, paneles de mutación y HUD
-│   ├── maps/           # Escenarios y niveles
-│   └── entities/       # Jugador, bots (NPCs) y agentes
-├── scripts/            # Código fuente en GDScript (.gd)
-│   ├── ai/             # Algoritmos de movimiento y comportamiento de bots
-│   ├── core/           # Lógica del juego, gestor de infecciones y variables
-│   └── resources/      # Definición de mapas y tipos de mutaciones
-├── resources/          # Archivos de datos personalizados (.tres)
-└── README.md           # Documentación del proyecto
+assets/                         Recursos gráficos del equipo
+  Sprites Pato/                 Sprites del personaje
+  Sprites NPC/                  Sprites de NPC
+design/mapa-patogen/            Proyecto ejecutable de Godot
+  project.godot                 Configuración del proyecto
+  main.tscn                     Escena principal del prototipo
+  PatogenMall_MapOnly.tscn      Mapa listo para integrar en otra escena
+  scripts/                      Lógica del mapa, jugador y visuales
+  Art/                          Tiles y recursos del mapa
+  MAP_INTEGRATION.md            Guía de integración del mapa
+docs/                           Documentación y material de diseño
+```
+
+## Integración del mapa
+
+Para incorporar solamente el escenario en otra escena de Godot, instanciar `design/mapa-patogen/PatogenMall_MapOnly.tscn`. Esta escena no crea jugador, bots ni HUD; conserva las colisiones, zonas y marcadores que necesita el proyecto principal.
+
+Las zonas se agrupan bajo `patogen_condition_zone` y exponen los metadatos `zone_id`, `zone_type` e `intensity`. La guía técnica completa está en [`design/mapa-patogen/MAP_INTEGRATION.md`](design/mapa-patogen/MAP_INTEGRATION.md).
+
+## Tecnologías
+
+- Godot Engine 4.7 (Forward Plus)
+- GDScript
+- Git y GitHub
+
+## Autoría
+
+Proyecto desarrollado de forma colaborativa por el equipo 67Games.
