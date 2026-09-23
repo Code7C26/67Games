@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="1_ekubr"]
 [ext_resource type="Script" uid="uid://bm0uxxq2o2j7c" path="res://scripts/Mapa.gd" id="1_rccca"]
 [ext_resource type="PackedScene" uid="uid://b7mdnixqkn31a" path="res://scenes/Bot.tscn" id="2_u1vf7"]
-[ext_resource type="PackedScene" uid="uid://dbqe54hgsss86" path="res://scenes/zona_temperatura.tscn" id="4_pbs7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_maugy"]
 size = Vector2(1156, 20)
@@ -145,7 +144,37 @@ position = Vector2(190, -44)
 position = Vector2(751, -31)
 
 [node name="Bot20" parent="Bots" unique_id=363071503 instance=ExtResource("2_u1vf7")]
-position = Vector2(470, 695)
+position = Vector2(510, 704)
+
+[node name="Bot21" parent="Bots" unique_id=817122208 instance=ExtResource("2_u1vf7")]
+position = Vector2(642, 295)
+
+[node name="Bot22" parent="Bots" unique_id=587302065 instance=ExtResource("2_u1vf7")]
+position = Vector2(600, -50)
+
+[node name="Bot23" parent="Bots" unique_id=1821004329 instance=ExtResource("2_u1vf7")]
+position = Vector2(289, 322)
+
+[node name="Bot24" parent="Bots" unique_id=136104307 instance=ExtResource("2_u1vf7")]
+position = Vector2(112, 670)
+
+[node name="Bot25" parent="Bots" unique_id=1951196088 instance=ExtResource("2_u1vf7")]
+position = Vector2(783, 525)
+
+[node name="Bot26" parent="Bots" unique_id=838383145 instance=ExtResource("2_u1vf7")]
+position = Vector2(749, 144)
+
+[node name="Bot27" parent="Bots" unique_id=1315444158 instance=ExtResource("2_u1vf7")]
+position = Vector2(909, 355)
+
+[node name="Bot28" parent="Bots" unique_id=1535386383 instance=ExtResource("2_u1vf7")]
+position = Vector2(911, 610)
+
+[node name="Bot29" parent="Bots" unique_id=2077409012 instance=ExtResource("2_u1vf7")]
+position = Vector2(1053, 608)
+
+[node name="Bot30" parent="Bots" unique_id=655052531 instance=ExtResource("2_u1vf7")]
+position = Vector2(328, 6)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=721501520]
 
@@ -165,7 +194,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimerInicio" type="Timer" parent="." unique_id=178917896]
-wait_time = 15.0
+wait_time = 4.322
 one_shot = true
 autostart = true
 
@@ -250,28 +279,3 @@ text = "+Radio(9)"
 layout_mode = 2
 text = "+Velocidad(0)
 "
-
-[node name="ZonaTemperatura" parent="." unique_id=299111074 instance=ExtResource("4_pbs7t")]
-position = Vector2(94, 697)
-tipo = 1
-
-[node name="ZonaTemperatura2" parent="." unique_id=876812673 instance=ExtResource("4_pbs7t")]
-position = Vector2(341, 453)
-tipo = 1
-
-[node name="ZonaTemperatura3" parent="." unique_id=1118243948 instance=ExtResource("4_pbs7t")]
-position = Vector2(89, 459)
-tipo = 1
-
-[node name="ZonaTemperatura4" parent="." unique_id=1886166398 instance=ExtResource("4_pbs7t")]
-position = Vector2(334, 687)
-tipo = 1
-
-[node name="ZonaTemperatura5" parent="." unique_id=597748169 instance=ExtResource("4_pbs7t")]
-position = Vector2(102, -14)
-
-[node name="ZonaTemperatura6" parent="." unique_id=909792316 instance=ExtResource("4_pbs7t")]
-position = Vector2(351, -14)
-
-[node name="ZonaTemperatura7" parent="." unique_id=2123746705 instance=ExtResource("4_pbs7t")]
-position = Vector2(594, -11)
