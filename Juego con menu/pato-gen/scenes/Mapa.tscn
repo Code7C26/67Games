@@ -1,0 +1,277 @@
+[gd_scene format=3 uid="uid://bnoia3hmux6ig"]
+
+[ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="1_ekubr"]
+[ext_resource type="Script" uid="uid://bm0uxxq2o2j7c" path="res://scripts/Mapa.gd" id="1_rccca"]
+[ext_resource type="PackedScene" uid="uid://b7mdnixqkn31a" path="res://scenes/Bot.tscn" id="2_u1vf7"]
+[ext_resource type="PackedScene" uid="uid://dbqe54hgsss86" path="res://scenes/zona_temperatura.tscn" id="4_pbs7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maugy"]
+size = Vector2(1156, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uylti"]
+size = Vector2(36, 983)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjlfa"]
+size = Vector2(1162, 28.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3jmh"]
+size = Vector2(59, 990)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsqx6"]
+font_size = 24
+font_color = Color(0, 1, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4vu4"]
+font_size = 24
+font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="mapa" type="Node2D" unique_id=92998635]
+script = ExtResource("1_rccca")
+
+[node name="Pato1" parent="." unique_id=1385956632 instance=ExtResource("1_ekubr")]
+position = Vector2(965, 689)
+
+[node name="Pato2" parent="." unique_id=1181928021 instance=ExtResource("1_ekubr")]
+position = Vector2(125, 306)
+player_id = 2
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=1669568578]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes" unique_id=1896101920]
+position = Vector2(590, -174)
+shape = SubResource("RectangleShape2D_maugy")
+
+[node name="ColorRect" type="ColorRect" parent="Paredes" unique_id=1490745245]
+offset_left = 11.0
+offset_top = -187.0
+offset_right = 1171.0
+offset_bottom = -169.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes" unique_id=1605520269]
+position = Vector2(-4, 302.5)
+shape = SubResource("RectangleShape2D_uylti")
+
+[node name="ColorRect2" type="ColorRect" parent="Paredes" unique_id=473760661]
+offset_left = -16.0
+offset_top = -160.0
+offset_right = 9.0
+offset_bottom = 815.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Paredes" unique_id=1868915640]
+position = Vector2(567, 800)
+shape = SubResource("RectangleShape2D_bjlfa")
+
+[node name="ColorRect3" type="ColorRect" parent="Paredes" unique_id=1861692502]
+offset_left = 7.0
+offset_top = 791.0
+offset_right = 1173.0
+offset_bottom = 815.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Paredes" unique_id=260428910]
+position = Vector2(1146.5, 329)
+shape = SubResource("RectangleShape2D_b3jmh")
+
+[node name="ColorRect4" type="ColorRect" parent="Paredes" unique_id=1906044285]
+offset_left = 1123.0
+offset_top = -177.0
+offset_right = 1172.0
+offset_bottom = 812.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1189617468]
+position = Vector2(576, 324)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Bots" type="Node2D" parent="." unique_id=1097526477]
+
+[node name="Bot" parent="Bots" unique_id=1589400054 instance=ExtResource("2_u1vf7")]
+position = Vector2(635, 536)
+
+[node name="Bot2" parent="Bots" unique_id=677714518 instance=ExtResource("2_u1vf7")]
+position = Vector2(392, 504)
+
+[node name="Bot3" parent="Bots" unique_id=1404966709 instance=ExtResource("2_u1vf7")]
+position = Vector2(864, 120)
+
+[node name="Bot4" parent="Bots" unique_id=1006278904 instance=ExtResource("2_u1vf7")]
+position = Vector2(964, 481)
+
+[node name="Bot5" parent="Bots" unique_id=848155044 instance=ExtResource("2_u1vf7")]
+position = Vector2(811, 301)
+
+[node name="Bot6" parent="Bots" unique_id=1426158218 instance=ExtResource("2_u1vf7")]
+position = Vector2(399, 128)
+
+[node name="Bot7" parent="Bots" unique_id=1415178313 instance=ExtResource("2_u1vf7")]
+position = Vector2(169, 450)
+
+[node name="Bot8" parent="Bots" unique_id=1254264687 instance=ExtResource("2_u1vf7")]
+position = Vector2(215, 163)
+
+[node name="Bot9" parent="Bots" unique_id=1853820049 instance=ExtResource("2_u1vf7")]
+position = Vector2(609, 133)
+
+[node name="Bot10" parent="Bots" unique_id=1574224104 instance=ExtResource("2_u1vf7")]
+position = Vector2(1021, 231)
+
+[node name="Bot11" parent="Bots" unique_id=554310533 instance=ExtResource("2_u1vf7")]
+position = Vector2(571, 409)
+
+[node name="Bot12" parent="Bots" unique_id=1971642070 instance=ExtResource("2_u1vf7")]
+position = Vector2(1055, 84)
+
+[node name="Bot13" parent="Bots" unique_id=375094290 instance=ExtResource("2_u1vf7")]
+position = Vector2(457, 335)
+
+[node name="Bot14" parent="Bots" unique_id=1355341214 instance=ExtResource("2_u1vf7")]
+position = Vector2(300, 686)
+
+[node name="Bot15" parent="Bots" unique_id=477198813 instance=ExtResource("2_u1vf7")]
+position = Vector2(751, 718)
+
+[node name="Bot16" parent="Bots" unique_id=1125081838 instance=ExtResource("2_u1vf7")]
+position = Vector2(918, -54)
+
+[node name="Bot17" parent="Bots" unique_id=2120929935 instance=ExtResource("2_u1vf7")]
+position = Vector2(447, -51)
+
+[node name="Bot18" parent="Bots" unique_id=2133791599 instance=ExtResource("2_u1vf7")]
+position = Vector2(190, -44)
+
+[node name="Bot19" parent="Bots" unique_id=1486693544 instance=ExtResource("2_u1vf7")]
+position = Vector2(751, -31)
+
+[node name="Bot20" parent="Bots" unique_id=363071503 instance=ExtResource("2_u1vf7")]
+position = Vector2(470, 695)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=721501520]
+
+[node name="LabelContador" type="Label" parent="HUD" unique_id=1162768566]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerInicio" type="Timer" parent="." unique_id=178917896]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="TimerJuego" type="Timer" parent="." unique_id=660780678]
+wait_time = 30.0
+one_shot = true
+
+[node name="HUD_ADN" type="CanvasLayer" parent="." unique_id=657886952]
+layer = 10
+
+[node name="LabelADN_Cian" type="Label" parent="HUD_ADN" unique_id=1026767451]
+offset_right = 136.0
+offset_bottom = 71.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "ADN Cian: 0
+"
+label_settings = SubResource("LabelSettings_bsqx6")
+
+[node name="LabelADN_Magenta" type="Label" parent="HUD_ADN" unique_id=1287144465]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_bottom = 71.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "ADN Magenta: 0
+"
+label_settings = SubResource("LabelSettings_q4vu4")
+horizontal_alignment = 2
+
+[node name="PanelCian" type="Panel" parent="HUD_ADN" unique_id=86206221]
+offset_top = 83.0
+offset_right = 227.0
+offset_bottom = 491.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD_ADN/PanelCian" unique_id=286822812]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=93938806]
+layout_mode = 2
+text = "MUTACIONES CIAN"
+
+[node name="BtnRadio" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=451861585]
+layout_mode = 2
+text = "+Radio(1)"
+
+[node name="BtnVelocidad" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1846815238]
+layout_mode = 2
+text = "+Velocidad(2)"
+
+[node name="PanelMagenta" type="Panel" parent="HUD_ADN" unique_id=828917519]
+anchors_preset = -1
+anchor_bottom = 0.031000001
+offset_left = 938.0
+offset_top = 87.0
+offset_right = 1188.0
+offset_bottom = 462.912
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD_ADN/PanelMagenta" unique_id=23125440]
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 401.0
+
+[node name="Label" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1172016256]
+layout_mode = 2
+text = "MUTACIONES MAGENTA"
+
+[node name="BtnRadio" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=152825288]
+layout_mode = 2
+text = "+Radio(9)"
+
+[node name="BtnVelocidad" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=827804282]
+layout_mode = 2
+text = "+Velocidad(0)
+"
+
+[node name="ZonaTemperatura" parent="." unique_id=299111074 instance=ExtResource("4_pbs7t")]
+position = Vector2(94, 697)
+tipo = 1
+
+[node name="ZonaTemperatura2" parent="." unique_id=876812673 instance=ExtResource("4_pbs7t")]
+position = Vector2(341, 453)
+tipo = 1
+
+[node name="ZonaTemperatura3" parent="." unique_id=1118243948 instance=ExtResource("4_pbs7t")]
+position = Vector2(89, 459)
+tipo = 1
+
+[node name="ZonaTemperatura4" parent="." unique_id=1886166398 instance=ExtResource("4_pbs7t")]
+position = Vector2(334, 687)
+tipo = 1
+
+[node name="ZonaTemperatura5" parent="." unique_id=597748169 instance=ExtResource("4_pbs7t")]
+position = Vector2(102, -14)
+
+[node name="ZonaTemperatura6" parent="." unique_id=909792316 instance=ExtResource("4_pbs7t")]
+position = Vector2(351, -14)
+
+[node name="ZonaTemperatura7" parent="." unique_id=2123746705 instance=ExtResource("4_pbs7t")]
+position = Vector2(594, -11)
