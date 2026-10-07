@@ -16,6 +16,10 @@ extends Node2D
 @onready var panel_magenta: Panel = $HUD_ADN/PanelMagenta
 
 
+# Escena reutilizable de las zonas de temperatura.
+const ESCENA_ZONA_TEMPERATURA: PackedScene = preload("res://scenes/zona_temperatura.tscn")
+const ESCENA_ROBOT: PackedScene = preload("res://scenes/robot.tscn")
+
 # ============================================================
 # ESTADOS DEL JUEGO
 # ============================================================
@@ -46,26 +50,29 @@ var mutaciones_p2: Array[String] = []
 
 
 # ============================================================
-# COSTO DE MUTACIONES
+# COSTOS
 # ============================================================
 
-var costo_mutacion: int = 5
+const COSTO_BASE: int = 5
+const COSTO_EVOLUCION_1: int = 10
+const COSTO_EVOLUCION_2: int = 15
+const COSTO_ZONA_TEMPERATURA: int = 4
+const COSTO_ROBOT: int = 5
 
 
 # ============================================================
-# NOMBRES DE MUTACIONES
+# MUTACIONES
 # ============================================================
 
 const MUT_FIEBRE := "fiebre"
-const MUT_CAZADOR := "cazador"
-const MUT_CADENA := "contagio_cadena"
-const MUT_ASINTOMATICO := "portador_asintomatico"
-const MUT_RETARDADA := "infeccion_retardada"
-const MUT_RESISTENCIA := "resistencia"
-const MUT_ULTIMO_ALIENTO := "ultimo_aliento"
-const MUT_NIDO := "nido"
 const MUT_RABIA := "rabia"
+
+const MUT_CADENA := "contagio_cadena"
+const MUT_ULTIMO_ALIENTO := "ultimo_aliento"
 const MUT_EXPLOSION := "explosion_infecciosa"
+
+const MUT_RETARDADA := "infeccion_retardada"
+const MUT_ASINTOMATICO := "portador_asintomatico"
 
 
 # ============================================================
@@ -73,6 +80,7 @@ const MUT_EXPLOSION := "explosion_infecciosa"
 # ============================================================
 
 func _ready() -> void:
+	add_to_group("mapa")
 
 	timer_inicio.timeout.connect(_on_timer_inicio_timeout)
 	timer_juego.timeout.connect(_on_timer_juego_timeout)
@@ -104,23 +112,22 @@ func _process(_delta: float) -> void:
 			+ " [O: Menú]"
 		)
 
-	# Destaca el ADN cuando hay suficiente para comprar.
 	if label_adn_cian:
-		if adn_cian >= costo_mutacion:
+		if adn_cian >= COSTO_BASE:
 			label_adn_cian.modulate = Color.GREEN
 		else:
 			label_adn_cian.modulate = Color.WHITE
 
 	if label_adn_magenta:
-		if adn_magenta >= costo_mutacion:
+		if adn_magenta >= COSTO_BASE:
 			label_adn_magenta.modulate = Color.GREEN
 		else:
 			label_adn_magenta.modulate = Color.WHITE
 
 
-	# --------------------------------------------------------
-	# FASE DE PATOS
-	# --------------------------------------------------------
+	# ========================================================
+	# FASE PATOS
+	# ========================================================
 
 	if estado_actual == EstadoJuego.FASE_PATOS:
 
@@ -133,9 +140,9 @@ func _process(_delta: float) -> void:
 			)
 
 
-	# --------------------------------------------------------
-	# FASE DE INFECCIÓN
-	# --------------------------------------------------------
+	# ========================================================
+	# FASE INFECCIÓN
+	# ========================================================
 
 	elif estado_actual == EstadoJuego.FASE_INFECCION:
 
@@ -146,8 +153,8 @@ func _process(_delta: float) -> void:
 			label_contador.text = (
 				"Tiempo: "
 				+ str(tiempo)
-				+ "s\n[Cian: "
-				+ str(stats.cian)
+				+ "s\n[Blue: "
+				+ str(stats.blue)
 				+ "]   [Magenta: "
 				+ str(stats.magenta)
 				+ "]"
@@ -183,17 +190,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		comprar_mutacion(1, MUT_FIEBRE)
 
-	elif event.keycode == KEY_2:
-
-		comprar_mutacion(1, MUT_CAZADOR)
-
 	elif event.keycode == KEY_3:
 
 		comprar_mutacion(1, MUT_CADENA)
-
-	elif event.keycode == KEY_4:
-
-		comprar_mutacion(1, MUT_ASINTOMATICO)
 
 	elif event.keycode == KEY_5:
 
@@ -213,17 +212,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		comprar_mutacion(2, MUT_FIEBRE)
 
-	elif event.keycode == KEY_7:
-
-		comprar_mutacion(2, MUT_CAZADOR)
-
 	elif event.keycode == KEY_8:
 
 		comprar_mutacion(2, MUT_CADENA)
-
-	elif event.keycode == KEY_9:
-
-		comprar_mutacion(2, MUT_ASINTOMATICO)
 
 	elif event.keycode == KEY_0:
 
@@ -231,70 +222,392 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 # ============================================================
-# COMPRAR MUTACIÓN
+# CREAR ZONA DE TEMPERATURA
+# ============================================================
+
+func crear_zona_temperatura(
+	id_jugador: int,
+	tipo: String,
+	posicion: Vector2
+) -> bool:
+
+	if estado_actual != EstadoJuego.FASE_INFECCION:
+		return false
+
+	if tipo != "frio" and tipo != "calor":
+		return false
+
+	# ========================================================
+	# COMPROBAR ADN
+	# ========================================================
+
+	var tiene_adn := false
+
+	if id_jugador == 1:
+		tiene_adn = adn_cian >= COSTO_ZONA_TEMPERATURA
+
+	elif id_jugador == 2:
+		tiene_adn = adn_magenta >= COSTO_ZONA_TEMPERATURA
+
+	else:
+		return false
+
+	if not tiene_adn:
+		print(
+			"Jugador ",
+			id_jugador,
+			" no tiene suficiente ADN para crear una zona. Necesita ",
+			COSTO_ZONA_TEMPERATURA,
+			" ADN."
+		)
+		return false
+
+	# ========================================================
+	# CARGAR E INSTANCIAR ESCENA
+	# ========================================================
+
+	var zona: ZonaTemperatura = ESCENA_ZONA_TEMPERATURA.instantiate() as ZonaTemperatura
+
+	if zona == null:
+		print("No se pudo instanciar zona_temperatura.tscn")
+		return false
+
+	# ========================================================
+	# CONFIGURAR ZONA
+	# ========================================================
+
+	if tipo == "frio":
+		zona.tipo = ZonaTemperatura.TipoTemperatura.FRIO
+	else:
+		zona.tipo = ZonaTemperatura.TipoTemperatura.CALOR
+
+	zona.global_position = posicion
+
+	add_child(zona)
+
+	# ========================================================
+	# PAGAR LOS 4 ADN SOLO SI LA ZONA FUE CREADA
+	# ========================================================
+
+	if id_jugador == 1:
+		adn_cian -= COSTO_ZONA_TEMPERATURA
+	else:
+		adn_magenta -= COSTO_ZONA_TEMPERATURA
+
+	print(
+		"Jugador ",
+		id_jugador,
+		" creó zona ",
+		tipo,
+		" en ",
+		posicion,
+		" | Costo: ",
+		COSTO_ZONA_TEMPERATURA,
+		" ADN"
+	)
+
+	return true
+
+
+# ============================================================
+# CREAR ROBOT CURADOR
+# ============================================================
+
+func crear_robot(
+	id_jugador: int,
+	posicion: Vector2
+) -> bool:
+
+	if estado_actual != EstadoJuego.FASE_INFECCION:
+		return false
+
+	# ========================================================
+	# COMPROBAR ADN
+	# ========================================================
+
+	var tiene_adn := false
+
+	if id_jugador == 1:
+		tiene_adn = adn_cian >= COSTO_ROBOT
+
+	elif id_jugador == 2:
+		tiene_adn = adn_magenta >= COSTO_ROBOT
+
+	else:
+		return false
+
+	if not tiene_adn:
+		print(
+			"Jugador ",
+			id_jugador,
+			" no tiene suficiente ADN para invocar el robot. Necesita ",
+			COSTO_ROBOT,
+			" ADN."
+		)
+		return false
+
+	# ========================================================
+	# INSTANCIAR ROBOT
+	# ========================================================
+
+	var robot: RobotCurador = ESCENA_ROBOT.instantiate() as RobotCurador
+
+	if robot == null:
+		print("No se pudo instanciar robot.tscn")
+		return false
+
+	robot.global_position = posicion
+	robot.jugador_invocador = id_jugador
+
+	add_child(robot)
+
+	# ========================================================
+	# PAGAR SOLO SI EL ROBOT FUE CREADO
+	# ========================================================
+
+	if id_jugador == 1:
+		adn_cian -= COSTO_ROBOT
+	else:
+		adn_magenta -= COSTO_ROBOT
+
+	print(
+		"Jugador ",
+		id_jugador,
+		" invocó robot curador en ",
+		posicion,
+		" | Costo: ",
+		COSTO_ROBOT,
+		" ADN"
+	)
+
+	return true
+
+
+# ============================================================
+# COMPRAR MUTACIÓN / EVOLUCIÓN
 # ============================================================
 
 func comprar_mutacion(
 	id_jugador: int,
-	tipo: String
+	tipo_base: String
 ) -> void:
 
-	# --------------------------------------------------------
-	# JUGADOR 1
-	# --------------------------------------------------------
+	var mutaciones: Array[String]
+
+	var adn_actual: int
+
+
+	# ========================================================
+	# OBTENER DATOS DEL JUGADOR
+	# ========================================================
 
 	if id_jugador == 1:
 
-		if adn_cian < costo_mutacion:
-			print("Cian no tiene suficiente ADN.")
-			return
+		mutaciones = mutaciones_p1
+		adn_actual = adn_cian
 
-		if tipo in mutaciones_p1:
-			print("Cian ya tiene la mutación: ", tipo)
-			return
+	elif id_jugador == 2:
 
-		adn_cian -= costo_mutacion
-		mutaciones_p1.append(tipo)
+		mutaciones = mutaciones_p2
+		adn_actual = adn_magenta
 
-		actualizar_mutaciones_existentes(1)
+	else:
+
+		return
+
+
+	# ========================================================
+	# DETERMINAR QUÉ NIVEL TOCA COMPRAR
+	# ========================================================
+
+	var siguiente_mutacion := obtener_siguiente_evolucion(
+		tipo_base,
+		mutaciones
+	)
+
+
+	# Si ya completó la línea.
+	if siguiente_mutacion == "":
 
 		print(
-			"CIAN compró: ",
-			tipo,
-			" | ADN restante: ",
-			adn_cian
+			"El jugador ",
+			id_jugador,
+			" ya completó esta línea."
 		)
 
 		return
 
 
-	# --------------------------------------------------------
-	# JUGADOR 2
-	# --------------------------------------------------------
+	# ========================================================
+	# DETERMINAR COSTO
+	# ========================================================
 
-	if id_jugador == 2:
+	var costo := obtener_costo_mutacion(
+		tipo_base,
+		mutaciones
+	)
 
-		if adn_magenta < costo_mutacion:
-			print("Magenta no tiene suficiente ADN.")
-			return
 
-		if tipo in mutaciones_p2:
-			print("Magenta ya tiene la mutación: ", tipo)
-			return
+	# ========================================================
+	# COMPROBAR ADN
+	# ========================================================
 
-		adn_magenta -= costo_mutacion
-		mutaciones_p2.append(tipo)
-
-		actualizar_mutaciones_existentes(2)
+	if adn_actual < costo:
 
 		print(
-			"MAGENTA compró: ",
-			tipo,
-			" | ADN restante: ",
-			adn_magenta
+			"Jugador ",
+			id_jugador,
+			" no tiene suficiente ADN. Necesita ",
+			costo,
+			". Tiene ",
+			adn_actual
 		)
 
 		return
+
+
+	# ========================================================
+	# PAGAR
+	# ========================================================
+
+	if id_jugador == 1:
+
+		adn_cian -= costo
+		mutaciones_p1.append(siguiente_mutacion)
+
+	else:
+
+		adn_magenta -= costo
+		mutaciones_p2.append(siguiente_mutacion)
+
+
+	# ========================================================
+	# ACTUALIZAR BOTS
+	# ========================================================
+
+	actualizar_mutaciones_existentes(id_jugador)
+
+
+	print(
+		"Jugador ",
+		id_jugador,
+		" evolucionó: ",
+		siguiente_mutacion,
+		" | Costo: ",
+		costo
+	)
+
+
+# ============================================================
+# OBTENER SIGUIENTE MUTACIÓN DE UNA LÍNEA
+# ============================================================
+
+func obtener_siguiente_evolucion(
+	tipo_base: String,
+	mutaciones: Array[String]
+) -> String:
+
+	# ========================================================
+	# FIEBRE → RABIA
+	# ========================================================
+
+	if tipo_base == MUT_FIEBRE:
+
+		if MUT_FIEBRE not in mutaciones:
+
+			return MUT_FIEBRE
+
+		if MUT_RABIA not in mutaciones:
+
+			return MUT_RABIA
+
+		return ""
+
+
+	# ========================================================
+	# CADENA → ÚLTIMO ALIENTO → EXPLOSIÓN
+	# ========================================================
+
+	if tipo_base == MUT_CADENA:
+
+		if MUT_CADENA not in mutaciones:
+
+			return MUT_CADENA
+
+		if MUT_ULTIMO_ALIENTO not in mutaciones:
+
+			return MUT_ULTIMO_ALIENTO
+
+		if MUT_EXPLOSION not in mutaciones:
+
+			return MUT_EXPLOSION
+
+		return ""
+
+
+	# ========================================================
+	# RETARDADA → ASINTOMÁTICO
+	# ========================================================
+
+	if tipo_base == MUT_RETARDADA:
+
+		if MUT_RETARDADA not in mutaciones:
+
+			return MUT_RETARDADA
+
+		if MUT_ASINTOMATICO not in mutaciones:
+
+			return MUT_ASINTOMATICO
+
+		return ""
+
+
+	return ""
+
+
+# ============================================================
+# OBTENER COSTO
+# ============================================================
+
+func obtener_costo_mutacion(
+	tipo_base: String,
+	mutaciones: Array[String]
+) -> int:
+
+	# FIEBRE → RABIA
+
+	if tipo_base == MUT_FIEBRE:
+
+		if MUT_FIEBRE not in mutaciones:
+			return COSTO_BASE
+
+		return COSTO_EVOLUCION_1
+
+
+	# CADENA → ÚLTIMO → EXPLOSIÓN
+
+	if tipo_base == MUT_CADENA:
+
+		if MUT_CADENA not in mutaciones:
+			return COSTO_BASE
+
+		if MUT_ULTIMO_ALIENTO not in mutaciones:
+			return COSTO_EVOLUCION_1
+
+		return COSTO_EVOLUCION_2
+
+
+	# RETARDADA → ASINTOMÁTICO
+
+	if tipo_base == MUT_RETARDADA:
+
+		if MUT_RETARDADA not in mutaciones:
+			return COSTO_BASE
+
+		return COSTO_EVOLUCION_1
+
+
+	return COSTO_BASE
 
 
 # ============================================================
@@ -322,20 +635,12 @@ func aplicar_mutaciones_a_bot(bot: Node2D) -> void:
 		return
 
 
-	# --------------------------------------------------------
-	# CIAN
-	# --------------------------------------------------------
-
 	if bot.player_duenio == 1:
 
 		bot.aplicar_mutaciones(
 			mutaciones_p1
 		)
 
-
-	# --------------------------------------------------------
-	# MAGENTA
-	# --------------------------------------------------------
 
 	elif bot.player_duenio == 2:
 
@@ -382,7 +687,6 @@ func _on_timer_inicio_timeout() -> void:
 			pato.infectar_y_desaparecer()
 
 	estado_actual = EstadoJuego.FASE_INFECCION
-
 	timer_juego.start()
 
 
@@ -393,7 +697,6 @@ func _on_timer_inicio_timeout() -> void:
 func _on_timer_juego_timeout() -> void:
 
 	estado_actual = EstadoJuego.FIN
-
 	timer_juego.stop()
 
 	get_tree().paused = true
@@ -401,17 +704,17 @@ func _on_timer_juego_timeout() -> void:
 	var stats = contar_infecciones()
 
 
-	if stats.cian > stats.magenta:
+	if stats.blue > stats.magenta:
 
 		label_contador.text = (
 			"¡GANÓ EL JUGADOR CIAN!\n"
 			+ "(Infectados: "
-			+ str(stats.cian)
+			+ str(stats.blue)
 			+ ")"
 		)
 
 
-	elif stats.magenta > stats.cian:
+	elif stats.magenta > stats.blue:
 
 		label_contador.text = (
 			"¡GANÓ EL JUGADOR MAGENTA!\n"
@@ -434,8 +737,8 @@ func contar_infecciones() -> Dictionary:
 
 	var bots = get_tree().get_nodes_in_group("bots")
 
-	var cian := 0
-	var magenta := 0
+	var blue: int = 0
+	var magenta: int = 0
 
 
 	for bot in bots:
@@ -445,10 +748,10 @@ func contar_infecciones() -> Dictionary:
 
 
 		if bot.color_infeccion.is_equal_approx(
-			Color.CYAN
+			Color.BLUE
 		):
 
-			cian += 1
+			blue += 1
 
 
 		elif bot.color_infeccion.is_equal_approx(
@@ -459,6 +762,6 @@ func contar_infecciones() -> Dictionary:
 
 
 	return {
-		"cian": cian,
+		"blue": blue,
 		"magenta": magenta
 	}
