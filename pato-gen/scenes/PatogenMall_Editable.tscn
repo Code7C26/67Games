@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://b2iofop1t6jac"]
 
 [ext_resource type="Script" uid="uid://bm0uxxq2o2j7c" path="res://scripts/Mapa.gd" id="1_7qbt7"]
+[ext_resource type="Texture2D" uid="uid://d05nwqwoxvn51" path="res://assets/Fondo enfermedades.jpg" id="2_0outs"]
 [ext_resource type="PackedScene" uid="uid://b7mdnixqkn31a" path="res://scenes/Bot.tscn" id="2_pa0er"]
 [ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="3_wtty1"]
+[ext_resource type="Texture2D" uid="uid://s2pyvdnit4un" path="res://assets/termometro.png" id="3_wwlee"]
+[ext_resource type="PackedScene" uid="uid://cg38sh5p0rw0q" path="res://scenes/game_over.tscn" id="4_c5iif"]
+[ext_resource type="Texture2D" uid="uid://diwckr8sg0sfv" path="res://assets/cadena.png" id="4_yhbdh"]
+[ext_resource type="Texture2D" uid="uid://bakafbxem5yft" path="res://assets/Reloj.png" id="5_cnrdk"]
+[ext_resource type="Texture2D" uid="uid://bbhycom7c72nu" path="res://assets/robi.png" id="6_wurjo"]
+[ext_resource type="Texture2D" uid="uid://dl0wn0uejlcqy" path="res://assets/Frio.png" id="7_g2wie"]
+[ext_resource type="Texture2D" uid="uid://lmqd7m7tld1" path="res://assets/fuego.png" id="8_4cutd"]
+[ext_resource type="Texture2D" uid="uid://c056ovjy10mp4" path="res://assets/fantasmi.png" id="9_g2wie"]
 
 [sub_resource type="RectangleShape2D" id="Rect_001_ParedFondo"]
 size = Vector2(520, 24)
@@ -348,6 +357,48 @@ font_size = 24
 font_color = Color(1, 0, 1, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tbwuq"]
+texture = ExtResource("2_0outs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrjwp"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07680776, 0.1527003, 0.2248945, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(6.7383053e-06, 0.8853551, 0.9409151, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(3.85046e-06, 0.8327868, 0.8821022, 0.3529412)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k24v6"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.17154205, 0.0564764, 0.16108853, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9999971, 0.35539767, 0.5740389, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.99999887, 0.3360757, 0.57057774, 0.3529412)
+shadow_size = 6
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2wie"]
+load_path = "res://.godot/imported/fantasmi.png-8e159d9cb71f2f8602e96260ab51be4f.ctex"
 
 [node name="PatogenMall_Editable" type="Node2D" unique_id=1463649485]
 script = ExtResource("1_7qbt7")
@@ -3354,7 +3405,7 @@ one_shot = true
 autostart = true
 
 [node name="TimerJuego" type="Timer" parent="." unique_id=1051612751]
-wait_time = 77.69500000000001
+wait_time = 75.0
 one_shot = true
 
 [node name="HUD_ADN" type="CanvasLayer" parent="." unique_id=1999017560]
@@ -3389,60 +3440,351 @@ horizontal_alignment = 2
 
 [node name="PanelCian" type="Panel" parent="HUD_ADN" unique_id=226371462]
 offset_top = 83.0
-offset_right = 227.0
-offset_bottom = 491.0
+offset_right = 273.0
+offset_bottom = 572.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tbwuq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD_ADN/PanelCian" unique_id=2048920030]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 212.0
+offset_bottom = 446.0
 
 [node name="Label" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=790865224]
 layout_mode = 2
 text = "MUTACIONES CIAN"
+horizontal_alignment = 1
 
 [node name="BtnFiebre" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=717071468]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
 text = "Fiebre(1)"
+icon = ExtResource("3_wwlee")
+expand_icon = true
 
 [node name="BtnCadena" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=254697385]
 layout_mode = 2
-text = "Contagio en cadena(3)"
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
+text = "Contagio en         
+cadena(3)"
+icon = ExtResource("4_yhbdh")
+expand_icon = true
 
 [node name="BtnInfeccion" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1701160882]
 layout_mode = 2
-text = "Infeccion retardada(5)"
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
+text = "Infeccion 
+retardada(5)"
+icon = ExtResource("5_cnrdk")
+expand_icon = true
+
+[node name="Label2" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1901912071]
+layout_mode = 2
+text = "HABILIDADES"
+horizontal_alignment = 1
+
+[node name="BtnInfeccion2" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1554500109]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
+text = "Robot curativo(G)"
+icon = ExtResource("6_wurjo")
+expand_icon = true
+
+[node name="BtnInfeccion3" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1980300078]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
+text = "Zona fria(X) "
+icon = ExtResource("7_g2wie")
+expand_icon = true
+
+[node name="BtnInfeccion4" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1209300141]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
+text = "Zona caliente(C)"
+icon = ExtResource("8_4cutd")
+expand_icon = true
+
+[node name="Label3" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1404839448]
+layout_mode = 2
+text = "POSESIONES"
+horizontal_alignment = 1
+
+[node name="BtnInfeccion5" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1204560806]
+layout_mode = 2
+theme_override_constants/icon_max_width = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qrjwp")
+text = "Enfermo
+(Q)"
+icon = ExtResource("9_g2wie")
+expand_icon = true
+
+[node name="Label" type="Label" parent="HUD_ADN/PanelCian" unique_id=771301816]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 245.0
+offset_right = 253.0
+offset_bottom = 277.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HUD_ADN/PanelCian" unique_id=1150381166]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 335.0
+offset_right = 253.0
+offset_bottom = 367.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="HUD_ADN/PanelCian" unique_id=271502926]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 289.0
+offset_right = 253.0
+offset_bottom = 321.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="HUD_ADN/PanelCian" unique_id=745730525]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 42.0
+offset_right = 249.0
+offset_bottom = 74.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="HUD_ADN/PanelCian" unique_id=1281224446]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 168.0
+offset_right = 252.0
+offset_bottom = 200.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="HUD_ADN/PanelCian" unique_id=2130670104]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 98.0
+offset_right = 250.0
+offset_bottom = 130.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="HUD_ADN/PanelCian" unique_id=319063281]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 413.0
+offset_right = 253.0
+offset_bottom = 445.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "5"
+horizontal_alignment = 1
 
 [node name="PanelMagenta" type="Panel" parent="HUD_ADN" unique_id=1534091097]
 anchors_preset = -1
 anchor_bottom = 0.031000001
 offset_left = 1659.0
 offset_top = 91.0
-offset_right = 1909.0
-offset_bottom = 466.912
+offset_right = 1932.0
+offset_bottom = 546.52
+theme_override_styles/panel = SubResource("StyleBoxTexture_tbwuq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD_ADN/PanelMagenta" unique_id=341720941]
 layout_mode = 0
-offset_right = 248.0
-offset_bottom = 281.0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 214.0
+offset_bottom = 446.0
 
 [node name="Label" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1026751198]
 layout_mode = 2
 text = "MUTACIONES MAGENTA"
+horizontal_alignment = 1
 
 [node name="BtnFiebre" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1013784811]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
 text = "Fiebre(6)"
+icon = ExtResource("3_wwlee")
+expand_icon = true
 
 [node name="BtnCadena" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1854445104]
 layout_mode = 2
-text = "Contagio en cadena(8)
-"
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
+text = "Contagio en 
+cadena(8)"
+icon = ExtResource("4_yhbdh")
+expand_icon = true
 
 [node name="BtnInfeccion" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1558081350]
 layout_mode = 2
-text = "Infeccion retardada(0)
-"
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
+text = "Infeccion 
+retardada(0)"
+icon = ExtResource("5_cnrdk")
+expand_icon = true
+
+[node name="Label2" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1957570541]
+layout_mode = 2
+text = "INVOCACIONES"
+horizontal_alignment = 1
+
+[node name="BtnInfeccion2" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=2042581673]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
+text = "Robot curativo(H) "
+icon = ExtResource("6_wurjo")
+expand_icon = true
+
+[node name="BtnInfeccion3" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=570010772]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
+text = "Zona fria(B) "
+icon = ExtResource("7_g2wie")
+expand_icon = true
+
+[node name="BtnInfeccion4" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=444891862]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
+text = "Zona caliente(N)"
+icon = ExtResource("8_4cutd")
+expand_icon = true
+
+[node name="Label3" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1608250096]
+layout_mode = 2
+text = "POSESIONES"
+horizontal_alignment = 1
+
+[node name="BtnInfeccion5" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=744318764]
+layout_mode = 2
+theme_override_constants/icon_max_width = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k24v6")
+text = "Enfermo
+(M)"
+icon = SubResource("CompressedTexture2D_g2wie")
+clip_text = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=1637139595]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 245.0
+offset_right = 253.0
+offset_bottom = 277.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=253461961]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 335.0
+offset_right = 253.0
+offset_bottom = 367.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=590391360]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 289.0
+offset_right = 253.0
+offset_bottom = 321.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=125466739]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 42.0
+offset_right = 249.0
+offset_bottom = 74.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=187691934]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 168.0
+offset_right = 252.0
+offset_bottom = 200.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=93651710]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 98.0
+offset_right = 250.0
+offset_bottom = 130.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=1849780038]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 413.0
+offset_right = 253.0
+offset_bottom = 445.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "5"
+horizontal_alignment = 1
 
 [node name="Bots" type="Node2D" parent="." unique_id=1295161192]
 
@@ -3587,3 +3929,6 @@ position = Vector2(1623, 1583)
 [node name="Pato2" parent="." unique_id=311980488 instance=ExtResource("3_wtty1")]
 position = Vector2(1468, 822)
 player_id = 2
+
+[node name="GameOver" parent="." unique_id=1370582913 instance=ExtResource("4_c5iif")]
+visible = false

@@ -15,6 +15,9 @@ extends Node2D
 @onready var panel_cian: Panel = $HUD_ADN/PanelCian
 @onready var panel_magenta: Panel = $HUD_ADN/PanelMagenta
 
+# Pantalla de Game Over (Asegúrate de que el nodo en la escena se llame GameOver)
+@onready var game_over_screen: CanvasLayer = $GameOver
+
 
 # Escena reutilizable de las zonas de temperatura.
 const ESCENA_ZONA_TEMPERATURA: PackedScene = preload("res://scenes/zona_temperatura.tscn")
@@ -90,6 +93,9 @@ func _ready() -> void:
 
 	if panel_magenta:
 		panel_magenta.hide()
+
+	if game_over_screen:
+		game_over_screen.hide()
 
 
 # ============================================================
@@ -393,7 +399,6 @@ func comprar_mutacion(
 ) -> void:
 
 	var mutaciones: Array[String]
-
 	var adn_actual: int
 
 
@@ -699,34 +704,44 @@ func _on_timer_juego_timeout() -> void:
 	estado_actual = EstadoJuego.FIN
 	timer_juego.stop()
 
-	get_tree().paused = true
-
 	var stats = contar_infecciones()
-
+	var mensaje_resultado: String = ""
 
 	if stats.blue > stats.magenta:
 
-		label_contador.text = (
-			"¡GANÓ EL JUGADOR CIAN!\n"
+		mensaje_resultado = (
+			"¡GANO EL JUGADOR CIAN!\n"
 			+ "(Infectados: "
 			+ str(stats.blue)
 			+ ")"
 		)
 
-
 	elif stats.magenta > stats.blue:
 
-		label_contador.text = (
-			"¡GANÓ EL JUGADOR MAGENTA!\n"
+		mensaje_resultado = (
+			"¡GANO EL JUGADOR MAGENTA!\n"
 			+ "(Infectados: "
 			+ str(stats.magenta)
 			+ ")"
 		)
 
-
 	else:
 
-		label_contador.text = "¡EMPATE TÉCNICO!"
+		mensaje_resultado = "¡EMPATE TECNICO!"
+
+	if label_contador:
+		label_contador.text = mensaje_resultado
+
+	# Muestra el panel de GameOver e inserta el resultado si tiene el Label correspondiente
+	if game_over_screen:
+		game_over_screen.visible = true
+
+		var label_resultado = game_over_screen.get_node_or_null("MarginContainer/VBoxContainer/Label")
+		if label_resultado:
+			label_resultado.text = mensaje_resultado
+
+	# Pausa el juego congelando la partida
+	get_tree().paused = true
 
 
 # ============================================================

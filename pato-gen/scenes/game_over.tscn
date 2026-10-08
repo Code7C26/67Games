@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cg38sh5p0rw0q"]
+
+[ext_resource type="Script" uid="uid://bn83j0mw5rojg" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://pxbmpk6p5djy" path="res://assets/Pixel-Regular.ttf" id="2_wqhvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+bg_color = Color(0.15686275, 0.18039216, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.627451, 0.6901961, 0.7529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+bg_color = Color(0.0397471, 0.04896991, 0.057161637, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41056693, 0.4783138, 0.54588145, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+bg_color = Color(0.23871562, 0.27294788, 0.29862663, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.74170846, 0.78881514, 0.83614826, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 2
+
+[node name="GameOver" type="CanvasLayer" unique_id=1370582913]
+process_mode = 3
+auto_translate_mode = 1
+script = ExtResource("1_xeevv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1264154429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -18.0
+offset_right = -23.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1209451542]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1693810798]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=955412198]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+text = "¡GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reiniciar button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1780783206]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "[ JUGAR DE NUEVO ]"
+
+[node name="menu button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1990958730]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "[ VOLVER AL MENU ]"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/reiniciar button" to="." method="_on_reiniciar_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/menu button" to="." method="_on_menu_button_pressed"]
