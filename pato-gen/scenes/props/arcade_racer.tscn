@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hospitality/arcade_racer.png" id="1_qx8ai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agdqj"]
+resource_local_to_scene = true
+size = Vector2(88, 70)
+
+[node name="arcade_racer" type="Node2D" unique_id=2038368751]
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(4, 5, 88, 70)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=396071955]
+texture_filter = 1
+texture = ExtResource("1_qx8ai")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1391138113 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1339922760]
+position = Vector2(48, 40)
+shape = SubResource("RectangleShape2D_agdqj")

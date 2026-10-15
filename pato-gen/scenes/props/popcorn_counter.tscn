@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hospitality/popcorn_counter.png" id="1_uower"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cq1q"]
+resource_local_to_scene = true
+size = Vector2(88, 53)
+
+[node name="popcorn_counter" type="Node2D" unique_id=1023317672]
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(4, 5, 88, 53)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=286575414]
+texture_filter = 1
+texture = ExtResource("1_uower")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1624866345 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1393871481]
+position = Vector2(48, 31.5)
+shape = SubResource("RectangleShape2D_3cq1q")

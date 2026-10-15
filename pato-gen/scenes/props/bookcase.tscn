@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/bookcase.png" id="1_jhhyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnm06"]
+resource_local_to_scene = true
+size = Vector2(53, 67)
+
+[node name="bookcase" type="Node2D" unique_id=1654657486]
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 5, 53, 67)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=348982380]
+texture_filter = 1
+texture = ExtResource("1_jhhyu")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=608604920 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1897149312]
+position = Vector2(31.5, 38.5)
+shape = SubResource("RectangleShape2D_cnm06")

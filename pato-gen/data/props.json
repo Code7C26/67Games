@@ -1,0 +1,1167 @@
+{
+  "props": {
+    "clothes_rack": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        5,
+        7,
+        85,
+        35
+      ],
+      "image": "assets/detail_oct14/clothes_rack_legible.png",
+      "source": "assets/detail_oct14/clothes_rack_legible.aseprite",
+      "scene": "scenes/props/clothes_rack.tscn"
+    },
+    "folded_clothes": {
+      "image": "assets/retail/folded_clothes.png",
+      "source": "assets/retail/folded_clothes.aseprite",
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        5,
+        7,
+        84,
+        35
+      ]
+    },
+    "fitting_room": {
+      "image": "assets/retail/fitting_room.png",
+      "source": "assets/retail/fitting_room.aseprite",
+      "size": [
+        64,
+        80
+      ],
+      "footprint": [
+        5,
+        6,
+        53,
+        68
+      ]
+    },
+    "mannequin": {
+      "image": "assets/retail/mannequin.png",
+      "source": "assets/retail/mannequin.aseprite",
+      "size": [
+        32,
+        48
+      ],
+      "footprint": [
+        7,
+        7,
+        18,
+        37
+      ]
+    },
+    "shoes_display": {
+      "size": [
+        64,
+        48
+      ],
+      "footprint": [
+        5,
+        7,
+        53,
+        35
+      ],
+      "image": "assets/detail_oct14/shoes_display_legible.png",
+      "source": "assets/detail_oct14/shoes_display_legible.aseprite",
+      "scene": "scenes/props/shoes_display.tscn"
+    },
+    "checkout": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        5,
+        7,
+        85,
+        35
+      ],
+      "image": "assets/refined/checkout.png",
+      "source": "assets/refined/checkout.aseprite"
+    },
+    "sofa": {
+      "image": "assets/retail/sofa.png",
+      "source": "assets/retail/sofa.aseprite",
+      "size": [
+        96,
+        64
+      ],
+      "footprint": [
+        5,
+        9,
+        85,
+        47
+      ]
+    },
+    "armchair": {
+      "image": "assets/retail/armchair.png",
+      "source": "assets/retail/armchair.aseprite",
+      "size": [
+        48,
+        48
+      ],
+      "footprint": [
+        5,
+        6,
+        36,
+        34
+      ]
+    },
+    "coffee_table": {
+      "image": "assets/retail/coffee_table.png",
+      "source": "assets/retail/coffee_table.aseprite",
+      "size": [
+        64,
+        48
+      ],
+      "footprint": [
+        6,
+        8,
+        51,
+        32
+      ]
+    },
+    "bed": {
+      "image": "assets/retail/bed.png",
+      "source": "assets/retail/bed.aseprite",
+      "size": [
+        96,
+        96
+      ],
+      "footprint": [
+        7,
+        5,
+        81,
+        82
+      ]
+    },
+    "dining_display": {
+      "image": "assets/retail/dining_display.png",
+      "source": "assets/retail/dining_display.aseprite",
+      "size": [
+        96,
+        80
+      ],
+      "footprint": [
+        5,
+        4,
+        85,
+        67
+      ]
+    },
+    "rug": {
+      "image": "assets/retail/rug.png",
+      "source": "assets/retail/rug.aseprite",
+      "size": [
+        96,
+        96
+      ],
+      "footprint": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "lamp": {
+      "image": "assets/retail/lamp.png",
+      "source": "assets/retail/lamp.aseprite",
+      "size": [
+        32,
+        48
+      ],
+      "footprint": [
+        5,
+        6,
+        23,
+        34
+      ]
+    },
+    "bookcase": {
+      "image": "assets/retail/bookcase.png",
+      "source": "assets/retail/bookcase.aseprite",
+      "size": [
+        64,
+        80
+      ],
+      "footprint": [
+        5,
+        5,
+        53,
+        67
+      ]
+    },
+    "electronics": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        86,
+        37
+      ],
+      "image": "assets/refined/electronics.png",
+      "source": "assets/refined/electronics.aseprite"
+    },
+    "supermarket_shelf": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/gondola_panaderia.png",
+      "source": "assets/detail_oct14/gondola_panaderia.aseprite",
+      "scene": "scenes/props/supermarket_shelf.tscn"
+    },
+    "produce": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        6,
+        87,
+        35
+      ],
+      "image": "assets/detail_oct14/produce_frutas.png",
+      "source": "assets/detail_oct14/produce_frutas.aseprite",
+      "scene": "scenes/props/produce.tscn"
+    },
+    "freezer": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/freezer_helados.png",
+      "source": "assets/detail_oct14/freezer_helados.aseprite",
+      "scene": "scenes/props/freezer.tscn"
+    },
+    "shopping_carts": {
+      "image": "assets/retail/shopping_carts.png",
+      "source": "assets/retail/shopping_carts.aseprite",
+      "size": [
+        64,
+        48
+      ],
+      "footprint": [
+        4,
+        6,
+        54,
+        35
+      ]
+    },
+    "brochure_stand": {
+      "image": "assets/retail/brochure_stand.png",
+      "source": "assets/retail/brochure_stand.aseprite",
+      "size": [
+        32,
+        48
+      ],
+      "footprint": [
+        5,
+        4,
+        22,
+        39
+      ]
+    },
+    "burger_counter": {
+      "image": "assets/hospitality/burger_counter.png",
+      "source": "assets/hospitality/burger_counter.aseprite",
+      "size": [
+        160,
+        64
+      ],
+      "footprint": [
+        3,
+        6,
+        154,
+        52
+      ]
+    },
+    "kitchen_line": {
+      "image": "assets/hospitality/kitchen_line.png",
+      "source": "assets/hospitality/kitchen_line.aseprite",
+      "size": [
+        160,
+        64
+      ],
+      "footprint": [
+        3,
+        5,
+        154,
+        53
+      ]
+    },
+    "drinks_station": {
+      "image": "assets/hospitality/drinks_station.png",
+      "source": "assets/hospitality/drinks_station.aseprite",
+      "size": [
+        64,
+        64
+      ],
+      "footprint": [
+        4,
+        6,
+        56,
+        51
+      ]
+    },
+    "dining_table": {
+      "image": "assets/hospitality/dining_table.png",
+      "source": "assets/hospitality/dining_table.aseprite",
+      "size": [
+        80,
+        80
+      ],
+      "footprint": [
+        4,
+        4,
+        72,
+        72
+      ]
+    },
+    "booth": {
+      "image": "assets/hospitality/booth.png",
+      "source": "assets/hospitality/booth.aseprite",
+      "size": [
+        96,
+        64
+      ],
+      "footprint": [
+        3,
+        4,
+        90,
+        54
+      ]
+    },
+    "waste_station": {
+      "image": "assets/hospitality/waste_station.png",
+      "source": "assets/hospitality/waste_station.aseprite",
+      "size": [
+        64,
+        48
+      ],
+      "footprint": [
+        5,
+        4,
+        54,
+        40
+      ]
+    },
+    "water_fountain": {
+      "image": "assets/animated/water_fountain.png",
+      "source": "assets/animated/water_fountain.aseprite",
+      "size": [
+        48,
+        48
+      ],
+      "footprint": [
+        6,
+        3,
+        36,
+        41
+      ],
+      "sheet": "assets/animated/water_fountain_sheet.png",
+      "sprite_frames": "resources/animations/water_fountain.tres",
+      "scene": "scenes/props/water_fountain.tscn",
+      "animation": {
+        "name": "ambiente",
+        "frames": 8,
+        "fps": 5,
+        "loop": true
+      }
+    },
+    "mall_bench": {
+      "image": "assets/hospitality/mall_bench.png",
+      "source": "assets/hospitality/mall_bench.aseprite",
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        6,
+        8,
+        84,
+        32
+      ]
+    },
+    "planter_round": {
+      "size": [
+        64,
+        64
+      ],
+      "footprint": [
+        8,
+        8,
+        48,
+        48
+      ],
+      "image": "assets/animated/planter_round.png",
+      "source": "assets/animated/planter_round.aseprite",
+      "scene": "scenes/props/planter_round.tscn",
+      "sheet": "assets/animated/planter_round_sheet.png",
+      "sprite_frames": "resources/animations/planter_round.tres",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "planter_long": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        3,
+        5,
+        90,
+        38
+      ],
+      "image": "assets/animated/planter_long.png",
+      "source": "assets/animated/planter_long.aseprite",
+      "scene": "scenes/props/planter_long.tscn",
+      "sheet": "assets/animated/planter_long_sheet.png",
+      "sprite_frames": "resources/animations/planter_long.tres",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "tree_canopy": {
+      "size": [
+        96,
+        96
+      ],
+      "footprint": [
+        22,
+        25,
+        52,
+        50
+      ],
+      "image": "assets/animated/tree_canopy.png",
+      "source": "assets/animated/tree_canopy.aseprite",
+      "scene": "scenes/props/tree_canopy.tscn",
+      "sheet": "assets/animated/tree_canopy_sheet.png",
+      "sprite_frames": "resources/animations/tree_canopy.tres",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "plant_small": {
+      "size": [
+        32,
+        32
+      ],
+      "footprint": [
+        6,
+        7,
+        20,
+        20
+      ],
+      "image": "assets/animated/plant_small.png",
+      "source": "assets/animated/plant_small.aseprite",
+      "scene": "scenes/props/plant_small.tscn",
+      "sheet": "assets/animated/plant_small_sheet.png",
+      "sprite_frames": "resources/animations/plant_small.tres",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "flowerbed": {
+      "size": [
+        96,
+        64
+      ],
+      "footprint": [
+        4,
+        7,
+        88,
+        50
+      ],
+      "image": "assets/greenery/flowerbed.png",
+      "source": "assets/greenery/flowerbed.aseprite",
+      "scene": "scenes/props/flowerbed.tscn"
+    },
+    "fountain": {
+      "image": "assets/animated/fountain.png",
+      "source": "assets/animated/fountain.aseprite",
+      "size": [
+        128,
+        96
+      ],
+      "footprint": [
+        5,
+        6,
+        118,
+        82
+      ],
+      "sheet": "assets/animated/fountain_sheet.png",
+      "sprite_frames": "resources/animations/fountain.tres",
+      "scene": "scenes/props/fountain.tscn",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 8,
+        "loop": true
+      }
+    },
+    "arcade_cabinet": {
+      "image": "assets/animated/arcade_cabinet.png",
+      "source": "assets/animated/arcade_cabinet.aseprite",
+      "size": [
+        48,
+        64
+      ],
+      "footprint": [
+        4,
+        7,
+        40,
+        51
+      ],
+      "sheet": "assets/animated/arcade_cabinet_sheet.png",
+      "sprite_frames": "resources/animations/arcade_cabinet.tres",
+      "scene": "scenes/props/arcade_cabinet.tscn",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 6,
+        "loop": true
+      }
+    },
+    "arcade_racer": {
+      "image": "assets/hospitality/arcade_racer.png",
+      "source": "assets/hospitality/arcade_racer.aseprite",
+      "size": [
+        96,
+        80
+      ],
+      "footprint": [
+        4,
+        5,
+        88,
+        70
+      ]
+    },
+    "cinema_seats": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        3,
+        7,
+        90,
+        34
+      ],
+      "image": "assets/detail_oct14/cinema_seats_tapizadas.png",
+      "source": "assets/detail_oct14/cinema_seats_tapizadas.aseprite",
+      "scene": "scenes/props/cinema_seats.tscn"
+    },
+    "cinema_screen": {
+      "image": "assets/hospitality/cinema_screen.png",
+      "source": "assets/hospitality/cinema_screen.aseprite",
+      "size": [
+        160,
+        32
+      ],
+      "footprint": [
+        3,
+        3,
+        154,
+        24
+      ]
+    },
+    "popcorn_counter": {
+      "image": "assets/hospitality/popcorn_counter.png",
+      "source": "assets/hospitality/popcorn_counter.aseprite",
+      "size": [
+        96,
+        64
+      ],
+      "footprint": [
+        4,
+        5,
+        88,
+        53
+      ]
+    },
+    "information_kiosk": {
+      "image": "assets/hospitality/information_kiosk.png",
+      "source": "assets/hospitality/information_kiosk.aseprite",
+      "size": [
+        64,
+        64
+      ],
+      "footprint": [
+        7,
+        5,
+        50,
+        53
+      ]
+    },
+    "electronics_phones_64": {
+      "size": [
+        64,
+        80
+      ],
+      "footprint": [
+        5,
+        5,
+        53,
+        67
+      ],
+      "image": "assets/refined/electronics_phones_64.png",
+      "source": "assets/refined/electronics_phones_64.aseprite"
+    },
+    "electronics_consoles_64": {
+      "size": [
+        64,
+        80
+      ],
+      "footprint": [
+        5,
+        5,
+        53,
+        67
+      ],
+      "image": "assets/refined/electronics_consoles_64.png",
+      "source": "assets/refined/electronics_consoles_64.aseprite"
+    },
+    "electronics_laptops_96": {
+      "size": [
+        96,
+        80
+      ],
+      "footprint": [
+        5,
+        5,
+        85,
+        67
+      ],
+      "image": "assets/refined/electronics_laptops_96.png",
+      "source": "assets/refined/electronics_laptops_96.aseprite"
+    },
+    "electronics_tv_96": {
+      "size": [
+        96,
+        80
+      ],
+      "footprint": [
+        5,
+        5,
+        85,
+        67
+      ],
+      "image": "assets/refined/electronics_tv_96.png",
+      "source": "assets/refined/electronics_tv_96.aseprite"
+    },
+    "electronics_island_96": {
+      "size": [
+        96,
+        64
+      ],
+      "footprint": [
+        5,
+        9,
+        85,
+        47
+      ],
+      "image": "assets/refined/electronics_island_96.png",
+      "source": "assets/refined/electronics_island_96.aseprite"
+    },
+    "electronics_wall_128": {
+      "size": [
+        128,
+        64
+      ],
+      "footprint": [
+        5,
+        5,
+        117,
+        51
+      ],
+      "image": "assets/refined/electronics_wall_128.png",
+      "source": "assets/refined/electronics_wall_128.aseprite"
+    },
+    "electronics_tower_64": {
+      "size": [
+        64,
+        96
+      ],
+      "footprint": [
+        5,
+        5,
+        53,
+        83
+      ],
+      "image": "assets/refined/electronics_tower_64.png",
+      "source": "assets/refined/electronics_tower_64.aseprite"
+    },
+    "electronics_endcap_32": {
+      "size": [
+        32,
+        64
+      ],
+      "footprint": [
+        4,
+        5,
+        24,
+        51
+      ],
+      "image": "assets/refined/electronics_endcap_32.png",
+      "source": "assets/refined/electronics_endcap_32.aseprite"
+    },
+    "freezer_upright_64": {
+      "size": [
+        64,
+        96
+      ],
+      "footprint": [
+        5,
+        5,
+        53,
+        83
+      ],
+      "image": "assets/refined/freezer_upright_64.png",
+      "source": "assets/refined/freezer_upright_64.aseprite"
+    },
+    "supermarket_shelf_128": {
+      "size": [
+        128,
+        64
+      ],
+      "footprint": [
+        4,
+        5,
+        119,
+        53
+      ],
+      "image": "assets/refined/supermarket_shelf_128.png",
+      "source": "assets/refined/supermarket_shelf_128.aseprite"
+    },
+    "gondola_panaderia": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/gondola_panaderia.png",
+      "source": "assets/detail_oct14/gondola_panaderia.aseprite",
+      "scene": "scenes/props/gondola_panaderia.tscn"
+    },
+    "gondola_desayuno": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/gondola_desayuno.png",
+      "source": "assets/detail_oct14/gondola_desayuno.aseprite",
+      "scene": "scenes/props/gondola_desayuno.tscn"
+    },
+    "gondola_bebidas": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/gondola_bebidas.png",
+      "source": "assets/detail_oct14/gondola_bebidas.aseprite",
+      "scene": "scenes/props/gondola_bebidas.tscn"
+    },
+    "gondola_conservas": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/gondola_conservas.png",
+      "source": "assets/detail_oct14/gondola_conservas.aseprite",
+      "scene": "scenes/props/gondola_conservas.tscn"
+    },
+    "freezer_helados": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        5,
+        87,
+        37
+      ],
+      "image": "assets/detail_oct14/freezer_helados.png",
+      "source": "assets/detail_oct14/freezer_helados.aseprite",
+      "scene": "scenes/props/freezer_helados.tscn"
+    },
+    "produce_frutas": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        6,
+        87,
+        35
+      ],
+      "image": "assets/detail_oct14/produce_frutas.png",
+      "source": "assets/detail_oct14/produce_frutas.aseprite",
+      "scene": "scenes/props/produce_frutas.tscn"
+    },
+    "produce_citricos": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        6,
+        87,
+        35
+      ],
+      "image": "assets/detail_oct14/produce_citricos.png",
+      "source": "assets/detail_oct14/produce_citricos.aseprite",
+      "scene": "scenes/props/produce_citricos.tscn"
+    },
+    "produce_tropical": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        4,
+        6,
+        87,
+        35
+      ],
+      "image": "assets/detail_oct14/produce_tropical.png",
+      "source": "assets/detail_oct14/produce_tropical.aseprite",
+      "scene": "scenes/props/produce_tropical.tscn"
+    },
+    "shoes_display_legible": {
+      "size": [
+        64,
+        48
+      ],
+      "footprint": [
+        5,
+        7,
+        53,
+        35
+      ],
+      "image": "assets/detail_oct14/shoes_display_legible.png",
+      "source": "assets/detail_oct14/shoes_display_legible.aseprite",
+      "scene": "scenes/props/shoes_display_legible.tscn"
+    },
+    "clothes_rack_legible": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        5,
+        7,
+        85,
+        35
+      ],
+      "image": "assets/detail_oct14/clothes_rack_legible.png",
+      "source": "assets/detail_oct14/clothes_rack_legible.aseprite",
+      "scene": "scenes/props/clothes_rack_legible.tscn"
+    },
+    "cinema_seats_tapizadas": {
+      "size": [
+        96,
+        48
+      ],
+      "footprint": [
+        3,
+        7,
+        90,
+        34
+      ],
+      "image": "assets/detail_oct14/cinema_seats_tapizadas.png",
+      "source": "assets/detail_oct14/cinema_seats_tapizadas.aseprite",
+      "scene": "scenes/props/cinema_seats_tapizadas.tscn"
+    },
+    "banquito_circular_rojo": {
+      "size": [
+        32,
+        32
+      ],
+      "footprint": [
+        5,
+        5,
+        22,
+        22
+      ],
+      "image": "assets/detail_oct14/banquito_circular_rojo.png",
+      "source": "assets/detail_oct14/banquito_circular_rojo.aseprite",
+      "scene": "scenes/props/banquito_circular_rojo.tscn",
+      "collision_shape": {
+        "type": "circle",
+        "radius": 11,
+        "center": [
+          16,
+          16
+        ]
+      }
+    },
+    "banquito_circular_crema": {
+      "size": [
+        32,
+        32
+      ],
+      "footprint": [
+        5,
+        5,
+        22,
+        22
+      ],
+      "image": "assets/detail_oct14/banquito_circular_crema.png",
+      "source": "assets/detail_oct14/banquito_circular_crema.aseprite",
+      "scene": "scenes/props/banquito_circular_crema.tscn",
+      "collision_shape": {
+        "type": "circle",
+        "radius": 11,
+        "center": [
+          16,
+          16
+        ]
+      }
+    },
+    "banquito_circular_azul": {
+      "size": [
+        32,
+        32
+      ],
+      "footprint": [
+        5,
+        5,
+        22,
+        22
+      ],
+      "image": "assets/detail_oct14/banquito_circular_azul.png",
+      "source": "assets/detail_oct14/banquito_circular_azul.aseprite",
+      "scene": "scenes/props/banquito_circular_azul.tscn",
+      "collision_shape": {
+        "type": "circle",
+        "radius": 11,
+        "center": [
+          16,
+          16
+        ]
+      }
+    },
+    "escenario_cine_transitable": {
+      "size": [
+        192,
+        32
+      ],
+      "footprint": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "image": "assets/detail_oct14/escenario_cine_transitable.png",
+      "source": "assets/detail_oct14/escenario_cine_transitable.aseprite",
+      "scene": "scenes/props/escenario_cine_transitable.tscn"
+    },
+    "panel_acustico_cine": {
+      "size": [
+        32,
+        64
+      ],
+      "footprint": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "image": "assets/detail_oct14/panel_acustico_cine.png",
+      "source": "assets/detail_oct14/panel_acustico_cine.aseprite",
+      "scene": "scenes/props/panel_acustico_cine.tscn"
+    },
+    "tree_canopy_olivo": {
+      "size": [
+        96,
+        96
+      ],
+      "footprint": [
+        22,
+        25,
+        52,
+        50
+      ],
+      "image": "assets/animated/tree_canopy_olivo.png",
+      "source": "assets/animated/tree_canopy_olivo.aseprite",
+      "scene": "scenes/props/tree_canopy_olivo.tscn",
+      "sheet": "assets/animated/tree_canopy_olivo_sheet.png",
+      "sprite_frames": "resources/animations/tree_canopy_olivo.tres",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "plant_helecho": {
+      "size": [
+        32,
+        32
+      ],
+      "footprint": [
+        6,
+        7,
+        20,
+        20
+      ],
+      "image": "assets/animated/plant_helecho.png",
+      "source": "assets/animated/plant_helecho.aseprite",
+      "scene": "scenes/props/plant_helecho.tscn",
+      "sheet": "assets/animated/plant_helecho_sheet.png",
+      "sprite_frames": "resources/animations/plant_helecho.tres",
+      "animation": {
+        "name": "ambiente",
+        "frames": 12,
+        "fps": 4,
+        "loop": true
+      }
+    },
+    "mall_mural_botanico": {
+      "size": [
+        96,
+        32
+      ],
+      "footprint": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "image": "assets/greenery/mall_mural_botanico.png",
+      "source": "assets/greenery/mall_mural_botanico.aseprite",
+      "scene": "scenes/props/mall_mural_botanico.tscn"
+    },
+    "mall_reloj_pared": {
+      "size": [
+        32,
+        32
+      ],
+      "footprint": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "image": "assets/greenery/mall_reloj_pared.png",
+      "source": "assets/greenery/mall_reloj_pared.aseprite",
+      "scene": "scenes/props/mall_reloj_pared.tscn"
+    },
+    "mall_papeleras_dobles": {
+      "size": [
+        48,
+        48
+      ],
+      "footprint": [
+        4,
+        8,
+        40,
+        32
+      ],
+      "image": "assets/greenery/mall_papeleras_dobles.png",
+      "source": "assets/greenery/mall_papeleras_dobles.aseprite",
+      "scene": "scenes/props/mall_papeleras_dobles.tscn"
+    },
+    "mall_incrustacion_hoja": {
+      "size": [
+        64,
+        64
+      ],
+      "footprint": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "image": "assets/greenery/mall_incrustacion_hoja.png",
+      "source": "assets/greenery/mall_incrustacion_hoja.aseprite",
+      "scene": "scenes/props/mall_incrustacion_hoja.tscn"
+    },
+    "water_fountain_relleno": {
+      "image": "assets/animated/water_fountain_relleno.png",
+      "source": "assets/animated/water_fountain_relleno.aseprite",
+      "size": [
+        48,
+        48
+      ],
+      "footprint": [
+        6,
+        3,
+        36,
+        41
+      ],
+      "sheet": "assets/animated/water_fountain_relleno_sheet.png",
+      "sprite_frames": "resources/animations/water_fountain_relleno.tres",
+      "scene": "scenes/props/water_fountain_relleno.tscn",
+      "animation": {
+        "name": "ambiente",
+        "frames": 8,
+        "fps": 5,
+        "loop": true
+      }
+    }
+  }
+}

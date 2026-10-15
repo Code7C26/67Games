@@ -1,33 +1,41 @@
+
 @tool
 class_name ZonaTemperatura
 extends Area2D
-
 
 enum TipoTemperatura {
 	FRIO,
 	CALOR
 }
 
-
 @export var tipo: TipoTemperatura = TipoTemperatura.FRIO:
 	set(nuevo_tipo):
 		tipo = nuevo_tipo
-
-		# Si la escena ya está lista, actualizamos inmediatamente.
-		# Si todavía se está creando, _ready() lo hará después.
 		if is_node_ready():
-			actualizar_color_visual()
+			actualizar_visual()
 
+# Arrastrá las imágenes desde Godot al Inspector.
+@export var sprite_frio: Texture2D:
+	set(nueva_textura):
+		sprite_frio = nueva_textura
+		if is_node_ready():
+			actualizar_visual()
+
+@export var sprite_calor: Texture2D:
+	set(nueva_textura):
+		sprite_calor = nueva_textura
+		if is_node_ready():
+			actualizar_visual()
 
 @export var duracion: float = 20.0
 
 var cuerpos_dentro: Array[Node2D] = []
 
-@onready var color_rect: ColorRect = $ColorRect
+@onready var sprite: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:
-	actualizar_color_visual()
+	actualizar_visual()
 
 	if Engine.is_editor_hint():
 		return
@@ -50,9 +58,6 @@ func iniciar_duracion() -> void:
 	if not is_inside_tree():
 		return
 
-	# Sacamos esta zona del grupo ANTES de recalcular efectos.
-	# Así, al desaparecer, se pueden encontrar correctamente
-	# las otras zonas que todavía sigan activas.
 	remove_from_group("zonas_temperatura")
 
 	var cuerpos_a_revisar := cuerpos_dentro.duplicate()
@@ -69,16 +74,17 @@ func iniciar_duracion() -> void:
 # VISUAL
 # ============================================================
 
-func actualizar_color_visual() -> void:
-	if not has_node("ColorRect"):
+func actualizar_visual() -> void:
+	if not has_node("Sprite2D"):
 		return
 
-	color_rect = $ColorRect
+	var sprite: Sprite2D = $Sprite2D
 
 	if tipo == TipoTemperatura.FRIO:
-		color_rect.color = Color(0.0, 0.4, 1.0, 0.35)
-	else:
-		color_rect.color = Color(1.0, 0.2, 0.1, 0.35)
+		sprite.texture = load("res://assets/Zona fria.png")
+
+	elif tipo == TipoTemperatura.CALOR:
+		sprite.texture = load("res://assets/Zona caliente.png")
 
 
 # ============================================================
@@ -121,19 +127,23 @@ func aplicar_efecto(body: Node2D) -> void:
 
 	elif tipo == TipoTemperatura.CALOR:
 		body.multiplicador_velocidad_temp = 1.3
-		body.multiplicador_contagio_temp = 2
-		body.probabilidad_curacion = 0.48
+		body.multiplicador_contagio_temp = 1.8
+		body.probabilidad_curacion = 0.65
 
 
-# Si hay otra zona debajo del bot, conserva su efecto.
-# Solo vuelve a valores normales si ya no está dentro de ninguna.
+# ============================================================
+# SUPERPOSICIÓN DE ZONAS
+# ============================================================
+
 func reaplicar_zona_o_restablecer(body: Node2D) -> void:
 	if not is_instance_valid(body):
 		return
 
 	var otra_zona_encontrada := false
 
-	var zonas = get_tree().get_nodes_in_group("zonas_temperatura")
+	var zonas = get_tree().get_nodes_in_group(
+		"zonas_temperatura"
+	)
 
 	for zona in zonas:
 		if zona == self:

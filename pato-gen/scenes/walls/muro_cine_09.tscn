@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/tiles/cine_desgaste.png" id="1_mtntd"]
+
+[node name="MuroCine_09" type="Node2D" unique_id=1619842723]
+texture_filter = 1
+
+[node name="Dibujo" type="Sprite2D" parent="." unique_id=749833462]
+texture = ExtResource("1_mtntd")
+centered = false
+region_enabled = true
+region_rect = Rect2(288, 128, 32, 32)
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=806870800 groups=["mapa_solido"]]
+position = Vector2(16, 16)
+collision_mask = 0
+
+[node name="Forma_0" type="CollisionPolygon2D" parent="Colision" unique_id=1928628153]
+polygon = PackedVector2Array(-16, -10, 10, -10, 10, 10, -16, 10)
+
+[node name="Forma_1" type="CollisionPolygon2D" parent="Colision" unique_id=1937614993]
+polygon = PackedVector2Array(-10, -16, 10, -16, 10, 10, -10, 10)

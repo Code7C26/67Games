@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/greenery/mall_incrustacion_hoja.png" id="1_7eu55"]
+
+[node name="mall_incrustacion_hoja" type="Node2D" unique_id=483414788]
+texture_filter = 1
+metadata/tamano_visual = Vector2(64, 64)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=296343457]
+texture = ExtResource("1_7eu55")
+centered = false

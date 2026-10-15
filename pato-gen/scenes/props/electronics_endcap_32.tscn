@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/refined/electronics_endcap_32.png" id="1_atltg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_raco4"]
+resource_local_to_scene = true
+size = Vector2(24, 51)
+
+[node name="electronics_endcap_32" type="Node2D" unique_id=1511007993]
+metadata/tamano_visual = Vector2(32, 64)
+metadata/huella_local = Rect2(4, 5, 24, 51)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1421144405]
+texture_filter = 1
+texture = ExtResource("1_atltg")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=674091940 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=143414909]
+position = Vector2(16, 30.5)
+shape = SubResource("RectangleShape2D_raco4")

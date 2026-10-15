@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/folded_clothes.png" id="1_lu2pp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbfbi"]
+resource_local_to_scene = true
+size = Vector2(84, 35)
+
+[node name="folded_clothes" type="Node2D" unique_id=1137687409]
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(5, 7, 84, 35)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1588018856]
+texture_filter = 1
+texture = ExtResource("1_lu2pp")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1534412373 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=607150616]
+position = Vector2(47, 24.5)
+shape = SubResource("RectangleShape2D_bbfbi")

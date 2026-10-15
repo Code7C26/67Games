@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/refined/electronics_laptops_96.png" id="1_yls2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2it"]
+resource_local_to_scene = true
+size = Vector2(85, 67)
+
+[node name="electronics_laptops_96" type="Node2D" unique_id=824269283]
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(5, 5, 85, 67)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=2109130948]
+texture_filter = 1
+texture = ExtResource("1_yls2j")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1212124037 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=579693824]
+position = Vector2(47.5, 38.5)
+shape = SubResource("RectangleShape2D_yr2it")

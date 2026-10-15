@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://70yym30h38ry"]
+
+[ext_resource type="PackedScene" uid="uid://mmlqpavuhwgd" path="res://scenes/Shopping.tscn" id="1_bllkx"]
+
+[node name="VistaShopping" type="Node2D" unique_id=2128536187]
+
+[node name="Shopping" parent="." unique_id=1591793820 instance=ExtResource("1_bllkx")]
+position = Vector2(-3, -3)
+
+[node name="CamaraFija" type="Camera2D" parent="." unique_id=1564814126]
+position = Vector2(1072, 558)
+zoom = Vector2(0.8955224, 0.8955224)
+metadata/no_sigue_personajes = true
+
+[node name="VistaPrevia" type="CanvasLayer" parent="." unique_id=977593833]

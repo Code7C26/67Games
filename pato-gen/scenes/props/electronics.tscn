@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/electronics.png" id="1_g0a0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60amh"]
+resource_local_to_scene = true
+size = Vector2(86, 37)
+
+[node name="electronics" type="Node2D" unique_id=481490609]
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 86, 37)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1632999403]
+texture_filter = 1
+texture = ExtResource("1_g0a0i")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1416560806 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=152005107]
+position = Vector2(47, 23.5)
+shape = SubResource("RectangleShape2D_60amh")

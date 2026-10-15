@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/banquito_circular_crema.png" id="1_fcrwq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ehtac"]
+resource_local_to_scene = true
+radius = 11.0
+
+[node name="banquito_circular_crema" type="Node2D" unique_id=662979261]
+texture_filter = 1
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(5, 5, 22, 22)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1955291216]
+texture = ExtResource("1_fcrwq")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1013554820 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1990179520]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_ehtac")

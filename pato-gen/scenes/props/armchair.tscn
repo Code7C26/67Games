@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/armchair.png" id="1_2s3m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg2g2"]
+resource_local_to_scene = true
+size = Vector2(36, 34)
+
+[node name="armchair" type="Node2D" unique_id=1631398177]
+metadata/tamano_visual = Vector2(48, 48)
+metadata/huella_local = Rect2(5, 6, 36, 34)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1153262208]
+texture_filter = 1
+texture = ExtResource("1_2s3m4")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=105052310 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1764253552]
+position = Vector2(23, 23)
+shape = SubResource("RectangleShape2D_jg2g2")

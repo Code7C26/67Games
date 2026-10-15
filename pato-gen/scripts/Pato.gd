@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 300.0
+@export var speed: float = 200.0
 @export_enum("Jugador 1: 1", "Jugador 2: 2") var player_id: int = 1
 @export var color_jugador: Color = Color.CYAN
 
@@ -8,6 +8,13 @@ extends CharacterBody2D
 
 var esta_desapareciendo: bool = false
 var modo_fantasma: bool = false
+
+# Aura visual del Pato Fantasma
+var indicador_aura_fantasma: Polygon2D = null
+var tween_aura_fantasma: Tween = null
+
+const RADIO_AURA_FANTASMA: float = 42.0
+const SEGMENTOS_AURA_FANTASMA: int = 48
 
 
 # ============================================================
@@ -31,19 +38,22 @@ const COOLDOWN_POSESION: float = 20.0
 var tecla_frio_anterior: bool = false
 var tecla_calor_anterior: bool = false
 
-const COOLDOWN_LECTURA_ZONA: float = 0.15
-var cooldown_zona: float = 0.0
+const COOLDOWN_ZONA_FRIO: float = 10.0
+const COOLDOWN_ZONA_CALOR: float = 10.0
+
+var cooldown_zona_frio: float = 0.0
+var cooldown_zona_calor: float = 0.0
 
 
-# ============================================================
 # ROBOT CURADOR
+# ============================================================
 # ============================================================
 
 # G = Robot para P1
 # H = Robot para P2
 var tecla_robot_anterior: bool = false
 
-const COOLDOWN_ROBOT: float = 0.20
+const COOLDOWN_ROBOT: float = 25.0
 var cooldown_robot: float = 0.0
 
 
@@ -57,8 +67,93 @@ func _ready() -> void:
 
 	if animated_sprite:
 		animated_sprite.modulate = color_jugador
+		animated_sprite.z_index = 6
+
+	crear_aura_fantasma()
 
 	iniciar_temporizador_desaparicion()
+
+
+func crear_aura_fantasma() -> void:
+
+	if indicador_aura_fantasma != null:
+		return
+
+	indicador_aura_fantasma = Polygon2D.new()
+	indicador_aura_fantasma.name = "AuraFantasma"
+
+	var puntos := PackedVector2Array()
+
+	for i in range(SEGMENTOS_AURA_FANTASMA):
+		var angulo := TAU * float(i) / float(SEGMENTOS_AURA_FANTASMA)
+		puntos.append(
+			Vector2(cos(angulo), sin(angulo)) * RADIO_AURA_FANTASMA
+		)
+
+	indicador_aura_fantasma.polygon = puntos
+	indicador_aura_fantasma.color = Color(
+		color_jugador.r,
+		color_jugador.g,
+		color_jugador.b,
+		0.16
+	)
+
+	# El aura queda por encima del mapa, pero detrás del sprite.
+	indicador_aura_fantasma.z_index = 5
+	indicador_aura_fantasma.z_as_relative = true
+	indicador_aura_fantasma.visible = false
+
+	add_child(indicador_aura_fantasma)
+
+	iniciar_animacion_aura_fantasma()
+
+
+func iniciar_animacion_aura_fantasma() -> void:
+
+	if indicador_aura_fantasma == null:
+		return
+
+	if tween_aura_fantasma != null:
+		tween_aura_fantasma.kill()
+
+	tween_aura_fantasma = create_tween()
+	tween_aura_fantasma.set_loops()
+
+	tween_aura_fantasma.tween_property(
+		indicador_aura_fantasma,
+		"scale",
+		Vector2(1.0, 1.0),
+		0.0
+	)
+
+	tween_aura_fantasma.tween_property(
+		indicador_aura_fantasma,
+		"scale",
+		Vector2(1.10, 1.10),
+		0.75
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	tween_aura_fantasma.tween_property(
+		indicador_aura_fantasma,
+		"scale",
+		Vector2(1.0, 1.0),
+		0.75
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func mostrar_aura_fantasma() -> void:
+
+	if indicador_aura_fantasma == null:
+		crear_aura_fantasma()
+
+	if indicador_aura_fantasma != null:
+		indicador_aura_fantasma.visible = true
+
+
+func ocultar_aura_fantasma() -> void:
+
+	if indicador_aura_fantasma != null:
+		indicador_aura_fantasma.visible = false
 
 
 func iniciar_temporizador_desaparicion() -> void:
@@ -112,9 +207,13 @@ func _physics_process(delta: float) -> void:
 		cooldown_posesion -= delta
 		cooldown_posesion = max(cooldown_posesion, 0.0)
 
-	if cooldown_zona > 0.0:
-		cooldown_zona -= delta
-		cooldown_zona = max(cooldown_zona, 0.0)
+	if cooldown_zona_frio > 0.0:
+		cooldown_zona_frio -= delta
+		cooldown_zona_frio = max(cooldown_zona_frio, 0.0)
+
+	if cooldown_zona_calor > 0.0:
+		cooldown_zona_calor -= delta
+		cooldown_zona_calor = max(cooldown_zona_calor, 0.0)
 
 	if cooldown_robot > 0.0:
 		cooldown_robot -= delta
@@ -169,9 +268,9 @@ func _physics_process(delta: float) -> void:
 		var tecla_posesion := false
 
 		if player_id == 1:
-			tecla_posesion = Input.is_key_pressed(KEY_Q)
+			tecla_posesion = Input.is_key_pressed(KEY_X)
 		else:
-			tecla_posesion = Input.is_key_pressed(KEY_M)
+			tecla_posesion = Input.is_key_pressed(KEY_J)
 
 		if tecla_posesion:
 			intentar_poseer_infectado()
@@ -222,22 +321,27 @@ func procesar_habilidad_zona_temperatura() -> void:
 func _obtener_tecla_frio() -> bool:
 
 	if player_id == 1:
-		return Input.is_key_pressed(KEY_X)
+		return Input.is_key_pressed(KEY_C)
 
-	return Input.is_key_pressed(KEY_B)
+	return Input.is_key_pressed(KEY_K)
 
 
 func _obtener_tecla_calor() -> bool:
 
 	if player_id == 1:
-		return Input.is_key_pressed(KEY_C)
+		return Input.is_key_pressed(KEY_V)
 
-	return Input.is_key_pressed(KEY_N)
+	return Input.is_key_pressed(KEY_L)
 
 
 func colocar_zona_temperatura(tipo: String) -> void:
 
-	if cooldown_zona > 0.0:
+	# Cada tipo de zona tiene su propio cooldown.
+	# X/B (frío) y C/N (calor) pueden recargarse de forma independiente.
+	if tipo == "frio" and cooldown_zona_frio > 0.0:
+		return
+
+	if tipo == "calor" and cooldown_zona_calor > 0.0:
 		return
 
 	var mapa = get_tree().get_first_node_in_group("mapa")
@@ -264,7 +368,10 @@ func colocar_zona_temperatura(tipo: String) -> void:
 	)
 
 	if creada:
-		cooldown_zona = COOLDOWN_LECTURA_ZONA
+		if tipo == "frio":
+			cooldown_zona_frio = COOLDOWN_ZONA_FRIO
+		else:
+			cooldown_zona_calor = COOLDOWN_ZONA_CALOR
 
 
 # ============================================================
@@ -290,7 +397,7 @@ func procesar_habilidad_robot() -> void:
 func _obtener_tecla_robot() -> bool:
 
 	if player_id == 1:
-		return Input.is_key_pressed(KEY_G)
+		return Input.is_key_pressed(KEY_Z)
 
 	return Input.is_key_pressed(KEY_H)
 
@@ -511,6 +618,9 @@ func convertirse_en_fantasma() -> void:
 	esta_desapareciendo = false
 	modo_fantasma = true
 	velocity = Vector2.ZERO
+
+	# Mostrar el aura mientras el Pato está libre en modo fantasma.
+	mostrar_aura_fantasma()
 
 	# Sin colisión.
 	set_collision_layer(0)

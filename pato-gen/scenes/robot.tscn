@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cealybfmeymxb" path="res://assets/Robot izquierda.png" id="5_ujkns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_maugy"]
-size = Vector2(38.666668, 37.333332)
+size = Vector2(31, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sycts"]
 atlas = ExtResource("2_xwnim")
@@ -145,15 +145,13 @@ animations = [{
 }]
 
 [node name="RobotCurador" type="CharacterBody2D" unique_id=1211327942]
-scale = Vector2(2.25, 2.25)
 script = ExtResource("1_br0rw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1949657606]
-position = Vector2(-3.1789145e-07, -1.333333)
+position = Vector2(0.5000001, -1.4999995)
 shape = SubResource("RectangleShape2D_maugy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1572204842]
 position = Vector2(-0.39999998, -1.5999999)
-scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_2k1v2")
 animation = &"Izquierda"

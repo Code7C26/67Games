@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/banquito_circular_azul.png" id="1_b45s2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uenk"]
+resource_local_to_scene = true
+radius = 11.0
+
+[node name="banquito_circular_azul" type="Node2D" unique_id=1474046911]
+texture_filter = 1
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(5, 5, 22, 22)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=531071134]
+texture = ExtResource("1_b45s2")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=317119446 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1088640710]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_3uenk")

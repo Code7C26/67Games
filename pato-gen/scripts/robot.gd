@@ -6,16 +6,16 @@ class_name RobotCurador
 # CONFIGURACIÓN
 # ============================================================
 
-@export var radio_curacion: float = 100.0
-@export var duracion: float = 20.0
+@export var radio_curacion: float = 120.0
+@export var duracion: float = 10.0
 
 # Movimiento
-@export var velocidad: float = 90.0
+@export var velocidad: float = 75.0
 @export var intervalo_cambio_direccion: float = 2.0
 
 # Curación
-@export_range(0.0, 1.0) var probabilidad_curacion: float = 0.75
-@export var intervalo_curacion: float = 1.0
+@export_range(0.0, 1.0) var probabilidad_curacion: float = 0.90
+@export var intervalo_curacion: float = 0.5
 
 # Visual del área de curación
 @export var color_area: Color = Color(0.2, 1.0, 0.2, 0.25)

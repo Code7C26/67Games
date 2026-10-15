@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/refined/supermarket_shelf_128.png" id="1_njcfr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pobj"]
+resource_local_to_scene = true
+size = Vector2(119, 53)
+
+[node name="supermarket_shelf_128" type="Node2D" unique_id=1226995572]
+metadata/tamano_visual = Vector2(128, 64)
+metadata/huella_local = Rect2(4, 5, 119, 53)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=217751349]
+texture_filter = 1
+texture = ExtResource("1_njcfr")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=763624625 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=2041002264]
+position = Vector2(63.5, 31.5)
+shape = SubResource("RectangleShape2D_1pobj")

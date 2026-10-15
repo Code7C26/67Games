@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/refined/electronics_consoles_64.png" id="1_qbp7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iism5"]
+resource_local_to_scene = true
+size = Vector2(53, 67)
+
+[node name="electronics_consoles_64" type="Node2D" unique_id=1309675452]
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 5, 53, 67)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1141768909]
+texture_filter = 1
+texture = ExtResource("1_qbp7h")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=713670441 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=327668824]
+position = Vector2(31.5, 38.5)
+shape = SubResource("RectangleShape2D_iism5")

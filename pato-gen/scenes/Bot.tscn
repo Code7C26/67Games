@@ -119,14 +119,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ubv0g"]
-radius = 29.5
-height = 80.0
+radius = 11.5
+height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uylti"]
-radius = 68.88396
+radius = 38.013157
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjlfa"]
-radius = 114.03947
+radius = 53.0
 
 [sub_resource type="Animation" id="Animation_p2cg8"]
 resource_name = "Abajo"
@@ -153,7 +153,6 @@ script = ExtResource("1_qpkb6")
 skins = Array[SpriteFrames]([ExtResource("2_vc3es"), ExtResource("3_3esty"), ExtResource("4_wua72"), ExtResource("5_1luea"), ExtResource("6_5svgv")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=771908485]
-scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_uylti")
 animation = &"Abajo"
 

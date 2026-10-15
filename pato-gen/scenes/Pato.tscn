@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d30k3q1rh3ars" path="res://assets/Pato a la izquierda fantasma.png" id="8_58tvl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maugy"]
-radius = 18.109941
+radius = 14.605478
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k5sgb"]
 atlas = ExtResource("3_vdoyc")
@@ -378,7 +378,6 @@ animations = [{
 }]
 
 [node name="Pato" type="CharacterBody2D" unique_id=1385956632]
-scale = Vector2(2, 2)
 script = ExtResource("1_pp34b")
 color_jugador = Color(1, 1, 0, 1)
 
@@ -388,6 +387,5 @@ shape = SubResource("CircleShape2D_maugy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1004155059]
 position = Vector2(-0.39999998, -1.5999999)
-scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_maugy")
 animation = &"Fantasma Izquierda"

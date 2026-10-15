@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/banquito_circular_rojo.png" id="1_c2sqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovvxj"]
+resource_local_to_scene = true
+radius = 11.0
+
+[node name="banquito_circular_rojo" type="Node2D" unique_id=1377067830]
+texture_filter = 1
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(5, 5, 22, 22)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1720967314]
+texture = ExtResource("1_c2sqw")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1691876007 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1023254398]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_ovvxj")
