@@ -1,0 +1,457 @@
+[gd_resource type="SpriteFrames" load_steps=87 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/vivo/abajo.png" id="vivo_abajo"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/vivo/arriba.png" id="vivo_arriba"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/vivo/derecha.png" id="vivo_derecha"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/vivo/izquierda.png" id="vivo_izquierda"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/fantasma/abajo.png" id="fantasma_abajo"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/fantasma/arriba.png" id="fantasma_arriba"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/fantasma/derecha.png" id="fantasma_derecha"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/fantasma/izquierda.png" id="fantasma_izquierda"]
+[ext_resource type="Texture2D" path="res://assets/patogen-caras-y-patos-oct19/patos/neutro/desaparecer.png" id="desaparecer"]
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_0"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_1"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_2"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_3"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_4"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_5"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_6"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_abajo_7"]
+atlas = ExtResource("vivo_abajo")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_0"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_1"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_2"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_3"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_4"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_5"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_6"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_arriba_7"]
+atlas = ExtResource("vivo_arriba")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_0"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_1"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_2"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_3"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_4"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_5"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_6"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_derecha_7"]
+atlas = ExtResource("vivo_derecha")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_0"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_1"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_2"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_3"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_4"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_5"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_6"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="vivo_izquierda_7"]
+atlas = ExtResource("vivo_izquierda")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_0"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_1"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_2"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_3"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_4"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_5"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_6"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_abajo_7"]
+atlas = ExtResource("fantasma_abajo")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_0"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_1"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_2"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_3"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_4"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_5"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_6"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_arriba_7"]
+atlas = ExtResource("fantasma_arriba")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_0"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_1"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_2"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_3"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_4"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_5"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_6"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_derecha_7"]
+atlas = ExtResource("fantasma_derecha")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_0"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_1"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_2"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_3"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_4"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_5"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_6"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="fantasma_izquierda_7"]
+atlas = ExtResource("fantasma_izquierda")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_0"]
+atlas = ExtResource("desaparecer")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_1"]
+atlas = ExtResource("desaparecer")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_2"]
+atlas = ExtResource("desaparecer")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_3"]
+atlas = ExtResource("desaparecer")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_4"]
+atlas = ExtResource("desaparecer")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_5"]
+atlas = ExtResource("desaparecer")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_6"]
+atlas = ExtResource("desaparecer")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_7"]
+atlas = ExtResource("desaparecer")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_8"]
+atlas = ExtResource("desaparecer")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_9"]
+atlas = ExtResource("desaparecer")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_10"]
+atlas = ExtResource("desaparecer")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_11"]
+atlas = ExtResource("desaparecer")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="desaparecer_12"]
+atlas = ExtResource("desaparecer")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("vivo_abajo_0")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_1")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_2")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_3")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_4")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_5")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_6")},
+{"duration": 1.0, "texture": SubResource("vivo_abajo_7")}],
+"loop": true,
+"name": &"Abajo",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("vivo_arriba_0")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_1")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_2")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_3")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_4")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_5")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_6")},
+{"duration": 1.0, "texture": SubResource("vivo_arriba_7")}],
+"loop": true,
+"name": &"Arriba",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("vivo_derecha_0")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_1")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_2")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_3")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_4")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_5")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_6")},
+{"duration": 1.0, "texture": SubResource("vivo_derecha_7")}],
+"loop": true,
+"name": &"Derecha",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("vivo_izquierda_0")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_1")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_2")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_3")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_4")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_5")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_6")},
+{"duration": 1.0, "texture": SubResource("vivo_izquierda_7")}],
+"loop": true,
+"name": &"Izquierda",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("fantasma_abajo_0")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_1")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_2")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_3")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_4")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_5")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_6")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_7")}],
+"loop": true,
+"name": &"Fantasma Abajo",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("fantasma_arriba_0")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_1")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_2")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_3")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_4")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_5")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_6")},
+{"duration": 1.0, "texture": SubResource("fantasma_arriba_7")}],
+"loop": true,
+"name": &"Fantasma Arriba",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("fantasma_derecha_0")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_1")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_2")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_3")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_4")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_5")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_6")},
+{"duration": 1.0, "texture": SubResource("fantasma_derecha_7")}],
+"loop": true,
+"name": &"Fantasma Derecha",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("fantasma_izquierda_0")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_1")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_2")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_3")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_4")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_5")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_6")},
+{"duration": 1.0, "texture": SubResource("fantasma_izquierda_7")}],
+"loop": true,
+"name": &"Fantasma Izquierda",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("desaparecer_0")},
+{"duration": 1.0, "texture": SubResource("desaparecer_1")},
+{"duration": 1.0, "texture": SubResource("desaparecer_2")},
+{"duration": 1.0, "texture": SubResource("desaparecer_3")},
+{"duration": 1.0, "texture": SubResource("desaparecer_4")},
+{"duration": 1.0, "texture": SubResource("desaparecer_5")},
+{"duration": 1.0, "texture": SubResource("desaparecer_6")},
+{"duration": 1.0, "texture": SubResource("desaparecer_7")},
+{"duration": 1.0, "texture": SubResource("desaparecer_8")},
+{"duration": 1.0, "texture": SubResource("desaparecer_9")},
+{"duration": 1.0, "texture": SubResource("desaparecer_10")},
+{"duration": 1.0, "texture": SubResource("desaparecer_11")},
+{"duration": 1.0, "texture": SubResource("desaparecer_12")}],
+"loop": false,
+"name": &"desaparecer",
+"speed": 9.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("fantasma_abajo_0")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_1")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_2")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_3")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_4")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_5")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_6")},
+{"duration": 1.0, "texture": SubResource("fantasma_abajo_7")}],
+"loop": true,
+"name": &"FantasmaAbajo",
+"speed": 10.0
+}]
+
