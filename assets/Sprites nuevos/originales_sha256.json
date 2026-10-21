@@ -1,0 +1,327 @@
+[
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\manifest.json",
+    "bytes": 7085,
+    "sha256": "3B0FCC84E9F4C4C6D76F41EA2AD774C08C16709E4548D40FEC5B492C62F38CE4"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\README.md",
+    "bytes": 4315,
+    "sha256": "FECD5F9545999064636DC671898B448D7228CEB2CE8E058CEB4B468D28B479EF"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\validacion_caras.json",
+    "bytes": 158,
+    "sha256": "FABD20FF2EA14BA9F514616C9B25D866753A07817C6F65D16CF2C7DBF5547970"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\validacion_patos.json",
+    "bytes": 348,
+    "sha256": "F25CF74580D149D32AF6FB052C2AFCACBA6FA333B091403A9E0A39C131D79F90"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC 2 abajo.png",
+    "bytes": 1067,
+    "sha256": "0D50EC645089FE0B47FC17569EFCCD82DC4F0F8FC56EBA07B8460046D5B68EF1"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC 2 arriba.png",
+    "bytes": 921,
+    "sha256": "915BF69074BCA8495B87ED233474BD6BBD39135691A440A028FB4B6CA803C592"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC 2 derecha.png",
+    "bytes": 1290,
+    "sha256": "E9E2229531DBC2BDE0DBB502726113D9D69782BDD3F6FD463A6447C3E0BAD3AF"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC 2 izquierda.png",
+    "bytes": 1254,
+    "sha256": "9197E6F35DC9B76EDB453E0B3B6427BC4C32CCF523783A65C5D62D9497DB5127"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC_2.aseprite",
+    "bytes": 8986,
+    "sha256": "228CE157E07367C373B60A1E3ED8992D6990C25E9404472C2F10C81C7B77EBEC"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC.png",
+    "bytes": 2254,
+    "sha256": "44AEE5D58B92DBEEE91090D8DA4AC9B83D38C95D257A350DAE08473038776C95"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\atletico\\NPC2.tres",
+    "bytes": 3072,
+    "sha256": "A9D59F41B8BB56A33A639ACED9BC66D99189B785135F7B368F864A141AE21C5D"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC 2 abajo.png",
+    "bytes": 1307,
+    "sha256": "7AD535E96D6F85A9C6AC37BE499BE798FCF0CF508FD9BE2C01FC5D636F714225"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC 2 arriba.png",
+    "bytes": 1146,
+    "sha256": "EDEC7AE5BE6B5E88F66811BAD848F676C06E5FED33AF389430F7FD8D8FA75E63"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC 2 derecha.png",
+    "bytes": 1459,
+    "sha256": "C77806C087E2B86AE30D1BF7CE1E5CBA452F7A57A2FA4A5DCEC062B3F0F701F5"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC 2 izquierda.png",
+    "bytes": 1461,
+    "sha256": "C582BD3955154C4D243CB25988C3AF8E867C67D4FCED786591C6287C8A536804"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC_2.aseprite",
+    "bytes": 10519,
+    "sha256": "37F268D5DA1217CE19FE0E0A68EA6544123BA2603E83B681EA7FB25B32D39ACD"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC.png",
+    "bytes": 2424,
+    "sha256": "A6CBD1295896CCD0CE9E08E60BB61E76EB9118A270364CAC1D72FB4D1772EC51"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\npcs\\exponencial_endgame\\NPC2.tres",
+    "bytes": 3116,
+    "sha256": "F5029475138FB45892AA1AC961333BD4855BEF77EACA475DD72C49CA1C09E591"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\desaparecer.png",
+    "bytes": 2393,
+    "sha256": "C1C78D00B014D23478F1F005B8502D6EAA354F87BA49C86DA6BED08D1273E958"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\Pato_desaparecer.aseprite",
+    "bytes": 4297,
+    "sha256": "09601596AC54361DCF32151C936B401F70FAAB94EB785CF82CB517CF22C42EB0"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\Pato_fantasma.aseprite",
+    "bytes": 20745,
+    "sha256": "FA4065074F7F8AB26BA85A0DB8F92C44B82A2779AF645D415E978F34E001B71E"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\Pato_vivo.aseprite",
+    "bytes": 21456,
+    "sha256": "76D43B048046DA2F5D6A1618D6DE0E816B5AF50A5DA732B8EBBD9DF923C6A54C"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\Patos_tintable.tres",
+    "bytes": 16876,
+    "sha256": "B6A190283DC9030A4A9C2B178CAA7B7D818DF3F0E8A31186508CFF74772645A9"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\Patos.tres",
+    "bytes": 16813,
+    "sha256": "88CA1EA0FC31A8DF95733553D9CF661C3DF1566E1544F67FCED78591EF42D1E6"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\fantasma\\abajo.png",
+    "bytes": 1384,
+    "sha256": "5AAB4E94767647233CE9D62A37A399B963555F1420626F8AB1159BF6DA4F4E12"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\fantasma\\arriba.png",
+    "bytes": 1323,
+    "sha256": "B25773485E953AC22358A9D8016924621B90F5FDFFD0C32FEE1A055573651785"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\fantasma\\derecha.png",
+    "bytes": 1555,
+    "sha256": "106D2459AD37E0740834AD27442CF8ECA5ACDFBEB010B4F4A520A7B451943D12"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\fantasma\\izquierda.png",
+    "bytes": 1530,
+    "sha256": "5B89A7AA2EE81296915E1AC4244768AF3391149BF54500EBA797DEFD84CFA9B1"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\desaparecer.png",
+    "bytes": 2147,
+    "sha256": "C2965E7C2F08890EF6BEF31BDE901563136C09CD75A02C56A3C8B37DA8F2E1EF"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\fantasma\\abajo.png",
+    "bytes": 1320,
+    "sha256": "4134436B5BE393AE51AA6E56A2CE10519F641C448F7BB69E7A5FEEFDC15F7DDF"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\fantasma\\arriba.png",
+    "bytes": 1262,
+    "sha256": "E323D3BC76A972261D20FEC5A71A223BE8B265310E122E24B5CED146D2365581"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\fantasma\\derecha.png",
+    "bytes": 1478,
+    "sha256": "BDF18BDCB754DF95BB52D2953402C4F5C89889F399E9A03F800CA34E5B2F2779"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\fantasma\\izquierda.png",
+    "bytes": 1457,
+    "sha256": "18E2884753C78844C156BBD5216F854B16D561AABB96EA769FC9B5C3A17C83D8"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\vivo\\abajo.png",
+    "bytes": 1095,
+    "sha256": "E59CD8B8B3CE92C0B0CEA17E328E5741CFCE583C23BB713662B7E8CB66CFB076"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\vivo\\arriba.png",
+    "bytes": 1027,
+    "sha256": "983FEA086017CDF51403CC8999D7D8DFF8465C89A877124F889DB54933E82C8E"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\vivo\\derecha.png",
+    "bytes": 1206,
+    "sha256": "9EB2652106016D51A4D1AAF14AA6817B3E5105BA71039DD5A938FF30E93BE693"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\neutro\\vivo\\izquierda.png",
+    "bytes": 1180,
+    "sha256": "7FDB27033C7D9164F8F24BB26EF8829FD7D47829C2FC7AB320822A1D5D0A2A3D"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\vivo\\abajo.png",
+    "bytes": 1243,
+    "sha256": "69A4D534547145459D058338BBA50665C30F4A4B2C2784A8455C5BD76A333AD0"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\vivo\\arriba.png",
+    "bytes": 1199,
+    "sha256": "C37C1070E31F85EFA5FD0BE23C2B20AA3AAD8AE1AA4FE499857F760D3B09C6DE"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\vivo\\derecha.png",
+    "bytes": 1400,
+    "sha256": "904B3FF344997701AE8FC8C7E579E9307CEBA62734342B91290971A3EEFD7E2A"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\patos\\vivo\\izquierda.png",
+    "bytes": 1352,
+    "sha256": "7E682DB38A30F16CB668002F179930B5A825925E01FCCCB4CD8952D1D543BB61"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\previews\\caras.gif",
+    "bytes": 119839,
+    "sha256": "B549F4126D918EB0D5B73E247BC10918DA6E0D9F50D0A94F11D2FB9F8BC1E405"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\previews\\caras.png",
+    "bytes": 10403,
+    "sha256": "2675D3D4E0E812A89D7D29E904E81F99EE6B235C22BB5DA4474D529D37113F7F"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\previews\\patos.gif",
+    "bytes": 79548,
+    "sha256": "E3032135248A7F1203D714EFEAF4B431CA36076DC4CD6849A419DDDE7F009CB4"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\previews\\patos.png",
+    "bytes": 10676,
+    "sha256": "5273FA201E2B750C1C8E06A47A8395352C45F021D9A3BBFD684DB6730D55614C"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\patogen-caras-y-patos-oct19\\previews\\transicion.gif",
+    "bytes": 28130,
+    "sha256": "3248B6722D5832003AF0EAF083E099E5C7C87E1164153B2B7D7CA2EEA1CF4A55"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\inventario_sha256.json",
+    "bytes": 2419,
+    "sha256": "E26CB6CBB14B1CA88287B701F30679FD6F6E11D065A086ABF1F808472FD3BFD1"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\LEEME.md",
+    "bytes": 1862,
+    "sha256": "D50D6D16B4A5AC93F38CAE7325A91FEB57A5E7614C3DB3F1915502FEC7922E49"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\validacion.json",
+    "bytes": 387,
+    "sha256": "E95A48A1BC936E8C275B004803E3B13485BCFF4C6653A965AB9E3E473A48073D"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC 2 abajo.png",
+    "bytes": 2348,
+    "sha256": "78DB67D8F3F842ADB3F02DDC24D82788BB390C81379FC2B99CD2D9DB016F9C6B"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC 2 arriba.png",
+    "bytes": 2269,
+    "sha256": "B303E0964D80ED40F7015B3CAC4EA81CDC010C200088553884D9BDEA956172AB"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC 2 derecha.png",
+    "bytes": 1983,
+    "sha256": "019CB47523EEB0B38250D3A96DFFBEFC09ED9862CF1C293B3D0948C40ED34006"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC 2 izquierda.png",
+    "bytes": 1946,
+    "sha256": "10EEE01B046603CA88C6289B51277029931CD8F744D91ADFC6A18A5DCE70C725"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC_2.aseprite",
+    "bytes": 25655,
+    "sha256": "8050A623B42679CD949009ED622320A39B4DE719EAF74FEA886F3581DE2FEF78"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC.png",
+    "bytes": 2549,
+    "sha256": "EE4D44A6BB09FFC39502C5CABE38187D4D4264FE892C5A9CC3CD45699314CE1B"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\npcs\\area\\NPC2.tres",
+    "bytes": 6702,
+    "sha256": "2E0469A9FEE506A7F34D85A25475027B49B9545A3F49131CCAF2962D29CCF6FE"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\comparacion.aseprite",
+    "bytes": 564421,
+    "sha256": "1C1667A6B7C56B260EAE5CACDDD087813065AFE9D8DD6001B8CBE6C358190C65"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\comparacion.gif",
+    "bytes": 125294,
+    "sha256": "A8E97256D4A0C2ABEE7EF5D124A8DA2361DB204422697023A76F036494F56D16"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\comparacion.png",
+    "bytes": 7042,
+    "sha256": "B06FB1CED561CC091ED66824C48C3C457518C5E569F64391CDEAFC0051B8F79C"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\cuatro_vistas.aseprite",
+    "bytes": 71905,
+    "sha256": "50F1BC7F3A33A52D9C8F2B2A81F5CF1B7C8FFFB8A9CD819D73BFFBD2C6A2F981"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\cuatro_vistas.gif",
+    "bytes": 28586,
+    "sha256": "C3DE12DF5C592E93FD807829E300CD38FA8B48EE58C133A89AD2C1B5A49614F3"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\cuatro_vistas.png",
+    "bytes": 6762,
+    "sha256": "ABAFC5537FB83AEF9B57C9E2FAA16838241E8684167FE57749A0CD58A8A6B692"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\previews\\infectado_area.gif",
+    "bytes": 115223,
+    "sha256": "AD26AEE3D6872737D32283B4106D1AEAC1AF928685B29DC51BE899F6246F2EA1"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\referencias\\area_anterior.aseprite",
+    "bytes": 10224,
+    "sha256": "36EFE63D8A607072903DA21F3168C9FA670475F2AA1502B451C5F4350350F2BD"
+  },
+  {
+    "path": "C:\\Users\\feliv\\OneDrive\\Desktop\\Sprites\\Patogen_Area_Carnoso_Oct19\\patogen-area-carnoso-oct19\\tooling\\crear_carnoso.lua",
+    "bytes": 16861,
+    "sha256": "B328153DCEF3D62F88AA59CD2D5FB4E9B1D7993ADA6EF4F2C193C45A8B4876F0"
+  }
+]

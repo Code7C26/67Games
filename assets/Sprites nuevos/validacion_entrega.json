@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "godot_animation_names": [
+    "Abajo",
+    "Arriba",
+    "Derecha",
+    "Izquierda"
+  ],
+  "godot_atlas_regions_verified": 192,
+  "png_rgba_and_dimensions": "ok",
+  "full_atlas_equals_directional_sheets": "ok",
+  "animated_previews": {
+    "frames_each": 16,
+    "ms_per_frame": 100,
+    "loop": true
+  },
+  "original_files_unchanged": 65,
+  "runtime_game_test": "not_run_no_game_project"
+}

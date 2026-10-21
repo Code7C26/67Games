@@ -1,0 +1,1 @@
+{"directions": ["Abajo", "Arriba", "Derecha", "Izquierda"], "duration_ms": 1600, "feet_baseline": 30, "fps": 10, "frames_per_direction": 16, "layout": {"columns": 4, "rows": 4}, "loop": true, "origin": [16, 16], "size": [32, 32]}
