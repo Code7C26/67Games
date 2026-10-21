@@ -28,6 +28,9 @@ enum TipoTemperatura {
 			actualizar_visual()
 
 @export var duracion: float = 20.0
+@export_range(1.0, 30.0, 0.5) var fps_animacion: float = 12.0
+
+var acumulador_animacion: float = 0.0
 
 var cuerpos_dentro: Array[Node2D] = []
 
@@ -46,6 +49,22 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 	iniciar_duracion()
+
+
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	if fps_animacion <= 0.0 or sprite.texture == null:
+		return
+
+	acumulador_animacion += delta
+	var segundos_por_frame: float = 1.0 / fps_animacion
+	var total_frames: int = sprite.hframes * sprite.vframes
+
+	while acumulador_animacion >= segundos_por_frame:
+		acumulador_animacion -= segundos_por_frame
+		sprite.frame = (sprite.frame + 1) % total_frames
 
 
 # ============================================================
@@ -78,13 +97,25 @@ func actualizar_visual() -> void:
 	if not has_node("Sprite2D"):
 		return
 
-	var sprite: Sprite2D = $Sprite2D
+	var sprite_actual: Sprite2D = $Sprite2D
+
+	# Cada spritesheet contiene 8 columnas y 6 filas (48 frames).
+	sprite_actual.hframes = 8
+	sprite_actual.vframes = 6
 
 	if tipo == TipoTemperatura.FRIO:
-		sprite.texture = load("res://assets/Zona fria.png")
-
+		if sprite_frio != null:
+			sprite_actual.texture = sprite_frio
+		else:
+			sprite_actual.texture = load("res://assets/zona hipnotica.png")
 	elif tipo == TipoTemperatura.CALOR:
-		sprite.texture = load("res://assets/Zona caliente.png")
+		if sprite_calor != null:
+			sprite_actual.texture = sprite_calor
+		else:
+			sprite_actual.texture = load("res://assets/zona_caliente_sheet.png")
+
+	sprite_actual.frame = 0
+	acumulador_animacion = 0.0
 
 
 # ============================================================
@@ -98,7 +129,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body not in cuerpos_dentro:
 		cuerpos_dentro.append(body)
 
-	aplicar_efecto(body)
+	reaplicar_zona_o_restablecer(body)
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -121,9 +152,9 @@ func aplicar_efecto(body: Node2D) -> void:
 		return
 
 	if tipo == TipoTemperatura.FRIO:
-		body.multiplicador_velocidad_temp = 0.6
-		body.multiplicador_contagio_temp = 0.7
-		body.probabilidad_curacion = 0.001
+		# DISTORSIÓN: sólo atrae bots sanos desde Bot.gd.
+		# No cambia estadísticas ni afecta infectados.
+		return
 
 	elif tipo == TipoTemperatura.CALOR:
 		body.multiplicador_velocidad_temp = 1.3
@@ -136,32 +167,20 @@ func aplicar_efecto(body: Node2D) -> void:
 # ============================================================
 
 func reaplicar_zona_o_restablecer(body: Node2D) -> void:
-	if not is_instance_valid(body):
+	if not is_instance_valid(body) or not body.is_in_group("bots"):
 		return
 
-	var otra_zona_encontrada := false
-
-	var zonas = get_tree().get_nodes_in_group(
-		"zonas_temperatura"
-	)
-
-	for zona in zonas:
-		if zona == self:
+	# La distorsión no debe borrar los efectos de una zona caliente.
+	# Recalcular tomando en cuenta las zonas activas con prioridad CALOR.
+	restablecer_bot(body)
+	for zona in get_tree().get_nodes_in_group("zonas_temperatura"):
+		if not is_instance_valid(zona) or not zona is ZonaTemperatura:
 			continue
-
-		if not is_instance_valid(zona):
+		if zona.tipo != TipoTemperatura.CALOR:
 			continue
-
-		if not zona is ZonaTemperatura:
-			continue
-
 		if body in zona.cuerpos_dentro:
 			zona.aplicar_efecto(body)
-			otra_zona_encontrada = true
-			break
-
-	if not otra_zona_encontrada:
-		restablecer_bot(body)
+			return
 
 
 func restablecer_bot(body: Node2D) -> void:

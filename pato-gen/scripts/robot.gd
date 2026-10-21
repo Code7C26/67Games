@@ -29,6 +29,8 @@ var direccion_movimiento: Vector2 = Vector2.ZERO
 var tiempo_cambio_direccion: float = 0.0
 var tiempo_curacion: float = 0.0
 
+var motor_aspiradora: AudioStreamPlayer2D
+
 
 # ============================================================
 # READY
@@ -36,6 +38,11 @@ var tiempo_curacion: float = 0.0
 
 func _ready() -> void:
 	add_to_group("robots_curadores")
+	# El motor es espacial y pertenece a esta instancia de robot.
+	motor_aspiradora = AudioManager.crear_motor_robot(self)
+	motor_aspiradora.finished.connect(_repetir_motor)
+	motor_aspiradora.play()
+	AudioManager.efecto("robot_encender", -13.0, false)
 
 	iniciar_duracion()
 	cambiar_direccion()
@@ -67,7 +74,15 @@ func iniciar_duracion() -> void:
 	if not is_inside_tree():
 		return
 
+	# El zumbido se detiene automaticamente al liberar el robot.
+	AudioManager.efecto("robot_apagar", -13.0, false)
 	queue_free()
+
+
+func _repetir_motor() -> void:
+	# Mantiene la aspiradora en loop incluso si el WAV no se importo como bucle.
+	if is_instance_valid(motor_aspiradora) and is_inside_tree() and not is_queued_for_deletion():
+		motor_aspiradora.play()
 
 
 # ============================================================

@@ -18,16 +18,19 @@ var indice_magenta: int = 0
 ]
 
 func _ready() -> void:
+	AudioManager.reproducir_menu()
 	actualizar_visualizacion()
 
 # --- FUNCIONES PARA EL JUGADOR CIAN ---
 func _on_button_pressed() -> void:
+	AudioManager.efecto("seleccion_cepa", -14.0)
 	indice_cian += 1
 	if indice_cian > 2:
 		indice_cian = 0
 	actualizar_visualizacion()
 
 func _on_button_2_pressed() -> void:
+	AudioManager.efecto("seleccion_cepa", -14.0)
 	indice_cian -= 1
 	if indice_cian < 0:
 		indice_cian = 2
@@ -35,12 +38,14 @@ func _on_button_2_pressed() -> void:
 
 # --- FUNCIONES PARA EL JUGADOR MAGENTA ---
 func _on_button_3_pressed() -> void:
+	AudioManager.efecto("seleccion_cepa", -14.0)
 	indice_magenta += 1
 	if indice_magenta > 2:
 		indice_magenta = 0
 	actualizar_visualizacion()
 
 func _on_button_4_pressed() -> void:
+	AudioManager.efecto("seleccion_cepa", -14.0)
 	indice_magenta -= 1
 	if indice_magenta < 0:
 		indice_magenta = 2
@@ -65,4 +70,7 @@ func _on_comenzar_pressed() -> void:
 		1: tipos[indice_cian],
 		2: tipos[indice_magenta]
 	})
+	# El boton Comenzar marca el verdadero inicio del juego, aunque haya escena intermedia.
+	AudioManager.efecto("click")
+	AudioManager.reproducir_partida()
 	get_tree().change_scene_to_file("res://scenes/Shopping.tscn")

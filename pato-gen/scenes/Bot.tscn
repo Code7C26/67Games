@@ -10,6 +10,18 @@
 [ext_resource type="SpriteFrames" uid="uid://cumce5qlxydnk" path="res://assets/NPC4.tres" id="5_1luea"]
 [ext_resource type="Texture2D" uid="uid://bihtiswkfw8a5" path="res://assets/NPC 1 izquierda.png" id="5_igdn8"]
 [ext_resource type="SpriteFrames" uid="uid://dnfvt5pg17fwu" path="res://assets/NPC5.tres" id="6_5svgv"]
+[ext_resource type="Texture2D" uid="uid://4pdl1bxi8uv5" path="res://assets/atletico arriba.png" id="7_u5k4g"]
+[ext_resource type="Texture2D" uid="uid://dtpqq5y3bppuv" path="res://assets/atletico abajo.png" id="8_r76c1"]
+[ext_resource type="Texture2D" uid="uid://cv47vydpjjou7" path="res://assets/atletico izquierda.png" id="9_pu1d6"]
+[ext_resource type="Texture2D" uid="uid://d2776ldnvgmjo" path="res://assets/atletico derecha.png" id="10_luwek"]
+[ext_resource type="Texture2D" uid="uid://l7wulhdkekqt" path="res://assets/area arriba.png" id="11_ut4p8"]
+[ext_resource type="Texture2D" uid="uid://cdr33n651pu5y" path="res://assets/area abajo.png" id="12_mvk25"]
+[ext_resource type="Texture2D" uid="uid://dpgswcn0ysywt" path="res://assets/area izquierda.png" id="13_df8wo"]
+[ext_resource type="Texture2D" uid="uid://baftb5l5j0nm7" path="res://assets/area derecha.png" id="14_oi7a2"]
+[ext_resource type="Texture2D" uid="uid://b2cajacc4g77m" path="res://assets/exponencial arriba.png" id="15_5ypvu"]
+[ext_resource type="Texture2D" uid="uid://c6oxm56ug4lji" path="res://assets/exponencial abajo.png" id="16_6h0ev"]
+[ext_resource type="Texture2D" uid="uid://wtdoby8d75su" path="res://assets/exponencial izquierda.png" id="17_u1fpf"]
+[ext_resource type="Texture2D" uid="uid://cdxn4vnaw4mju" path="res://assets/exponencial derecha.png" id="18_cgmnp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctx8s"]
 atlas = ExtResource("2_tlvg8")
@@ -151,6 +163,18 @@ _data = {
 [node name="Bot" type="CharacterBody2D" unique_id=1589400054]
 script = ExtResource("1_qpkb6")
 skins = Array[SpriteFrames]([ExtResource("2_vc3es"), ExtResource("3_3esty"), ExtResource("4_wua72"), ExtResource("5_1luea"), ExtResource("6_5svgv")])
+atletico_arriba = ExtResource("7_u5k4g")
+atletico_abajo = ExtResource("8_r76c1")
+atletico_izquierda = ExtResource("9_pu1d6")
+atletico_derecha = ExtResource("10_luwek")
+area_arriba = ExtResource("11_ut4p8")
+area_abajo = ExtResource("12_mvk25")
+area_izquierda = ExtResource("13_df8wo")
+area_derecha = ExtResource("14_oi7a2")
+exponencial_arriba = ExtResource("15_5ypvu")
+exponencial_abajo = ExtResource("16_6h0ev")
+exponencial_izquierda = ExtResource("17_u1fpf")
+exponencial_derecha = ExtResource("18_cgmnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=771908485]
 sprite_frames = SubResource("SpriteFrames_uylti")

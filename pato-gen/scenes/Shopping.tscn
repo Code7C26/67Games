@@ -3893,7 +3893,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
 theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Zona fria [ 4 ]"
+text = "Zona de atraccion [ 4 ]"
 icon = ExtResource("65_npmnc")
 expand_icon = true
 
@@ -4069,7 +4069,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Zona fria [ 4 ] "
+text = "Zona de atraccion [ 4 ] "
 icon = ExtResource("65_npmnc")
 expand_icon = true
 

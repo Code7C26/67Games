@@ -6,6 +6,32 @@ extends CharacterBody2D
 @export var speed: float = 75.0
 @export var skins: Array[SpriteFrames] = []
 
+# Asignar los PNG de cada cepa desde el Inspector de Bot.tscn.
+# Cada PNG se divide automaticamente en cuadros de 32x32, de izquierda a derecha y de arriba abajo.
+@export_group("Sprites infectados - Atletico")
+@export var atletico_arriba: Texture2D
+@export var atletico_abajo: Texture2D
+@export var atletico_izquierda: Texture2D
+@export var atletico_derecha: Texture2D
+
+@export_group("Sprites infectados - Area")
+@export var area_arriba: Texture2D
+@export var area_abajo: Texture2D
+@export var area_izquierda: Texture2D
+@export var area_derecha: Texture2D
+
+@export_group("Sprites infectados - Exponencial")
+@export var exponencial_arriba: Texture2D
+@export var exponencial_abajo: Texture2D
+@export var exponencial_izquierda: Texture2D
+@export var exponencial_derecha: Texture2D
+@export_group("Animaciones infectados")
+const TAMANO_FOTOGRAMA_INFECTADO: int = 32
+@export_range(1.0, 30.0, 0.5) var fps_infectados: float = 8.0
+@export_group("")
+
+var sprite_frames_sano: SpriteFrames = null
+
 const CONTAGIO_BASE: float = 0.35
 const CURACION_BASE: float = 0.01 # Probabilidad POR SEGUNDO
 
@@ -30,6 +56,11 @@ var color_infeccion: Color = Color.WHITE
 var player_duenio: int = 0
 var cepa: String = ""
 var move_direction: Vector2 = Vector2.ZERO
+
+# Control táctico: la antigua zona fría atrae a bots sanos.
+# Se calcula sobre la dirección final, sin cambiar la IA original.
+@export_range(0.0, 1.0, 0.05) var influencia_distorsion: float = 0.65
+@export_range(0.0, 1.0, 0.05) var influencia_distorsion_con_amenaza: float = 0.15
 var controlado_por_jugador: bool = false
 var jugador_controlador: int = 0
 var direccion_control_jugador: Vector2 = Vector2.ZERO
@@ -44,6 +75,9 @@ var multiplicador_velocidad_temp: float = 1.0
 var multiplicador_contagio_temp: float = 1.0
 var probabilidad_curacion: float = CURACION_BASE
 var tiempo_escudo: float = 0.0
+# Evita reinfeccion instantanea tras ser liberado por el equipo rival.
+var proteccion_sano_ofensiva: float = 0.0
+var tiempo_intento_ofensivo: float = 0.0
 var mutaciones: Array[String] = []
 
 # Variables de comportamiento (sin modificar los scripts auxiliares).
@@ -66,6 +100,9 @@ var tiempo_replicacion: float = 0.0
 @onready var area_vision: Area2D = $AreaVision
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+# Material individual por bot: nunca se comparte el color entre jugadores.
+var material_borde_infeccion: ShaderMaterial = null
+
 # Indicadores de posesión originales (independientes de AreaInfeccion).
 var indicador_area_infeccion: Polygon2D = null
 var indicador_aura_posesion: Polygon2D = null
@@ -82,6 +119,9 @@ func _ready() -> void:
 	crear_indicador_posesion()
 	if skins.size() > 0 and animated_sprite:
 		animated_sprite.sprite_frames = skins.pick_random()
+	if animated_sprite:
+		sprite_frames_sano = animated_sprite.sprite_frames
+		_preparar_material_borde()
 	add_to_group("bots")
 	velocidad_base = speed
 	cambiar_direccion_aleatoria()
@@ -100,7 +140,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	proteccion_sano_ofensiva = maxf(0.0, proteccion_sano_ofensiva - delta)
 	tiempo_escudo = maxf(0.0, tiempo_escudo - delta)
+	_actualizar_curacion_ofensiva(delta)
 	blindaje_restante = maxf(0.0, blindaje_restante - delta)
 	cooldown_inmortal = maxf(0.0, cooldown_inmortal - delta)
 	tiempo_evasion = maxf(0.0, tiempo_evasion - delta)
@@ -123,6 +165,9 @@ func _physics_process(delta: float) -> void:
 				if presa == null and tiene_mutacion("mente_colmena"):
 					presa = _objetivo_compartido()
 				if presa:
+					if tiempo_persiguiendo <= 0.0:
+						# AudioManager lo limita globalmente para evitar 100 alertas a la vez.
+						AudioManager.efecto("alerta_persecucion", -23.0, false)
 					perseguir_a(presa.global_position)
 					tiempo_persiguiendo += delta
 				else:
@@ -137,6 +182,9 @@ func _physics_process(delta: float) -> void:
 		direccion_movimiento_real = direccion_control_jugador
 	else:
 		direccion_movimiento_real = move_direction
+		# No alterar la posesión, los infectados ni la evasión de paredes.
+		if not is_infected and tiempo_evasion <= 0.0:
+			direccion_movimiento_real = _direccion_con_distorsion(direccion_movimiento_real)
 	velocity = direccion_movimiento_real * speed * multiplicador_velocidad_temp * mult
 	move_and_slide()
 	if get_slide_collision_count() > 0:
@@ -144,6 +192,36 @@ func _physics_process(delta: float) -> void:
 	else:
 		tiempo_contacto_obstaculo = 0.0
 	actualizar_animacion(direccion_movimiento_real)
+
+
+# La distorsión modifica la dirección temporal, sin sobreescribir move_direction.
+# Así, al salir de la zona, la IA sigue funcionando sin estados atascados.
+func _direccion_con_distorsion(direccion_base: Vector2) -> Vector2:
+	var objetivo: Vector2 = Vector2.ZERO
+	var distancia_minima: float = INF
+	for zona in get_tree().get_nodes_in_group("zonas_temperatura"):
+		if not is_instance_valid(zona) or not zona is ZonaTemperatura:
+			continue
+		if zona.tipo != ZonaTemperatura.TipoTemperatura.FRIO:
+			continue
+		if not (self in zona.cuerpos_dentro):
+			continue
+		var distancia: float = global_position.distance_squared_to(zona.global_position)
+		if distancia < distancia_minima:
+			distancia_minima = distancia
+			objetivo = zona.global_position
+
+	if distancia_minima == INF:
+		return direccion_base
+
+	var hacia_centro: Vector2 = objetivo - global_position
+	if hacia_centro.length_squared() < 100.0:
+		return direccion_base # Evita vibraciones en el centro.
+
+	var fuerza: float = influencia_distorsion
+	if area_vision != null and obtener_amenaza_cercana() != null:
+		fuerza = influencia_distorsion_con_amenaza
+	return direccion_base.lerp(hacia_centro.normalized(), clampf(fuerza, 0.0, 1.0)).normalized()
 
 
 func _actualizar_mutaciones_tiempo(delta: float) -> void:
@@ -262,7 +340,7 @@ func perseguir_a(posicion_objetivo: Vector2) -> void:
 
 
 func infectar(color_jugador: Color, id_jugador: int) -> void:
-	if is_infected or id_jugador < 1 or id_jugador > 2:
+	if is_infected or proteccion_sano_ofensiva > 0.0 or id_jugador < 1 or id_jugador > 2:
 		return
 	activar_infeccion(color_jugador, id_jugador)
 
@@ -271,6 +349,8 @@ func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool 
 	if is_infected:
 		return
 	is_infected = true
+	proteccion_sano_ofensiva = 0.0
+	tiempo_intento_ofensivo = 0.0
 	color_infeccion = color_jugador
 	player_duenio = id_jugador
 	tiempo_escudo = 3.0
@@ -286,15 +366,22 @@ func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool 
 	recarga_sobrecarga = 0.0
 	tiempo_sobrecarga = 0.0
 	pulsos_pendientes = 0
-	modulate = color_jugador
+	modulate = Color.WHITE
+	_aplicar_borde_infeccion(color_jugador)
 
 	var mapa: Node = get_tree().current_scene
 	if mapa and mapa.has_method("aplicar_mutaciones_a_bot"):
 		mapa.aplicar_mutaciones_a_bot(self)
+	actualizar_sprite_segun_infeccion()
 	if otorgar_adn and mapa and mapa.has_method("sumar_adn"):
 		mapa.sumar_adn(id_jugador)
 	timer_contagio.start()
 	timer_curacion.start()
+	# Las replicas reciben un efecto propio; los contagios normales suenan por separado.
+	if es_replica:
+		AudioManager.efecto("bot_infectado", -15.0)
+	else:
+		AudioManager.efecto("contagio", -26.0)
 
 
 func curar_por_robot() -> void:
@@ -317,6 +404,8 @@ func curar(activar_ultimo_aliento: bool = true) -> void:
 	probabilidad_curacion = CURACION_BASE
 	speed = velocidad_base
 	modulate = Color.WHITE
+	_quitar_borde_infeccion()
+	actualizar_sprite_segun_infeccion()
 	tiempo_escudo = 0.0
 	tiempo_persiguiendo = 0.0
 	tiempo_sin_infectar = 0.0
@@ -331,6 +420,8 @@ func curar(activar_ultimo_aliento: bool = true) -> void:
 	tiempo_replicacion = 0.0
 	timer_contagio.stop()
 	timer_curacion.stop()
+	tiempo_intento_ofensivo = 0.0
+	# Curacion silenciosa (normal y por robot).
 
 
 func _chance_contagio() -> float:
@@ -439,6 +530,9 @@ func _intentar_curacion() -> void:
 	if not is_infected or tiempo_escudo > 0.0 or blindaje_restante > 0.0:
 		return
 	var chance: float = probabilidad_curacion
+	var mapa: Node = get_tree().current_scene
+	if mapa and mapa.has_method("obtener_multiplicador_curacion_natural"):
+		chance *= mapa.obtener_multiplicador_curacion_natural(player_duenio)
 	if tiene_mutacion("caparazon"):
 		chance *= 0.80
 	if tiene_mutacion("regeneracion"):
@@ -449,8 +543,59 @@ func _intentar_curacion() -> void:
 	if tiene_mutacion("infeccion_inmortal") and cooldown_inmortal <= 0.0 and randf() < 0.55:
 		blindaje_restante = 4.0
 		cooldown_inmortal = 15.0
+		AudioManager.efecto("escudo_activado", -15.0, false)
 		return
 	curar()
+
+
+# Un intento cada intervalo por infectado del equipo perdedor, contra un
+# unico infectado rival en AreaInfeccion. Sin efecto en fase normal.
+func _actualizar_curacion_ofensiva(delta: float) -> void:
+	if not is_infected or area_infeccion == null:
+		tiempo_intento_ofensivo = 0.0
+		return
+	var mapa: Node = get_tree().current_scene
+	if mapa == null or not mapa.has_method("obtener_multiplicador_curacion_natural"):
+		tiempo_intento_ofensivo = 0.0
+		return
+	if mapa.equipo_curacion_ofensiva != player_duenio:
+		tiempo_intento_ofensivo = 0.0
+		return
+	var intervalo: float = maxf(0.1, mapa.intervalo_curacion_ofensiva)
+	tiempo_intento_ofensivo += delta
+	if tiempo_intento_ofensivo < intervalo:
+		return
+	tiempo_intento_ofensivo = fmod(tiempo_intento_ofensivo, intervalo)
+	var enemigos: Array[Node2D] = []
+	for cuerpo in area_infeccion.get_overlapping_bodies():
+		if cuerpo == self or not is_instance_valid(cuerpo) or not cuerpo.is_in_group("bots"):
+			continue
+		if cuerpo.is_infected and cuerpo.player_duenio != player_duenio and cuerpo.has_method("recibir_curacion_ofensiva"):
+			enemigos.append(cuerpo)
+	if not enemigos.is_empty():
+		var objetivo: Node2D = enemigos.pick_random()
+		objetivo.recibir_curacion_ofensiva(mapa.chance_curacion_ofensiva, mapa.proteccion_sano_tras_curacion_ofensiva)
+
+
+# Se respetan escudo, blindaje y mutaciones defensivas del objetivo.
+func recibir_curacion_ofensiva(chance_base: float, tiempo_proteccion: float) -> bool:
+	if not is_infected or tiempo_escudo > 0.0 or blindaje_restante > 0.0:
+		return false
+	var chance: float = chance_base
+	if tiene_mutacion("caparazon"):
+		chance *= 0.80
+	if tiene_mutacion("regeneracion"):
+		chance *= 0.80
+	if randf() >= clampf(chance, 0.0, 1.0):
+		return false
+	if tiene_mutacion("infeccion_inmortal") and cooldown_inmortal <= 0.0 and randf() < 0.55:
+		blindaje_restante = 4.0
+		cooldown_inmortal = 15.0
+		AudioManager.efecto("escudo_activado", -15.0, false)
+		return false
+	curar()
+	proteccion_sano_ofensiva = maxf(0.0, tiempo_proteccion)
+	return true
 
 
 func _bono_adaptacion_contagio() -> float:
@@ -625,6 +770,118 @@ func reaccionar_a_obstaculo() -> void:
 	move_direction = direccion_evasion
 
 	tiempo_evasion = 0.55
+
+
+# ============================================================
+# CONTORNO DE INFECCION (cian/magenta sin teñir el personaje)
+# ============================================================
+
+func _preparar_material_borde() -> void:
+	if not animated_sprite:
+		return
+	var shader_borde: Shader = load("res://shaders/borde_infeccion.gdshader")
+	if shader_borde == null:
+		push_warning("No se encontro res://shaders/borde_infeccion.gdshader")
+		return
+	material_borde_infeccion = ShaderMaterial.new()
+	material_borde_infeccion.shader = shader_borde
+	material_borde_infeccion.set_shader_parameter("borde_activo", false)
+	animated_sprite.material = material_borde_infeccion
+
+
+func _aplicar_borde_infeccion(color: Color) -> void:
+	if material_borde_infeccion == null:
+		_preparar_material_borde()
+	if material_borde_infeccion == null:
+		return
+	material_borde_infeccion.set_shader_parameter("color_borde", Color(color.r, color.g, color.b, 1.0))
+	material_borde_infeccion.set_shader_parameter("borde_activo", true)
+
+
+func _quitar_borde_infeccion() -> void:
+	if material_borde_infeccion:
+		material_borde_infeccion.set_shader_parameter("borde_activo", false)
+
+
+# Construye animaciones direccionales a partir de PNG individuales.
+# Si falta alguna textura, no cambia el SpriteFrames existente.
+func actualizar_sprite_segun_infeccion() -> void:
+	if not animated_sprite:
+		return
+	if not is_infected:
+		if sprite_frames_sano:
+			_cambiar_sprite_frames(sprite_frames_sano)
+		return
+
+	var arriba: Texture2D
+	var abajo: Texture2D
+	var izquierda: Texture2D
+	var derecha: Texture2D
+	match cepa:
+		"atletico":
+			arriba = atletico_arriba
+			abajo = atletico_abajo
+			izquierda = atletico_izquierda
+			derecha = atletico_derecha
+		"area":
+			arriba = area_arriba
+			abajo = area_abajo
+			izquierda = area_izquierda
+			derecha = area_derecha
+		"exponencial":
+			arriba = exponencial_arriba
+			abajo = exponencial_abajo
+			izquierda = exponencial_izquierda
+			derecha = exponencial_derecha
+		_:
+			return
+
+	if not arriba or not abajo or not izquierda or not derecha:
+		push_warning("Faltan PNG para la cepa: " + cepa + ". Revisar Bot.tscn")
+		return
+
+	var frames: SpriteFrames = SpriteFrames.new()
+	# SpriteFrames.new() trae una animación default que no necesitamos.
+	if frames.has_animation("default"):
+		frames.remove_animation("default")
+	var texturas: Dictionary = {
+		"Arriba": arriba,
+		"Abajo": abajo,
+		"Izquierda": izquierda,
+		"Derecha": derecha,
+	}
+	for nombre: String in texturas:
+		frames.add_animation(nombre)
+		frames.set_animation_loop(nombre, true)
+		frames.set_animation_speed(nombre, fps_infectados)
+		var textura: Texture2D = texturas[nombre]
+		var tamano: Vector2 = textura.get_size()
+		var columnas: int = int(tamano.x / float(TAMANO_FOTOGRAMA_INFECTADO))
+		var filas: int = int(tamano.y / float(TAMANO_FOTOGRAMA_INFECTADO))
+		if columnas < 1 or filas < 1 or int(tamano.x) % TAMANO_FOTOGRAMA_INFECTADO != 0 or int(tamano.y) % TAMANO_FOTOGRAMA_INFECTADO != 0:
+			push_warning("Sprite PNG no divisible en cuadros de 32x32: " + nombre + " (" + str(tamano) + ")")
+			return
+		for fila in range(filas):
+			for columna in range(columnas):
+				var cuadro: AtlasTexture = AtlasTexture.new()
+				cuadro.atlas = textura
+				cuadro.region = Rect2(columna * TAMANO_FOTOGRAMA_INFECTADO, fila * TAMANO_FOTOGRAMA_INFECTADO, TAMANO_FOTOGRAMA_INFECTADO, TAMANO_FOTOGRAMA_INFECTADO)
+				frames.add_frame(nombre, cuadro)
+	_cambiar_sprite_frames(frames)
+
+
+func _cambiar_sprite_frames(nuevos: SpriteFrames) -> void:
+	var animacion_anterior: StringName = animated_sprite.animation
+	var estaba_reproduciendo: bool = animated_sprite.is_playing()
+	animated_sprite.sprite_frames = nuevos
+	if nuevos.has_animation(animacion_anterior):
+		animated_sprite.animation = animacion_anterior
+	elif nuevos.has_animation("Abajo"):
+		animated_sprite.animation = "Abajo"
+	if estaba_reproduciendo:
+		animated_sprite.play()
+	else:
+		animated_sprite.stop()
 
 
 # ============================================================

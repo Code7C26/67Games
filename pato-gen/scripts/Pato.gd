@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 300.0
 @export_enum("Jugador 1: 1", "Jugador 2: 2") var player_id: int = 1
 @export var color_jugador: Color = Color.CYAN
 
@@ -66,12 +66,112 @@ func _ready() -> void:
 		color_jugador = Color.MAGENTA
 
 	if animated_sprite:
-		animated_sprite.modulate = color_jugador
+		animated_sprite.modulate = Color.WHITE
+		# Primero fijar la capa principal; los 8 contornos usan una inferior.
 		animated_sprite.z_index = 6
+		configurar_borde_pato()
 
 	crear_aura_fantasma()
 
 	iniciar_temporizador_desaparicion()
+
+
+# ============================================================
+# BORDE DEL PATO (SIN TEÑIR LOS SPRITES)
+# ============================================================
+
+# Contorno exterior: 8 copias coloreadas detrás del sprite original.
+# A diferencia del shader anterior, funciona aunque el frame ocupe todo el atlas.
+var sprites_borde: Array[AnimatedSprite2D] = []
+var grupo_visual_pato: CanvasGroup = null
+const GROSOR_BORDE_PATO: float = 3.0
+
+
+func configurar_borde_pato() -> void:
+	if animated_sprite == null or animated_sprite.sprite_frames == null:
+		return
+
+	# Mantener el sprite principal con sus colores originales.
+	animated_sprite.material = null
+	animated_sprite.modulate = Color.WHITE
+
+	# Componer silueta y contorno ANTES de aplicar transparencia.
+	# Así las copias de color no se ven a través del fantasma.
+	grupo_visual_pato = CanvasGroup.new()
+	grupo_visual_pato.name = "GrupoVisualPato"
+	grupo_visual_pato.z_index = 5
+	add_child(grupo_visual_pato)
+
+	animated_sprite.reparent(grupo_visual_pato, false)
+	animated_sprite.z_index = 1
+
+	var shader_color := Shader.new()
+	shader_color.code = """shader_type canvas_item;
+uniform vec4 color_borde : source_color = vec4(0.0, 0.0, 1.0, 1.0);
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+    COLOR = vec4(color_borde.rgb, tex.a * COLOR.a);
+}
+"""
+
+	var offsets := [
+		Vector2(-1, 0), Vector2(1, 0),
+		Vector2(0, -1), Vector2(0, 1),
+		Vector2(-0.7071, -0.7071), Vector2(0.7071, -0.7071),
+		Vector2(-0.7071, 0.7071), Vector2(0.7071, 0.7071)
+	]
+
+	for i in offsets.size():
+		var borde := AnimatedSprite2D.new()
+		borde.name = "BordePato_%d" % i
+		borde.sprite_frames = animated_sprite.sprite_frames
+		borde.animation = animated_sprite.animation
+		borde.frame = animated_sprite.frame
+		borde.position = animated_sprite.position + offsets[i] * GROSOR_BORDE_PATO
+		borde.scale = animated_sprite.scale
+		borde.rotation = animated_sprite.rotation
+		borde.centered = animated_sprite.centered
+		borde.offset = animated_sprite.offset
+		borde.flip_h = animated_sprite.flip_h
+		borde.flip_v = animated_sprite.flip_v
+		borde.z_index = 0
+
+		var material_borde := ShaderMaterial.new()
+		material_borde.shader = shader_color
+		material_borde.set_shader_parameter("color_borde", color_jugador)
+		borde.material = material_borde
+		grupo_visual_pato.add_child(borde)
+		sprites_borde.append(borde)
+
+	animated_sprite.frame_changed.connect(sincronizar_borde_pato)
+	animated_sprite.animation_changed.connect(sincronizar_borde_pato)
+	sincronizar_borde_pato()
+
+
+func sincronizar_borde_pato() -> void:
+	if animated_sprite == null:
+		return
+
+	for borde in sprites_borde:
+		if not is_instance_valid(borde):
+			continue
+		if borde.sprite_frames != animated_sprite.sprite_frames:
+			borde.sprite_frames = animated_sprite.sprite_frames
+		if borde.animation != animated_sprite.animation:
+			borde.animation = animated_sprite.animation
+		if borde.frame != animated_sprite.frame:
+			borde.frame = animated_sprite.frame
+
+
+func actualizar_transparencia_borde_pato(alpha: float) -> void:
+	# La transparencia se aplica a toda la composición ya terminada.
+	if grupo_visual_pato:
+		grupo_visual_pato.modulate.a = alpha
+	if animated_sprite:
+		animated_sprite.modulate = Color.WHITE
+	for borde in sprites_borde:
+		if is_instance_valid(borde):
+			borde.modulate.a = 1.0
 
 
 func crear_aura_fantasma() -> void:
@@ -99,7 +199,7 @@ func crear_aura_fantasma() -> void:
 	)
 
 	# El aura queda por encima del mapa, pero detrás del sprite.
-	indicador_aura_fantasma.z_index = 5
+	indicador_aura_fantasma.z_index = 4
 	indicador_aura_fantasma.z_as_relative = true
 	indicador_aura_fantasma.visible = false
 
@@ -570,12 +670,8 @@ func finalizar_posesion() -> void:
 
 	# Mantener la apariencia fantasma.
 	if animated_sprite:
-		animated_sprite.modulate = Color(
-			color_jugador.r,
-			color_jugador.g,
-			color_jugador.b,
-			0.45
-		)
+		animated_sprite.modulate = Color.WHITE
+		actualizar_transparencia_borde_pato(0.75)
 
 
 # ============================================================
@@ -583,6 +679,9 @@ func finalizar_posesion() -> void:
 # ============================================================
 
 func infectar_y_desaparecer() -> void:
+	if modo_fantasma:
+		return
+	AudioManager.efecto("pato_desaparecer", -12.0, false)
 
 	var bots = get_tree().get_nodes_in_group("bots")
 	var bot_mas_cercano: Node2D = null
@@ -619,6 +718,13 @@ func convertirse_en_fantasma() -> void:
 	modo_fantasma = true
 	velocity = Vector2.ZERO
 
+	# Agrandar el tamaño visual del pato y su contorno un 50 %.
+	# No cambia la colisión, la velocidad ni el radio de las habilidades.
+	if grupo_visual_pato:
+		grupo_visual_pato.scale *= 1.5
+	elif animated_sprite:
+		animated_sprite.scale *= 1.5
+
 	# Mostrar el aura mientras el Pato está libre en modo fantasma.
 	mostrar_aura_fantasma()
 
@@ -631,21 +737,17 @@ func convertirse_en_fantasma() -> void:
 		if hijo is CollisionShape2D:
 			hijo.set_deferred("disabled", true)
 
-	# Apariencia transparente.
+	# Transparencia suave solo para el fantasma (85 % de opacidad).
 	if animated_sprite:
 
-		animated_sprite.modulate = Color(
-			color_jugador.r,
-			color_jugador.g,
-			color_jugador.b,
-			0.45
-		)
+		animated_sprite.modulate = Color.WHITE
+		actualizar_transparencia_borde_pato(0.75)
 
 		# Al convertirse en fantasma, utilizar la animación
 		# correspondiente de fantasma.
 		# La dirección inicial será Abajo.
-		if animated_sprite.sprite_frames.has_animation("FantasmaAbajo"):
-			animated_sprite.play("FantasmaAbajo")
+		if animated_sprite.sprite_frames.has_animation("Fantasma Abajo"):
+			animated_sprite.play("Fantasma Abajo")
 
 	if not is_in_group("patos_fantasma"):
 		add_to_group("patos_fantasma")
@@ -661,7 +763,12 @@ func actualizar_animacion(direccion: Vector2) -> void:
 		return
 
 	if direccion.length_squared() < 0.01:
-		animated_sprite.stop()
+		# El fantasma flota aun estando quieto: mantener el ciclo animado.
+		if modo_fantasma:
+			if not animated_sprite.is_playing():
+				animated_sprite.play()
+		else:
+			animated_sprite.stop()
 		return
 
 	var nombre_animacion: String = ""

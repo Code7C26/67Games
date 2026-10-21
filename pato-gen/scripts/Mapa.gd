@@ -90,6 +90,31 @@ var estado_actual: EstadoJuego = EstadoJuego.FASE_PATOS
 var adn_cian: int = 0
 var adn_magenta: int = 0
 
+# ADN de remontada: se entrega al equipo que tenga 5+ infectados menos.
+@export var diferencia_minima_remontada: int = 5
+@export var adn_por_segundo_remontada: int = 1
+var tiempo_remontada: float = 0.0
+var equipo_remontada: int = 0
+
+# Balance de late game. Los multiplicadores solo afectan la curacion natural.
+@export_group("Balance de remontada")
+@export var diferencia_inestabilidad_1: int = 5
+@export var diferencia_inestabilidad_2: int = 10
+@export var diferencia_inestabilidad_3: int = 20
+@export var multiplicador_inestabilidad_1: float = 1.15
+@export var multiplicador_inestabilidad_2: float = 1.35
+@export var multiplicador_inestabilidad_3: float = 1.60
+@export var diferencia_activar_curacion_ofensiva: int = 20
+@export var diferencia_desactivar_curacion_ofensiva: int = 15
+@export_range(0.0, 1.0, 0.001) var chance_curacion_ofensiva: float = 0.02
+@export var intervalo_curacion_ofensiva: float = 2.0
+@export var proteccion_sano_tras_curacion_ofensiva: float = 2.0
+@export_group("")
+
+var equipo_curacion_ofensiva: int = 0
+var multiplicador_curacion_cian: float = 1.0
+var multiplicador_curacion_magenta: float = 1.0
+
 
 # ============================================================
 # MUTACIONES DE CADA JUGADOR
@@ -196,6 +221,7 @@ func _conectar_botones_mutaciones() -> void:
 # ============================================================
 
 func _ready() -> void:
+	AudioManager.reproducir_partida()
 	# Selección persiste entre escenas sin requerir autoload.
 	var elegidos: Dictionary = get_tree().root.get_meta("patogen_cepas", {})
 	var tipo1: String = str(elegidos.get(1, "atletico"))
@@ -239,6 +265,8 @@ func _ready() -> void:
 # ============================================================
 
 func _process(_delta: float) -> void:
+	actualizar_adn_remontada(_delta)
+	actualizar_balance_tardio()
 	if tiempo_descripcion_mutacion > 0.0:
 		tiempo_descripcion_mutacion -= _delta
 		if tiempo_descripcion_mutacion <= 0.0 and is_instance_valid(panel_descripcion_mutacion):
@@ -670,7 +698,9 @@ func crear_zona_temperatura(
 	# ========================================================
 
 	if tipo == "frio":
+		# Compatibilidad: la antigua habilidad FRIO ahora es DISTORSIÓN.
 		zona.tipo = ZonaTemperatura.TipoTemperatura.FRIO
+		zona.duracion = 8.0
 	else:
 		zona.tipo = ZonaTemperatura.TipoTemperatura.CALOR
 
@@ -813,6 +843,11 @@ func comprar_mutacion(id_jugador: int, tipo_base: String) -> void:
 		mutaciones_p2.append(siguiente)
 	actualizar_mutaciones_existentes(id_jugador)
 	actualizar_menu_mutaciones()
+	# Solo suena tras aplicar la compra y descontar el ADN.
+	AudioManager.efecto("mutacion_comprada", -11.0, false)
+	# Se desbloqueo un nuevo nivel en esta rama.
+	if obtener_siguiente_evolucion(tipo_base, mutaciones) != "":
+		AudioManager.efecto("mutacion_desbloqueada", -17.0, false)
 	print("Jugador ", id_jugador, " compró ", siguiente, " (", costo, " ADN)")
 
 
@@ -851,6 +886,89 @@ func obtener_costo_mutacion(tipo_base: String, mutaciones: Array[String]) -> int
 				return COSTO_EVOLUCION_1
 			return COSTO_EVOLUCION_2
 	return 999
+
+
+func actualizar_adn_remontada(delta: float) -> void:
+	if estado_actual != EstadoJuego.FASE_INFECCION:
+		tiempo_remontada = 0.0
+		equipo_remontada = 0
+		return
+
+	var stats: Dictionary = contar_infecciones()
+	var cian: int = int(stats["blue"])
+	var magenta: int = int(stats["magenta"])
+	var perdedor: int = 0
+
+	if magenta - cian >= diferencia_minima_remontada:
+		perdedor = 1
+	elif cian - magenta >= diferencia_minima_remontada:
+		perdedor = 2
+
+	if perdedor == 0:
+		tiempo_remontada = 0.0
+		equipo_remontada = 0
+		return
+
+	if perdedor != equipo_remontada:
+		equipo_remontada = perdedor
+		tiempo_remontada = 0.0
+
+	tiempo_remontada += delta
+	while tiempo_remontada >= 1.0:
+		tiempo_remontada -= 1.0
+		if perdedor == 1:
+			adn_cian += adn_por_segundo_remontada
+		else:
+			adn_magenta += adn_por_segundo_remontada
+
+
+# Inestabilidad: aumenta SOLO la curacion natural del lider.
+# Ofensiva: se activa desde 20 y permanece hasta bajar a 15.
+func actualizar_balance_tardio() -> void:
+	multiplicador_curacion_cian = 1.0
+	multiplicador_curacion_magenta = 1.0
+	if estado_actual != EstadoJuego.FASE_INFECCION:
+		equipo_curacion_ofensiva = 0
+		return
+
+	var stats: Dictionary = contar_infecciones()
+	var cian: int = int(stats["blue"])
+	var magenta: int = int(stats["magenta"])
+	var diferencia: int = absi(cian - magenta)
+	var lider: int = 0
+	var perdedor: int = 0
+	if cian > magenta:
+		lider = 1
+		perdedor = 2
+	elif magenta > cian:
+		lider = 2
+		perdedor = 1
+
+	var factor: float = 1.0
+	if diferencia >= diferencia_inestabilidad_3:
+		factor = multiplicador_inestabilidad_3
+	elif diferencia >= diferencia_inestabilidad_2:
+		factor = multiplicador_inestabilidad_2
+	elif diferencia >= diferencia_inestabilidad_1:
+		factor = multiplicador_inestabilidad_1
+	if lider == 1:
+		multiplicador_curacion_cian = factor
+	elif lider == 2:
+		multiplicador_curacion_magenta = factor
+
+	if equipo_curacion_ofensiva != 0:
+		if equipo_curacion_ofensiva != perdedor or diferencia <= diferencia_desactivar_curacion_ofensiva:
+			equipo_curacion_ofensiva = 0
+	if equipo_curacion_ofensiva == 0 and perdedor != 0 and diferencia >= diferencia_activar_curacion_ofensiva:
+		equipo_curacion_ofensiva = perdedor
+
+
+func obtener_multiplicador_curacion_natural(id_jugador: int) -> float:
+	if id_jugador == 1:
+		return multiplicador_curacion_cian
+	if id_jugador == 2:
+		return multiplicador_curacion_magenta
+	return 1.0
 
 
 func sumar_adn(id_jugador: int) -> void:
@@ -1025,6 +1143,14 @@ func _on_timer_juego_timeout() -> void:
 	else:
 
 		mensaje_resultado = "¡EMPATE TECNICO!"
+
+	# Detenemos la musica antes de congelar el arbol: AudioManager sigue activo.
+	AudioManager.detener_musica()
+	if stats.blue != stats.magenta:
+		AudioManager.efecto("victoria", -7.0, false)
+	else:
+		# El empate usa el cierre alternativo (no hay ganador).
+		AudioManager.efecto("derrota", -10.0, false)
 
 	if label_contador:
 		label_contador.text = mensaje_resultado
