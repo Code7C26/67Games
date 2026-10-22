@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/fitting_room.png" id="1_gr4kj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81uan"]
+resource_local_to_scene = true
+size = Vector2(53, 68)
+
+[node name="fitting_room" type="Node2D" unique_id=123522766]
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 6, 53, 68)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=625701020]
+texture_filter = 1
+texture = ExtResource("1_gr4kj")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=2103363016 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=864278519]
+position = Vector2(31.5, 40)
+shape = SubResource("RectangleShape2D_81uan")

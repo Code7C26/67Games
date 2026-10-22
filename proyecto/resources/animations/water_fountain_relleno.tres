@@ -1,0 +1,75 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://d4nndlrmtkjx4"]
+
+[ext_resource type="Texture2D" uid="uid://cisogw6vvmu5h" path="res://assets/animated/water_fountain_relleno_sheet.png" id="1_s75ew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maupx"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(0, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qwe7"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(48, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gi2m"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(96, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2wq8"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(144, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1t7k"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(192, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56f34"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(240, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq4fw"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(288, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63gpv"]
+atlas = ExtResource("1_s75ew")
+region = Rect2(336, 0, 48, 48)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maupx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qwe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gi2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2wq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1t7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56f34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq4fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63gpv")
+}],
+"loop": 1,
+"name": &"ambiente",
+"speed": 5.0
+}]

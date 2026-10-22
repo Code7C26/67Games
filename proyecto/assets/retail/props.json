@@ -1,0 +1,27 @@
+{
+  "tile_size":32,
+  "origin":"top_left",
+  "description":"Original layered retail props; Sprite2D centered=false; suggested editable physical footprints; rug is decorative and non-solid. Shadows offset +2,+3. No gameplay rules.",
+  "props":{
+    "clothes_rack":{"image":"clothes_rack.png","source":"clothes_rack.aseprite","size":[96,48],"footprint":[5,7,85,35]},
+    "folded_clothes":{"image":"folded_clothes.png","source":"folded_clothes.aseprite","size":[96,48],"footprint":[5,7,84,35]},
+    "fitting_room":{"image":"fitting_room.png","source":"fitting_room.aseprite","size":[64,80],"footprint":[5,6,53,68]},
+    "mannequin":{"image":"mannequin.png","source":"mannequin.aseprite","size":[32,48],"footprint":[7,7,18,37]},
+    "shoes_display":{"image":"shoes_display.png","source":"shoes_display.aseprite","size":[64,48],"footprint":[5,7,53,35]},
+    "checkout":{"image":"checkout.png","source":"checkout.aseprite","size":[96,48],"footprint":[5,7,85,35]},
+    "sofa":{"image":"sofa.png","source":"sofa.aseprite","size":[96,64],"footprint":[5,9,85,47]},
+    "armchair":{"image":"armchair.png","source":"armchair.aseprite","size":[48,48],"footprint":[5,6,36,34]},
+    "coffee_table":{"image":"coffee_table.png","source":"coffee_table.aseprite","size":[64,48],"footprint":[6,8,51,32]},
+    "bed":{"image":"bed.png","source":"bed.aseprite","size":[96,96],"footprint":[7,5,81,82]},
+    "dining_display":{"image":"dining_display.png","source":"dining_display.aseprite","size":[96,80],"footprint":[5,4,85,67]},
+    "rug":{"image":"rug.png","source":"rug.aseprite","size":[96,96],"footprint":[0,0,0,0]},
+    "lamp":{"image":"lamp.png","source":"lamp.aseprite","size":[32,48],"footprint":[5,6,23,34]},
+    "bookcase":{"image":"bookcase.png","source":"bookcase.aseprite","size":[64,80],"footprint":[5,5,53,67]},
+    "electronics":{"image":"electronics.png","source":"electronics.aseprite","size":[96,48],"footprint":[4,5,86,37]},
+    "supermarket_shelf":{"image":"supermarket_shelf.png","source":"supermarket_shelf.aseprite","size":[96,48],"footprint":[4,5,87,37]},
+    "produce":{"image":"produce.png","source":"produce.aseprite","size":[96,48],"footprint":[4,6,87,35]},
+    "freezer":{"image":"freezer.png","source":"freezer.aseprite","size":[96,48],"footprint":[4,5,87,37]},
+    "shopping_carts":{"image":"shopping_carts.png","source":"shopping_carts.aseprite","size":[64,48],"footprint":[4,6,54,35]},
+    "brochure_stand":{"image":"brochure_stand.png","source":"brochure_stand.aseprite","size":[32,48],"footprint":[5,4,22,39]}
+  }
+}

@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/cinema_seats_tapizadas.png" id="1_4exu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f25p8"]
+resource_local_to_scene = true
+size = Vector2(90, 34)
+
+[node name="cinema_seats_tapizadas" type="Node2D" unique_id=482251045]
+texture_filter = 1
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(3, 7, 90, 34)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1717495386]
+texture = ExtResource("1_4exu6")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1702284989 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=679486245]
+position = Vector2(48, 24)
+shape = SubResource("RectangleShape2D_f25p8")

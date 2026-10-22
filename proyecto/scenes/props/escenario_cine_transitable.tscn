@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/escenario_cine_transitable.png" id="1_q02wu"]
+
+[node name="escenario_cine_transitable" type="Node2D" unique_id=1333406426]
+texture_filter = 1
+metadata/tamano_visual = Vector2(192, 32)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1375361053]
+texture = ExtResource("1_q02wu")
+centered = false

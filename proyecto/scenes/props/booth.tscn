@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hospitality/booth.png" id="1_pgcqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7g4b"]
+resource_local_to_scene = true
+size = Vector2(90, 54)
+
+[node name="booth" type="Node2D" unique_id=2055225864]
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(3, 4, 90, 54)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1574762040]
+texture_filter = 1
+texture = ExtResource("1_pgcqg")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=2097369182 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1902195594]
+position = Vector2(48, 31)
+shape = SubResource("RectangleShape2D_x7g4b")

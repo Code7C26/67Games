@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/sofa.png" id="1_euhfd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jedt6"]
+resource_local_to_scene = true
+size = Vector2(85, 47)
+
+[node name="sofa" type="Node2D" unique_id=1035908340]
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(5, 9, 85, 47)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=69977005]
+texture_filter = 1
+texture = ExtResource("1_euhfd")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=2144455458 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1033213361]
+position = Vector2(47.5, 32.5)
+shape = SubResource("RectangleShape2D_jedt6")

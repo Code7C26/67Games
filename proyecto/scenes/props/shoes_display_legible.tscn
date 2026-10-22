@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/shoes_display_legible.png" id="1_t6lgc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tp64"]
+resource_local_to_scene = true
+size = Vector2(53, 35)
+
+[node name="shoes_display_legible" type="Node2D" unique_id=1605593284]
+texture_filter = 1
+metadata/tamano_visual = Vector2(64, 48)
+metadata/huella_local = Rect2(5, 7, 53, 35)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1918137073]
+texture = ExtResource("1_t6lgc")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=522125435 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=171264938]
+position = Vector2(31.5, 24.5)
+shape = SubResource("RectangleShape2D_1tp64")

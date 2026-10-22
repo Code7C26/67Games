@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/brochure_stand.png" id="1_4alq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsj1c"]
+resource_local_to_scene = true
+size = Vector2(22, 39)
+
+[node name="brochure_stand" type="Node2D" unique_id=77993282]
+metadata/tamano_visual = Vector2(32, 48)
+metadata/huella_local = Rect2(5, 4, 22, 39)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=595528815]
+texture_filter = 1
+texture = ExtResource("1_4alq4")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=661127750 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=583340863]
+position = Vector2(16, 23.5)
+shape = SubResource("RectangleShape2D_vsj1c")

@@ -1,0 +1,2503 @@
+[gd_scene format=4]
+
+[ext_resource type="PackedScene" path="res://scenes/props/gondola_panaderia.tscn" id="1_ofcuh"]
+[ext_resource type="PackedScene" path="res://scenes/props/gondola_desayuno.tscn" id="2_gcapn"]
+[ext_resource type="PackedScene" path="res://scenes/props/gondola_bebidas.tscn" id="3_w6xv3"]
+[ext_resource type="PackedScene" path="res://scenes/props/gondola_conservas.tscn" id="4_m8wns"]
+[ext_resource type="PackedScene" path="res://scenes/props/supermarket_shelf_128.tscn" id="5_xioqp"]
+[ext_resource type="PackedScene" path="res://scenes/props/freezer_helados.tscn" id="6_o3b7m"]
+[ext_resource type="PackedScene" path="res://scenes/props/freezer_upright_64.tscn" id="7_gdui8"]
+[ext_resource type="PackedScene" path="res://scenes/props/produce_frutas.tscn" id="8_bknqb"]
+[ext_resource type="PackedScene" path="res://scenes/props/produce_citricos.tscn" id="9_6w0rg"]
+[ext_resource type="PackedScene" path="res://scenes/props/produce_tropical.tscn" id="10_jcv3q"]
+[ext_resource type="PackedScene" path="res://scenes/props/checkout.tscn" id="11_rwajf"]
+[ext_resource type="PackedScene" path="res://scenes/props/shopping_carts.tscn" id="12_e3euh"]
+[ext_resource type="PackedScene" path="res://scenes/props/clothes_rack.tscn" id="13_dy7jk"]
+[ext_resource type="PackedScene" path="res://scenes/props/shoes_display.tscn" id="14_13e45"]
+[ext_resource type="PackedScene" path="res://scenes/props/folded_clothes.tscn" id="15_71s1a"]
+[ext_resource type="PackedScene" path="res://scenes/props/fitting_room.tscn" id="16_l2soi"]
+[ext_resource type="PackedScene" path="res://scenes/props/mannequin.tscn" id="17_o7xlg"]
+[ext_resource type="PackedScene" path="res://scenes/props/cinema_seats.tscn" id="18_8sde8"]
+[ext_resource type="PackedScene" path="res://scenes/props/cinema_screen.tscn" id="19_kgi2s"]
+[ext_resource type="PackedScene" path="res://scenes/props/popcorn_counter.tscn" id="20_njdnl"]
+[ext_resource type="PackedScene" path="res://scenes/props/brochure_stand.tscn" id="21_gb6ve"]
+[ext_resource type="PackedScene" path="res://scenes/props/banquito_circular_rojo.tscn" id="22_ttf54"]
+[ext_resource type="PackedScene" path="res://scenes/props/banquito_circular_crema.tscn" id="23_sj2cx"]
+[ext_resource type="PackedScene" path="res://scenes/props/banquito_circular_azul.tscn" id="24_en2a0"]
+[ext_resource type="PackedScene" path="res://scenes/props/escenario_cine_transitable.tscn" id="25_lky1p"]
+[ext_resource type="PackedScene" path="res://scenes/props/panel_acustico_cine.tscn" id="26_6piij"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics.tscn" id="27_w5hya"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_phones_64.tscn" id="28_5xqiw"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_consoles_64.tscn" id="29_vog0i"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_laptops_96.tscn" id="30_4mbpb"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_tv_96.tscn" id="31_c8w1h"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_island_96.tscn" id="32_gj1a7"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_wall_128.tscn" id="33_hhiii"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_tower_64.tscn" id="34_vapmk"]
+[ext_resource type="PackedScene" path="res://scenes/props/electronics_endcap_32.tscn" id="35_fjm58"]
+[ext_resource type="PackedScene" path="res://scenes/props/sofa.tscn" id="36_2tvkh"]
+[ext_resource type="PackedScene" path="res://scenes/props/armchair.tscn" id="37_d7t6s"]
+[ext_resource type="PackedScene" path="res://scenes/props/bed.tscn" id="38_3ysc1"]
+[ext_resource type="PackedScene" path="res://scenes/props/coffee_table.tscn" id="39_h4e8y"]
+[ext_resource type="PackedScene" path="res://scenes/props/dining_display.tscn" id="40_6w1yp"]
+[ext_resource type="PackedScene" path="res://scenes/props/bookcase.tscn" id="41_4idfj"]
+[ext_resource type="PackedScene" path="res://scenes/props/lamp.tscn" id="42_inrpa"]
+[ext_resource type="PackedScene" path="res://scenes/props/rug.tscn" id="43_csjfg"]
+[ext_resource type="PackedScene" path="res://scenes/props/burger_counter.tscn" id="44_2ipnk"]
+[ext_resource type="PackedScene" path="res://scenes/props/kitchen_line.tscn" id="45_0kfqc"]
+[ext_resource type="PackedScene" path="res://scenes/props/dining_table.tscn" id="46_82oni"]
+[ext_resource type="PackedScene" path="res://scenes/props/booth.tscn" id="47_xorm5"]
+[ext_resource type="PackedScene" path="res://scenes/props/drinks_station.tscn" id="48_718p3"]
+[ext_resource type="PackedScene" path="res://scenes/props/water_fountain.tscn" id="49_f0pk3"]
+[ext_resource type="PackedScene" path="res://scenes/props/waste_station.tscn" id="50_21th0"]
+[ext_resource type="PackedScene" path="res://scenes/props/tree_canopy.tscn" id="51_kv6ex"]
+[ext_resource type="PackedScene" path="res://scenes/props/plant_small.tscn" id="52_kij6c"]
+[ext_resource type="PackedScene" path="res://scenes/props/planter_round.tscn" id="53_abj0i"]
+[ext_resource type="PackedScene" path="res://scenes/props/planter_long.tscn" id="54_awjs5"]
+[ext_resource type="PackedScene" path="res://scenes/props/flowerbed.tscn" id="55_qekfc"]
+[ext_resource type="PackedScene" path="res://scenes/props/fountain.tscn" id="56_w1anv"]
+[ext_resource type="PackedScene" path="res://scenes/props/mall_bench.tscn" id="57_f3oxl"]
+[ext_resource type="PackedScene" path="res://scenes/props/information_kiosk.tscn" id="58_78k2s"]
+[ext_resource type="PackedScene" path="res://scenes/props/arcade_cabinet.tscn" id="59_o8mli"]
+[ext_resource type="PackedScene" path="res://scenes/props/arcade_racer.tscn" id="60_mxveu"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_00.tscn" id="61_eyve7"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_01.tscn" id="62_dyud3"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_02.tscn" id="63_vi15g"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_03.tscn" id="64_vpoe7"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_04.tscn" id="65_7xvca"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_05.tscn" id="66_hhemf"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_06.tscn" id="67_sn5uk"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_07.tscn" id="68_c7g5g"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_08.tscn" id="69_8r6nb"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_09.tscn" id="70_13jfo"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_10.tscn" id="71_3rky5"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_11.tscn" id="72_6jgrh"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_12.tscn" id="73_q55ka"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_13.tscn" id="74_al5yq"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_14.tscn" id="75_337pt"]
+[ext_resource type="PackedScene" path="res://scenes/walls/muro_cine_15.tscn" id="76_cv4ja"]
+[ext_resource type="TileSet" path="res://resources/CinePisosDesgaste.tres" id="77_t5an0"]
+[ext_resource type="PackedScene" path="res://scenes/props/tree_canopy_olivo.tscn" id="78_d3mch"]
+[ext_resource type="PackedScene" path="res://scenes/props/plant_helecho.tscn" id="79_rrisd"]
+[ext_resource type="PackedScene" path="res://scenes/props/mall_mural_botanico.tscn" id="80_q1q6h"]
+[ext_resource type="PackedScene" path="res://scenes/props/mall_reloj_pared.tscn" id="81_7xuyb"]
+[ext_resource type="PackedScene" path="res://scenes/props/mall_papeleras_dobles.tscn" id="82_23jll"]
+[ext_resource type="PackedScene" path="res://scenes/props/mall_incrustacion_hoja.tscn" id="83_dxce8"]
+
+[ext_resource type="PackedScene" path="res://scenes/props/water_fountain_relleno.tscn" id="ambient_refill"]
+
+[node name="CatalogoAssets" type="Node2D" unique_id=515279183]
+texture_filter = 1
+metadata/instrucciones = "Abrir en 2D. Seleccionar la raiz de un mueble bajo una categoria, copiar y pegar en Decoracion de Shopping. O arrastrar scenes/props/*.tscn. No copiar las tarjetas ni los rotulos."
+metadata/alto_catalogo = 3800
+
+[node name="Fondo" type="Polygon2D" parent="." unique_id=1418540646]
+z_index = -10
+color = Color(0.14117648, 0.1764706, 0.21960784, 1)
+polygon = PackedVector2Array(0, 0, 1280, 0, 1280, 4300, 0, 4300)
+
+[node name="Titulo" type="Label" parent="." unique_id=1898022309]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 28
+text = "PATOGEN / CATALOGO DE ASSETS"
+
+[node name="Ayuda" type="Label" parent="." unique_id=1043748082]
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 32.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 16
+text = "Copiar el nodo del objeto, o arrastrar su .tscn a Decoracion. Escala 1:1; colisiones incluidas."
+
+[node name="Supermercado" type="Node2D" parent="." unique_id=1520302010]
+position = Vector2(32, 112)
+
+[node name="Titulo" type="Label" parent="Supermercado" unique_id=1543003790]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Supermercado"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Supermercado" unique_id=1875055313]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="gondola_panaderia" type="Node2D" parent="Supermercado" unique_id=1543886274 instance=ExtResource("1_ofcuh")]
+texture_filter = 1
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 87, 37)
+
+[node name="Nombre_00" type="Label" parent="Supermercado" unique_id=107179246]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "gondola panaderia"
+
+[node name="Tipo_00" type="Label" parent="Supermercado" unique_id=1489687532]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Supermercado" unique_id=716541714]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="gondola_desayuno" type="Node2D" parent="Supermercado" unique_id=1343157156 instance=ExtResource("2_gcapn")]
+texture_filter = 1
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 87, 37)
+
+[node name="Nombre_01" type="Label" parent="Supermercado" unique_id=1260148481]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "gondola desayuno"
+
+[node name="Tipo_01" type="Label" parent="Supermercado" unique_id=817004291]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Supermercado" unique_id=704394546]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="gondola_bebidas" type="Node2D" parent="Supermercado" unique_id=97357702 instance=ExtResource("3_w6xv3")]
+texture_filter = 1
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 87, 37)
+
+[node name="Nombre_02" type="Label" parent="Supermercado" unique_id=221410182]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "gondola bebidas"
+
+[node name="Tipo_02" type="Label" parent="Supermercado" unique_id=191648528]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Supermercado" unique_id=716108503]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="gondola_conservas" type="Node2D" parent="Supermercado" unique_id=1885438989 instance=ExtResource("4_m8wns")]
+texture_filter = 1
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 87, 37)
+
+[node name="Nombre_03" type="Label" parent="Supermercado" unique_id=274875080]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "gondola conservas"
+
+[node name="Tipo_03" type="Label" parent="Supermercado" unique_id=1236966772]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Supermercado" unique_id=1851463077]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="supermarket_shelf_128" type="Node2D" parent="Supermercado" unique_id=1226995572 instance=ExtResource("5_xioqp")]
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(128, 64)
+metadata/huella_local = Rect2(4, 5, 119, 53)
+
+[node name="Nombre_04" type="Label" parent="Supermercado" unique_id=433917811]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "supermarket shelf 128"
+
+[node name="Tipo_04" type="Label" parent="Supermercado" unique_id=1518656292]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="Supermercado" unique_id=1283606703]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="freezer_helados" type="Node2D" parent="Supermercado" unique_id=795541286 instance=ExtResource("6_o3b7m")]
+texture_filter = 1
+position = Vector2(10, 212)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 87, 37)
+
+[node name="Nombre_05" type="Label" parent="Supermercado" unique_id=22954248]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "freezer helados"
+
+[node name="Tipo_05" type="Label" parent="Supermercado" unique_id=599858912]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="Supermercado" unique_id=250404445]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="freezer_upright_64" type="Node2D" parent="Supermercado" unique_id=1208055738 instance=ExtResource("7_gdui8")]
+position = Vector2(254, 212)
+metadata/tamano_visual = Vector2(64, 96)
+metadata/huella_local = Rect2(5, 5, 53, 83)
+
+[node name="Nombre_06" type="Label" parent="Supermercado" unique_id=1816995939]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "freezer upright 64"
+
+[node name="Tipo_06" type="Label" parent="Supermercado" unique_id=775665151]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_07" type="Polygon2D" parent="Supermercado" unique_id=569329783]
+z_index = -5
+position = Vector2(484, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="produce_frutas" type="Node2D" parent="Supermercado" unique_id=1108157773 instance=ExtResource("8_bknqb")]
+texture_filter = 1
+position = Vector2(498, 212)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 6, 87, 35)
+
+[node name="Nombre_07" type="Label" parent="Supermercado" unique_id=1366900364]
+offset_left = 492.0
+offset_top = 308.0
+offset_right = 492.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "produce frutas"
+
+[node name="Tipo_07" type="Label" parent="Supermercado" unique_id=2077966914]
+offset_left = 492.0
+offset_top = 327.0
+offset_right = 492.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_08" type="Polygon2D" parent="Supermercado" unique_id=1203453159]
+z_index = -5
+position = Vector2(728, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="produce_citricos" type="Node2D" parent="Supermercado" unique_id=2007637841 instance=ExtResource("9_6w0rg")]
+texture_filter = 1
+position = Vector2(742, 212)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 6, 87, 35)
+
+[node name="Nombre_08" type="Label" parent="Supermercado" unique_id=1569581574]
+offset_left = 736.0
+offset_top = 308.0
+offset_right = 736.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "produce citricos"
+
+[node name="Tipo_08" type="Label" parent="Supermercado" unique_id=794721543]
+offset_left = 736.0
+offset_top = 327.0
+offset_right = 736.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_09" type="Polygon2D" parent="Supermercado" unique_id=514462973]
+z_index = -5
+position = Vector2(972, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="produce_tropical" type="Node2D" parent="Supermercado" unique_id=33566830 instance=ExtResource("10_jcv3q")]
+texture_filter = 1
+position = Vector2(986, 212)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 6, 87, 35)
+
+[node name="Nombre_09" type="Label" parent="Supermercado" unique_id=1591519592]
+offset_left = 980.0
+offset_top = 308.0
+offset_right = 980.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "produce tropical"
+
+[node name="Tipo_09" type="Label" parent="Supermercado" unique_id=413220390]
+offset_left = 980.0
+offset_top = 327.0
+offset_right = 980.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_10" type="Polygon2D" parent="Supermercado" unique_id=616429108]
+z_index = -5
+position = Vector2(-4, 356)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="checkout" type="Node2D" parent="Supermercado" unique_id=1722260427 instance=ExtResource("11_rwajf")]
+position = Vector2(10, 368)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(5, 7, 85, 35)
+
+[node name="Nombre_10" type="Label" parent="Supermercado" unique_id=598894782]
+offset_left = 4.0
+offset_top = 464.0
+offset_right = 4.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "checkout"
+
+[node name="Tipo_10" type="Label" parent="Supermercado" unique_id=1281134663]
+offset_left = 4.0
+offset_top = 483.0
+offset_right = 4.0
+offset_bottom = 483.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_11" type="Polygon2D" parent="Supermercado" unique_id=303863384]
+z_index = -5
+position = Vector2(240, 356)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="shopping_carts" type="Node2D" parent="Supermercado" unique_id=912890116 instance=ExtResource("12_e3euh")]
+position = Vector2(254, 368)
+metadata/tamano_visual = Vector2(64, 48)
+metadata/huella_local = Rect2(4, 6, 54, 35)
+
+[node name="Nombre_11" type="Label" parent="Supermercado" unique_id=1422678456]
+offset_left = 248.0
+offset_top = 464.0
+offset_right = 248.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "shopping carts"
+
+[node name="Tipo_11" type="Label" parent="Supermercado" unique_id=702285989]
+offset_left = 248.0
+offset_top = 483.0
+offset_right = 248.0
+offset_bottom = 483.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Moda" type="Node2D" parent="." unique_id=606695191]
+position = Vector2(32, 644)
+
+[node name="Titulo" type="Label" parent="Moda" unique_id=1528474494]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Moda"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Moda" unique_id=1029170582]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="clothes_rack" type="Node2D" parent="Moda" unique_id=59098532 instance=ExtResource("13_dy7jk")]
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(5, 7, 85, 35)
+
+[node name="Nombre_00" type="Label" parent="Moda" unique_id=310246302]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "clothes rack"
+
+[node name="Tipo_00" type="Label" parent="Moda" unique_id=2106882957]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Moda" unique_id=61563926]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="shoes_display" type="Node2D" parent="Moda" unique_id=1415472959 instance=ExtResource("14_13e45")]
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(64, 48)
+metadata/huella_local = Rect2(5, 7, 53, 35)
+
+[node name="Nombre_01" type="Label" parent="Moda" unique_id=1703374428]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "shoes display"
+
+[node name="Tipo_01" type="Label" parent="Moda" unique_id=1301963280]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Moda" unique_id=1708615914]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="folded_clothes" type="Node2D" parent="Moda" unique_id=1137687409 instance=ExtResource("15_71s1a")]
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(5, 7, 84, 35)
+
+[node name="Nombre_02" type="Label" parent="Moda" unique_id=1439069514]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "folded clothes"
+
+[node name="Tipo_02" type="Label" parent="Moda" unique_id=1447200029]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Moda" unique_id=466699437]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="fitting_room" type="Node2D" parent="Moda" unique_id=123522766 instance=ExtResource("16_l2soi")]
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 6, 53, 68)
+
+[node name="Nombre_03" type="Label" parent="Moda" unique_id=2049644556]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "fitting room"
+
+[node name="Tipo_03" type="Label" parent="Moda" unique_id=1938005904]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Moda" unique_id=1012203538]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="mannequin" type="Node2D" parent="Moda" unique_id=1395620622 instance=ExtResource("17_o7xlg")]
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(32, 48)
+metadata/huella_local = Rect2(7, 7, 18, 37)
+
+[node name="Nombre_04" type="Label" parent="Moda" unique_id=951846986]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "mannequin"
+
+[node name="Tipo_04" type="Label" parent="Moda" unique_id=1255873044]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Cine" type="Node2D" parent="." unique_id=695567586]
+position = Vector2(32, 864)
+
+[node name="Titulo" type="Label" parent="Cine" unique_id=629080933]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Cine"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Cine" unique_id=827806982]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="cinema_seats" type="Node2D" parent="Cine" unique_id=1808918188 instance=ExtResource("18_8sde8")]
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(3, 7, 90, 34)
+
+[node name="Nombre_00" type="Label" parent="Cine" unique_id=1018902367]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "cinema seats"
+
+[node name="Tipo_00" type="Label" parent="Cine" unique_id=684933574]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Cine" unique_id=576572855]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="cinema_screen" type="Node2D" parent="Cine" unique_id=1953741335 instance=ExtResource("19_kgi2s")]
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(160, 32)
+metadata/huella_local = Rect2(3, 3, 154, 24)
+
+[node name="Nombre_01" type="Label" parent="Cine" unique_id=972687668]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "cinema screen"
+
+[node name="Tipo_01" type="Label" parent="Cine" unique_id=454833462]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Cine" unique_id=456141951]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="popcorn_counter" type="Node2D" parent="Cine" unique_id=1023317672 instance=ExtResource("20_njdnl")]
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(4, 5, 88, 53)
+
+[node name="Nombre_02" type="Label" parent="Cine" unique_id=149082484]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "popcorn counter"
+
+[node name="Tipo_02" type="Label" parent="Cine" unique_id=793714874]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Cine" unique_id=1577965193]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="brochure_stand" type="Node2D" parent="Cine" unique_id=77993282 instance=ExtResource("21_gb6ve")]
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(32, 48)
+metadata/huella_local = Rect2(5, 4, 22, 39)
+
+[node name="Nombre_03" type="Label" parent="Cine" unique_id=569343689]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "brochure stand"
+
+[node name="Tipo_03" type="Label" parent="Cine" unique_id=981928187]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Cine" unique_id=1944304266]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="banquito_circular_rojo" type="Node2D" parent="Cine" unique_id=1377067830 instance=ExtResource("22_ttf54")]
+texture_filter = 1
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(5, 5, 22, 22)
+
+[node name="Nombre_04" type="Label" parent="Cine" unique_id=1528658023]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "banquito circular rojo"
+
+[node name="Tipo_04" type="Label" parent="Cine" unique_id=479099209]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="Cine" unique_id=1898769375]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="banquito_circular_crema" type="Node2D" parent="Cine" unique_id=662979261 instance=ExtResource("23_sj2cx")]
+texture_filter = 1
+position = Vector2(10, 212)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(5, 5, 22, 22)
+
+[node name="Nombre_05" type="Label" parent="Cine" unique_id=1554716108]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "banquito circular crema"
+
+[node name="Tipo_05" type="Label" parent="Cine" unique_id=805082350]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="Cine" unique_id=33340000]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="banquito_circular_azul" type="Node2D" parent="Cine" unique_id=1474046911 instance=ExtResource("24_en2a0")]
+texture_filter = 1
+position = Vector2(254, 212)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(5, 5, 22, 22)
+
+[node name="Nombre_06" type="Label" parent="Cine" unique_id=878480461]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "banquito circular azul"
+
+[node name="Tipo_06" type="Label" parent="Cine" unique_id=1784514170]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_07" type="Polygon2D" parent="Cine" unique_id=322322844]
+z_index = -5
+position = Vector2(484, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="escenario_cine_transitable" type="Node2D" parent="Cine" unique_id=1333406426 instance=ExtResource("25_lky1p")]
+texture_filter = 1
+position = Vector2(498, 212)
+metadata/tamano_visual = Vector2(192, 32)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Nombre_07" type="Label" parent="Cine" unique_id=1741186545]
+offset_left = 492.0
+offset_top = 308.0
+offset_right = 492.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "escenario cine transitable"
+
+[node name="Tipo_07" type="Label" parent="Cine" unique_id=642811117]
+offset_left = 492.0
+offset_top = 327.0
+offset_right = 492.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Visual transitable"
+
+[node name="Tarjeta_08" type="Polygon2D" parent="Cine" unique_id=1971292156]
+z_index = -5
+position = Vector2(728, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="panel_acustico_cine" type="Node2D" parent="Cine" unique_id=947086181 instance=ExtResource("26_6piij")]
+texture_filter = 1
+position = Vector2(742, 212)
+metadata/tamano_visual = Vector2(32, 64)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Nombre_08" type="Label" parent="Cine" unique_id=402742385]
+offset_left = 736.0
+offset_top = 308.0
+offset_right = 736.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "panel acustico cine"
+
+[node name="Tipo_08" type="Label" parent="Cine" unique_id=1560251090]
+offset_left = 736.0
+offset_top = 327.0
+offset_right = 736.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Visual transitable"
+
+[node name="Electronica" type="Node2D" parent="." unique_id=42075226]
+position = Vector2(32, 1240)
+
+[node name="Titulo" type="Label" parent="Electronica" unique_id=896985038]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Electronica"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Electronica" unique_id=1234139959]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics" type="Node2D" parent="Electronica" unique_id=481490609 instance=ExtResource("27_w5hya")]
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 86, 37)
+
+[node name="Nombre_00" type="Label" parent="Electronica" unique_id=161394126]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics"
+
+[node name="Tipo_00" type="Label" parent="Electronica" unique_id=1163888475]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Electronica" unique_id=1617920651]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_phones_64" type="Node2D" parent="Electronica" unique_id=1372719662 instance=ExtResource("28_5xqiw")]
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 5, 53, 67)
+
+[node name="Nombre_01" type="Label" parent="Electronica" unique_id=901384244]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics phones 64"
+
+[node name="Tipo_01" type="Label" parent="Electronica" unique_id=5959530]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Electronica" unique_id=618036264]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_consoles_64" type="Node2D" parent="Electronica" unique_id=1309675452 instance=ExtResource("29_vog0i")]
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 5, 53, 67)
+
+[node name="Nombre_02" type="Label" parent="Electronica" unique_id=777455708]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics consoles 64"
+
+[node name="Tipo_02" type="Label" parent="Electronica" unique_id=1723224178]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Electronica" unique_id=418825634]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_laptops_96" type="Node2D" parent="Electronica" unique_id=824269283 instance=ExtResource("30_4mbpb")]
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(5, 5, 85, 67)
+
+[node name="Nombre_03" type="Label" parent="Electronica" unique_id=369402406]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics laptops 96"
+
+[node name="Tipo_03" type="Label" parent="Electronica" unique_id=957149708]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Electronica" unique_id=1729686356]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_tv_96" type="Node2D" parent="Electronica" unique_id=104045162 instance=ExtResource("31_c8w1h")]
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(5, 5, 85, 67)
+
+[node name="Nombre_04" type="Label" parent="Electronica" unique_id=2123209957]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics tv 96"
+
+[node name="Tipo_04" type="Label" parent="Electronica" unique_id=1119210915]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="Electronica" unique_id=2094609194]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_island_96" type="Node2D" parent="Electronica" unique_id=1533825610 instance=ExtResource("32_gj1a7")]
+position = Vector2(10, 212)
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(5, 9, 85, 47)
+
+[node name="Nombre_05" type="Label" parent="Electronica" unique_id=514211725]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics island 96"
+
+[node name="Tipo_05" type="Label" parent="Electronica" unique_id=2012933880]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="Electronica" unique_id=120052351]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_wall_128" type="Node2D" parent="Electronica" unique_id=1607559767 instance=ExtResource("33_hhiii")]
+position = Vector2(254, 212)
+metadata/tamano_visual = Vector2(128, 64)
+metadata/huella_local = Rect2(5, 5, 117, 51)
+
+[node name="Nombre_06" type="Label" parent="Electronica" unique_id=2029107318]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics wall 128"
+
+[node name="Tipo_06" type="Label" parent="Electronica" unique_id=978205109]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_07" type="Polygon2D" parent="Electronica" unique_id=2008556154]
+z_index = -5
+position = Vector2(484, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_tower_64" type="Node2D" parent="Electronica" unique_id=2086373354 instance=ExtResource("34_vapmk")]
+position = Vector2(498, 212)
+metadata/tamano_visual = Vector2(64, 96)
+metadata/huella_local = Rect2(5, 5, 53, 83)
+
+[node name="Nombre_07" type="Label" parent="Electronica" unique_id=256319448]
+offset_left = 492.0
+offset_top = 308.0
+offset_right = 492.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics tower 64"
+
+[node name="Tipo_07" type="Label" parent="Electronica" unique_id=149451342]
+offset_left = 492.0
+offset_top = 327.0
+offset_right = 492.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_08" type="Polygon2D" parent="Electronica" unique_id=1569096102]
+z_index = -5
+position = Vector2(728, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="electronics_endcap_32" type="Node2D" parent="Electronica" unique_id=1511007993 instance=ExtResource("35_fjm58")]
+position = Vector2(742, 212)
+metadata/tamano_visual = Vector2(32, 64)
+metadata/huella_local = Rect2(4, 5, 24, 51)
+
+[node name="Nombre_08" type="Label" parent="Electronica" unique_id=985411272]
+offset_left = 736.0
+offset_top = 308.0
+offset_right = 736.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "electronics endcap 32"
+
+[node name="Tipo_08" type="Label" parent="Electronica" unique_id=1166978193]
+offset_left = 736.0
+offset_top = 327.0
+offset_right = 736.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Muebles" type="Node2D" parent="." unique_id=1567684437]
+position = Vector2(32, 1616)
+
+[node name="Titulo" type="Label" parent="Muebles" unique_id=820772773]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Muebles"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Muebles" unique_id=505570482]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="sofa" type="Node2D" parent="Muebles" unique_id=1035908340 instance=ExtResource("36_2tvkh")]
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(5, 9, 85, 47)
+
+[node name="Nombre_00" type="Label" parent="Muebles" unique_id=1876676415]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "sofa"
+
+[node name="Tipo_00" type="Label" parent="Muebles" unique_id=251464031]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Muebles" unique_id=1876979826]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="armchair" type="Node2D" parent="Muebles" unique_id=1631398177 instance=ExtResource("37_d7t6s")]
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(48, 48)
+metadata/huella_local = Rect2(5, 6, 36, 34)
+
+[node name="Nombre_01" type="Label" parent="Muebles" unique_id=428242940]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "armchair"
+
+[node name="Tipo_01" type="Label" parent="Muebles" unique_id=277453526]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Muebles" unique_id=314904848]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="bed" type="Node2D" parent="Muebles" unique_id=1673836832 instance=ExtResource("38_3ysc1")]
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(96, 96)
+metadata/huella_local = Rect2(7, 5, 81, 82)
+
+[node name="Nombre_02" type="Label" parent="Muebles" unique_id=203940864]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "bed"
+
+[node name="Tipo_02" type="Label" parent="Muebles" unique_id=667894977]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Muebles" unique_id=74844665]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="coffee_table" type="Node2D" parent="Muebles" unique_id=982023147 instance=ExtResource("39_h4e8y")]
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(64, 48)
+metadata/huella_local = Rect2(6, 8, 51, 32)
+
+[node name="Nombre_03" type="Label" parent="Muebles" unique_id=1565642055]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "coffee table"
+
+[node name="Tipo_03" type="Label" parent="Muebles" unique_id=1875269423]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Muebles" unique_id=2081973694]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="dining_display" type="Node2D" parent="Muebles" unique_id=1717790481 instance=ExtResource("40_6w1yp")]
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(5, 4, 85, 67)
+
+[node name="Nombre_04" type="Label" parent="Muebles" unique_id=1357501226]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "dining display"
+
+[node name="Tipo_04" type="Label" parent="Muebles" unique_id=2103832381]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="Muebles" unique_id=859887507]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="bookcase" type="Node2D" parent="Muebles" unique_id=1654657486 instance=ExtResource("41_4idfj")]
+position = Vector2(10, 212)
+metadata/tamano_visual = Vector2(64, 80)
+metadata/huella_local = Rect2(5, 5, 53, 67)
+
+[node name="Nombre_05" type="Label" parent="Muebles" unique_id=844346723]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "bookcase"
+
+[node name="Tipo_05" type="Label" parent="Muebles" unique_id=788955296]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="Muebles" unique_id=764577844]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="lamp" type="Node2D" parent="Muebles" unique_id=798089222 instance=ExtResource("42_inrpa")]
+position = Vector2(254, 212)
+metadata/tamano_visual = Vector2(32, 48)
+metadata/huella_local = Rect2(5, 6, 23, 34)
+
+[node name="Nombre_06" type="Label" parent="Muebles" unique_id=1063061733]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "lamp"
+
+[node name="Tipo_06" type="Label" parent="Muebles" unique_id=1034096523]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_07" type="Polygon2D" parent="Muebles" unique_id=2122776675]
+z_index = -5
+position = Vector2(484, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="rug" type="Node2D" parent="Muebles" unique_id=1670300599 instance=ExtResource("43_csjfg")]
+position = Vector2(498, 212)
+metadata/tamano_visual = Vector2(96, 96)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+
+[node name="Nombre_07" type="Label" parent="Muebles" unique_id=224814626]
+offset_left = 492.0
+offset_top = 308.0
+offset_right = 492.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "rug"
+
+[node name="Tipo_07" type="Label" parent="Muebles" unique_id=1140248541]
+offset_left = 492.0
+offset_top = 327.0
+offset_right = 492.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Visual transitable"
+
+[node name="Gastronomia" type="Node2D" parent="." unique_id=657406221]
+position = Vector2(32, 1992)
+
+[node name="Titulo" type="Label" parent="Gastronomia" unique_id=1288721081]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Gastronomia"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Gastronomia" unique_id=1621633720]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="burger_counter" type="Node2D" parent="Gastronomia" unique_id=1778231828 instance=ExtResource("44_2ipnk")]
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(160, 64)
+metadata/huella_local = Rect2(3, 6, 154, 52)
+
+[node name="Nombre_00" type="Label" parent="Gastronomia" unique_id=219504511]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "burger counter"
+
+[node name="Tipo_00" type="Label" parent="Gastronomia" unique_id=1957739964]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Gastronomia" unique_id=346126589]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="kitchen_line" type="Node2D" parent="Gastronomia" unique_id=1203793627 instance=ExtResource("45_0kfqc")]
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(160, 64)
+metadata/huella_local = Rect2(3, 5, 154, 53)
+
+[node name="Nombre_01" type="Label" parent="Gastronomia" unique_id=1508048327]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "kitchen line"
+
+[node name="Tipo_01" type="Label" parent="Gastronomia" unique_id=592745241]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Gastronomia" unique_id=112187593]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="dining_table" type="Node2D" parent="Gastronomia" unique_id=1162070 instance=ExtResource("46_82oni")]
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(80, 80)
+metadata/huella_local = Rect2(4, 4, 72, 72)
+
+[node name="Nombre_02" type="Label" parent="Gastronomia" unique_id=2033861898]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "dining table"
+
+[node name="Tipo_02" type="Label" parent="Gastronomia" unique_id=1426901024]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Gastronomia" unique_id=2040877870]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="booth" type="Node2D" parent="Gastronomia" unique_id=2055225864 instance=ExtResource("47_xorm5")]
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(3, 4, 90, 54)
+
+[node name="Nombre_03" type="Label" parent="Gastronomia" unique_id=1273086178]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "booth"
+
+[node name="Tipo_03" type="Label" parent="Gastronomia" unique_id=1336551236]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Gastronomia" unique_id=568979820]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="drinks_station" type="Node2D" parent="Gastronomia" unique_id=1353748248 instance=ExtResource("48_718p3")]
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(64, 64)
+metadata/huella_local = Rect2(4, 6, 56, 51)
+
+[node name="Nombre_04" type="Label" parent="Gastronomia" unique_id=592835080]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "drinks station"
+
+[node name="Tipo_04" type="Label" parent="Gastronomia" unique_id=1086746570]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="Gastronomia" unique_id=1979207435]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="water_fountain" type="Node2D" parent="Gastronomia" unique_id=1631475603 instance=ExtResource("49_f0pk3")]
+position = Vector2(10, 212)
+metadata/tamano_visual = Vector2(48, 48)
+metadata/huella_local = Rect2(6, 3, 36, 41)
+
+[node name="Nombre_05" type="Label" parent="Gastronomia" unique_id=1636537351]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "water fountain"
+
+[node name="Tipo_05" type="Label" parent="Gastronomia" unique_id=1159419378]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="Gastronomia" unique_id=1374294525]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="waste_station" type="Node2D" parent="Gastronomia" unique_id=492017715 instance=ExtResource("50_21th0")]
+position = Vector2(254, 212)
+metadata/tamano_visual = Vector2(64, 48)
+metadata/huella_local = Rect2(5, 4, 54, 40)
+
+[node name="Nombre_06" type="Label" parent="Gastronomia" unique_id=465933682]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "waste station"
+
+[node name="Tipo_06" type="Label" parent="Gastronomia" unique_id=809271705]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Verde_y_espacios_comunes" type="Node2D" parent="." unique_id=1770336806]
+position = Vector2(32, 2368)
+
+[node name="Titulo" type="Label" parent="Verde_y_espacios_comunes" unique_id=1981193420]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Verde y espacios comunes"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=492385753]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="tree_canopy" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=852134351 instance=ExtResource("51_kv6ex")]
+position = Vector2(10, 56)
+metadata/tamano_visual = Vector2(96, 96)
+metadata/huella_local = Rect2(22, 25, 52, 50)
+
+[node name="Nombre_00" type="Label" parent="Verde_y_espacios_comunes" unique_id=608575249]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "tree canopy"
+
+[node name="Tipo_00" type="Label" parent="Verde_y_espacios_comunes" unique_id=1798514691]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=1011528296]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="plant_small" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=664377670 instance=ExtResource("52_kij6c")]
+position = Vector2(254, 56)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(6, 7, 20, 20)
+
+[node name="Nombre_01" type="Label" parent="Verde_y_espacios_comunes" unique_id=410836504]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "plant small"
+
+[node name="Tipo_01" type="Label" parent="Verde_y_espacios_comunes" unique_id=722953926]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=546971426]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="planter_round" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=28246870 instance=ExtResource("53_abj0i")]
+position = Vector2(498, 56)
+metadata/tamano_visual = Vector2(64, 64)
+metadata/huella_local = Rect2(8, 8, 48, 48)
+
+[node name="Nombre_02" type="Label" parent="Verde_y_espacios_comunes" unique_id=1912919062]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "planter round"
+
+[node name="Tipo_02" type="Label" parent="Verde_y_espacios_comunes" unique_id=1035548097]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=1871968206]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="planter_long" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=762150340 instance=ExtResource("54_awjs5")]
+position = Vector2(742, 56)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(3, 5, 90, 38)
+
+[node name="Nombre_03" type="Label" parent="Verde_y_espacios_comunes" unique_id=2015114230]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "planter long"
+
+[node name="Tipo_03" type="Label" parent="Verde_y_espacios_comunes" unique_id=1615136202]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=395233074]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="flowerbed" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=1891834050 instance=ExtResource("55_qekfc")]
+position = Vector2(986, 56)
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(4, 7, 88, 50)
+
+[node name="Nombre_04" type="Label" parent="Verde_y_espacios_comunes" unique_id=1040193285]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "flowerbed"
+
+[node name="Tipo_04" type="Label" parent="Verde_y_espacios_comunes" unique_id=479415032]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=1674118870]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="fountain" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=814979731 instance=ExtResource("56_w1anv")]
+position = Vector2(10, 212)
+metadata/tamano_visual = Vector2(128, 96)
+metadata/huella_local = Rect2(5, 6, 118, 82)
+
+[node name="Nombre_05" type="Label" parent="Verde_y_espacios_comunes" unique_id=608139407]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "fountain"
+
+[node name="Tipo_05" type="Label" parent="Verde_y_espacios_comunes" unique_id=1048516756]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=566027915]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="mall_bench" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=272961264 instance=ExtResource("57_f3oxl")]
+position = Vector2(254, 212)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(6, 8, 84, 32)
+
+[node name="Nombre_06" type="Label" parent="Verde_y_espacios_comunes" unique_id=673939108]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "mall bench"
+
+[node name="Tipo_06" type="Label" parent="Verde_y_espacios_comunes" unique_id=710129205]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_07" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=1626344940]
+z_index = -5
+position = Vector2(484, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="information_kiosk" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=1369357198 instance=ExtResource("58_78k2s")]
+position = Vector2(498, 212)
+metadata/tamano_visual = Vector2(64, 64)
+metadata/huella_local = Rect2(7, 5, 50, 53)
+
+[node name="Nombre_07" type="Label" parent="Verde_y_espacios_comunes" unique_id=1896533899]
+offset_left = 492.0
+offset_top = 308.0
+offset_right = 492.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "information kiosk"
+
+[node name="Tipo_07" type="Label" parent="Verde_y_espacios_comunes" unique_id=1988369717]
+offset_left = 492.0
+offset_top = 327.0
+offset_right = 492.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_08" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=253934360]
+z_index = -5
+position = Vector2(728, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="arcade_cabinet" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=130506209 instance=ExtResource("59_o8mli")]
+position = Vector2(742, 212)
+metadata/tamano_visual = Vector2(48, 64)
+metadata/huella_local = Rect2(4, 7, 40, 51)
+
+[node name="Nombre_08" type="Label" parent="Verde_y_espacios_comunes" unique_id=1468546579]
+offset_left = 736.0
+offset_top = 308.0
+offset_right = 736.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "arcade cabinet"
+
+[node name="Tipo_08" type="Label" parent="Verde_y_espacios_comunes" unique_id=1082194459]
+offset_left = 736.0
+offset_top = 327.0
+offset_right = 736.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_09" type="Polygon2D" parent="Verde_y_espacios_comunes" unique_id=830548301]
+z_index = -5
+position = Vector2(972, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="arcade_racer" type="Node2D" parent="Verde_y_espacios_comunes" unique_id=2038368751 instance=ExtResource("60_mxveu")]
+position = Vector2(986, 212)
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(4, 5, 88, 70)
+
+[node name="Nombre_09" type="Label" parent="Verde_y_espacios_comunes" unique_id=804687964]
+offset_left = 980.0
+offset_top = 308.0
+offset_right = 980.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "arcade racer"
+
+[node name="Tipo_09" type="Label" parent="Verde_y_espacios_comunes" unique_id=606943490]
+offset_left = 980.0
+offset_top = 327.0
+offset_right = 980.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="ParedesCine" type="Node2D" parent="." unique_id=366002233]
+position = Vector2(32, 2744)
+
+[node name="Titulo" type="Label" parent="ParedesCine" unique_id=1453078311]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "Paredes con colision / 16 conexiones"
+
+[node name="Muro_00" type="Node2D" parent="ParedesCine" unique_id=1182746398 instance=ExtResource("61_eyve7")]
+texture_filter = 1
+position = Vector2(0, 48)
+
+[node name="Nombre_0" type="Label" parent="ParedesCine" unique_id=2043012040]
+offset_top = 84.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 00"
+
+[node name="Muro_01" type="Node2D" parent="ParedesCine" unique_id=1840054745 instance=ExtResource("62_dyud3")]
+texture_filter = 1
+position = Vector2(140, 48)
+
+[node name="Nombre_1" type="Label" parent="ParedesCine" unique_id=586141877]
+offset_left = 140.0
+offset_top = 84.0
+offset_right = 140.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 01"
+
+[node name="Muro_02" type="Node2D" parent="ParedesCine" unique_id=1860981929 instance=ExtResource("63_vi15g")]
+texture_filter = 1
+position = Vector2(280, 48)
+
+[node name="Nombre_2" type="Label" parent="ParedesCine" unique_id=1228293384]
+offset_left = 280.0
+offset_top = 84.0
+offset_right = 280.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 02"
+
+[node name="Muro_03" type="Node2D" parent="ParedesCine" unique_id=347103798 instance=ExtResource("64_vpoe7")]
+texture_filter = 1
+position = Vector2(420, 48)
+
+[node name="Nombre_3" type="Label" parent="ParedesCine" unique_id=1686572676]
+offset_left = 420.0
+offset_top = 84.0
+offset_right = 420.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 03"
+
+[node name="Muro_04" type="Node2D" parent="ParedesCine" unique_id=104962347 instance=ExtResource("65_7xvca")]
+texture_filter = 1
+position = Vector2(560, 48)
+
+[node name="Nombre_4" type="Label" parent="ParedesCine" unique_id=602577131]
+offset_left = 560.0
+offset_top = 84.0
+offset_right = 560.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 04"
+
+[node name="Muro_05" type="Node2D" parent="ParedesCine" unique_id=1818484691 instance=ExtResource("66_hhemf")]
+texture_filter = 1
+position = Vector2(700, 48)
+
+[node name="Nombre_5" type="Label" parent="ParedesCine" unique_id=657833226]
+offset_left = 700.0
+offset_top = 84.0
+offset_right = 700.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 05"
+
+[node name="Muro_06" type="Node2D" parent="ParedesCine" unique_id=1245936644 instance=ExtResource("67_sn5uk")]
+texture_filter = 1
+position = Vector2(840, 48)
+
+[node name="Nombre_6" type="Label" parent="ParedesCine" unique_id=1787800716]
+offset_left = 840.0
+offset_top = 84.0
+offset_right = 840.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 06"
+
+[node name="Muro_07" type="Node2D" parent="ParedesCine" unique_id=1768452983 instance=ExtResource("68_c7g5g")]
+texture_filter = 1
+position = Vector2(980, 48)
+
+[node name="Nombre_7" type="Label" parent="ParedesCine" unique_id=1694578256]
+offset_left = 980.0
+offset_top = 84.0
+offset_right = 980.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 07"
+
+[node name="Muro_08" type="Node2D" parent="ParedesCine" unique_id=41423705 instance=ExtResource("69_8r6nb")]
+texture_filter = 1
+position = Vector2(0, 124)
+
+[node name="Nombre_8" type="Label" parent="ParedesCine" unique_id=2137882650]
+offset_top = 160.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 08"
+
+[node name="Muro_09" type="Node2D" parent="ParedesCine" unique_id=1619842723 instance=ExtResource("70_13jfo")]
+texture_filter = 1
+position = Vector2(140, 124)
+
+[node name="Nombre_9" type="Label" parent="ParedesCine" unique_id=1378626969]
+offset_left = 140.0
+offset_top = 160.0
+offset_right = 140.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 09"
+
+[node name="Muro_10" type="Node2D" parent="ParedesCine" unique_id=1794883829 instance=ExtResource("71_3rky5")]
+texture_filter = 1
+position = Vector2(280, 124)
+
+[node name="Nombre_10" type="Label" parent="ParedesCine" unique_id=609222746]
+offset_left = 280.0
+offset_top = 160.0
+offset_right = 280.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 10"
+
+[node name="Muro_11" type="Node2D" parent="ParedesCine" unique_id=1126645272 instance=ExtResource("72_6jgrh")]
+texture_filter = 1
+position = Vector2(420, 124)
+
+[node name="Nombre_11" type="Label" parent="ParedesCine" unique_id=2025157998]
+offset_left = 420.0
+offset_top = 160.0
+offset_right = 420.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 11"
+
+[node name="Muro_12" type="Node2D" parent="ParedesCine" unique_id=822743505 instance=ExtResource("73_q55ka")]
+texture_filter = 1
+position = Vector2(560, 124)
+
+[node name="Nombre_12" type="Label" parent="ParedesCine" unique_id=2071418816]
+offset_left = 560.0
+offset_top = 160.0
+offset_right = 560.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 12"
+
+[node name="Muro_13" type="Node2D" parent="ParedesCine" unique_id=160828215 instance=ExtResource("74_al5yq")]
+texture_filter = 1
+position = Vector2(700, 124)
+
+[node name="Nombre_13" type="Label" parent="ParedesCine" unique_id=26159861]
+offset_left = 700.0
+offset_top = 160.0
+offset_right = 700.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 13"
+
+[node name="Muro_14" type="Node2D" parent="ParedesCine" unique_id=1858456568 instance=ExtResource("75_337pt")]
+texture_filter = 1
+position = Vector2(840, 124)
+
+[node name="Nombre_14" type="Label" parent="ParedesCine" unique_id=1915415089]
+offset_left = 840.0
+offset_top = 160.0
+offset_right = 840.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 14"
+
+[node name="Muro_15" type="Node2D" parent="ParedesCine" unique_id=1653479857 instance=ExtResource("76_cv4ja")]
+texture_filter = 1
+position = Vector2(980, 124)
+
+[node name="Nombre_15" type="Label" parent="ParedesCine" unique_id=1906735015]
+offset_left = 980.0
+offset_top = 160.0
+offset_right = 980.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "muro 15"
+
+[node name="PisosTitulo" type="Label" parent="." unique_id=11706535]
+offset_left = 32.0
+offset_top = 2976.0
+offset_right = 32.0
+offset_bottom = 2976.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 20
+text = "Alfombras y suciedad: usar CinePisosDesgaste.tres en un TileMapLayer"
+
+[node name="MuestrasPisos" type="TileMapLayer" parent="." unique_id=1060489440]
+position = Vector2(32, 3024)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAFAAAAAAAFAAAAAAAGAAAAAAAGAAAAAAAHAAAAAAAHAAAAAAAIAAAAAAAIAAAAAAAJAAAAAAAJAAAAAAAKAAAAAAAKAAAAAAALAAAAAAALAAAAAAAMAAAAAAAMAAAAAAANAAAAAAANAAAAAAAOAAAAAAAOAAAAAAAPAAAAAAAPAAAAAAAAAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAAACAAEAAAADAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAFAAEAAAAFAAEAAAAGAAEAAAAGAAEAAAAHAAEAAAAHAAEAAAAIAAEAAAAIAAEAAAAJAAEAAAAJAAEAAAAKAAEAAAAKAAEAAAALAAEAAAALAAEAAAAMAAEAAAAMAAEAAAANAAEAAAANAAEAAAAOAAEAAAAOAAEAAAAPAAEAAAAPAAEAAAAAAAIAAAAAAAIAAAABAAIAAAABAAIAAAACAAIAAAACAAIAAAADAAIAAAADAAIAAAAEAAIAAAAEAAIAAAAFAAIAAAAFAAIAAAAGAAIAAAAGAAIAAAAHAAIAAAAHAAIAAAAIAAIAAAAIAAIAAAAJAAIAAAAJAAIAAAAKAAIAAAAKAAIAAAALAAIAAAALAAIAAAAMAAIAAAAMAAIAAAANAAIAAAANAAIAAAAOAAIAAAAOAAIAAAAPAAIAAAAPAAIAAAAAAAMAAAAAAAMAAAABAAMAAAABAAMAAAACAAMAAAACAAMAAAADAAMAAAADAAMAAAAEAAMAAAAEAAMAAAAFAAMAAAAFAAMAAAAGAAMAAAAGAAMAAAAHAAMAAAAHAAMAAAAIAAMAAAAIAAMAAAAJAAMAAAAJAAMAAAAKAAMAAAAKAAMAAAALAAMAAAALAAMAAAAMAAMAAAAMAAMAAAANAAMAAAANAAMAAAAOAAMAAAAOAAMAAAAPAAMAAAAPAAMAAAA=")
+tile_set = ExtResource("77_t5an0")
+
+[node name="NovedadesVegetacion" type="Node2D" parent="." unique_id=1865849873]
+position = Vector2(32, 3220)
+
+[node name="Titulo" type="Label" parent="NovedadesVegetacion" unique_id=1376461301]
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 24
+text = "VEGETACION / VARIANTES Y DECORACION"
+
+[node name="Tarjeta_00" type="Polygon2D" parent="NovedadesVegetacion" unique_id=497073007]
+z_index = -5
+position = Vector2(-4, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="tree_canopy" type="Node2D" parent="NovedadesVegetacion" unique_id=820493414 instance=ExtResource("51_kv6ex")]
+position = Vector2(10, 52)
+metadata/tamano_visual = Vector2(96, 96)
+metadata/huella_local = Rect2(22, 25, 52, 50)
+
+[node name="Nombre_00" type="Label" parent="NovedadesVegetacion" unique_id=1356488798]
+offset_left = 4.0
+offset_top = 152.0
+offset_right = 4.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "tree canopy"
+
+[node name="Tipo_00" type="Label" parent="NovedadesVegetacion" unique_id=1013769181]
+offset_left = 4.0
+offset_top = 171.0
+offset_right = 4.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_01" type="Polygon2D" parent="NovedadesVegetacion" unique_id=82069102]
+z_index = -5
+position = Vector2(240, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="tree_canopy_olivo" type="Node2D" parent="NovedadesVegetacion" unique_id=406469093 instance=ExtResource("78_d3mch")]
+texture_filter = 1
+position = Vector2(254, 52)
+metadata/tamano_visual = Vector2(96, 96)
+metadata/huella_local = Rect2(22, 25, 52, 50)
+
+[node name="Nombre_01" type="Label" parent="NovedadesVegetacion" unique_id=974758167]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "tree canopy olivo"
+
+[node name="Tipo_01" type="Label" parent="NovedadesVegetacion" unique_id=1176905841]
+offset_left = 248.0
+offset_top = 171.0
+offset_right = 248.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_02" type="Polygon2D" parent="NovedadesVegetacion" unique_id=1661683015]
+z_index = -5
+position = Vector2(484, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="plant_small" type="Node2D" parent="NovedadesVegetacion" unique_id=280565890 instance=ExtResource("52_kij6c")]
+position = Vector2(498, 52)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(6, 7, 20, 20)
+
+[node name="Nombre_02" type="Label" parent="NovedadesVegetacion" unique_id=310259841]
+offset_left = 492.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "plant small"
+
+[node name="Tipo_02" type="Label" parent="NovedadesVegetacion" unique_id=1550186886]
+offset_left = 492.0
+offset_top = 171.0
+offset_right = 492.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_03" type="Polygon2D" parent="NovedadesVegetacion" unique_id=66253257]
+z_index = -5
+position = Vector2(728, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="plant_helecho" type="Node2D" parent="NovedadesVegetacion" unique_id=1405776771 instance=ExtResource("79_rrisd")]
+texture_filter = 1
+position = Vector2(742, 52)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(6, 7, 20, 20)
+
+[node name="Nombre_03" type="Label" parent="NovedadesVegetacion" unique_id=430845937]
+offset_left = 736.0
+offset_top = 152.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "plant helecho"
+
+[node name="Tipo_03" type="Label" parent="NovedadesVegetacion" unique_id=1300608887]
+offset_left = 736.0
+offset_top = 171.0
+offset_right = 736.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_04" type="Polygon2D" parent="NovedadesVegetacion" unique_id=601174992]
+z_index = -5
+position = Vector2(972, 44)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="planter_round" type="Node2D" parent="NovedadesVegetacion" unique_id=1810743625 instance=ExtResource("53_abj0i")]
+position = Vector2(986, 52)
+metadata/tamano_visual = Vector2(64, 64)
+metadata/huella_local = Rect2(8, 8, 48, 48)
+
+[node name="Nombre_04" type="Label" parent="NovedadesVegetacion" unique_id=2083257739]
+offset_left = 980.0
+offset_top = 152.0
+offset_right = 980.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "planter round"
+
+[node name="Tipo_04" type="Label" parent="NovedadesVegetacion" unique_id=970489714]
+offset_left = 980.0
+offset_top = 171.0
+offset_right = 980.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_05" type="Polygon2D" parent="NovedadesVegetacion" unique_id=857623986]
+z_index = -5
+position = Vector2(-4, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="planter_long" type="Node2D" parent="NovedadesVegetacion" unique_id=343431343 instance=ExtResource("54_awjs5")]
+position = Vector2(10, 208)
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(3, 5, 90, 38)
+
+[node name="Nombre_05" type="Label" parent="NovedadesVegetacion" unique_id=1998960159]
+offset_left = 4.0
+offset_top = 308.0
+offset_right = 4.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "planter long"
+
+[node name="Tipo_05" type="Label" parent="NovedadesVegetacion" unique_id=1451184418]
+offset_left = 4.0
+offset_top = 327.0
+offset_right = 4.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_06" type="Polygon2D" parent="NovedadesVegetacion" unique_id=1747157728]
+z_index = -5
+position = Vector2(240, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="flowerbed" type="Node2D" parent="NovedadesVegetacion" unique_id=798522667 instance=ExtResource("55_qekfc")]
+position = Vector2(254, 208)
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(4, 7, 88, 50)
+
+[node name="Nombre_06" type="Label" parent="NovedadesVegetacion" unique_id=355727543]
+offset_left = 248.0
+offset_top = 308.0
+offset_right = 248.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "flowerbed"
+
+[node name="Tipo_06" type="Label" parent="NovedadesVegetacion" unique_id=1772064446]
+offset_left = 248.0
+offset_top = 327.0
+offset_right = 248.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_07" type="Polygon2D" parent="NovedadesVegetacion" unique_id=803143550]
+z_index = -5
+position = Vector2(484, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="mall_mural_botanico" type="Node2D" parent="NovedadesVegetacion" unique_id=603525339 instance=ExtResource("80_q1q6h")]
+texture_filter = 1
+position = Vector2(498, 208)
+metadata/tamano_visual = Vector2(96, 32)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Nombre_07" type="Label" parent="NovedadesVegetacion" unique_id=724307627]
+offset_left = 492.0
+offset_top = 308.0
+offset_right = 492.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "mall mural botanico"
+
+[node name="Tipo_07" type="Label" parent="NovedadesVegetacion" unique_id=1887024884]
+offset_left = 492.0
+offset_top = 327.0
+offset_right = 492.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Solo decoracion / transitable"
+
+[node name="Tarjeta_08" type="Polygon2D" parent="NovedadesVegetacion" unique_id=1763908445]
+z_index = -5
+position = Vector2(728, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="mall_reloj_pared" type="Node2D" parent="NovedadesVegetacion" unique_id=1864868805 instance=ExtResource("81_7xuyb")]
+texture_filter = 1
+position = Vector2(742, 208)
+metadata/tamano_visual = Vector2(32, 32)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Nombre_08" type="Label" parent="NovedadesVegetacion" unique_id=1112648501]
+offset_left = 736.0
+offset_top = 308.0
+offset_right = 736.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "mall reloj pared"
+
+[node name="Tipo_08" type="Label" parent="NovedadesVegetacion" unique_id=633538861]
+offset_left = 736.0
+offset_top = 327.0
+offset_right = 736.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Solo decoracion / transitable"
+
+[node name="Tarjeta_09" type="Polygon2D" parent="NovedadesVegetacion" unique_id=1767219688]
+z_index = -5
+position = Vector2(972, 200)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="mall_papeleras_dobles" type="Node2D" parent="NovedadesVegetacion" unique_id=1983078881 instance=ExtResource("82_23jll")]
+texture_filter = 1
+position = Vector2(986, 208)
+metadata/tamano_visual = Vector2(48, 48)
+metadata/huella_local = Rect2(4, 8, 40, 32)
+
+[node name="Nombre_09" type="Label" parent="NovedadesVegetacion" unique_id=2119218818]
+offset_left = 980.0
+offset_top = 308.0
+offset_right = 980.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "mall papeleras dobles"
+
+[node name="Tipo_09" type="Label" parent="NovedadesVegetacion" unique_id=1175060961]
+offset_left = 980.0
+offset_top = 327.0
+offset_right = 980.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Escena con colision"
+
+[node name="Tarjeta_10" type="Polygon2D" parent="NovedadesVegetacion" unique_id=665199705]
+z_index = -5
+position = Vector2(-4, 356)
+color = Color(0.20784314, 0.25490198, 0.30588236, 1)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 144, 0, 144)
+
+[node name="mall_incrustacion_hoja" type="Node2D" parent="NovedadesVegetacion" unique_id=483414788 instance=ExtResource("83_dxce8")]
+texture_filter = 1
+position = Vector2(10, 364)
+metadata/tamano_visual = Vector2(64, 64)
+metadata/huella_local = Rect2(0, 0, 0, 0)
+metadata/solo_visual = true
+
+[node name="Nombre_10" type="Label" parent="NovedadesVegetacion" unique_id=2104743052]
+offset_left = 4.0
+offset_top = 464.0
+offset_right = 4.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "mall incrustacion hoja"
+
+[node name="Tipo_10" type="Label" parent="NovedadesVegetacion" unique_id=77067743]
+offset_left = 4.0
+offset_top = 483.0
+offset_right = 4.0
+offset_bottom = 483.0
+theme_override_colors/font_color = Color(0.9019608, 0.90588236, 0.8745098, 1)
+theme_override_font_sizes/font_size = 12
+text = "Solo decoracion / transitable"
+
+[node name="BebederoRelleno" parent="NovedadesVegetacion" instance=ExtResource("ambient_refill")]
+position = Vector2(254, 364)
+
+[node name="RotuloBebederoRelleno" type="Label" parent="NovedadesVegetacion"]
+offset_left = 248.0
+offset_top = 464.0
+text = "Bebedero / rellenado de botella"
+theme_override_font_sizes/font_size = 13
+
+[node name="NotaAnimaciones" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 3788.0
+text = "Vegetacion, fuente, bebederos y arcades: animacion automatica al ejecutar."
+theme_override_font_sizes/font_size = 15

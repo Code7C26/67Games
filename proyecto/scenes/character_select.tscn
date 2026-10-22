@@ -1,0 +1,569 @@
+[gd_scene format=3 uid="uid://d2rbpw4djdm83"]
+
+[ext_resource type="Texture2D" uid="uid://dloukwn3by6ti" path="res://assets/Fondo seleccion.jpg" id="1_bow2h"]
+[ext_resource type="Texture2D" uid="uid://b2483ei8ym65v" path="res://assets/Silueta oscura con venas luminosas.png" id="3_5wdeo"]
+[ext_resource type="Script" uid="uid://kqil5imnllt5" path="res://scripts/character_select.gd" id="3_fa52j"]
+[ext_resource type="Texture2D" uid="uid://bdskcndua1os0" path="res://assets/Silueta de limo púrpura infectado.png" id="4_w1hxv"]
+[ext_resource type="Texture2D" uid="uid://b74mal6nlrjdk" path="res://assets/Criatura de Baba en División.png" id="5_bqp8h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrjwp"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07680776, 0.1527003, 0.2248945, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(6.7383053e-06, 0.8853551, 0.9409151, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(3.85046e-06, 0.8327868, 0.8821022, 0.3529412)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wdeo"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.17154205, 0.0564764, 0.16108853, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9999971, 0.35539767, 0.5740389, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.99999887, 0.3360757, 0.57057774, 0.3529412)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k24v6"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.17154205, 0.0564764, 0.16108853, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9999971, 0.35539767, 0.5740389, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.99999887, 0.3360757, 0.57057774, 0.3529412)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+bg_color = Color(0.15686275, 0.18039216, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.627451, 0.6901961, 0.7529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+bg_color = Color(0.0397471, 0.04896991, 0.057161637, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41056693, 0.4783138, 0.54588145, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+content_margin_left = 16.0
+content_margin_top = 6.0
+content_margin_right = 16.0
+content_margin_bottom = 6.0
+bg_color = Color(0.23871562, 0.27294788, 0.29862663, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.74170846, 0.78881514, 0.83614826, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 2
+
+[node name="CharacterSelect" type="Control" unique_id=1772172493]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_fa52j")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1176110601]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("1_bow2h")
+
+[node name="Label" type="Label" parent="." unique_id=1589917915]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 46.0
+offset_right = 1266.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 37
+text = "SELECCIONA TU TIPO DE INFECTADO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1247238223]
+layout_mode = 1
+offset_top = 112.0
+offset_right = 1945.0
+offset_bottom = 1083.0
+
+[node name="VBoxContainer1" type="Control" parent="HBoxContainer" unique_id=406608791]
+visible = false
+custom_minimum_size = Vector2(957, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer1" unique_id=15408101]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 57.0
+offset_right = 811.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "JUGADOR CIAN"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer1" unique_id=2034061511]
+layout_mode = 1
+offset_left = 242.0
+offset_top = 93.0
+offset_right = 2246.0
+offset_bottom = 2093.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_5wdeo")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer1" unique_id=1817837116]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 680.0
+offset_right = 717.0
+offset_bottom = 769.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "Fortaleza: alta velocidad y persecución.
+Debilidad: menos contagio y humanos se curan antes.
+Estilo: presión constante, persecuciones y resistencia."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer1" unique_id=168885732]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 376.0
+offset_right = 830.0
+offset_bottom = 415.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+text = ">"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer1" unique_id=1138441602]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 361.0
+offset_right = 230.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+text = "<"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer1" unique_id=2044387259]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 619.0
+offset_right = 519.0
+offset_bottom = 642.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "ATLETICO"
+
+[node name="VBoxContainer2" type="Control" parent="HBoxContainer" unique_id=2108546672]
+visible = false
+custom_minimum_size = Vector2(957, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=835187076]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 57.0
+offset_right = 811.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "JUGADOR CIAN"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2" unique_id=1232369940]
+layout_mode = 1
+offset_left = 242.0
+offset_top = 93.0
+offset_right = 2246.0
+offset_bottom = 2093.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_w1hxv")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=918298616]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 689.0
+offset_right = 753.0
+offset_bottom = 780.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "Fortaleza: más contagio y humanos tardan más en curarse.
+Debilidad: menor velocidad al perseguir.
+Estilo: contagios en cadena, zonas peligrosas y ataques de área."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=302388900]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 371.0
+offset_right = 825.0
+offset_bottom = 402.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+text = ">"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=1831462601]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 361.0
+offset_right = 230.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+text = "<"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1943401644]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 624.0
+offset_right = 542.0
+offset_bottom = 663.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "DE AREA"
+
+[node name="VBoxContainer3" type="Control" parent="HBoxContainer" unique_id=2020733397]
+custom_minimum_size = Vector2(957, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3" unique_id=749690979]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 57.0
+offset_right = 811.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "JUGADOR CIAN"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer3" unique_id=925526350]
+layout_mode = 1
+offset_left = 242.0
+offset_top = 93.0
+offset_right = 2246.0
+offset_bottom = 2093.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_bqp8h")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3" unique_id=780970215]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 685.0
+offset_right = 786.0
+offset_bottom = 776.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "Fortaleza: mejorar con el tiempo y aumentar la población infectada.
+Debilidad: impacto inicial bajo; humanos se curan antes.
+Estilo: adaptación, reproducción y crecimiento progresivo."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3" unique_id=986372695]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 371.0
+offset_right = 825.0
+offset_bottom = 402.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+text = ">"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer3" unique_id=1703566417]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 361.0
+offset_right = 230.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qrjwp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrjwp")
+text = "<"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer3" unique_id=1843628718]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 619.0
+offset_right = 519.0
+offset_bottom = 642.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrjwp")
+text = "EXPONENCIAL"
+
+[node name="VBoxContainer4" type="Control" parent="HBoxContainer" unique_id=765129460]
+visible = false
+custom_minimum_size = Vector2(957, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4" unique_id=155508554]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 55.0
+offset_right = 739.0
+offset_bottom = 94.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wdeo")
+text = "JUGADOR MAGENTA"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer4" unique_id=215805748]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 93.0
+offset_right = 2246.0
+offset_bottom = 2093.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_5wdeo")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer4" unique_id=2122158584]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 683.0
+offset_right = 728.0
+offset_bottom = 774.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "Fortaleza: alta velocidad y persecución.
+Debilidad: menos contagio y humanos se curan antes.
+Estilo: presión constante, persecuciones y resistencia."
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer4" unique_id=995896245]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 371.0
+offset_right = 825.0
+offset_bottom = 402.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+text = ">"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer4" unique_id=1453790726]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 361.0
+offset_right = 230.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+text = "<"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer4" unique_id=2090061255]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 619.0
+offset_right = 519.0
+offset_bottom = 642.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "ATLETICO"
+
+[node name="VBoxContainer5" type="Control" parent="HBoxContainer" unique_id=541824697]
+visible = false
+custom_minimum_size = Vector2(957, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer5" unique_id=2063338817]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 55.0
+offset_right = 739.0
+offset_bottom = 94.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wdeo")
+text = "JUGADOR MAGENTA"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer5" unique_id=243316292]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 93.0
+offset_right = 2246.0
+offset_bottom = 2093.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_w1hxv")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer5" unique_id=1886436354]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 682.0
+offset_right = 739.0
+offset_bottom = 773.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "Fortaleza: más contagio y humanos tardan más en curarse.
+Debilidad: menor velocidad al perseguir.
+Estilo: contagios en cadena, zonas peligrosas y ataques de área."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer5" unique_id=876605379]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 619.0
+offset_right = 519.0
+offset_bottom = 642.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "DE AREA"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer5" unique_id=1069306664]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 371.0
+offset_right = 825.0
+offset_bottom = 402.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+text = ">"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer5" unique_id=302381598]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 361.0
+offset_right = 230.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+text = "<"
+
+[node name="VBoxContainer6" type="Control" parent="HBoxContainer" unique_id=2086673320]
+custom_minimum_size = Vector2(957, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer6" unique_id=1187618079]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 55.0
+offset_right = 739.0
+offset_bottom = 94.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wdeo")
+text = "JUGADOR MAGENTA"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer6" unique_id=1019397247]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 93.0
+offset_right = 2246.0
+offset_bottom = 2093.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_bqp8h")
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer6" unique_id=848337325]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 696.0
+offset_right = 796.0
+offset_bottom = 787.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "Fortaleza: mejorar con el tiempo y aumentar la población infectada.
+Debilidad: impacto inicial bajo; humanos se curan antes.
+Estilo: adaptación, reproducción y crecimiento progresivo."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer6" unique_id=1088170551]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 619.0
+offset_right = 519.0
+offset_bottom = 642.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+text = "EXPONENCIAL"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer6" unique_id=1804831468]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 371.0
+offset_right = 825.0
+offset_bottom = 402.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+text = ">"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer6" unique_id=1099943669]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 361.0
+offset_right = 230.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k24v6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k24v6")
+text = "<"
+
+[node name="Comenzar" type="Button" parent="." unique_id=1452049815]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 979.0
+offset_right = 1105.0
+offset_bottom = 1043.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "COMENZAR PARTIDA"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer1/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer1/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer4/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer5/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer5/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer6/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer6/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Comenzar" to="." method="_on_comenzar_pressed"]

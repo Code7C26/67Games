@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/refined/electronics_island_96.png" id="1_3pnwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3t07"]
+resource_local_to_scene = true
+size = Vector2(85, 47)
+
+[node name="electronics_island_96" type="Node2D" unique_id=1533825610]
+metadata/tamano_visual = Vector2(96, 64)
+metadata/huella_local = Rect2(5, 9, 85, 47)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1772659846]
+texture_filter = 1
+texture = ExtResource("1_3pnwl")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=2008724931 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=919425292]
+position = Vector2(47.5, 32.5)
+shape = SubResource("RectangleShape2D_h3t07")

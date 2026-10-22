@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/dining_display.png" id="1_ep55c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbppn"]
+resource_local_to_scene = true
+size = Vector2(85, 67)
+
+[node name="dining_display" type="Node2D" unique_id=1717790481]
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(5, 4, 85, 67)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1282080754]
+texture_filter = 1
+texture = ExtResource("1_ep55c")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=827748594 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=230382982]
+position = Vector2(47.5, 37.5)
+shape = SubResource("RectangleShape2D_sbppn")

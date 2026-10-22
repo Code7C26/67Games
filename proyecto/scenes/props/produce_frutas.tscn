@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/produce_frutas.png" id="1_oltm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_volc1"]
+resource_local_to_scene = true
+size = Vector2(87, 35)
+
+[node name="produce_frutas" type="Node2D" unique_id=1108157773]
+texture_filter = 1
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 6, 87, 35)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=875137319]
+texture = ExtResource("1_oltm2")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=579019599 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1576251300]
+position = Vector2(47.5, 23.5)
+shape = SubResource("RectangleShape2D_volc1")

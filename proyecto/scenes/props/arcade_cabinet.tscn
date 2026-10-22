@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+
+[ext_resource type="SpriteFrames" path="res://resources/animations/arcade_cabinet.tres" id="ambient_frames"]
+[ext_resource type="Script" path="res://scripts/ambient_sprite.gd" id="ambient_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e23th"]
+resource_local_to_scene = true
+size = Vector2(40, 51)
+
+[node name="arcade_cabinet" type="Node2D" unique_id=130506209]
+metadata/tamano_visual = Vector2(48, 64)
+metadata/huella_local = Rect2(4, 7, 40, 51)
+
+[node name="Decoracion" type="AnimatedSprite2D" parent="." unique_id=548779166]
+texture_filter = 1
+centered = false
+sprite_frames = ExtResource("ambient_frames")
+animation = &"ambiente"
+autoplay = "ambiente"
+script = ExtResource("ambient_script")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=264874491 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1597673492]
+position = Vector2(24, 32.5)
+shape = SubResource("RectangleShape2D_e23th")

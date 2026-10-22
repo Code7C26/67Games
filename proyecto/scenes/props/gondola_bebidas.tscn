@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/detail_oct14/gondola_bebidas.png" id="1_tlfua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vuhd"]
+resource_local_to_scene = true
+size = Vector2(87, 37)
+
+[node name="gondola_bebidas" type="Node2D" unique_id=97357702]
+texture_filter = 1
+metadata/tamano_visual = Vector2(96, 48)
+metadata/huella_local = Rect2(4, 5, 87, 37)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1903217770]
+texture = ExtResource("1_tlfua")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=951800291 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=1035792884]
+position = Vector2(47.5, 23.5)
+shape = SubResource("RectangleShape2D_4vuhd")

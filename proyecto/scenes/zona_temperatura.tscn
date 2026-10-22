@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b0o851i10rgql"]
+
+[ext_resource type="Script" uid="uid://3upkgkhl6f0q" path="res://scripts/zona_temperatura.gd" id="1_zona"]
+[ext_resource type="Texture2D" uid="uid://b45yux7e1laet" path="res://assets/Zona hipnotica.png" id="2_b1ia8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2mup"]
+radius = 85.9139
+
+[node name="ZonaTemperatura" type="Area2D" unique_id=299918754]
+scale = Vector2(1.8, 1.8)
+collision_layer = 0
+script = ExtResource("1_zona")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=14176486]
+shape = SubResource("CircleShape2D_j2mup")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=768083677]
+position = Vector2(0.250005, -0.74999595)
+scale = Vector2(0.69661456, 0.69140625)
+texture = ExtResource("2_b1ia8")
+hframes = 8
+vframes = 6

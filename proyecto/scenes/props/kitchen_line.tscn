@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/hospitality/kitchen_line.png" id="1_soter"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62rc5"]
+resource_local_to_scene = true
+size = Vector2(154, 53)
+
+[node name="kitchen_line" type="Node2D" unique_id=1203793627]
+metadata/tamano_visual = Vector2(160, 64)
+metadata/huella_local = Rect2(3, 5, 154, 53)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1689502713]
+texture_filter = 1
+texture = ExtResource("1_soter")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1806267346 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=323413191]
+position = Vector2(80, 31.5)
+shape = SubResource("RectangleShape2D_62rc5")

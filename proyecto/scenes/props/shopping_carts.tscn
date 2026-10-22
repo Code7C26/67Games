@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/retail/shopping_carts.png" id="1_m2e6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hudyb"]
+resource_local_to_scene = true
+size = Vector2(54, 35)
+
+[node name="shopping_carts" type="Node2D" unique_id=912890116]
+metadata/tamano_visual = Vector2(64, 48)
+metadata/huella_local = Rect2(4, 6, 54, 35)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1696765100]
+texture_filter = 1
+texture = ExtResource("1_m2e6f")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1030525026 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=952130710]
+position = Vector2(31, 23.5)
+shape = SubResource("RectangleShape2D_hudyb")

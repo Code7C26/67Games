@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/refined/electronics_tv_96.png" id="1_00g33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rwwe"]
+resource_local_to_scene = true
+size = Vector2(85, 67)
+
+[node name="electronics_tv_96" type="Node2D" unique_id=104045162]
+metadata/tamano_visual = Vector2(96, 80)
+metadata/huella_local = Rect2(5, 5, 85, 67)
+
+[node name="Decoracion" type="Sprite2D" parent="." unique_id=1083470412]
+texture_filter = 1
+texture = ExtResource("1_00g33")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1021532676 groups=["mapa_solido"]]
+collision_mask = 0
+
+[node name="HuellaEditable" type="CollisionShape2D" parent="Colision" unique_id=611570852]
+position = Vector2(47.5, 38.5)
+shape = SubResource("RectangleShape2D_1rwwe")
