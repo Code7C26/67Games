@@ -1,0 +1,110 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/cantero_palmera.png" id="1_2b8du"]
+[ext_resource type="PackedScene" path="res://splash/scenes/objetos/palmera.tscn" id="2_kerqw"]
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="3_sf7vc"]
+[ext_resource type="Texture2D" path="res://splash/assets/palmera.png" id="4_2h063"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gec2m"]
+atlas = ExtResource("4_2h063")
+region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmol2"]
+atlas = ExtResource("4_2h063")
+region = Rect2(96, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evxi3"]
+atlas = ExtResource("4_2h063")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i72db"]
+atlas = ExtResource("4_2h063")
+region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2m3o"]
+atlas = ExtResource("4_2h063")
+region = Rect2(384, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ff1"]
+atlas = ExtResource("4_2h063")
+region = Rect2(480, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxb4k"]
+atlas = ExtResource("4_2h063")
+region = Rect2(576, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4jin"]
+atlas = ExtResource("4_2h063")
+region = Rect2(672, 0, 96, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsef1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gec2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmol2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evxi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i72db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2m3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26ff1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxb4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4jin")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuqic"]
+size = Vector2(26, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b8du"]
+size = Vector2(64, 64)
+
+[node name="PalmeraCantero" type="Node2D" unique_id=1430981091]
+texture_filter = 1
+metadata/tile_footprint = Vector2i(2, 2)
+
+[node name="TierraYLadrillos" type="Sprite2D" parent="." unique_id=244356389]
+texture = ExtResource("1_2b8du")
+
+[node name="Palmera" parent="." unique_id=1299579133 instance=ExtResource("2_kerqw")]
+texture_filter = 1
+position = Vector2(0, 12)
+script = ExtResource("3_sf7vc")
+metadata/footprint = Rect2(35, 97, 26, 23)
+
+[node name="Textura" parent="Palmera" index="0" unique_id=1159300707]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_vsef1")
+autoplay = "default"
+
+[node name="Colision" parent="Palmera" index="1" unique_id=1581439155]
+collision_mask = 0
+
+[node name="Shape" parent="Palmera/Colision" index="0" unique_id=88810403]
+position = Vector2(0, -19.5)
+shape = SubResource("RectangleShape2D_wuqic")
+disabled = true
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1799750034]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1237422150]
+shape = SubResource("RectangleShape2D_2b8du")
+
+[editable path="Palmera"]

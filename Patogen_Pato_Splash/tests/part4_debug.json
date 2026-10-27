@@ -1,0 +1,7 @@
+{
+  "source": "Godot native runtime log after final demo launch",
+  "benchmark": "part4_validation.json",
+  "output": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\nOpenGL API 3.3.0 Core Profile Context 22.20.14.220712 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics\n\n",
+  "capture": "24 impacts; 12 soaked NPCs; completed without runtime errors",
+  "passed": true
+}

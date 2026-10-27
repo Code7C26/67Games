@@ -1,0 +1,58 @@
+{
+	"active_collisions_unchanged": true,
+	"failures": [],
+	"inflatable_frame_screen_size": [
+		240,
+		216
+	],
+	"ladders": [
+		{
+			"name": "escalera_10",
+			"pool_edge_y": 368.0,
+			"top": [
+				472.0,
+				360.0
+			]
+		},
+		{
+			"name": "escalera_11",
+			"pool_edge_y": 448.0,
+			"top": [
+				732.0,
+				440.0
+			]
+		},
+		{
+			"name": "escalera_12",
+			"pool_edge_y": 448.0,
+			"top": [
+				1136.0,
+				440.0
+			]
+		},
+		{
+			"name": "escalera_13",
+			"pool_edge_y": 368.0,
+			"top": [
+				1664.0,
+				360.0
+			]
+		}
+	],
+	"nearest_nodes_checked": 177,
+	"outlets": [
+		[
+			317.0,
+			380.0
+		],
+		[
+			387.0,
+			383.0
+		]
+	],
+	"passed": true,
+	"player_frame_screen_size": [
+		64,
+		64
+	]
+}

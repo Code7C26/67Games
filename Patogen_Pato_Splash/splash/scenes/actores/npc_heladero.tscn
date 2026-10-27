@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_3rah0"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_heladero.tres" id="2_gxlmk"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_hgc8c"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_s0iec"]
+
+[node name="Heladero" type="Node2D" unique_id=492122949]
+z_index = 2
+script = ExtResource("1_3rah0")
+action_asset = "npc_heladero"
+reaction_kind = 2
+walking_skin = "staff_1"
+exit_offset = Vector2(0, 80)
+phase_offset = 6.57
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=417333349]
+texture_filter = 1
+sprite_frames = ExtResource("2_gxlmk")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=295588808]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_hgc8c")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=2081960722]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_s0iec")

@@ -1,0 +1,75 @@
+{
+	"actors": 54,
+	"completed_turns": 7,
+	"dry_and_recovery_checked": true,
+	"event": {
+		"frames": 6530,
+		"frames_over_16_667_ms": 0,
+		"max_ms": 8.21,
+		"mean_fps": 326.453561980808,
+		"p99_ms": 6.982
+	},
+	"failures": [],
+	"full_run": {
+		"frames": 12926,
+		"frames_over_16_667_ms": 0,
+		"max_ms": 8.914,
+		"mean_fps": 323.149604141735,
+		"p99_ms": 7.294
+	},
+	"geometry_samples": 79,
+	"gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+	"impacts": 168,
+	"infection_modes_checked": [
+		1,
+		2
+	],
+	"jet_particle_budget": 96,
+	"max_live_decals": 48,
+	"max_live_splashes": 8,
+	"max_shake_px": 10.0,
+	"natural_hits": 70,
+	"passed": true,
+	"pause_checked": true,
+	"phases": [
+		"calma",
+		"aviso",
+		"chapuzon",
+		"reposo"
+	],
+	"physics_hz": 60,
+	"planned_per_sector": [
+		3,
+		3,
+		3,
+		3,
+		3,
+		3,
+		3,
+		3
+	],
+	"reactions": [
+		"correr",
+		"cubrirse"
+	],
+	"rejected_landings": 0,
+	"render_size": [
+		1920,
+		1080
+	],
+	"sector_landings": [
+		21,
+		21,
+		21,
+		21,
+		21,
+		21,
+		21,
+		21
+	],
+	"spin_poses": 16,
+	"turn_degrees": [
+		0.0,
+		360.0
+	]
+}

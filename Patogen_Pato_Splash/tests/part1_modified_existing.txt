@@ -1,0 +1,14 @@
+LEEME.md
+project.godot
+demo\demo.gd
+demo\explorer.gd
+splash\assets\toboganes.aseprite
+splash\assets\toboganes.png
+splash\scenes\PatoSplash.tscn
+splash\scenes\objetos\pato_gigante.tscn
+splash\scenes\objetos\toboganes.tscn
+tools\build_art.lua
+tools\build_scene.gd
+tools\layout.json
+tools\prepare.py
+tools\refined_shapes.lua

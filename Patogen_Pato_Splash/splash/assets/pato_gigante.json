@@ -1,0 +1,92 @@
+{ "frames": [
+   {
+    "filename": "pato_gigante 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 1.aseprite",
+    "frame": { "x": 160, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 2.aseprite",
+    "frame": { "x": 320, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 3.aseprite",
+    "frame": { "x": 480, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 4.aseprite",
+    "frame": { "x": 640, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 5.aseprite",
+    "frame": { "x": 800, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 6.aseprite",
+    "frame": { "x": 960, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   },
+   {
+    "filename": "pato_gigante 7.aseprite",
+    "frame": { "x": 1120, "y": 0, "w": 160, "h": 144 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 144 },
+    "sourceSize": { "w": 160, "h": 144 },
+    "duration": 200
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "pato_gigante.png",
+  "format": "RGBA8888",
+  "size": { "w": 1280, "h": 144 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "01 / reflejo y ondas", "opacity": 255, "blendMode": "normal" },
+   { "name": "02 / inflable escalonado / volumen", "opacity": 255, "blendMode": "normal" },
+   { "name": "03 / cara / ala / costuras / valvula", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_y2gqr"]
+[ext_resource type="Texture2D" path="res://splash/assets/palmera.png" id="2_kafbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gec2m"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmol2"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(96, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evxi3"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i72db"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2m3o"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(384, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ff1"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(480, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxb4k"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(576, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4jin"]
+atlas = ExtResource("2_kafbk")
+region = Rect2(672, 0, 96, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsef1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gec2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmol2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evxi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i72db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2m3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26ff1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxb4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4jin")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuqic"]
+size = Vector2(26, 23)
+
+[node name="Palmera" type="Node2D" unique_id=1299579133]
+texture_filter = 1
+script = ExtResource("1_y2gqr")
+metadata/footprint = Rect2(35, 97, 26, 23)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1159300707]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_vsef1")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1581439155]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=88810403]
+position = Vector2(0, -19.5)
+shape = SubResource("RectangleShape2D_wuqic")

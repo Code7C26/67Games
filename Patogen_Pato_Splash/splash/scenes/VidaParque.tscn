@@ -1,0 +1,456 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/park_life.gd" id="1_4c0qm"]
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="2_ui72s"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_guardia.tres" id="3_35m1y"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="4_ekgmo"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="5_ajccx"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_giro.tres" id="6_lh417"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_protector.tres" id="7_8pgob"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_lectura.tres" id="8_cpw6h"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_pelota.tres" id="9_fe63a"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_limpieza.tres" id="10_4jhfa"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_fotografo.tres" id="11_yjudl"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_heladero.tres" id="12_rvbbx"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/pelota_playa.tres" id="13_gfqhm"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/charco_deck.tres" id="14_nvfpk"]
+[ext_resource type="Texture2D" path="res://splash/assets/cartel_piso_mojado.png" id="14_ui72s"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/flash_camara.tres" id="15_7v7wh"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/banador_1.tres" id="16_ys5n2"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/helado_mano.tres" id="17_qbkbm"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/banador_2.tres" id="18_8lp7k"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/puerta_cabina.tres" id="19_x6xqi"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/banador_3.tres" id="20_ycx76"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_tobogan.tres" id="21_q8edl"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/splash_corona.tres" id="22_2bp4x"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/libelula.tres" id="23_svwxs"]
+[ext_resource type="AudioStream" path="res://splash/assets/silbato_guardavidas.wav" id="24_fwttp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ui72s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ui72s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_35m1y"]
+bake_interval = 2.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 302, 237, 0, 0, 0, 0, 343, 260, 0, 0, 0, 0, 403, 261, 0, 0, 0, 0, 443, 286, 0, 0, 0, 0, 437, 309, 0, 0, 0, 0, 390, 327, 0, 0, 0, 0, 342, 333, 0, 0, 0, 0, 311, 357, 0, 0, 0, 0, 317, 397, 0, 0, 0, 0, 320, 422)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_ekgmo"]
+bake_interval = 2.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 344, 237, 0, 0, 0, 0, 384, 245, 0, 0, 0, 0, 435, 252, 0, 0, 0, 0, 474, 278, 0, 0, 0, 0, 474, 311, 0, 0, 0, 0, 446, 338, 0, 0, 0, 0, 398, 359, 0, 0, 0, 0, 387, 397, 0, 0, 0, 0, 390, 428)
+}
+point_count = 9
+
+[node name="VidaParque" type="Node2D" unique_id=523952340]
+texture_filter = 1
+script = ExtResource("1_4c0qm")
+
+[node name="Actores" type="Node2D" parent="." unique_id=195266672]
+
+[node name="GuardiaOeste" type="Node2D" parent="Actores" unique_id=240374325]
+z_index = 2
+position = Vector2(586, 470)
+script = ExtResource("2_ui72s")
+reaction_kind = 2
+walking_skin = "salvavidas_1"
+exit_offset = Vector2(40, 90)
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/GuardiaOeste" unique_id=583642890]
+texture_filter = 1
+sprite_frames = ExtResource("3_35m1y")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/GuardiaOeste" unique_id=246982647]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/GuardiaOeste" unique_id=1387808561]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="GuardiaEste" type="Node2D" parent="Actores" unique_id=681237825]
+z_index = 2
+position = Vector2(1334, 470)
+script = ExtResource("2_ui72s")
+reaction_kind = 2
+walking_skin = "salvavidas_2"
+exit_offset = Vector2(-40, 90)
+phase_offset = 0.73
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/GuardiaEste" unique_id=1671379622]
+texture_filter = 1
+sprite_frames = ExtResource("3_35m1y")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/GuardiaEste" unique_id=506002845]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/GuardiaEste" unique_id=361293445]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="DescansoGiro" type="Node2D" parent="Actores" unique_id=204433937]
+z_index = 2
+position = Vector2(174, 814)
+script = ExtResource("2_ui72s")
+action_asset = "npc_reposera_giro"
+exit_offset = Vector2(-38, 50)
+phase_offset = 1.46
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/DescansoGiro" unique_id=1917946088]
+texture_filter = 1
+sprite_frames = ExtResource("6_lh417")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/DescansoGiro" unique_id=2098046809]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/DescansoGiro" unique_id=2118040538]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="DescansoProtector" type="Node2D" parent="Actores" unique_id=908169701]
+z_index = 2
+position = Vector2(286, 814)
+script = ExtResource("2_ui72s")
+action_asset = "npc_reposera_protector"
+reaction_kind = 1
+walking_skin = "banador_2"
+exit_offset = Vector2(-24, 50)
+phase_offset = 2.19
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/DescansoProtector" unique_id=1072597343]
+texture_filter = 1
+sprite_frames = ExtResource("7_8pgob")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/DescansoProtector" unique_id=2147000640]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/DescansoProtector" unique_id=1551892376]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="DescansoLibro" type="Node2D" parent="Actores" unique_id=399478880]
+z_index = 2
+position = Vector2(398, 814)
+script = ExtResource("2_ui72s")
+action_asset = "npc_reposera_lectura"
+walking_skin = "banador_3"
+exit_offset = Vector2(-24, 50)
+phase_offset = 2.92
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/DescansoLibro" unique_id=1001952296]
+texture_filter = 1
+sprite_frames = ExtResource("8_cpw6h")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/DescansoLibro" unique_id=1780815980]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/DescansoLibro" unique_id=1962842940]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="NinoA" type="Node2D" parent="Actores" unique_id=1322627846]
+z_index = 2
+position = Vector2(168, 918)
+script = ExtResource("2_ui72s")
+action_asset = "npc_pelota"
+walking_skin = "banador_3"
+exit_offset = Vector2(0, -10)
+phase_offset = 3.65
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/NinoA" unique_id=1136199713]
+texture_filter = 1
+sprite_frames = ExtResource("9_fe63a")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/NinoA" unique_id=119157940]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/NinoA" unique_id=1695814434]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="NinoB" type="Node2D" parent="Actores" unique_id=1724639584]
+z_index = 2
+position = Vector2(268, 918)
+script = ExtResource("2_ui72s")
+action_asset = "npc_pelota"
+reaction_kind = 1
+walking_skin = "banador_2"
+exit_offset = Vector2(0, -10)
+phase_offset = 4.38
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/NinoB" unique_id=1311271189]
+texture_filter = 1
+sprite_frames = ExtResource("9_fe63a")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/NinoB" unique_id=1443425576]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/NinoB" unique_id=1745391629]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="Limpieza" type="Node2D" parent="Actores" unique_id=1828024787]
+z_index = 2
+position = Vector2(1736, 610)
+script = ExtResource("2_ui72s")
+action_asset = "npc_limpieza"
+reaction_kind = 1
+walking_skin = "staff_2"
+exit_offset = Vector2(-32, 0)
+phase_offset = 5.109999999999999
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/Limpieza" unique_id=1441008102]
+texture_filter = 1
+sprite_frames = ExtResource("10_4jhfa")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/Limpieza" unique_id=1627338805]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/Limpieza" unique_id=1890079769]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="Fotografo" type="Node2D" parent="Actores" unique_id=1393027566]
+z_index = 2
+position = Vector2(1168, 176)
+script = ExtResource("2_ui72s")
+action_asset = "npc_fotografo"
+walking_skin = "staff_3"
+exit_offset = Vector2(0, 32)
+phase_offset = 5.84
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/Fotografo" unique_id=662761152]
+texture_filter = 1
+sprite_frames = ExtResource("11_yjudl")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/Fotografo" unique_id=1803195854]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/Fotografo" unique_id=254871555]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="Heladero" type="Node2D" parent="Actores" unique_id=439029380]
+z_index = 2
+position = Vector2(1646, 722)
+script = ExtResource("2_ui72s")
+action_asset = "npc_heladero"
+reaction_kind = 2
+walking_skin = "staff_1"
+exit_offset = Vector2(0, 80)
+phase_offset = 6.57
+
+[node name="Visual" type="AnimatedSprite2D" parent="Actores/Heladero" unique_id=1516801607]
+texture_filter = 1
+sprite_frames = ExtResource("12_rvbbx")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="Actores/Heladero" unique_id=259689780]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("4_ekgmo")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="Actores/Heladero" unique_id=1929563499]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("5_ajccx")
+
+[node name="Pelota" type="AnimatedSprite2D" parent="." unique_id=2011751777]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("13_gfqhm")
+
+[node name="CartelTemporal" type="AnimatedSprite2D" parent="." unique_id=411707671]
+z_index = 2
+texture_filter = 1
+position = Vector2(1702, 630)
+sprite_frames = SubResource("SpriteFrames_ui72s")
+
+[node name="ZonaTrapeada" type="AnimatedSprite2D" parent="." unique_id=708757402]
+texture_filter = 1
+position = Vector2(1740, 637)
+sprite_frames = ExtResource("14_nvfpk")
+
+[node name="Flash" type="AnimatedSprite2D" parent="." unique_id=401657876]
+z_index = 3
+texture_filter = 1
+position = Vector2(1164, 168)
+sprite_frames = ExtResource("15_7v7wh")
+
+[node name="ClienteHelado0" type="AnimatedSprite2D" parent="." unique_id=487664017]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("16_ys5n2")
+animation = &"Abajo"
+
+[node name="Helado" type="AnimatedSprite2D" parent="ClienteHelado0" unique_id=1900891755]
+texture_filter = 1
+position = Vector2(13, 0)
+sprite_frames = ExtResource("17_qbkbm")
+
+[node name="ClienteVestuario0" type="AnimatedSprite2D" parent="." unique_id=490533872]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("18_8lp7k")
+animation = &"Abajo"
+
+[node name="Puerta0" type="AnimatedSprite2D" parent="." unique_id=1917778453]
+z_index = 2
+texture_filter = 1
+position = Vector2(1430, 231)
+sprite_frames = ExtResource("19_x6xqi")
+
+[node name="ClienteHelado1" type="AnimatedSprite2D" parent="." unique_id=21804492]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("18_8lp7k")
+animation = &"Abajo"
+
+[node name="Helado" type="AnimatedSprite2D" parent="ClienteHelado1" unique_id=1691210200]
+texture_filter = 1
+position = Vector2(13, 0)
+sprite_frames = ExtResource("17_qbkbm")
+
+[node name="ClienteVestuario1" type="AnimatedSprite2D" parent="." unique_id=1409368151]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("20_ycx76")
+animation = &"Abajo"
+
+[node name="Puerta1" type="AnimatedSprite2D" parent="." unique_id=469223914]
+z_index = 2
+texture_filter = 1
+position = Vector2(1642, 231)
+sprite_frames = ExtResource("19_x6xqi")
+
+[node name="Tobogan0" type="Path2D" parent="." unique_id=1500942584]
+curve = SubResource("Curve2D_35m1y")
+
+[node name="Pasajero" type="PathFollow2D" parent="Tobogan0" unique_id=755835376]
+rotates = false
+loop = false
+
+[node name="Visual" type="AnimatedSprite2D" parent="Tobogan0/Pasajero" unique_id=1782286066]
+z_index = 3
+texture_filter = 1
+position = Vector2(0, -10)
+sprite_frames = ExtResource("21_q8edl")
+
+[node name="Llegada0" type="AnimatedSprite2D" parent="." unique_id=2130390175]
+z_index = 3
+texture_filter = 1
+position = Vector2(320, 412)
+sprite_frames = ExtResource("22_2bp4x")
+
+[node name="SalidaNadador0" type="AnimatedSprite2D" parent="." unique_id=1786631689]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("16_ys5n2")
+animation = &"Abajo"
+
+[node name="Tobogan1" type="Path2D" parent="." unique_id=1824333023]
+curve = SubResource("Curve2D_ekgmo")
+
+[node name="Pasajero" type="PathFollow2D" parent="Tobogan1" unique_id=662429846]
+rotates = false
+loop = false
+
+[node name="Visual" type="AnimatedSprite2D" parent="Tobogan1/Pasajero" unique_id=727948978]
+z_index = 3
+texture_filter = 1
+position = Vector2(0, -10)
+sprite_frames = ExtResource("21_q8edl")
+
+[node name="Llegada1" type="AnimatedSprite2D" parent="." unique_id=23980290]
+z_index = 3
+texture_filter = 1
+position = Vector2(390, 412)
+sprite_frames = ExtResource("22_2bp4x")
+
+[node name="SalidaNadador1" type="AnimatedSprite2D" parent="." unique_id=312779089]
+z_index = 2
+texture_filter = 1
+sprite_frames = ExtResource("18_8lp7k")
+animation = &"Abajo"
+
+[node name="Libelula0" type="AnimatedSprite2D" parent="." unique_id=606924335]
+z_index = 4
+texture_filter = 1
+sprite_frames = ExtResource("23_svwxs")
+
+[node name="Libelula1" type="AnimatedSprite2D" parent="." unique_id=686930024]
+z_index = 4
+texture_filter = 1
+sprite_frames = ExtResource("23_svwxs")
+
+[node name="Libelula2" type="AnimatedSprite2D" parent="." unique_id=1633402154]
+z_index = 4
+texture_filter = 1
+sprite_frames = ExtResource("23_svwxs")
+
+[node name="Atardecer" type="ColorRect" parent="." unique_id=1336367909]
+z_index = 7
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 1888.0
+offset_bottom = 972.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Silbato" type="AudioStreamPlayer" parent="." unique_id=1937298383]
+stream = ExtResource("24_fwttp")
+volume_db = -24.0

@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_b7bp1"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_limpieza.tres" id="2_58e6a"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_4484g"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_fd2fx"]
+
+[node name="Limpieza" type="Node2D" unique_id=1156465398]
+z_index = 2
+script = ExtResource("1_b7bp1")
+action_asset = "npc_limpieza"
+reaction_kind = 1
+walking_skin = "staff_2"
+exit_offset = Vector2(-32, 0)
+phase_offset = 5.109999999999999
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=1812060570]
+texture_filter = 1
+sprite_frames = ExtResource("2_58e6a")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=956344250]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_4484g")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=705649863]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_fd2fx")

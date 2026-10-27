@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_reposera_giro.png" id="1_igymh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igymh"]
+atlas = ExtResource("1_igymh")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4udyu"]
+atlas = ExtResource("1_igymh")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhbej"]
+atlas = ExtResource("1_igymh")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp2jx"]
+atlas = ExtResource("1_igymh")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv0bd"]
+atlas = ExtResource("1_igymh")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06kkv"]
+atlas = ExtResource("1_igymh")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5g1y"]
+atlas = ExtResource("1_igymh")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ia63"]
+atlas = ExtResource("1_igymh")
+region = Rect2(224, 0, 32, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igymh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4udyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhbej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp2jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv0bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06kkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5g1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ia63")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.3333333333333335
+}]

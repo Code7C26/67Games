@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "scene": "tests/Part5.tscn",
+  "errors_or_warnings": [],
+  "log": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060 Laptop GPU\n\nPART5_BENCHMARK_STARTED: 70 NPCs + 2 players / all activities / 1920x1080\nPART5_VALIDATION {\"door_poses\":5,\"escape_bad_segments\":0,\"failures\":[],\"footprints_dry_checked\":true,\"footprints_peak\":96,\"gpu\":\"NVIDIA GeForce RTX 3060 Laptop GPU\",\"infection_thresholds_checked\":[\"healthy\",\"below_fraction\",\"fraction\",\"distance\",\"outside_radius\",\"cooldown\",\"despawn\"],\"passed\":true,\"pause_checked\":true,\"performance\":{\"frames\":8222,\"max_ms\":14.898,\"mean_fps\":205.538988248705,\"over_16_667_ms\":0,\"p99_ms\":10.196},\"physics_hz\":60,\"reaction_variants\":[\"huida\",\"cubrirse\",\"avisar\"],\"render_size\":[1920,1080],\"return_home_checked\":true,\"roaming_npcs\":54,\"service_and_slide_npcs\":6,\"showcase_assets\":75,\"stationary_npcs\":10,\"total_npcs\":70}\n"
+}

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/bandera_viento.png" id="1_t26o4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iums"]
+atlas = ExtResource("1_t26o4")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3x6c"]
+atlas = ExtResource("1_t26o4")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4py3i"]
+atlas = ExtResource("1_t26o4")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqxnt"]
+atlas = ExtResource("1_t26o4")
+region = Rect2(144, 0, 48, 96)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iums")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3x6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4py3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqxnt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]

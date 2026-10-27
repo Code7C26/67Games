@@ -1,0 +1,92 @@
+{ "frames": [
+   {
+    "filename": "salida_tobogan 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 1.aseprite",
+    "frame": { "x": 48, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 2.aseprite",
+    "frame": { "x": 96, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 3.aseprite",
+    "frame": { "x": 144, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 4.aseprite",
+    "frame": { "x": 192, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 5.aseprite",
+    "frame": { "x": 240, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 6.aseprite",
+    "frame": { "x": 288, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   },
+   {
+    "filename": "salida_tobogan 7.aseprite",
+    "frame": { "x": 336, "y": 0, "w": 48, "h": 56 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 56 },
+    "sourceSize": { "w": 48, "h": 56 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "salida_tobogan.png",
+  "format": "RGBA8888",
+  "size": { "w": 384, "h": 56 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "Salida", "from": 0, "to": 7, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Chorro desde la boca / caida", "opacity": 255, "blendMode": "normal" },
+   { "name": "Impacto localizado / espuma", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

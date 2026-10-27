@@ -1,0 +1,59 @@
+{
+	"actors": 54,
+	"ambient": {
+		"cpu_p99_ms": 12.64,
+		"frames": 14852,
+		"frames_over_16_667_ms": 0,
+		"max_draw_calls": 446,
+		"max_frame_ms": 15.619,
+		"mean_fps": 297.034421693562,
+		"median_frame_ms": 2.681,
+		"one_percent_low_fps": 136.892539356605,
+		"p95_frame_ms": 6.35,
+		"p99_frame_ms": 7.305,
+		"seconds": 50.0009389999998
+	},
+	"baseline": {
+		"cpu_p99_ms": 6.493,
+		"frames": 2117,
+		"frames_over_16_667_ms": 0,
+		"max_draw_calls": 444,
+		"max_frame_ms": 11.955,
+		"mean_fps": 264.43044529987,
+		"median_frame_ms": 2.808,
+		"one_percent_low_fps": 110.913930789707,
+		"p95_frame_ms": 8.021,
+		"p99_frame_ms": 9.016,
+		"seconds": 8.00588600000001
+	},
+	"collision_geometry_unchanged": true,
+	"completed_trips": 289,
+	"exported_effect_controls": 20,
+	"failures": [],
+	"fans": 2,
+	"flags": 4,
+	"floating_escapes": 0,
+	"floats": 6,
+	"godot": "4.7.1-stable (official)",
+	"gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+	"impact_times": [
+		38.0030303030282
+	],
+	"max_active_leaves": 1,
+	"max_attracted": 9,
+	"minimum_npc_travel": 2599.91255807877,
+	"native_subviewport": true,
+	"nearest_nodes_checked": 206,
+	"palms": 10,
+	"passed": true,
+	"pause_checked": true,
+	"penetration_samples": 0,
+	"physics_hz": 60,
+	"render_size": [
+		1920,
+		1080
+	],
+	"spawned_leaves": 4,
+	"umbrellas": 5,
+	"water_overlays": 4
+}

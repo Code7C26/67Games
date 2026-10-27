@@ -1,0 +1,506 @@
+[
+	{
+		"disabled": false,
+		"h": 249.0,
+		"path": "02_Piletas/PiletaCentral/Colision/Shape",
+		"w": 506.0,
+		"x": 957.0,
+		"y": 572.5
+	},
+	{
+		"disabled": false,
+		"h": 169.0,
+		"path": "02_Piletas/PiletaToboganes/Colision/Shape",
+		"w": 314.0,
+		"x": 365.0,
+		"y": 452.5
+	},
+	{
+		"disabled": false,
+		"h": 169.0,
+		"path": "02_Piletas/PiletaInfantil/Colision/Shape",
+		"w": 314.0,
+		"x": 1549.0,
+		"y": 452.5
+	},
+	{
+		"disabled": false,
+		"h": 137.0,
+		"path": "02_Piletas/PiletaChapuzon/Colision/Shape",
+		"w": 282.0,
+		"x": 957.0,
+		"y": 244.5
+	},
+	{
+		"disabled": false,
+		"h": 12.0,
+		"path": "03_Senales_y_perimetro/Colision/Shape",
+		"w": 1856.0,
+		"x": 960.0,
+		"y": 118.0
+	},
+	{
+		"disabled": false,
+		"h": 12.0,
+		"path": "03_Senales_y_perimetro/@StaticBody2D@21/Shape",
+		"w": 1856.0,
+		"x": 960.0,
+		"y": 966.0
+	},
+	{
+		"disabled": false,
+		"h": 836.0,
+		"path": "03_Senales_y_perimetro/@StaticBody2D@23/Shape",
+		"w": 12.0,
+		"x": 38.0,
+		"y": 542.0
+	},
+	{
+		"disabled": false,
+		"h": 836.0,
+		"path": "03_Senales_y_perimetro/@StaticBody2D@25/Shape",
+		"w": 12.0,
+		"x": 1882.0,
+		"y": 542.0
+	},
+	{
+		"disabled": false,
+		"h": 222.0,
+		"path": "04_Objetos/ToboganesDobles/Colision/Shape",
+		"w": 264.0,
+		"x": 368.0,
+		"y": 283.0
+	},
+	{
+		"disabled": true,
+		"h": 110.0,
+		"path": "04_Objetos/FuenteInfantil/Colision/Shape",
+		"w": 120.0,
+		"x": 1552.0,
+		"y": 444.0
+	},
+	{
+		"disabled": true,
+		"h": 126.0,
+		"path": "04_Objetos/PatoGigante/Colision/Shape",
+		"w": 152.0,
+		"x": 948.0,
+		"y": 566.0
+	},
+	{
+		"disabled": true,
+		"h": 142.0,
+		"path": "04_Objetos/TorreBalde/Colision/Shape",
+		"w": 184.0,
+		"x": 960.0,
+		"y": 227.0
+	},
+	{
+		"disabled": true,
+		"h": 78.0,
+		"path": "04_Objetos/Balde/Colision/Shape",
+		"w": 104.0,
+		"x": 960.0,
+		"y": 145.0
+	},
+	{
+		"disabled": true,
+		"h": 22.0,
+		"path": "04_Objetos/flotador_05/Colision/Shape",
+		"w": 40.0,
+		"x": 451.0,
+		"y": 491.0
+	},
+	{
+		"disabled": true,
+		"h": 22.0,
+		"path": "04_Objetos/flotador_06/Colision/Shape",
+		"w": 40.0,
+		"x": 1448.0,
+		"y": 433.0
+	},
+	{
+		"disabled": true,
+		"h": 22.0,
+		"path": "04_Objetos/flotador_07/Colision/Shape",
+		"w": 40.0,
+		"x": 1638.0,
+		"y": 491.0
+	},
+	{
+		"disabled": true,
+		"h": 22.0,
+		"path": "04_Objetos/flotador_08/Colision/Shape",
+		"w": 40.0,
+		"x": 802.0,
+		"y": 604.0
+	},
+	{
+		"disabled": true,
+		"h": 22.0,
+		"path": "04_Objetos/flotador_09/Colision/Shape",
+		"w": 40.0,
+		"x": 1114.0,
+		"y": 641.0
+	},
+	{
+		"disabled": true,
+		"h": 30.0,
+		"path": "04_Objetos/escalera_10/Colision/Shape",
+		"w": 24.0,
+		"x": 488.0,
+		"y": 478.0
+	},
+	{
+		"disabled": true,
+		"h": 30.0,
+		"path": "04_Objetos/escalera_11/Colision/Shape",
+		"w": 24.0,
+		"x": 748.0,
+		"y": 615.0
+	},
+	{
+		"disabled": true,
+		"h": 30.0,
+		"path": "04_Objetos/escalera_12/Colision/Shape",
+		"w": 24.0,
+		"x": 1152.0,
+		"y": 487.0
+	},
+	{
+		"disabled": true,
+		"h": 30.0,
+		"path": "04_Objetos/escalera_13/Colision/Shape",
+		"w": 24.0,
+		"x": 1680.0,
+		"y": 491.0
+	},
+	{
+		"disabled": false,
+		"h": 142.0,
+		"path": "04_Objetos/KioscoHelados/Colision/Shape",
+		"w": 184.0,
+		"x": 1608.0,
+		"y": 715.0
+	},
+	{
+		"disabled": false,
+		"h": 120.0,
+		"path": "04_Objetos/Vestuarios/Colision/Shape",
+		"w": 400.0,
+		"x": 1568.0,
+		"y": 224.0
+	},
+	{
+		"disabled": false,
+		"h": 54.0,
+		"path": "04_Objetos/filtro_16/Colision/Shape",
+		"w": 56.0,
+		"x": 1744.0,
+		"y": 507.0
+	},
+	{
+		"disabled": false,
+		"h": 54.0,
+		"path": "04_Objetos/filtro_17/Colision/Shape",
+		"w": 56.0,
+		"x": 192.0,
+		"y": 507.0
+	},
+	{
+		"disabled": false,
+		"h": 57.0,
+		"path": "04_Objetos/silla_salvavidas_18/Colision/Shape",
+		"w": 48.0,
+		"x": 586.0,
+		"y": 509.5
+	},
+	{
+		"disabled": false,
+		"h": 57.0,
+		"path": "04_Objetos/silla_salvavidas_19/Colision/Shape",
+		"w": 48.0,
+		"x": 1334.0,
+		"y": 509.5
+	},
+	{
+		"disabled": false,
+		"h": 55.0,
+		"path": "04_Objetos/sombrilla_20/Colision/Shape",
+		"w": 80.0,
+		"x": 192.0,
+		"y": 723.5
+	},
+	{
+		"disabled": false,
+		"h": 61.0,
+		"path": "04_Objetos/reposera_21/Colision/Shape",
+		"w": 35.0,
+		"x": 174.5,
+		"y": 815.5
+	},
+	{
+		"disabled": false,
+		"h": 61.0,
+		"path": "04_Objetos/reposera_22/Colision/Shape",
+		"w": 35.0,
+		"x": 219.5,
+		"y": 815.5
+	},
+	{
+		"disabled": false,
+		"h": 55.0,
+		"path": "04_Objetos/sombrilla_23/Colision/Shape",
+		"w": 80.0,
+		"x": 304.0,
+		"y": 723.5
+	},
+	{
+		"disabled": false,
+		"h": 61.0,
+		"path": "04_Objetos/reposera_24/Colision/Shape",
+		"w": 35.0,
+		"x": 286.5,
+		"y": 815.5
+	},
+	{
+		"disabled": false,
+		"h": 61.0,
+		"path": "04_Objetos/reposera_25/Colision/Shape",
+		"w": 35.0,
+		"x": 331.5,
+		"y": 815.5
+	},
+	{
+		"disabled": false,
+		"h": 55.0,
+		"path": "04_Objetos/sombrilla_26/Colision/Shape",
+		"w": 80.0,
+		"x": 416.0,
+		"y": 723.5
+	},
+	{
+		"disabled": false,
+		"h": 61.0,
+		"path": "04_Objetos/reposera_27/Colision/Shape",
+		"w": 35.0,
+		"x": 398.5,
+		"y": 815.5
+	},
+	{
+		"disabled": false,
+		"h": 61.0,
+		"path": "04_Objetos/reposera_28/Colision/Shape",
+		"w": 35.0,
+		"x": 443.5,
+		"y": 815.5
+	},
+	{
+		"disabled": false,
+		"h": 55.0,
+		"path": "04_Objetos/sombrilla_29/Colision/Shape",
+		"w": 80.0,
+		"x": 1472.0,
+		"y": 897.5
+	},
+	{
+		"disabled": false,
+		"h": 28.0,
+		"path": "04_Objetos/mesa_30/Colision/Shape",
+		"w": 56.0,
+		"x": 1469.0,
+		"y": 939.0
+	},
+	{
+		"disabled": false,
+		"h": 55.0,
+		"path": "04_Objetos/sombrilla_31/Colision/Shape",
+		"w": 80.0,
+		"x": 1744.0,
+		"y": 889.5
+	},
+	{
+		"disabled": false,
+		"h": 28.0,
+		"path": "04_Objetos/mesa_32/Colision/Shape",
+		"w": 56.0,
+		"x": 1741.0,
+		"y": 931.0
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_33/Colision/Shape",
+		"w": 26.0,
+		"x": 98.0,
+		"y": 260.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_34/Colision/Shape",
+		"w": 26.0,
+		"x": 668.0,
+		"y": 248.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_35/Colision/Shape",
+		"w": 26.0,
+		"x": 1258.0,
+		"y": 248.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_36/Colision/Shape",
+		"w": 26.0,
+		"x": 1828.0,
+		"y": 260.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_37/Colision/Shape",
+		"w": 26.0,
+		"x": 96.0,
+		"y": 650.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_38/Colision/Shape",
+		"w": 26.0,
+		"x": 1836.0,
+		"y": 650.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_39/Colision/Shape",
+		"w": 26.0,
+		"x": 608.0,
+		"y": 908.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_40/Colision/Shape",
+		"w": 26.0,
+		"x": 1298.0,
+		"y": 908.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_41/Colision/Shape",
+		"w": 26.0,
+		"x": 96.0,
+		"y": 928.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/palmera_42/Colision/Shape",
+		"w": 26.0,
+		"x": 1828.0,
+		"y": 940.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/banco_43/Colision/Shape",
+		"w": 58.0,
+		"x": 662.0,
+		"y": 254.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/banco_44/Colision/Shape",
+		"w": 58.0,
+		"x": 1242.0,
+		"y": 254.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/banco_45/Colision/Shape",
+		"w": 58.0,
+		"x": 862.0,
+		"y": 828.5
+	},
+	{
+		"disabled": false,
+		"h": 23.0,
+		"path": "04_Objetos/banco_46/Colision/Shape",
+		"w": 58.0,
+		"x": 1072.0,
+		"y": 828.5
+	},
+	{
+		"disabled": false,
+		"h": 22.0,
+		"path": "04_Objetos/papelera_47/Colision/Shape",
+		"w": 24.0,
+		"x": 120.0,
+		"y": 671.0
+	},
+	{
+		"disabled": false,
+		"h": 22.0,
+		"path": "04_Objetos/papelera_48/Colision/Shape",
+		"w": 24.0,
+		"x": 1792.0,
+		"y": 701.0
+	},
+	{
+		"disabled": false,
+		"h": 22.0,
+		"path": "04_Objetos/papelera_49/Colision/Shape",
+		"w": 24.0,
+		"x": 1426.0,
+		"y": 715.0
+	},
+	{
+		"disabled": false,
+		"h": 22.0,
+		"path": "04_Objetos/papelera_50/Colision/Shape",
+		"w": 24.0,
+		"x": 500.0,
+		"y": 803.0
+	},
+	{
+		"disabled": true,
+		"h": 78.0,
+		"path": "04_Objetos/banderin_51/Colision/Shape",
+		"w": 40.0,
+		"x": 710.0,
+		"y": 869.0
+	},
+	{
+		"disabled": true,
+		"h": 78.0,
+		"path": "04_Objetos/banderin_52/Colision/Shape",
+		"w": 40.0,
+		"x": 1198.0,
+		"y": 869.0
+	},
+	{
+		"disabled": true,
+		"h": 78.0,
+		"path": "04_Objetos/banderin_53/Colision/Shape",
+		"w": 40.0,
+		"x": 154.0,
+		"y": 297.0
+	},
+	{
+		"disabled": true,
+		"h": 78.0,
+		"path": "04_Objetos/banderin_54/Colision/Shape",
+		"w": 40.0,
+		"x": 1776.0,
+		"y": 317.0
+	}
+]

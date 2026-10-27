@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_f84qf"]
+[ext_resource type="Texture2D" path="res://splash/assets/balde.png" id="2_fiqkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pem1k"]
+size = Vector2(104, 78)
+
+[node name="Balde" type="Node2D" unique_id=1712927671]
+texture_filter = 1
+script = ExtResource("1_f84qf")
+metadata/footprint = Rect2(4, 12, 104, 78)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=136960193]
+texture = ExtResource("2_fiqkj")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1841892581]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1185753024]
+position = Vector2(0, -45)
+shape = SubResource("RectangleShape2D_pem1k")

@@ -1,0 +1,23 @@
+{
+	"actors": 54,
+	"completed_trips": 574,
+	"connected_destination_pairs": 289,
+	"connected_pairs_radius36": 289,
+	"excluded_isolated_spawn_cells": 20,
+	"failures": [],
+	"impact_times": [
+		38.0166666666658,
+		88.016666666663
+	],
+	"max_attracted": 10,
+	"max_stuck_seconds": 1.81666666666667,
+	"min_travel": 5109.76241871342,
+	"passed": true,
+	"penetration_samples": 0,
+	"recoveries": 11,
+	"simulated_seconds": 120,
+	"spawn_path_to_event": [
+		736.0,
+		736.0
+	]
+}

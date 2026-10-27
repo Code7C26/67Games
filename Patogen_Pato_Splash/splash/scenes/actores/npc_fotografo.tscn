@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_vh7sq"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_fotografo.tres" id="2_irh5c"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_qbgwv"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_dia3w"]
+
+[node name="Fotografo" type="Node2D" unique_id=1149674706]
+z_index = 2
+script = ExtResource("1_vh7sq")
+action_asset = "npc_fotografo"
+walking_skin = "staff_3"
+exit_offset = Vector2(0, 32)
+phase_offset = 5.84
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=1812135349]
+texture_filter = 1
+sprite_frames = ExtResource("2_irh5c")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=465489035]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_qbgwv")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=1719996376]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_dia3w")

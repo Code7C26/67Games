@@ -1,0 +1,677 @@
+[
+	{
+		"category": 0,
+		"name": "flash_camara",
+		"position": [
+			48.0,
+			234.0
+		],
+		"source": "res://splash/assets/flash_camara.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "helado_mano",
+		"position": [
+			352.0,
+			234.0
+		],
+		"source": "res://splash/assets/helado_mano.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "huella_mojada",
+		"position": [
+			656.0,
+			234.0
+		],
+		"source": "res://splash/assets/huella_mojada.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "libelula",
+		"position": [
+			960.0,
+			234.0
+		],
+		"source": "res://splash/assets/libelula.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_fotografo",
+		"position": [
+			1264.0,
+			234.0
+		],
+		"source": "res://splash/assets/npc_fotografo.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_guardia",
+		"position": [
+			1568.0,
+			234.0
+		],
+		"source": "res://splash/assets/npc_guardia.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_heladero",
+		"position": [
+			48.0,
+			444.0
+		],
+		"source": "res://splash/assets/npc_heladero.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_limpieza",
+		"position": [
+			352.0,
+			444.0
+		],
+		"source": "res://splash/assets/npc_limpieza.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_pelota",
+		"position": [
+			656.0,
+			444.0
+		],
+		"source": "res://splash/assets/npc_pelota.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_reposera_giro",
+		"position": [
+			960.0,
+			444.0
+		],
+		"source": "res://splash/assets/npc_reposera_giro.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_reposera_lectura",
+		"position": [
+			1264.0,
+			444.0
+		],
+		"source": "res://splash/assets/npc_reposera_lectura.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_reposera_protector",
+		"position": [
+			1568.0,
+			444.0
+		],
+		"source": "res://splash/assets/npc_reposera_protector.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_silbato",
+		"position": [
+			48.0,
+			654.0
+		],
+		"source": "res://splash/assets/npc_silbato.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "npc_tobogan",
+		"position": [
+			352.0,
+			654.0
+		],
+		"source": "res://splash/assets/npc_tobogan.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "pelota_playa",
+		"position": [
+			656.0,
+			654.0
+		],
+		"source": "res://splash/assets/pelota_playa.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "puerta_cabina",
+		"position": [
+			960.0,
+			654.0
+		],
+		"source": "res://splash/assets/puerta_cabina.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "reaccion_alerta",
+		"position": [
+			1264.0,
+			654.0
+		],
+		"source": "res://splash/assets/reaccion_alerta.aseprite"
+	},
+	{
+		"category": 0,
+		"name": "reaccion_cubrir",
+		"position": [
+			1568.0,
+			654.0
+		],
+		"source": "res://splash/assets/reaccion_cubrir.aseprite"
+	},
+	{
+		"category": 1,
+		"name": "pato_canon",
+		"position": [
+			48.0,
+			928.0
+		],
+		"source": "res://splash/assets/pato_canon.aseprite"
+	},
+	{
+		"category": 1,
+		"name": "pato_gigante",
+		"position": [
+			352.0,
+			928.0
+		],
+		"source": "res://splash/assets/pato_gigante.aseprite"
+	},
+	{
+		"category": 1,
+		"name": "pato_giro",
+		"position": [
+			656.0,
+			928.0
+		],
+		"source": "res://splash/assets/pato_giro.aseprite"
+	},
+	{
+		"category": 1,
+		"name": "pato_parque",
+		"position": [
+			960.0,
+			928.0
+		],
+		"source": "res://splash/assets/pato_parque.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "banador_1",
+		"position": [
+			48.0,
+			1202.0
+		],
+		"source": "res://splash/assets/banador_1.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "banador_2",
+		"position": [
+			352.0,
+			1202.0
+		],
+		"source": "res://splash/assets/banador_2.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "banador_3",
+		"position": [
+			656.0,
+			1202.0
+		],
+		"source": "res://splash/assets/banador_3.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "npc_cubrirse",
+		"position": [
+			960.0,
+			1202.0
+		],
+		"source": "res://splash/assets/npc_cubrirse.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "npc_empapado",
+		"position": [
+			1264.0,
+			1202.0
+		],
+		"source": "res://splash/assets/npc_empapado.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "salvavidas_1",
+		"position": [
+			1568.0,
+			1202.0
+		],
+		"source": "res://splash/assets/salvavidas_1.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "salvavidas_2",
+		"position": [
+			48.0,
+			1412.0
+		],
+		"source": "res://splash/assets/salvavidas_2.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "salvavidas_3",
+		"position": [
+			352.0,
+			1412.0
+		],
+		"source": "res://splash/assets/salvavidas_3.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "staff_1",
+		"position": [
+			656.0,
+			1412.0
+		],
+		"source": "res://splash/assets/staff_1.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "staff_2",
+		"position": [
+			960.0,
+			1412.0
+		],
+		"source": "res://splash/assets/staff_2.aseprite"
+	},
+	{
+		"category": 2,
+		"name": "staff_3",
+		"position": [
+			1264.0,
+			1412.0
+		],
+		"source": "res://splash/assets/staff_3.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "agua_celeste",
+		"position": [
+			48.0,
+			1686.0
+		],
+		"source": "res://splash/assets/agua_celeste.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "burbuja_canon",
+		"position": [
+			352.0,
+			1686.0
+		],
+		"source": "res://splash/assets/burbuja_canon.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "charco_deck",
+		"position": [
+			656.0,
+			1686.0
+		],
+		"source": "res://splash/assets/charco_deck.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "chorro_balde",
+		"position": [
+			960.0,
+			1686.0
+		],
+		"source": "res://splash/assets/chorro_balde.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "destellos_agua",
+		"position": [
+			1264.0,
+			1686.0
+		],
+		"source": "res://splash/assets/destellos_agua.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "fuente_burbujas",
+		"position": [
+			1568.0,
+			1686.0
+		],
+		"source": "res://splash/assets/fuente_burbujas.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "fuente_hongo",
+		"position": [
+			48.0,
+			1896.0
+		],
+		"source": "res://splash/assets/fuente_hongo.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "gota_canon",
+		"position": [
+			352.0,
+			1896.0
+		],
+		"source": "res://splash/assets/gota_canon.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "pileta_balde",
+		"position": [
+			656.0,
+			1896.0
+		],
+		"source": "res://splash/assets/pileta_balde.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "pileta_central",
+		"position": [
+			960.0,
+			1896.0
+		],
+		"source": "res://splash/assets/pileta_central.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "pileta_lateral",
+		"position": [
+			1264.0,
+			1896.0
+		],
+		"source": "res://splash/assets/pileta_lateral.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "salida_tobogan",
+		"position": [
+			1568.0,
+			1896.0
+		],
+		"source": "res://splash/assets/salida_tobogan.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "splash_corona",
+		"position": [
+			48.0,
+			2106.0
+		],
+		"source": "res://splash/assets/splash_corona.aseprite"
+	},
+	{
+		"category": 3,
+		"name": "splash_deck",
+		"position": [
+			352.0,
+			2106.0
+		],
+		"source": "res://splash/assets/splash_deck.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "balde",
+		"position": [
+			48.0,
+			2380.0
+		],
+		"source": "res://splash/assets/balde.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "banco",
+		"position": [
+			352.0,
+			2380.0
+		],
+		"source": "res://splash/assets/banco.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "bandera_viento",
+		"position": [
+			656.0,
+			2380.0
+		],
+		"source": "res://splash/assets/bandera_viento.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "banderin",
+		"position": [
+			960.0,
+			2380.0
+		],
+		"source": "res://splash/assets/banderin.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "cantero_palmera",
+		"position": [
+			1264.0,
+			2380.0
+		],
+		"source": "res://splash/assets/cantero_palmera.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "cartel_no_pisar",
+		"position": [
+			1568.0,
+			2380.0
+		],
+		"source": "res://splash/assets/cartel_no_pisar.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "cartel_piso_mojado",
+		"position": [
+			48.0,
+			2590.0
+		],
+		"source": "res://splash/assets/cartel_piso_mojado.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "casilleros",
+		"position": [
+			352.0,
+			2590.0
+		],
+		"source": "res://splash/assets/casilleros.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "duchas",
+		"position": [
+			656.0,
+			2590.0
+		],
+		"source": "res://splash/assets/duchas.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "entrada_tickets",
+		"position": [
+			960.0,
+			2590.0
+		],
+		"source": "res://splash/assets/entrada_tickets.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "escalera",
+		"position": [
+			1264.0,
+			2590.0
+		],
+		"source": "res://splash/assets/escalera.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "filtro",
+		"position": [
+			1568.0,
+			2590.0
+		],
+		"source": "res://splash/assets/filtro.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "flotador",
+		"position": [
+			48.0,
+			2800.0
+		],
+		"source": "res://splash/assets/flotador.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "hoja_palmera",
+		"position": [
+			352.0,
+			2800.0
+		],
+		"source": "res://splash/assets/hoja_palmera.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "kiosco",
+		"position": [
+			656.0,
+			2800.0
+		],
+		"source": "res://splash/assets/kiosco.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "letrero_helados",
+		"position": [
+			960.0,
+			2800.0
+		],
+		"source": "res://splash/assets/letrero_helados.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "mesa",
+		"position": [
+			1264.0,
+			2800.0
+		],
+		"source": "res://splash/assets/mesa.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "palmera",
+		"position": [
+			1568.0,
+			2800.0
+		],
+		"source": "res://splash/assets/palmera.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "papelera",
+		"position": [
+			48.0,
+			3010.0
+		],
+		"source": "res://splash/assets/papelera.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "reposera",
+		"position": [
+			352.0,
+			3010.0
+		],
+		"source": "res://splash/assets/reposera.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "silla_salvavidas",
+		"position": [
+			656.0,
+			3010.0
+		],
+		"source": "res://splash/assets/silla_salvavidas.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "sombrilla",
+		"position": [
+			960.0,
+			3010.0
+		],
+		"source": "res://splash/assets/sombrilla.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "toallero",
+		"position": [
+			1264.0,
+			3010.0
+		],
+		"source": "res://splash/assets/toallero.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "toboganes",
+		"position": [
+			1568.0,
+			3010.0
+		],
+		"source": "res://splash/assets/toboganes.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "torre_balde",
+		"position": [
+			48.0,
+			3220.0
+		],
+		"source": "res://splash/assets/torre_balde.aseprite"
+	},
+	{
+		"category": 4,
+		"name": "vestuarios",
+		"position": [
+			352.0,
+			3220.0
+		],
+		"source": "res://splash/assets/vestuarios.aseprite"
+	},
+	{
+		"category": 5,
+		"name": "caminos_32",
+		"position": [
+			48.0,
+			3494.0
+		],
+		"source": "res://splash/assets/caminos_32.aseprite"
+	},
+	{
+		"category": 5,
+		"name": "tiles_parque",
+		"position": [
+			352.0,
+			3494.0
+		],
+		"source": "res://splash/assets/tiles_parque.aseprite"
+	}
+]

@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/pelota_playa.png" id="1_86mnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86mnf"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak8q7"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fync3"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ha3v"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn7m2"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2y7n"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(100, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ulp3"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(120, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh8qv"]
+atlas = ExtResource("1_86mnf")
+region = Rect2(140, 0, 20, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86mnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ak8q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fync3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ha3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn7m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2y7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ulp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh8qv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]

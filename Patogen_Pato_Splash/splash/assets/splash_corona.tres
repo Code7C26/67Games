@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/splash_corona.png" id="1_u1dgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phl7y"]
+atlas = ExtResource("1_u1dgh")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m33p"]
+atlas = ExtResource("1_u1dgh")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs74j"]
+atlas = ExtResource("1_u1dgh")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6lq0"]
+atlas = ExtResource("1_u1dgh")
+region = Rect2(192, 0, 64, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phl7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m33p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs74j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6lq0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]

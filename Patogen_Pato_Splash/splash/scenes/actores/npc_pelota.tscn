@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_q3h6l"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_pelota.tres" id="2_1qolw"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_4a5ub"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_bvwlp"]
+
+[node name="NinoB" type="Node2D" unique_id=1395094718]
+z_index = 2
+script = ExtResource("1_q3h6l")
+action_asset = "npc_pelota"
+reaction_kind = 1
+walking_skin = "banador_2"
+exit_offset = Vector2(0, -10)
+phase_offset = 4.38
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=1337206786]
+texture_filter = 1
+sprite_frames = ExtResource("2_1qolw")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=180054772]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_4a5ub")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=1890100450]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_bvwlp")

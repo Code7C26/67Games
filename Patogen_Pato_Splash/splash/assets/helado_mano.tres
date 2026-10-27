@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/helado_mano.png" id="1_4yf6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yf6c"]
+atlas = ExtResource("1_4yf6c")
+region = Rect2(0, 0, 12, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpotl"]
+atlas = ExtResource("1_4yf6c")
+region = Rect2(12, 0, 12, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m80i2"]
+atlas = ExtResource("1_4yf6c")
+region = Rect2(24, 0, 12, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acw03"]
+atlas = ExtResource("1_4yf6c")
+region = Rect2(36, 0, 12, 18)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yf6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpotl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m80i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acw03")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]

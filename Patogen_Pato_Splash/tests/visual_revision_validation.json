@@ -1,0 +1,15 @@
+{
+	"cloud_max_darkening": 0.177777767181396,
+	"cloud_moving_pixels_24s": 326474,
+	"cloud_opacity": 0.24,
+	"cloud_visible_pixels": 246208,
+	"failures": [],
+	"font": "Press Start 2P",
+	"hud_pixels_affected": 0,
+	"passed": true,
+	"render_size": [
+		1920,
+		1080
+	],
+	"text_nodes_checked": 28
+}

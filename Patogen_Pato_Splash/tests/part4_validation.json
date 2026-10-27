@@ -1,0 +1,51 @@
+{
+	"actors": 54,
+	"dry_and_recovery_checked": true,
+	"event": {
+		"frames": 5669,
+		"frames_over_16_667_ms": 0,
+		"max_ms": 16.03,
+		"mean_fps": 283.92558955879,
+		"p99_ms": 9.877
+	},
+	"failures": [],
+	"fan_degrees": [
+		-32.8533333297819,
+		33.0
+	],
+	"full_run": {
+		"frames": 11384,
+		"frames_over_16_667_ms": 0,
+		"max_ms": 16.332,
+		"mean_fps": 284.594315228554,
+		"p99_ms": 9.942
+	},
+	"geometry_samples": 79,
+	"gpu": "AMD Radeon(TM) Graphics",
+	"impacts": 153,
+	"infection_modes_checked": [
+		1,
+		2
+	],
+	"max_live_decals": 45,
+	"max_live_splashes": 7,
+	"max_shake_px": 10.0,
+	"natural_hits": 104,
+	"passed": true,
+	"pause_checked": true,
+	"phases": [
+		"calma",
+		"aviso",
+		"chapuzon",
+		"reposo"
+	],
+	"physics_hz": 60,
+	"reactions": [
+		"correr",
+		"cubrirse"
+	],
+	"render_size": [
+		1920,
+		1080
+	]
+}

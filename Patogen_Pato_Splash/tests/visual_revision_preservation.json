@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "unchanged_aseprite_sources": 47,
+  "redrawn_sources": [
+    "pato_gigante.aseprite"
+  ],
+  "preserved_files": {
+    "project.godot": true,
+    "splash/assets/patogen_paleta.gpl": true,
+    "splash/scripts/splash_event.gd": true,
+    "demo/visitor.gd": true,
+    "demo/routes.gd": true,
+    "demo/explorer.gd": true
+  },
+  "font_exactly_matches_user_zip": true,
+  "backup": "C:\\Users\\feliv\\.codex\\.chatgpt-projects\\g-p-6ac7d270eca08191830907d9c9abeba3\\.work\\backups\\PatoSplash_fuente_nubes_pato_20261026_105247"
+}

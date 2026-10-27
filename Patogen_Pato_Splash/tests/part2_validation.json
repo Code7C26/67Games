@@ -1,0 +1,28 @@
+{
+	"actors": 54,
+	"completed_trips": 570,
+	"connected_destination_pairs": 289,
+	"connected_pairs_radius36": 289,
+	"connected_promende_tiles": 383,
+	"failures": [],
+	"impact_times": [
+		38.0129856060606,
+		88.0095143333323
+	],
+	"max_attracted": 10,
+	"max_destination_distance_to_promenade": 22.6274166107178,
+	"max_stuck_seconds": 1.36666666666667,
+	"min_travel": 4953.06094771624,
+	"native_terrain": true,
+	"nearest_nodes_checked": 202,
+	"passed": true,
+	"penetration_samples": 0,
+	"planters": 10,
+	"recoveries": 0,
+	"signs": 8,
+	"simulated_seconds": 120,
+	"spawn_path_to_event": [
+		736.0,
+		736.0
+	]
+}

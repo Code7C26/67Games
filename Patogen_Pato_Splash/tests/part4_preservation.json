@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "backup": "C:\\Users\\feliv\\.codex\\.chatgpt-projects\\g-p-6ac7d270eca08191830907d9c9abeba3\\.work\\backups\\PatoSplash_parte4_20261026_111326",
+  "original_aseprite_sources_unchanged": 48,
+  "new_aseprite_sources": 7,
+  "preserved_files": {
+    "project.godot": true,
+    "splash/assets/patogen_paleta.gpl": true,
+    "splash/assets/PressStart2P.ttf": true,
+    "splash/assets/press_start_2p.tres": true,
+    "demo/explorer.gd": true
+  },
+  "solid_geometry_nodes_checked": 106,
+  "modified_solid_geometry": [],
+  "prefabs_unchanged": true
+}

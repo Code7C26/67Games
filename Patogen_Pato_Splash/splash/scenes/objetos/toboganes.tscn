@@ -1,0 +1,174 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_dqrbp"]
+[ext_resource type="Texture2D" path="res://splash/assets/toboganes.png" id="2_bygkw"]
+[ext_resource type="Texture2D" path="res://splash/assets/salida_tobogan.png" id="3_bygkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tda5t"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(0, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4hin"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(272, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wge6b"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(544, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpg1d"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(816, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h50p8"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(1088, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itadf"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(1360, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dg0q"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(1632, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3lod"]
+atlas = ExtResource("2_bygkw")
+region = Rect2(1904, 0, 272, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sjde"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tda5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4hin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wge6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpg1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h50p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itadf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dg0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3lod")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.142857142857142
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye0fa"]
+size = Vector2(264, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sjde"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(0, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye0fa"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(48, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjcag"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(96, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imwb3"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(144, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7p06"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(192, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmj08"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(240, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2psi"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(288, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v2nq"]
+atlas = ExtResource("3_bygkw")
+region = Rect2(336, 0, 48, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm64k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sjde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye0fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjcag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imwb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7p06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmj08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2psi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v2nq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Toboganes" type="Node2D" unique_id=1655371277]
+texture_filter = 1
+script = ExtResource("1_dqrbp")
+metadata/footprint = Rect2(4, 12, 264, 222)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1401680106]
+position = Vector2(0, -120)
+sprite_frames = SubResource("SpriteFrames_6sjde")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=2014878619]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=2017455738]
+position = Vector2(0, -117)
+shape = SubResource("RectangleShape2D_ye0fa")
+
+[node name="SalidaIzquierda" type="Marker2D" parent="." unique_id=1115211520]
+position = Vector2(-51, -20)
+
+[node name="CaidaAgua" type="AnimatedSprite2D" parent="SalidaIzquierda" unique_id=184186582]
+texture_filter = 1
+position = Vector2(-24, 0)
+sprite_frames = SubResource("SpriteFrames_fm64k")
+autoplay = "default"
+centered = false
+
+[node name="SalidaDerecha" type="Marker2D" parent="." unique_id=961170902]
+position = Vector2(19, -17)
+
+[node name="CaidaAgua" type="AnimatedSprite2D" parent="SalidaDerecha" unique_id=1544238814]
+texture_filter = 1
+position = Vector2(-24, 0)
+sprite_frames = SubResource("SpriteFrames_fm64k")
+autoplay = "default"
+frame = 4
+centered = false

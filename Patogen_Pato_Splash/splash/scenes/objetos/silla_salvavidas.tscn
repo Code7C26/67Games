@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_c0rbb"]
+[ext_resource type="Texture2D" path="res://splash/assets/silla_salvavidas.png" id="2_qk8rs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jgja"]
+size = Vector2(48, 57)
+
+[node name="SillaSalvavidas" type="Node2D" unique_id=82645855]
+texture_filter = 1
+script = ExtResource("1_c0rbb")
+metadata/footprint = Rect2(8, 39, 48, 57)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1708632631]
+position = Vector2(0, -52)
+texture = ExtResource("2_qk8rs")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1051778560]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1271396042]
+position = Vector2(0, -36.5)
+shape = SubResource("RectangleShape2D_4jgja")

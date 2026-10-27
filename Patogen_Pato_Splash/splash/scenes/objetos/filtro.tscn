@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_2gdng"]
+[ext_resource type="Texture2D" path="res://splash/assets/filtro.png" id="2_8rket"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8sy5"]
+atlas = ExtResource("2_8rket")
+region = Rect2(0, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxx5a"]
+atlas = ExtResource("2_8rket")
+region = Rect2(64, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8463g"]
+atlas = ExtResource("2_8rket")
+region = Rect2(128, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8v4p"]
+atlas = ExtResource("2_8rket")
+region = Rect2(192, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7atok"]
+atlas = ExtResource("2_8rket")
+region = Rect2(256, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdsv"]
+atlas = ExtResource("2_8rket")
+region = Rect2(320, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy717"]
+atlas = ExtResource("2_8rket")
+region = Rect2(384, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbrka"]
+atlas = ExtResource("2_8rket")
+region = Rect2(448, 0, 64, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8c24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8sy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxx5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8463g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8v4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7atok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy717")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbrka")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2flxr"]
+size = Vector2(56, 54)
+
+[node name="Filtro" type="Node2D" unique_id=844558700]
+texture_filter = 1
+script = ExtResource("1_2gdng")
+metadata/footprint = Rect2(4, 12, 56, 54)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1198649509]
+position = Vector2(0, -36)
+sprite_frames = SubResource("SpriteFrames_e8c24")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1028318687]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=2065238012]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_2flxr")

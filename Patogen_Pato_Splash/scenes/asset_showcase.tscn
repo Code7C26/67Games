@@ -1,0 +1,4182 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/asset_showcase.gd" id="1_gouuv"]
+[ext_resource type="FontFile" path="res://splash/assets/press_start_2p.tres" id="2_6x6n8"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/flash_camara.tres" id="3_bafib"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/helado_mano.tres" id="4_povij"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/huella_mojada.tres" id="5_wjh26"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/libelula.tres" id="6_1pwxr"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_fotografo.tres" id="7_upqcn"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_guardia.tres" id="8_v4do6"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_heladero.tres" id="9_b0qdy"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_limpieza.tres" id="10_modyo"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_pelota.tres" id="11_lkiov"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_giro.tres" id="12_5vykr"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_lectura.tres" id="13_mogkh"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_protector.tres" id="14_8581e"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_silbato.tres" id="15_6lyla"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_tobogan.tres" id="16_kwry3"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/pelota_playa.tres" id="17_f2xkn"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/puerta_cabina.tres" id="18_ikde0"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="19_kpdaj"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="20_d6w8d"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/pato_canon.tres" id="21_64brp"]
+[ext_resource type="Texture2D" path="res://splash/assets/pato_gigante.png" id="22_rly0n"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/pato_giro.tres" id="23_ipka7"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/pato_parque.tres" id="24_d028o"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/banador_1.tres" id="25_jb535"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/banador_2.tres" id="26_2hxya"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/banador_3.tres" id="27_1tl8x"]
+[ext_resource type="Texture2D" path="res://splash/assets/npc_cubrirse.png" id="28_5rbg6"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_empapado.tres" id="29_w0t1m"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/salvavidas_1.tres" id="30_52yog"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/salvavidas_2.tres" id="31_2em6j"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/salvavidas_3.tres" id="32_oy4fs"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/staff_1.tres" id="33_lstbg"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/staff_2.tres" id="34_gbbhx"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/staff_3.tres" id="35_eebrw"]
+[ext_resource type="Texture2D" path="res://splash/assets/agua_celeste.png" id="36_3i8e8"]
+[ext_resource type="Texture2D" path="res://splash/assets/burbuja_canon.png" id="37_bmrbn"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/charco_deck.tres" id="38_23msr"]
+[ext_resource type="Texture2D" path="res://splash/assets/chorro_balde.png" id="39_klui2"]
+[ext_resource type="Texture2D" path="res://splash/assets/destellos_agua.png" id="40_s6pbc"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/fuente_burbujas.tres" id="41_jt5yy"]
+[ext_resource type="Texture2D" path="res://splash/assets/fuente_hongo.png" id="42_wifu3"]
+[ext_resource type="Texture2D" path="res://splash/assets/gota_canon.png" id="43_do2gt"]
+[ext_resource type="Texture2D" path="res://splash/assets/pileta_balde.png" id="44_yukil"]
+[ext_resource type="Texture2D" path="res://splash/assets/pileta_central.png" id="45_eebqd"]
+[ext_resource type="Texture2D" path="res://splash/assets/pileta_lateral.png" id="46_mw8mh"]
+[ext_resource type="Texture2D" path="res://splash/assets/salida_tobogan.png" id="47_wgtf3"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/splash_corona.tres" id="48_wvjqd"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/splash_deck.tres" id="49_6et8i"]
+[ext_resource type="Texture2D" path="res://splash/assets/balde.png" id="50_jdoih"]
+[ext_resource type="Texture2D" path="res://splash/assets/banco.png" id="51_l53cg"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/bandera_viento.tres" id="52_61j02"]
+[ext_resource type="Texture2D" path="res://splash/assets/banderin.png" id="53_7uc70"]
+[ext_resource type="Texture2D" path="res://splash/assets/cantero_palmera.png" id="54_bcd1j"]
+[ext_resource type="Texture2D" path="res://splash/assets/cartel_no_pisar.png" id="55_dsws5"]
+[ext_resource type="Texture2D" path="res://splash/assets/cartel_piso_mojado.png" id="56_fk3qv"]
+[ext_resource type="Texture2D" path="res://splash/assets/casilleros.png" id="57_qf3rv"]
+[ext_resource type="Texture2D" path="res://splash/assets/duchas.png" id="58_kqb1f"]
+[ext_resource type="Texture2D" path="res://splash/assets/entrada_tickets.png" id="59_xmpww"]
+[ext_resource type="Texture2D" path="res://splash/assets/escalera.png" id="60_24ohm"]
+[ext_resource type="Texture2D" path="res://splash/assets/filtro.png" id="61_8f3ni"]
+[ext_resource type="Texture2D" path="res://splash/assets/flotador.png" id="62_ge4vh"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/hoja_palmera.tres" id="63_njc7k"]
+[ext_resource type="Texture2D" path="res://splash/assets/kiosco.png" id="64_6mls3"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/letrero_helados.tres" id="65_jgakg"]
+[ext_resource type="Texture2D" path="res://splash/assets/mesa.png" id="66_5u6y3"]
+[ext_resource type="Texture2D" path="res://splash/assets/palmera.png" id="67_s5o3f"]
+[ext_resource type="Texture2D" path="res://splash/assets/papelera.png" id="68_bi0f2"]
+[ext_resource type="Texture2D" path="res://splash/assets/reposera.png" id="69_ky6w5"]
+[ext_resource type="Texture2D" path="res://splash/assets/silla_salvavidas.png" id="70_20a5v"]
+[ext_resource type="Texture2D" path="res://splash/assets/sombrilla.png" id="71_syd0k"]
+[ext_resource type="Texture2D" path="res://splash/assets/toallero.png" id="72_w0ooa"]
+[ext_resource type="Texture2D" path="res://splash/assets/toboganes.png" id="73_3u0jl"]
+[ext_resource type="Texture2D" path="res://splash/assets/torre_balde.png" id="74_dqy62"]
+[ext_resource type="Texture2D" path="res://splash/assets/vestuarios.png" id="75_cp8gv"]
+[ext_resource type="Texture2D" path="res://splash/assets/caminos_32.png" id="76_uapyi"]
+[ext_resource type="Texture2D" path="res://splash/assets/tiles_parque.png" id="77_png7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytkpu"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llpwy"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oh64"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rxji"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(480, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjs51"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(640, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c6o7"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(800, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66s75"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(960, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxlne"]
+atlas = ExtResource("22_rly0n")
+region = Rect2(1120, 0, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2atk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytkpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llpwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oh64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rxji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjs51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c6o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66s75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxlne")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8g38"]
+atlas = ExtResource("28_5rbg6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jsvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8g38")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpvjf"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qmgw"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkst3"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j73fy"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awdgy"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fam72"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7lne"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab3qx"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d27cr"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af5q0"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma18m"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okk62"]
+atlas = ExtResource("36_3i8e8")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43ne7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpvjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qmgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkst3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j73fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awdgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fam72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7lne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab3qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d27cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af5q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma18m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okk62")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.555555555555555
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00we5"]
+atlas = ExtResource("37_bmrbn")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyp6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00we5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yem0h"]
+atlas = ExtResource("39_klui2")
+region = Rect2(0, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwt41"]
+atlas = ExtResource("39_klui2")
+region = Rect2(192, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jjas"]
+atlas = ExtResource("39_klui2")
+region = Rect2(384, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdnoa"]
+atlas = ExtResource("39_klui2")
+region = Rect2(576, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jslh7"]
+atlas = ExtResource("39_klui2")
+region = Rect2(768, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aucfn"]
+atlas = ExtResource("39_klui2")
+region = Rect2(960, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ullhb"]
+atlas = ExtResource("39_klui2")
+region = Rect2(1152, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj11a"]
+atlas = ExtResource("39_klui2")
+region = Rect2(1344, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojrrl"]
+atlas = ExtResource("39_klui2")
+region = Rect2(1536, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07u2r"]
+atlas = ExtResource("39_klui2")
+region = Rect2(1728, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ot63"]
+atlas = ExtResource("39_klui2")
+region = Rect2(1920, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eff56"]
+atlas = ExtResource("39_klui2")
+region = Rect2(2112, 0, 192, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu3kr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yem0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwt41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jjas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdnoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jslh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aucfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ullhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj11a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojrrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07u2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ot63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eff56")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.25
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20b8f"]
+atlas = ExtResource("40_s6pbc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bamg"]
+atlas = ExtResource("40_s6pbc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcqbv"]
+atlas = ExtResource("40_s6pbc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndyu1"]
+atlas = ExtResource("40_s6pbc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yo2jk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20b8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bamg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcqbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndyu1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5vb4"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7bfp"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dtly"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w3g3"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qil5s"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq3ug"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e22w6"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lhsa"]
+atlas = ExtResource("42_wifu3")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efly0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5vb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7bfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dtly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w3g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qil5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq3ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e22w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lhsa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht83g"]
+atlas = ExtResource("43_do2gt")
+region = Rect2(0, 0, 4, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5sqqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht83g")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01xah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_yukil")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk84v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_eebqd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6dky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_mw8mh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mfeo"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(0, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtexp"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(48, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot2xv"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(96, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7qmv"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(144, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooi1y"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(192, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3kcj"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(240, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fljgr"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(288, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30yii"]
+atlas = ExtResource("47_wgtf3")
+region = Rect2(336, 0, 48, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_572ro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mfeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtexp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot2xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7qmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooi1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3kcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fljgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30yii")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hebgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_jdoih")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0fkxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("51_l53cg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opir6"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibc4e"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1c0c"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqbmq"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(144, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1d7"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(192, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep7j1"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(240, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyaq7"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(288, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el2xx"]
+atlas = ExtResource("53_7uc70")
+region = Rect2(336, 0, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_re5bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opir6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibc4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1c0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqbmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep7j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyaq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el2xx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.666666666666667
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0tkbf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_bcd1j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dofsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("55_dsws5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drogn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("56_fk3qv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v43l5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_qf3rv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78vuv"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk0ln"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vafwe"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(256, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3qs1"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(384, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyer2"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(512, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taeqf"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(640, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvbxm"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(768, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f1wo"]
+atlas = ExtResource("58_kqb1f")
+region = Rect2(896, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_435v2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78vuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk0ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vafwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyer2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taeqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvbxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f1wo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkjl1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("59_xmpww")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kksq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("60_24ohm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33him"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(0, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ub4"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(64, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m0er"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(128, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44a7c"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(192, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cren"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(256, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaj68"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(320, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mltl"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(384, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g035"]
+atlas = ExtResource("61_8f3ni")
+region = Rect2(448, 0, 64, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifusk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33him")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ub4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m0er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44a7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cren")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaj68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mltl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g035")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u68d2"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(0, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2i15"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(48, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uulfu"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(96, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7istg"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(144, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2fes"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(192, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22i2e"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(240, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5l3x"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(288, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb6ng"]
+atlas = ExtResource("62_ge4vh")
+region = Rect2(336, 0, 48, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgw7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u68d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2i15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uulfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7istg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2fes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22i2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5l3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb6ng")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngh7a"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(0, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng2ww"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(192, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wotmc"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(384, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmaa6"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(576, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy1mv"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(768, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6nw2"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(960, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrva5"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(1152, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm7vm"]
+atlas = ExtResource("64_6mls3")
+region = Rect2(1344, 0, 192, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lxg8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngh7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng2ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wotmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmaa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy1mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6nw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrva5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm7vm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jvg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("66_5u6y3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqvn"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grtmg"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(96, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u73c7"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3r3p"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q04ad"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(384, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsw32"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(480, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxyfg"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(576, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jtjb"]
+atlas = ExtResource("67_s5o3f")
+region = Rect2(672, 0, 96, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fv0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grtmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u73c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3r3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q04ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsw32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxyfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jtjb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q47hv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("68_bi0f2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iu18v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("69_ky6w5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3hw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("70_20a5v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhxup"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(0, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg1bv"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(96, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb5vf"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(192, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i58cn"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(288, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mludy"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(384, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1sck"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(480, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meilq"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(576, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2td05"]
+atlas = ExtResource("71_syd0k")
+region = Rect2(672, 0, 96, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dx40k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhxup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg1bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb5vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i58cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mludy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1sck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meilq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2td05")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irsus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("72_w0ooa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbbup"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(0, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh2sx"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(272, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x85r3"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(544, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leqvv"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(816, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2syf"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(1088, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvemy"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(1360, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ilqk"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(1632, 0, 272, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpk11"]
+atlas = ExtResource("73_3u0jl")
+region = Rect2(1904, 0, 272, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anwtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbbup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh2sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x85r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leqvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2syf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvemy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ilqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpk11")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.142857142857143
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q87d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_dqy62")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyndw"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(0, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1wv8"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(416, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i50pg"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(832, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fauo6"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(1248, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd83w"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(1664, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlc6d"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(2080, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycabp"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(2496, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4abd"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(2912, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kui5a"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(3328, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wnkb"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(3744, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xebpk"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(4160, 0, 416, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a3gm"]
+atlas = ExtResource("75_cp8gv")
+region = Rect2(4576, 0, 416, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgnk0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyndw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1wv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i50pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fauo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd83w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlc6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycabp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4abd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kui5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wnkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xebpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a3gm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.5714285714285716
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd0r1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("76_uapyi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m60om"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("77_png7l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AssetShowcase" type="Node2D" unique_id=1472356317]
+texture_filter = 1
+script = ExtResource("1_gouuv")
+content_height = 3914.0
+
+[node name="Catalogo" type="Node2D" parent="." unique_id=849549159]
+
+[node name="@Label@2" type="Label" parent="Catalogo" unique_id=1058976929]
+offset_left = 48.0
+offset_top = 194.0
+offset_right = 48.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "01 / VIDA DEL PARQUE - PARTE 5"
+
+[node name="flash_camara" type="Node2D" parent="Catalogo" unique_id=821015623]
+position = Vector2(48, 234)
+metadata/source = "res://splash/assets/flash_camara.aseprite"
+metadata/export = "res://splash/assets/flash_camara.png"
+
+[node name="@Polygon2D@3" type="Polygon2D" parent="Catalogo/flash_camara" unique_id=284317944]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/flash_camara" unique_id=1021723766]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_bafib")
+autoplay = "default"
+
+[node name="@Label@4" type="Label" parent="Catalogo/flash_camara" unique_id=1730525106]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "flash_camara"
+
+[node name="@Label@5" type="Label" parent="Catalogo/flash_camara" unique_id=800759839]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="helado_mano" type="Node2D" parent="Catalogo" unique_id=67884646]
+position = Vector2(352, 234)
+metadata/source = "res://splash/assets/helado_mano.aseprite"
+metadata/export = "res://splash/assets/helado_mano.png"
+
+[node name="@Polygon2D@6" type="Polygon2D" parent="Catalogo/helado_mano" unique_id=78099830]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/helado_mano" unique_id=660658299]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_povij")
+autoplay = "default"
+
+[node name="@Label@7" type="Label" parent="Catalogo/helado_mano" unique_id=191370394]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "helado_mano"
+
+[node name="@Label@8" type="Label" parent="Catalogo/helado_mano" unique_id=1777650333]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="huella_mojada" type="Node2D" parent="Catalogo" unique_id=327080281]
+position = Vector2(656, 234)
+metadata/source = "res://splash/assets/huella_mojada.aseprite"
+metadata/export = "res://splash/assets/huella_mojada.png"
+
+[node name="@Polygon2D@9" type="Polygon2D" parent="Catalogo/huella_mojada" unique_id=1929103409]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/huella_mojada" unique_id=966170754]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_wjh26")
+autoplay = "default"
+
+[node name="@Label@10" type="Label" parent="Catalogo/huella_mojada" unique_id=1118232165]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "huella_mojada"
+
+[node name="@Label@11" type="Label" parent="Catalogo/huella_mojada" unique_id=81378220]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="libelula" type="Node2D" parent="Catalogo" unique_id=1116383410]
+position = Vector2(960, 234)
+metadata/source = "res://splash/assets/libelula.aseprite"
+metadata/export = "res://splash/assets/libelula.png"
+
+[node name="@Polygon2D@12" type="Polygon2D" parent="Catalogo/libelula" unique_id=296734793]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/libelula" unique_id=1063349821]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_1pwxr")
+autoplay = "default"
+
+[node name="@Label@13" type="Label" parent="Catalogo/libelula" unique_id=1626933685]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "libelula"
+
+[node name="@Label@14" type="Label" parent="Catalogo/libelula" unique_id=8580489]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="npc_fotografo" type="Node2D" parent="Catalogo" unique_id=922525297]
+position = Vector2(1264, 234)
+metadata/source = "res://splash/assets/npc_fotografo.aseprite"
+metadata/export = "res://splash/assets/npc_fotografo.png"
+metadata/prefab = "res://splash/scenes/actores/npc_fotografo.tscn"
+
+[node name="@Polygon2D@15" type="Polygon2D" parent="Catalogo/npc_fotografo" unique_id=1783464240]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_fotografo" unique_id=689647919]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_upqcn")
+autoplay = "default"
+
+[node name="@Label@16" type="Label" parent="Catalogo/npc_fotografo" unique_id=724967525]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_fotografo"
+
+[node name="@Label@17" type="Label" parent="Catalogo/npc_fotografo" unique_id=4656114]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 6 CUADROS"
+
+[node name="npc_guardia" type="Node2D" parent="Catalogo" unique_id=1685804095]
+position = Vector2(1568, 234)
+metadata/source = "res://splash/assets/npc_guardia.aseprite"
+metadata/export = "res://splash/assets/npc_guardia.png"
+metadata/prefab = "res://splash/scenes/actores/npc_guardia.tscn"
+
+[node name="@Polygon2D@18" type="Polygon2D" parent="Catalogo/npc_guardia" unique_id=296265512]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_guardia" unique_id=2107684135]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("8_v4do6")
+autoplay = "default"
+
+[node name="@Label@19" type="Label" parent="Catalogo/npc_guardia" unique_id=520069757]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_guardia"
+
+[node name="@Label@20" type="Label" parent="Catalogo/npc_guardia" unique_id=1258089972]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="npc_heladero" type="Node2D" parent="Catalogo" unique_id=1431941829]
+position = Vector2(48, 444)
+metadata/source = "res://splash/assets/npc_heladero.aseprite"
+metadata/export = "res://splash/assets/npc_heladero.png"
+metadata/prefab = "res://splash/scenes/actores/npc_heladero.tscn"
+
+[node name="@Polygon2D@21" type="Polygon2D" parent="Catalogo/npc_heladero" unique_id=138741964]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_heladero" unique_id=180369102]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("9_b0qdy")
+autoplay = "default"
+
+[node name="@Label@22" type="Label" parent="Catalogo/npc_heladero" unique_id=453928868]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_heladero"
+
+[node name="@Label@23" type="Label" parent="Catalogo/npc_heladero" unique_id=738430692]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="npc_limpieza" type="Node2D" parent="Catalogo" unique_id=521117984]
+position = Vector2(352, 444)
+metadata/source = "res://splash/assets/npc_limpieza.aseprite"
+metadata/export = "res://splash/assets/npc_limpieza.png"
+metadata/prefab = "res://splash/scenes/actores/npc_limpieza.tscn"
+
+[node name="@Polygon2D@24" type="Polygon2D" parent="Catalogo/npc_limpieza" unique_id=2013500122]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_limpieza" unique_id=1213931874]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("10_modyo")
+autoplay = "default"
+
+[node name="@Label@25" type="Label" parent="Catalogo/npc_limpieza" unique_id=926151875]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_limpieza"
+
+[node name="@Label@26" type="Label" parent="Catalogo/npc_limpieza" unique_id=456090498]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="npc_pelota" type="Node2D" parent="Catalogo" unique_id=569951437]
+position = Vector2(656, 444)
+metadata/source = "res://splash/assets/npc_pelota.aseprite"
+metadata/export = "res://splash/assets/npc_pelota.png"
+metadata/prefab = "res://splash/scenes/actores/npc_pelota.tscn"
+
+[node name="@Polygon2D@27" type="Polygon2D" parent="Catalogo/npc_pelota" unique_id=1057460515]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_pelota" unique_id=1254701850]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("11_lkiov")
+autoplay = "default"
+
+[node name="@Label@28" type="Label" parent="Catalogo/npc_pelota" unique_id=1120259254]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_pelota"
+
+[node name="@Label@29" type="Label" parent="Catalogo/npc_pelota" unique_id=1406371782]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 6 CUADROS"
+
+[node name="npc_reposera_giro" type="Node2D" parent="Catalogo" unique_id=1156187067]
+position = Vector2(960, 444)
+metadata/source = "res://splash/assets/npc_reposera_giro.aseprite"
+metadata/export = "res://splash/assets/npc_reposera_giro.png"
+metadata/prefab = "res://splash/scenes/actores/npc_reposera_giro.tscn"
+
+[node name="@Polygon2D@30" type="Polygon2D" parent="Catalogo/npc_reposera_giro" unique_id=1048150140]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_reposera_giro" unique_id=606955940]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("12_5vykr")
+autoplay = "default"
+
+[node name="@Label@31" type="Label" parent="Catalogo/npc_reposera_giro" unique_id=567103443]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_reposera_giro"
+
+[node name="@Label@32" type="Label" parent="Catalogo/npc_reposera_giro" unique_id=1700659345]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="npc_reposera_lectura" type="Node2D" parent="Catalogo" unique_id=991294394]
+position = Vector2(1264, 444)
+metadata/source = "res://splash/assets/npc_reposera_lectura.aseprite"
+metadata/export = "res://splash/assets/npc_reposera_lectura.png"
+metadata/prefab = "res://splash/scenes/actores/npc_reposera_lectura.tscn"
+
+[node name="@Polygon2D@33" type="Polygon2D" parent="Catalogo/npc_reposera_lectura" unique_id=141078750]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_reposera_lectura" unique_id=34153972]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("13_mogkh")
+autoplay = "default"
+
+[node name="@Label@34" type="Label" parent="Catalogo/npc_reposera_lectura" unique_id=1838273789]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_reposera_lectura"
+
+[node name="@Label@35" type="Label" parent="Catalogo/npc_reposera_lectura" unique_id=664076333]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="npc_reposera_protector" type="Node2D" parent="Catalogo" unique_id=940787391]
+position = Vector2(1568, 444)
+metadata/source = "res://splash/assets/npc_reposera_protector.aseprite"
+metadata/export = "res://splash/assets/npc_reposera_protector.png"
+metadata/prefab = "res://splash/scenes/actores/npc_reposera_protector.tscn"
+
+[node name="@Polygon2D@36" type="Polygon2D" parent="Catalogo/npc_reposera_protector" unique_id=1167450601]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_reposera_protector" unique_id=419150961]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("14_8581e")
+autoplay = "default"
+
+[node name="@Label@37" type="Label" parent="Catalogo/npc_reposera_protector" unique_id=721508939]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_reposera_protector"
+
+[node name="@Label@38" type="Label" parent="Catalogo/npc_reposera_protector" unique_id=1019412182]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="npc_silbato" type="Node2D" parent="Catalogo" unique_id=1859334005]
+position = Vector2(48, 654)
+metadata/source = "res://splash/assets/npc_silbato.aseprite"
+metadata/export = "res://splash/assets/npc_silbato.png"
+
+[node name="@Polygon2D@39" type="Polygon2D" parent="Catalogo/npc_silbato" unique_id=1906831782]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_silbato" unique_id=724539861]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("15_6lyla")
+autoplay = "default"
+
+[node name="@Label@40" type="Label" parent="Catalogo/npc_silbato" unique_id=561914736]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_silbato"
+
+[node name="@Label@41" type="Label" parent="Catalogo/npc_silbato" unique_id=733738863]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="npc_tobogan" type="Node2D" parent="Catalogo" unique_id=2053856744]
+position = Vector2(352, 654)
+metadata/source = "res://splash/assets/npc_tobogan.aseprite"
+metadata/export = "res://splash/assets/npc_tobogan.png"
+
+[node name="@Polygon2D@42" type="Polygon2D" parent="Catalogo/npc_tobogan" unique_id=1088648445]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_tobogan" unique_id=865396880]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("16_kwry3")
+autoplay = "default"
+
+[node name="@Label@43" type="Label" parent="Catalogo/npc_tobogan" unique_id=310858058]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_tobogan"
+
+[node name="@Label@44" type="Label" parent="Catalogo/npc_tobogan" unique_id=570475648]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="pelota_playa" type="Node2D" parent="Catalogo" unique_id=295880676]
+position = Vector2(656, 654)
+metadata/source = "res://splash/assets/pelota_playa.aseprite"
+metadata/export = "res://splash/assets/pelota_playa.png"
+
+[node name="@Polygon2D@45" type="Polygon2D" parent="Catalogo/pelota_playa" unique_id=1360123761]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pelota_playa" unique_id=2014013949]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("17_f2xkn")
+autoplay = "default"
+
+[node name="@Label@46" type="Label" parent="Catalogo/pelota_playa" unique_id=215894204]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pelota_playa"
+
+[node name="@Label@47" type="Label" parent="Catalogo/pelota_playa" unique_id=1280385656]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="puerta_cabina" type="Node2D" parent="Catalogo" unique_id=78825112]
+position = Vector2(960, 654)
+metadata/source = "res://splash/assets/puerta_cabina.aseprite"
+metadata/export = "res://splash/assets/puerta_cabina.png"
+
+[node name="@Polygon2D@48" type="Polygon2D" parent="Catalogo/puerta_cabina" unique_id=766335042]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/puerta_cabina" unique_id=1418141370]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = ExtResource("18_ikde0")
+autoplay = "default"
+
+[node name="@Label@49" type="Label" parent="Catalogo/puerta_cabina" unique_id=687181497]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "puerta_cabina"
+
+[node name="@Label@50" type="Label" parent="Catalogo/puerta_cabina" unique_id=2049480825]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 5 CUADROS"
+
+[node name="reaccion_alerta" type="Node2D" parent="Catalogo" unique_id=1264311999]
+position = Vector2(1264, 654)
+metadata/source = "res://splash/assets/reaccion_alerta.aseprite"
+metadata/export = "res://splash/assets/reaccion_alerta.png"
+
+[node name="@Polygon2D@51" type="Polygon2D" parent="Catalogo/reaccion_alerta" unique_id=2067791398]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/reaccion_alerta" unique_id=1034526678]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("19_kpdaj")
+autoplay = "default"
+
+[node name="@Label@52" type="Label" parent="Catalogo/reaccion_alerta" unique_id=1412773325]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "reaccion_alerta"
+
+[node name="@Label@53" type="Label" parent="Catalogo/reaccion_alerta" unique_id=1234780874]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="reaccion_cubrir" type="Node2D" parent="Catalogo" unique_id=1870445871]
+position = Vector2(1568, 654)
+metadata/source = "res://splash/assets/reaccion_cubrir.aseprite"
+metadata/export = "res://splash/assets/reaccion_cubrir.png"
+
+[node name="@Polygon2D@54" type="Polygon2D" parent="Catalogo/reaccion_cubrir" unique_id=322883685]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/reaccion_cubrir" unique_id=725444079]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("20_d6w8d")
+autoplay = "default"
+
+[node name="@Label@55" type="Label" parent="Catalogo/reaccion_cubrir" unique_id=538591642]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "reaccion_cubrir"
+
+[node name="@Label@56" type="Label" parent="Catalogo/reaccion_cubrir" unique_id=1515762733]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="@Label@57" type="Label" parent="Catalogo" unique_id=2122045823]
+offset_left = 48.0
+offset_top = 888.0
+offset_right = 48.0
+offset_bottom = 888.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "02 / PATOS Y GRAN CHAPUZON"
+
+[node name="pato_canon" type="Node2D" parent="Catalogo" unique_id=660179049]
+position = Vector2(48, 928)
+metadata/source = "res://splash/assets/pato_canon.aseprite"
+metadata/export = "res://splash/assets/pato_canon.png"
+
+[node name="@Polygon2D@58" type="Polygon2D" parent="Catalogo/pato_canon" unique_id=2127421162]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pato_canon" unique_id=32430625]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("21_64brp")
+autoplay = "default"
+
+[node name="@Label@59" type="Label" parent="Catalogo/pato_canon" unique_id=1674462757]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pato_canon"
+
+[node name="@Label@60" type="Label" parent="Catalogo/pato_canon" unique_id=1071495147]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 3 CUADROS"
+
+[node name="pato_gigante" type="Node2D" parent="Catalogo" unique_id=1947812430]
+position = Vector2(352, 928)
+metadata/source = "res://splash/assets/pato_gigante.aseprite"
+metadata/export = "res://splash/assets/pato_gigante.png"
+metadata/prefab = "res://splash/scenes/objetos/pato_gigante.tscn"
+
+[node name="@Polygon2D@61" type="Polygon2D" parent="Catalogo/pato_gigante" unique_id=1341455948]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pato_gigante" unique_id=629698747]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_j2atk")
+autoplay = "default"
+
+[node name="@Label@62" type="Label" parent="Catalogo/pato_gigante" unique_id=886337650]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pato_gigante"
+
+[node name="@Label@63" type="Label" parent="Catalogo/pato_gigante" unique_id=863257452]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="pato_giro" type="Node2D" parent="Catalogo" unique_id=2064602223]
+position = Vector2(656, 928)
+metadata/source = "res://splash/assets/pato_giro.aseprite"
+metadata/export = "res://splash/assets/pato_giro.png"
+
+[node name="@Polygon2D@64" type="Polygon2D" parent="Catalogo/pato_giro" unique_id=702389288]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pato_giro" unique_id=700222263]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("23_ipka7")
+autoplay = "default"
+
+[node name="@Label@65" type="Label" parent="Catalogo/pato_giro" unique_id=771015737]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pato_giro"
+
+[node name="@Label@66" type="Label" parent="Catalogo/pato_giro" unique_id=1489492573]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 16 CUADROS"
+
+[node name="pato_parque" type="Node2D" parent="Catalogo" unique_id=142211311]
+position = Vector2(960, 928)
+metadata/source = "res://splash/assets/pato_parque.aseprite"
+metadata/export = "res://splash/assets/pato_parque.png"
+
+[node name="@Polygon2D@67" type="Polygon2D" parent="Catalogo/pato_parque" unique_id=185776450]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pato_parque" unique_id=1775248927]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("24_d028o")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@68" type="Label" parent="Catalogo/pato_parque" unique_id=2121751959]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pato_parque"
+
+[node name="@Label@69" type="Label" parent="Catalogo/pato_parque" unique_id=1016858057]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="@Label@70" type="Label" parent="Catalogo" unique_id=1410134684]
+offset_left = 48.0
+offset_top = 1162.0
+offset_right = 48.0
+offset_bottom = 1162.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "03 / BANISTAS, GUARDAVIDAS Y STAFF"
+
+[node name="banador_1" type="Node2D" parent="Catalogo" unique_id=1683911325]
+position = Vector2(48, 1202)
+metadata/source = "res://splash/assets/banador_1.aseprite"
+metadata/export = "res://splash/assets/banador_1.png"
+
+[node name="@Polygon2D@71" type="Polygon2D" parent="Catalogo/banador_1" unique_id=740654802]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/banador_1" unique_id=1646224237]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("25_jb535")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@72" type="Label" parent="Catalogo/banador_1" unique_id=1519723374]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "banador_1"
+
+[node name="@Label@73" type="Label" parent="Catalogo/banador_1" unique_id=822055953]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="banador_2" type="Node2D" parent="Catalogo" unique_id=1939742494]
+position = Vector2(352, 1202)
+metadata/source = "res://splash/assets/banador_2.aseprite"
+metadata/export = "res://splash/assets/banador_2.png"
+
+[node name="@Polygon2D@74" type="Polygon2D" parent="Catalogo/banador_2" unique_id=885878222]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/banador_2" unique_id=2065952892]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("26_2hxya")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@75" type="Label" parent="Catalogo/banador_2" unique_id=286620396]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "banador_2"
+
+[node name="@Label@76" type="Label" parent="Catalogo/banador_2" unique_id=928805223]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="banador_3" type="Node2D" parent="Catalogo" unique_id=1905694241]
+position = Vector2(656, 1202)
+metadata/source = "res://splash/assets/banador_3.aseprite"
+metadata/export = "res://splash/assets/banador_3.png"
+
+[node name="@Polygon2D@77" type="Polygon2D" parent="Catalogo/banador_3" unique_id=62043580]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/banador_3" unique_id=274268715]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("27_1tl8x")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@78" type="Label" parent="Catalogo/banador_3" unique_id=863777341]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "banador_3"
+
+[node name="@Label@79" type="Label" parent="Catalogo/banador_3" unique_id=621203003]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="npc_cubrirse" type="Node2D" parent="Catalogo" unique_id=973804701]
+position = Vector2(960, 1202)
+metadata/source = "res://splash/assets/npc_cubrirse.aseprite"
+metadata/export = "res://splash/assets/npc_cubrirse.png"
+
+[node name="@Polygon2D@80" type="Polygon2D" parent="Catalogo/npc_cubrirse" unique_id=807492827]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_cubrirse" unique_id=949317391]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3jsvi")
+autoplay = "default"
+
+[node name="@Label@81" type="Label" parent="Catalogo/npc_cubrirse" unique_id=198100939]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_cubrirse"
+
+[node name="@Label@82" type="Label" parent="Catalogo/npc_cubrirse" unique_id=19155402]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="npc_empapado" type="Node2D" parent="Catalogo" unique_id=2068948]
+position = Vector2(1264, 1202)
+metadata/source = "res://splash/assets/npc_empapado.aseprite"
+metadata/export = "res://splash/assets/npc_empapado.png"
+
+[node name="@Polygon2D@83" type="Polygon2D" parent="Catalogo/npc_empapado" unique_id=543857838]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/npc_empapado" unique_id=583417605]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("29_w0t1m")
+autoplay = "default"
+
+[node name="@Label@84" type="Label" parent="Catalogo/npc_empapado" unique_id=2083516020]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "npc_empapado"
+
+[node name="@Label@85" type="Label" parent="Catalogo/npc_empapado" unique_id=21191558]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="salvavidas_1" type="Node2D" parent="Catalogo" unique_id=928034198]
+position = Vector2(1568, 1202)
+metadata/source = "res://splash/assets/salvavidas_1.aseprite"
+metadata/export = "res://splash/assets/salvavidas_1.png"
+
+[node name="@Polygon2D@86" type="Polygon2D" parent="Catalogo/salvavidas_1" unique_id=559869543]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/salvavidas_1" unique_id=1173630761]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("30_52yog")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@87" type="Label" parent="Catalogo/salvavidas_1" unique_id=914160371]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "salvavidas_1"
+
+[node name="@Label@88" type="Label" parent="Catalogo/salvavidas_1" unique_id=1413321435]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="salvavidas_2" type="Node2D" parent="Catalogo" unique_id=1105736847]
+position = Vector2(48, 1412)
+metadata/source = "res://splash/assets/salvavidas_2.aseprite"
+metadata/export = "res://splash/assets/salvavidas_2.png"
+
+[node name="@Polygon2D@89" type="Polygon2D" parent="Catalogo/salvavidas_2" unique_id=422220829]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/salvavidas_2" unique_id=659650452]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("31_2em6j")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@90" type="Label" parent="Catalogo/salvavidas_2" unique_id=1735058580]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "salvavidas_2"
+
+[node name="@Label@91" type="Label" parent="Catalogo/salvavidas_2" unique_id=1658294263]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="salvavidas_3" type="Node2D" parent="Catalogo" unique_id=910817430]
+position = Vector2(352, 1412)
+metadata/source = "res://splash/assets/salvavidas_3.aseprite"
+metadata/export = "res://splash/assets/salvavidas_3.png"
+
+[node name="@Polygon2D@92" type="Polygon2D" parent="Catalogo/salvavidas_3" unique_id=1407542535]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/salvavidas_3" unique_id=1944069222]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("32_oy4fs")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@93" type="Label" parent="Catalogo/salvavidas_3" unique_id=72920420]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "salvavidas_3"
+
+[node name="@Label@94" type="Label" parent="Catalogo/salvavidas_3" unique_id=1230013191]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="staff_1" type="Node2D" parent="Catalogo" unique_id=453159024]
+position = Vector2(656, 1412)
+metadata/source = "res://splash/assets/staff_1.aseprite"
+metadata/export = "res://splash/assets/staff_1.png"
+
+[node name="@Polygon2D@95" type="Polygon2D" parent="Catalogo/staff_1" unique_id=260628695]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/staff_1" unique_id=1487385714]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("33_lstbg")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@96" type="Label" parent="Catalogo/staff_1" unique_id=749059110]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "staff_1"
+
+[node name="@Label@97" type="Label" parent="Catalogo/staff_1" unique_id=311282109]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="staff_2" type="Node2D" parent="Catalogo" unique_id=1784779256]
+position = Vector2(960, 1412)
+metadata/source = "res://splash/assets/staff_2.aseprite"
+metadata/export = "res://splash/assets/staff_2.png"
+
+[node name="@Polygon2D@98" type="Polygon2D" parent="Catalogo/staff_2" unique_id=432182663]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/staff_2" unique_id=511508790]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("34_gbbhx")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@99" type="Label" parent="Catalogo/staff_2" unique_id=2020026866]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "staff_2"
+
+[node name="@Label@100" type="Label" parent="Catalogo/staff_2" unique_id=1534601847]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="staff_3" type="Node2D" parent="Catalogo" unique_id=1168415882]
+position = Vector2(1264, 1412)
+metadata/source = "res://splash/assets/staff_3.aseprite"
+metadata/export = "res://splash/assets/staff_3.png"
+
+[node name="@Polygon2D@101" type="Polygon2D" parent="Catalogo/staff_3" unique_id=1524676929]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/staff_3" unique_id=345033053]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("35_eebrw")
+animation = &"Abajo"
+autoplay = "Abajo"
+
+[node name="@Label@102" type="Label" parent="Catalogo/staff_3" unique_id=1322823440]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "staff_3"
+
+[node name="@Label@103" type="Label" parent="Catalogo/staff_3" unique_id=1407490472]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 2 CUADROS"
+
+[node name="@Label@104" type="Label" parent="Catalogo" unique_id=832772121]
+offset_left = 48.0
+offset_top = 1646.0
+offset_right = 48.0
+offset_bottom = 1646.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "04 / AGUA, PILETAS Y EFECTOS"
+
+[node name="agua_celeste" type="Node2D" parent="Catalogo" unique_id=1058218302]
+position = Vector2(48, 1686)
+metadata/source = "res://splash/assets/agua_celeste.aseprite"
+metadata/export = "res://splash/assets/agua_celeste.png"
+
+[node name="@Polygon2D@105" type="Polygon2D" parent="Catalogo/agua_celeste" unique_id=2096497499]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/agua_celeste" unique_id=659733748]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_43ne7")
+autoplay = "default"
+
+[node name="@Label@106" type="Label" parent="Catalogo/agua_celeste" unique_id=278635094]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "agua_celeste"
+
+[node name="@Label@107" type="Label" parent="Catalogo/agua_celeste" unique_id=1907809049]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 12 CUADROS"
+
+[node name="burbuja_canon" type="Node2D" parent="Catalogo" unique_id=1574770448]
+position = Vector2(352, 1686)
+metadata/source = "res://splash/assets/burbuja_canon.aseprite"
+metadata/export = "res://splash/assets/burbuja_canon.png"
+
+[node name="@Polygon2D@108" type="Polygon2D" parent="Catalogo/burbuja_canon" unique_id=1451794401]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/burbuja_canon" unique_id=421235868]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_oyp6o")
+autoplay = "default"
+
+[node name="@Label@109" type="Label" parent="Catalogo/burbuja_canon" unique_id=1427783367]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "burbuja_canon"
+
+[node name="@Label@110" type="Label" parent="Catalogo/burbuja_canon" unique_id=1770503000]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="charco_deck" type="Node2D" parent="Catalogo" unique_id=1468018452]
+position = Vector2(656, 1686)
+metadata/source = "res://splash/assets/charco_deck.aseprite"
+metadata/export = "res://splash/assets/charco_deck.png"
+
+[node name="@Polygon2D@111" type="Polygon2D" parent="Catalogo/charco_deck" unique_id=180838309]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/charco_deck" unique_id=1288353105]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("38_23msr")
+autoplay = "default"
+
+[node name="@Label@112" type="Label" parent="Catalogo/charco_deck" unique_id=909768771]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "charco_deck"
+
+[node name="@Label@113" type="Label" parent="Catalogo/charco_deck" unique_id=2074634674]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 3 CUADROS"
+
+[node name="chorro_balde" type="Node2D" parent="Catalogo" unique_id=2106173240]
+position = Vector2(960, 1686)
+metadata/source = "res://splash/assets/chorro_balde.aseprite"
+metadata/export = "res://splash/assets/chorro_balde.png"
+
+[node name="@Polygon2D@114" type="Polygon2D" parent="Catalogo/chorro_balde" unique_id=1992494310]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/chorro_balde" unique_id=1966547867]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_pu3kr")
+autoplay = "default"
+
+[node name="@Label@115" type="Label" parent="Catalogo/chorro_balde" unique_id=1592305009]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "chorro_balde"
+
+[node name="@Label@116" type="Label" parent="Catalogo/chorro_balde" unique_id=1853230076]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 12 CUADROS"
+
+[node name="destellos_agua" type="Node2D" parent="Catalogo" unique_id=1775362875]
+position = Vector2(1264, 1686)
+metadata/source = "res://splash/assets/destellos_agua.aseprite"
+metadata/export = "res://splash/assets/destellos_agua.png"
+
+[node name="@Polygon2D@117" type="Polygon2D" parent="Catalogo/destellos_agua" unique_id=946892643]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/destellos_agua" unique_id=1183050541]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_yo2jk")
+autoplay = "default"
+
+[node name="@Label@118" type="Label" parent="Catalogo/destellos_agua" unique_id=588820340]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "destellos_agua"
+
+[node name="@Label@119" type="Label" parent="Catalogo/destellos_agua" unique_id=532288294]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="fuente_burbujas" type="Node2D" parent="Catalogo" unique_id=1246947017]
+position = Vector2(1568, 1686)
+metadata/source = "res://splash/assets/fuente_burbujas.aseprite"
+metadata/export = "res://splash/assets/fuente_burbujas.png"
+
+[node name="@Polygon2D@120" type="Polygon2D" parent="Catalogo/fuente_burbujas" unique_id=1726618355]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/fuente_burbujas" unique_id=671720895]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("41_jt5yy")
+autoplay = "default"
+
+[node name="@Label@121" type="Label" parent="Catalogo/fuente_burbujas" unique_id=136890542]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "fuente_burbujas"
+
+[node name="@Label@122" type="Label" parent="Catalogo/fuente_burbujas" unique_id=562400676]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="fuente_hongo" type="Node2D" parent="Catalogo" unique_id=1738480726]
+position = Vector2(48, 1896)
+metadata/source = "res://splash/assets/fuente_hongo.aseprite"
+metadata/export = "res://splash/assets/fuente_hongo.png"
+metadata/prefab = "res://splash/scenes/objetos/fuente_hongo.tscn"
+
+[node name="@Polygon2D@123" type="Polygon2D" parent="Catalogo/fuente_hongo" unique_id=1496857775]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/fuente_hongo" unique_id=1172821914]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_efly0")
+autoplay = "default"
+
+[node name="@Label@124" type="Label" parent="Catalogo/fuente_hongo" unique_id=142707514]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "fuente_hongo"
+
+[node name="@Label@125" type="Label" parent="Catalogo/fuente_hongo" unique_id=941279398]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="gota_canon" type="Node2D" parent="Catalogo" unique_id=48096996]
+position = Vector2(352, 1896)
+metadata/source = "res://splash/assets/gota_canon.aseprite"
+metadata/export = "res://splash/assets/gota_canon.png"
+
+[node name="@Polygon2D@126" type="Polygon2D" parent="Catalogo/gota_canon" unique_id=1570364913]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/gota_canon" unique_id=142644051]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5sqqx")
+autoplay = "default"
+
+[node name="@Label@127" type="Label" parent="Catalogo/gota_canon" unique_id=1018300046]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "gota_canon"
+
+[node name="@Label@128" type="Label" parent="Catalogo/gota_canon" unique_id=588818648]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="pileta_balde" type="Node2D" parent="Catalogo" unique_id=250414747]
+position = Vector2(656, 1896)
+metadata/source = "res://splash/assets/pileta_balde.aseprite"
+metadata/export = "res://splash/assets/pileta_balde.png"
+
+[node name="@Polygon2D@129" type="Polygon2D" parent="Catalogo/pileta_balde" unique_id=1276488409]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pileta_balde" unique_id=1607928397]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_01xah")
+autoplay = "default"
+
+[node name="@Label@130" type="Label" parent="Catalogo/pileta_balde" unique_id=574698638]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pileta_balde"
+
+[node name="@Label@131" type="Label" parent="Catalogo/pileta_balde" unique_id=1444298730]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="pileta_central" type="Node2D" parent="Catalogo" unique_id=215988466]
+position = Vector2(960, 1896)
+metadata/source = "res://splash/assets/pileta_central.aseprite"
+metadata/export = "res://splash/assets/pileta_central.png"
+
+[node name="@Polygon2D@132" type="Polygon2D" parent="Catalogo/pileta_central" unique_id=2101679115]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pileta_central" unique_id=1196689856]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_kk84v")
+autoplay = "default"
+
+[node name="@Label@133" type="Label" parent="Catalogo/pileta_central" unique_id=1644007557]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pileta_central"
+
+[node name="@Label@134" type="Label" parent="Catalogo/pileta_central" unique_id=1070272117]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="pileta_lateral" type="Node2D" parent="Catalogo" unique_id=1818696423]
+position = Vector2(1264, 1896)
+metadata/source = "res://splash/assets/pileta_lateral.aseprite"
+metadata/export = "res://splash/assets/pileta_lateral.png"
+
+[node name="@Polygon2D@135" type="Polygon2D" parent="Catalogo/pileta_lateral" unique_id=857053937]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/pileta_lateral" unique_id=308012575]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_t6dky")
+autoplay = "default"
+
+[node name="@Label@136" type="Label" parent="Catalogo/pileta_lateral" unique_id=1800968298]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "pileta_lateral"
+
+[node name="@Label@137" type="Label" parent="Catalogo/pileta_lateral" unique_id=1190690183]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="salida_tobogan" type="Node2D" parent="Catalogo" unique_id=1453242871]
+position = Vector2(1568, 1896)
+metadata/source = "res://splash/assets/salida_tobogan.aseprite"
+metadata/export = "res://splash/assets/salida_tobogan.png"
+
+[node name="@Polygon2D@138" type="Polygon2D" parent="Catalogo/salida_tobogan" unique_id=1643165661]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/salida_tobogan" unique_id=122424281]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_572ro")
+autoplay = "default"
+
+[node name="@Label@139" type="Label" parent="Catalogo/salida_tobogan" unique_id=232517660]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "salida_tobogan"
+
+[node name="@Label@140" type="Label" parent="Catalogo/salida_tobogan" unique_id=419484930]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="splash_corona" type="Node2D" parent="Catalogo" unique_id=1481590145]
+position = Vector2(48, 2106)
+metadata/source = "res://splash/assets/splash_corona.aseprite"
+metadata/export = "res://splash/assets/splash_corona.png"
+
+[node name="@Polygon2D@141" type="Polygon2D" parent="Catalogo/splash_corona" unique_id=1265094961]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/splash_corona" unique_id=1634567986]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("48_wvjqd")
+autoplay = "default"
+
+[node name="@Label@142" type="Label" parent="Catalogo/splash_corona" unique_id=871866992]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "splash_corona"
+
+[node name="@Label@143" type="Label" parent="Catalogo/splash_corona" unique_id=995488247]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="splash_deck" type="Node2D" parent="Catalogo" unique_id=695711766]
+position = Vector2(352, 2106)
+metadata/source = "res://splash/assets/splash_deck.aseprite"
+metadata/export = "res://splash/assets/splash_deck.png"
+
+[node name="@Polygon2D@144" type="Polygon2D" parent="Catalogo/splash_deck" unique_id=459708735]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/splash_deck" unique_id=1049085693]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("49_6et8i")
+autoplay = "default"
+
+[node name="@Label@145" type="Label" parent="Catalogo/splash_deck" unique_id=533258354]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "splash_deck"
+
+[node name="@Label@146" type="Label" parent="Catalogo/splash_deck" unique_id=780542953]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="@Label@147" type="Label" parent="Catalogo" unique_id=572690604]
+offset_left = 48.0
+offset_top = 2340.0
+offset_right = 48.0
+offset_bottom = 2340.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "05 / MOBILIARIO, EDIFICIOS Y VEGETACION"
+
+[node name="balde" type="Node2D" parent="Catalogo" unique_id=755058378]
+position = Vector2(48, 2380)
+metadata/source = "res://splash/assets/balde.aseprite"
+metadata/export = "res://splash/assets/balde.png"
+metadata/prefab = "res://splash/scenes/objetos/balde.tscn"
+
+[node name="@Polygon2D@148" type="Polygon2D" parent="Catalogo/balde" unique_id=1566949521]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/balde" unique_id=878956875]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_hebgq")
+autoplay = "default"
+
+[node name="@Label@149" type="Label" parent="Catalogo/balde" unique_id=721857629]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "balde"
+
+[node name="@Label@150" type="Label" parent="Catalogo/balde" unique_id=1509156115]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="banco" type="Node2D" parent="Catalogo" unique_id=442224777]
+position = Vector2(352, 2380)
+metadata/source = "res://splash/assets/banco.aseprite"
+metadata/export = "res://splash/assets/banco.png"
+metadata/prefab = "res://splash/scenes/objetos/banco.tscn"
+
+[node name="@Polygon2D@151" type="Polygon2D" parent="Catalogo/banco" unique_id=1851794645]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/banco" unique_id=229227280]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0fkxk")
+autoplay = "default"
+
+[node name="@Label@152" type="Label" parent="Catalogo/banco" unique_id=1589919436]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "banco"
+
+[node name="@Label@153" type="Label" parent="Catalogo/banco" unique_id=339969901]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="bandera_viento" type="Node2D" parent="Catalogo" unique_id=911519023]
+position = Vector2(656, 2380)
+metadata/source = "res://splash/assets/bandera_viento.aseprite"
+metadata/export = "res://splash/assets/bandera_viento.png"
+
+[node name="@Polygon2D@154" type="Polygon2D" parent="Catalogo/bandera_viento" unique_id=2077831706]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/bandera_viento" unique_id=1463361566]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = ExtResource("52_61j02")
+autoplay = "default"
+
+[node name="@Label@155" type="Label" parent="Catalogo/bandera_viento" unique_id=1995603264]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "bandera_viento"
+
+[node name="@Label@156" type="Label" parent="Catalogo/bandera_viento" unique_id=1381355905]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="banderin" type="Node2D" parent="Catalogo" unique_id=1630141002]
+position = Vector2(960, 2380)
+metadata/source = "res://splash/assets/banderin.aseprite"
+metadata/export = "res://splash/assets/banderin.png"
+metadata/prefab = "res://splash/scenes/objetos/banderin.tscn"
+
+[node name="@Polygon2D@157" type="Polygon2D" parent="Catalogo/banderin" unique_id=1438836250]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/banderin" unique_id=1055049140]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_re5bq")
+autoplay = "default"
+
+[node name="@Label@158" type="Label" parent="Catalogo/banderin" unique_id=182621930]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "banderin"
+
+[node name="@Label@159" type="Label" parent="Catalogo/banderin" unique_id=2052838756]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="cantero_palmera" type="Node2D" parent="Catalogo" unique_id=1598493941]
+position = Vector2(1264, 2380)
+metadata/source = "res://splash/assets/cantero_palmera.aseprite"
+metadata/export = "res://splash/assets/cantero_palmera.png"
+
+[node name="@Polygon2D@160" type="Polygon2D" parent="Catalogo/cantero_palmera" unique_id=235607346]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/cantero_palmera" unique_id=697982764]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0tkbf")
+autoplay = "default"
+
+[node name="@Label@161" type="Label" parent="Catalogo/cantero_palmera" unique_id=580857392]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "cantero_palmera"
+
+[node name="@Label@162" type="Label" parent="Catalogo/cantero_palmera" unique_id=1271919353]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="cartel_no_pisar" type="Node2D" parent="Catalogo" unique_id=241814829]
+position = Vector2(1568, 2380)
+metadata/source = "res://splash/assets/cartel_no_pisar.aseprite"
+metadata/export = "res://splash/assets/cartel_no_pisar.png"
+metadata/prefab = "res://splash/scenes/objetos/cartel_no_pisar.tscn"
+
+[node name="@Polygon2D@163" type="Polygon2D" parent="Catalogo/cartel_no_pisar" unique_id=46543754]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/cartel_no_pisar" unique_id=551654455]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dofsb")
+autoplay = "default"
+
+[node name="@Label@164" type="Label" parent="Catalogo/cartel_no_pisar" unique_id=641843821]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "cartel_no_pisar"
+
+[node name="@Label@165" type="Label" parent="Catalogo/cartel_no_pisar" unique_id=1820401895]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="cartel_piso_mojado" type="Node2D" parent="Catalogo" unique_id=700987142]
+position = Vector2(48, 2590)
+metadata/source = "res://splash/assets/cartel_piso_mojado.aseprite"
+metadata/export = "res://splash/assets/cartel_piso_mojado.png"
+metadata/prefab = "res://splash/scenes/objetos/cartel_piso_mojado.tscn"
+
+[node name="@Polygon2D@166" type="Polygon2D" parent="Catalogo/cartel_piso_mojado" unique_id=916224268]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/cartel_piso_mojado" unique_id=1995928425]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_drogn")
+autoplay = "default"
+
+[node name="@Label@167" type="Label" parent="Catalogo/cartel_piso_mojado" unique_id=434064188]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "cartel_piso_mojado"
+
+[node name="@Label@168" type="Label" parent="Catalogo/cartel_piso_mojado" unique_id=67349895]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="casilleros" type="Node2D" parent="Catalogo" unique_id=1809730980]
+position = Vector2(352, 2590)
+metadata/source = "res://splash/assets/casilleros.aseprite"
+metadata/export = "res://splash/assets/casilleros.png"
+metadata/prefab = "res://splash/scenes/objetos/casilleros.tscn"
+
+[node name="@Polygon2D@169" type="Polygon2D" parent="Catalogo/casilleros" unique_id=1073176726]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/casilleros" unique_id=331510225]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_v43l5")
+autoplay = "default"
+
+[node name="@Label@170" type="Label" parent="Catalogo/casilleros" unique_id=689211922]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "casilleros"
+
+[node name="@Label@171" type="Label" parent="Catalogo/casilleros" unique_id=1279142361]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="duchas" type="Node2D" parent="Catalogo" unique_id=1275141882]
+position = Vector2(656, 2590)
+metadata/source = "res://splash/assets/duchas.aseprite"
+metadata/export = "res://splash/assets/duchas.png"
+metadata/prefab = "res://splash/scenes/objetos/duchas.tscn"
+
+[node name="@Polygon2D@172" type="Polygon2D" parent="Catalogo/duchas" unique_id=1500692000]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/duchas" unique_id=712358819]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_435v2")
+autoplay = "default"
+
+[node name="@Label@173" type="Label" parent="Catalogo/duchas" unique_id=211825092]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "duchas"
+
+[node name="@Label@174" type="Label" parent="Catalogo/duchas" unique_id=1365620538]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="entrada_tickets" type="Node2D" parent="Catalogo" unique_id=509395630]
+position = Vector2(960, 2590)
+metadata/source = "res://splash/assets/entrada_tickets.aseprite"
+metadata/export = "res://splash/assets/entrada_tickets.png"
+metadata/prefab = "res://splash/scenes/objetos/entrada_tickets.tscn"
+
+[node name="@Polygon2D@175" type="Polygon2D" parent="Catalogo/entrada_tickets" unique_id=966516631]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/entrada_tickets" unique_id=446544109]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xkjl1")
+autoplay = "default"
+
+[node name="@Label@176" type="Label" parent="Catalogo/entrada_tickets" unique_id=1230726284]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "entrada_tickets"
+
+[node name="@Label@177" type="Label" parent="Catalogo/entrada_tickets" unique_id=2057419814]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="escalera" type="Node2D" parent="Catalogo" unique_id=337959856]
+position = Vector2(1264, 2590)
+metadata/source = "res://splash/assets/escalera.aseprite"
+metadata/export = "res://splash/assets/escalera.png"
+metadata/prefab = "res://splash/scenes/objetos/escalera.tscn"
+
+[node name="@Polygon2D@178" type="Polygon2D" parent="Catalogo/escalera" unique_id=1999498175]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/escalera" unique_id=763845825]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kksq3")
+autoplay = "default"
+
+[node name="@Label@179" type="Label" parent="Catalogo/escalera" unique_id=1955008403]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "escalera"
+
+[node name="@Label@180" type="Label" parent="Catalogo/escalera" unique_id=2068864184]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="filtro" type="Node2D" parent="Catalogo" unique_id=349965656]
+position = Vector2(1568, 2590)
+metadata/source = "res://splash/assets/filtro.aseprite"
+metadata/export = "res://splash/assets/filtro.png"
+metadata/prefab = "res://splash/scenes/objetos/filtro.tscn"
+
+[node name="@Polygon2D@181" type="Polygon2D" parent="Catalogo/filtro" unique_id=936866942]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/filtro" unique_id=1474232030]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_ifusk")
+autoplay = "default"
+
+[node name="@Label@182" type="Label" parent="Catalogo/filtro" unique_id=1187050460]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "filtro"
+
+[node name="@Label@183" type="Label" parent="Catalogo/filtro" unique_id=1658186471]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="flotador" type="Node2D" parent="Catalogo" unique_id=93151052]
+position = Vector2(48, 2800)
+metadata/source = "res://splash/assets/flotador.aseprite"
+metadata/export = "res://splash/assets/flotador.png"
+metadata/prefab = "res://splash/scenes/objetos/flotador.tscn"
+
+[node name="@Polygon2D@184" type="Polygon2D" parent="Catalogo/flotador" unique_id=332708302]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/flotador" unique_id=1972123132]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kgw7r")
+autoplay = "default"
+
+[node name="@Label@185" type="Label" parent="Catalogo/flotador" unique_id=1133014234]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "flotador"
+
+[node name="@Label@186" type="Label" parent="Catalogo/flotador" unique_id=1228092396]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="hoja_palmera" type="Node2D" parent="Catalogo" unique_id=2053670699]
+position = Vector2(352, 2800)
+metadata/source = "res://splash/assets/hoja_palmera.aseprite"
+metadata/export = "res://splash/assets/hoja_palmera.png"
+
+[node name="@Polygon2D@187" type="Polygon2D" parent="Catalogo/hoja_palmera" unique_id=1164249543]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/hoja_palmera" unique_id=1957287893]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("63_njc7k")
+autoplay = "default"
+
+[node name="@Label@188" type="Label" parent="Catalogo/hoja_palmera" unique_id=889938174]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "hoja_palmera"
+
+[node name="@Label@189" type="Label" parent="Catalogo/hoja_palmera" unique_id=1784952151]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="kiosco" type="Node2D" parent="Catalogo" unique_id=679809227]
+position = Vector2(656, 2800)
+metadata/source = "res://splash/assets/kiosco.aseprite"
+metadata/export = "res://splash/assets/kiosco.png"
+metadata/prefab = "res://splash/scenes/objetos/kiosco.tscn"
+
+[node name="@Polygon2D@190" type="Polygon2D" parent="Catalogo/kiosco" unique_id=1385897680]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/kiosco" unique_id=1183192753]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0lxg8")
+autoplay = "default"
+
+[node name="@Label@191" type="Label" parent="Catalogo/kiosco" unique_id=1857600131]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "kiosco"
+
+[node name="@Label@192" type="Label" parent="Catalogo/kiosco" unique_id=763846498]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="letrero_helados" type="Node2D" parent="Catalogo" unique_id=1494105350]
+position = Vector2(960, 2800)
+metadata/source = "res://splash/assets/letrero_helados.aseprite"
+metadata/export = "res://splash/assets/letrero_helados.png"
+
+[node name="@Polygon2D@193" type="Polygon2D" parent="Catalogo/letrero_helados" unique_id=701689417]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/letrero_helados" unique_id=1323878005]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = ExtResource("65_jgakg")
+autoplay = "default"
+
+[node name="@Label@194" type="Label" parent="Catalogo/letrero_helados" unique_id=591050087]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "letrero_helados"
+
+[node name="@Label@195" type="Label" parent="Catalogo/letrero_helados" unique_id=1849805621]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 4 CUADROS"
+
+[node name="mesa" type="Node2D" parent="Catalogo" unique_id=1337013196]
+position = Vector2(1264, 2800)
+metadata/source = "res://splash/assets/mesa.aseprite"
+metadata/export = "res://splash/assets/mesa.png"
+metadata/prefab = "res://splash/scenes/objetos/mesa.tscn"
+
+[node name="@Polygon2D@196" type="Polygon2D" parent="Catalogo/mesa" unique_id=522894151]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/mesa" unique_id=1760889408]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7jvg6")
+autoplay = "default"
+
+[node name="@Label@197" type="Label" parent="Catalogo/mesa" unique_id=1200686268]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "mesa"
+
+[node name="@Label@198" type="Label" parent="Catalogo/mesa" unique_id=229426393]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="palmera" type="Node2D" parent="Catalogo" unique_id=852112669]
+position = Vector2(1568, 2800)
+metadata/source = "res://splash/assets/palmera.aseprite"
+metadata/export = "res://splash/assets/palmera.png"
+metadata/prefab = "res://splash/scenes/objetos/palmera.tscn"
+
+[node name="@Polygon2D@199" type="Polygon2D" parent="Catalogo/palmera" unique_id=127429872]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/palmera" unique_id=85361037]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_1fv0q")
+autoplay = "default"
+
+[node name="@Label@200" type="Label" parent="Catalogo/palmera" unique_id=920340445]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "palmera"
+
+[node name="@Label@201" type="Label" parent="Catalogo/palmera" unique_id=1747439097]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="papelera" type="Node2D" parent="Catalogo" unique_id=1398756187]
+position = Vector2(48, 3010)
+metadata/source = "res://splash/assets/papelera.aseprite"
+metadata/export = "res://splash/assets/papelera.png"
+metadata/prefab = "res://splash/scenes/objetos/papelera.tscn"
+
+[node name="@Polygon2D@202" type="Polygon2D" parent="Catalogo/papelera" unique_id=961991042]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/papelera" unique_id=1487605862]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q47hv")
+autoplay = "default"
+
+[node name="@Label@203" type="Label" parent="Catalogo/papelera" unique_id=537626001]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "papelera"
+
+[node name="@Label@204" type="Label" parent="Catalogo/papelera" unique_id=892596406]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="reposera" type="Node2D" parent="Catalogo" unique_id=1539387182]
+position = Vector2(352, 3010)
+metadata/source = "res://splash/assets/reposera.aseprite"
+metadata/export = "res://splash/assets/reposera.png"
+metadata/prefab = "res://splash/scenes/objetos/reposera.tscn"
+
+[node name="@Polygon2D@205" type="Polygon2D" parent="Catalogo/reposera" unique_id=573979572]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/reposera" unique_id=128473614]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_iu18v")
+autoplay = "default"
+
+[node name="@Label@206" type="Label" parent="Catalogo/reposera" unique_id=692138273]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "reposera"
+
+[node name="@Label@207" type="Label" parent="Catalogo/reposera" unique_id=112605514]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="silla_salvavidas" type="Node2D" parent="Catalogo" unique_id=1821622369]
+position = Vector2(656, 3010)
+metadata/source = "res://splash/assets/silla_salvavidas.aseprite"
+metadata/export = "res://splash/assets/silla_salvavidas.png"
+metadata/prefab = "res://splash/scenes/objetos/silla_salvavidas.tscn"
+
+[node name="@Polygon2D@208" type="Polygon2D" parent="Catalogo/silla_salvavidas" unique_id=805344669]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/silla_salvavidas" unique_id=1715586585]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_e3hw2")
+autoplay = "default"
+
+[node name="@Label@209" type="Label" parent="Catalogo/silla_salvavidas" unique_id=577786288]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "silla_salvavidas"
+
+[node name="@Label@210" type="Label" parent="Catalogo/silla_salvavidas" unique_id=283555232]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="sombrilla" type="Node2D" parent="Catalogo" unique_id=2086323474]
+position = Vector2(960, 3010)
+metadata/source = "res://splash/assets/sombrilla.aseprite"
+metadata/export = "res://splash/assets/sombrilla.png"
+metadata/prefab = "res://splash/scenes/objetos/sombrilla.tscn"
+
+[node name="@Polygon2D@211" type="Polygon2D" parent="Catalogo/sombrilla" unique_id=1395377003]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/sombrilla" unique_id=892023441]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_dx40k")
+autoplay = "default"
+
+[node name="@Label@212" type="Label" parent="Catalogo/sombrilla" unique_id=1506229890]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "sombrilla"
+
+[node name="@Label@213" type="Label" parent="Catalogo/sombrilla" unique_id=282261985]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="toallero" type="Node2D" parent="Catalogo" unique_id=405236431]
+position = Vector2(1264, 3010)
+metadata/source = "res://splash/assets/toallero.aseprite"
+metadata/export = "res://splash/assets/toallero.png"
+metadata/prefab = "res://splash/scenes/objetos/toallero.tscn"
+
+[node name="@Polygon2D@214" type="Polygon2D" parent="Catalogo/toallero" unique_id=1055405323]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/toallero" unique_id=674838482]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_irsus")
+autoplay = "default"
+
+[node name="@Label@215" type="Label" parent="Catalogo/toallero" unique_id=686938386]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "toallero"
+
+[node name="@Label@216" type="Label" parent="Catalogo/toallero" unique_id=1515068291]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="toboganes" type="Node2D" parent="Catalogo" unique_id=32978529]
+position = Vector2(1568, 3010)
+metadata/source = "res://splash/assets/toboganes.aseprite"
+metadata/export = "res://splash/assets/toboganes.png"
+metadata/prefab = "res://splash/scenes/objetos/toboganes.tscn"
+
+[node name="@Polygon2D@217" type="Polygon2D" parent="Catalogo/toboganes" unique_id=536214976]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/toboganes" unique_id=2061854914]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_anwtm")
+autoplay = "default"
+
+[node name="@Label@218" type="Label" parent="Catalogo/toboganes" unique_id=1323812172]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "toboganes"
+
+[node name="@Label@219" type="Label" parent="Catalogo/toboganes" unique_id=85455663]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 8 CUADROS"
+
+[node name="torre_balde" type="Node2D" parent="Catalogo" unique_id=1553364242]
+position = Vector2(48, 3220)
+metadata/source = "res://splash/assets/torre_balde.aseprite"
+metadata/export = "res://splash/assets/torre_balde.png"
+metadata/prefab = "res://splash/scenes/objetos/torre_balde.tscn"
+
+[node name="@Polygon2D@220" type="Polygon2D" parent="Catalogo/torre_balde" unique_id=1287917539]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/torre_balde" unique_id=1044665730]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_q87d2")
+autoplay = "default"
+
+[node name="@Label@221" type="Label" parent="Catalogo/torre_balde" unique_id=481384004]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "torre_balde"
+
+[node name="@Label@222" type="Label" parent="Catalogo/torre_balde" unique_id=145041342]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="vestuarios" type="Node2D" parent="Catalogo" unique_id=799500609]
+position = Vector2(352, 3220)
+metadata/source = "res://splash/assets/vestuarios.aseprite"
+metadata/export = "res://splash/assets/vestuarios.png"
+metadata/prefab = "res://splash/scenes/objetos/vestuarios.tscn"
+
+[node name="@Polygon2D@223" type="Polygon2D" parent="Catalogo/vestuarios" unique_id=2003723107]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/vestuarios" unique_id=323001647]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgnk0")
+autoplay = "default"
+
+[node name="@Label@224" type="Label" parent="Catalogo/vestuarios" unique_id=1028269624]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "vestuarios"
+
+[node name="@Label@225" type="Label" parent="Catalogo/vestuarios" unique_id=1397886350]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 12 CUADROS"
+
+[node name="@Label@226" type="Label" parent="Catalogo" unique_id=529469289]
+offset_left = 48.0
+offset_top = 3454.0
+offset_right = 48.0
+offset_bottom = 3454.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "06 / PISOS Y CAMINOS"
+
+[node name="caminos_32" type="Node2D" parent="Catalogo" unique_id=443728461]
+position = Vector2(48, 3494)
+metadata/source = "res://splash/assets/caminos_32.aseprite"
+metadata/export = "res://splash/assets/caminos_32.png"
+
+[node name="@Polygon2D@227" type="Polygon2D" parent="Catalogo/caminos_32" unique_id=745482524]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/caminos_32" unique_id=2019736859]
+texture_filter = 1
+position = Vector2(144, 85)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_rd0r1")
+autoplay = "default"
+
+[node name="@Label@228" type="Label" parent="Catalogo/caminos_32" unique_id=1270517975]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "caminos_32"
+
+[node name="@Label@229" type="Label" parent="Catalogo/caminos_32" unique_id=146758371]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="tiles_parque" type="Node2D" parent="Catalogo" unique_id=1768879734]
+position = Vector2(352, 3494)
+metadata/source = "res://splash/assets/tiles_parque.aseprite"
+metadata/export = "res://splash/assets/tiles_parque.png"
+
+[node name="@Polygon2D@230" type="Polygon2D" parent="Catalogo/tiles_parque" unique_id=620648397]
+color = Color(0.1254902, 0.23529412, 0.28627452, 1)
+polygon = PackedVector2Array(0, 0, 288, 0, 288, 192, 0, 192)
+
+[node name="Vista" type="AnimatedSprite2D" parent="Catalogo/tiles_parque" unique_id=787549329]
+texture_filter = 1
+position = Vector2(144, 85)
+sprite_frames = SubResource("SpriteFrames_m60om")
+autoplay = "default"
+
+[node name="@Label@231" type="Label" parent="Catalogo/tiles_parque" unique_id=286872809]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 12.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "tiles_parque"
+
+[node name="@Label@232" type="Label" parent="Catalogo/tiles_parque" unique_id=1938218737]
+offset_left = 12.0
+offset_top = 175.0
+offset_right = 12.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "ASEPRITE + PNG / 1 CUADROS"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=244398620]
+position = Vector2(960, 540)
+
+[node name="Ayuda" type="CanvasLayer" parent="." unique_id=492483768]
+
+[node name="@ColorRect@233" type="ColorRect" parent="Ayuda" unique_id=1365151408]
+offset_right = 1920.0
+offset_bottom = 154.0
+color = Color(0.078431375, 0.18039216, 0.23529412, 1)
+
+[node name="@Label@234" type="Label" parent="Ayuda" unique_id=766722217]
+offset_left = 48.0
+offset_top = 25.0
+offset_right = 48.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 0.9647059, 0.87058824, 1)
+text = "PATO SPLASH / ARCHIVO DE ASSETS"
+
+[node name="@Label@235" type="Label" parent="Ayuda" unique_id=57332048]
+offset_left = 48.0
+offset_top = 68.0
+offset_right = 48.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9137255, 0.60784316, 1)
+text = "75 FUENTES / PARTES 1-5 / NODOS EDITABLES Y COPIABLES"
+
+[node name="@Label@236" type="Label" parent="Ayuda" unique_id=2103392782]
+offset_left = 48.0
+offset_top = 112.0
+offset_right = 48.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("2_6x6n8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.654902, 0.78431374, 0.7490196, 1)
+text = "Rueda o WASD: recorrer   Boton central: arrastrar   - / +: zoom   Inicio: volver arriba"

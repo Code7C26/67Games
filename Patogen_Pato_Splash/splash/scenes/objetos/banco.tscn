@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_memtj"]
+[ext_resource type="Texture2D" path="res://splash/assets/banco.png" id="2_1ub1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dymi7"]
+size = Vector2(58, 23)
+
+[node name="Banco" type="Node2D" unique_id=2113473258]
+texture_filter = 1
+script = ExtResource("1_memtj")
+metadata/footprint = Rect2(3, 5, 58, 23)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1892987501]
+position = Vector2(0, -16)
+texture = ExtResource("2_1ub1e")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1694293573]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=449004684]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_dymi7")
