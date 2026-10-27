@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal fantasma_activado
+
 var esta_desapareciendo: bool = false
 var modo_fantasma: bool = false
 
@@ -73,7 +75,7 @@ func _ready() -> void:
 
 	crear_aura_fantasma()
 
-	iniciar_temporizador_desaparicion()
+	animated_sprite.animation_finished.connect(_terminar_desaparicion)
 
 
 # ============================================================
@@ -205,8 +207,6 @@ func crear_aura_fantasma() -> void:
 
 	add_child(indicador_aura_fantasma)
 
-	iniciar_animacion_aura_fantasma()
-
 
 func iniciar_animacion_aura_fantasma() -> void:
 
@@ -248,52 +248,22 @@ func mostrar_aura_fantasma() -> void:
 
 	if indicador_aura_fantasma != null:
 		indicador_aura_fantasma.visible = true
+		if tween_aura_fantasma == null:
+			iniciar_animacion_aura_fantasma()
+		else:
+			tween_aura_fantasma.play()
 
 
 func ocultar_aura_fantasma() -> void:
 
 	if indicador_aura_fantasma != null:
 		indicador_aura_fantasma.visible = false
+		if tween_aura_fantasma:
+			tween_aura_fantasma.pause()
 
 
 func iniciar_temporizador_desaparicion() -> void:
-	await get_tree().create_timer(15.0).timeout
-
-	if modo_fantasma:
-		return
-
-	esta_desapareciendo = true
-	velocity = Vector2.ZERO
-
-	if animated_sprite and animated_sprite.sprite_frames:
-		var animaciones = animated_sprite.sprite_frames.get_animation_names()
-		var anim_encontrada = ""
-
-		for anim in animaciones:
-			if "desaparec" in anim.to_lower():
-				anim_encontrada = anim
-				break
-
-		if anim_encontrada != "":
-			animated_sprite.sprite_frames.set_animation_loop(
-				anim_encontrada,
-				false
-			)
-
-			animated_sprite.play(anim_encontrada)
-
-			var frames = animated_sprite.sprite_frames.get_frame_count(
-				anim_encontrada
-			)
-
-			var fps = animated_sprite.sprite_frames.get_animation_speed(
-				anim_encontrada
-			)
-
-			var duracion = float(frames) / max(fps, 1.0)
-
-			await get_tree().create_timer(duracion).timeout
-
+	# Compatibility entry point: the match owns timing, the duck owns animation.
 	infectar_y_desaparecer()
 
 
@@ -341,6 +311,9 @@ func _physics_process(delta: float) -> void:
 	if bot_poseido != null:
 
 		if not is_instance_valid(bot_poseido):
+			finalizar_posesion()
+			return
+		if bot_poseido.is_queued_for_deletion() or not bot_poseido.is_infected or bot_poseido.player_duenio != player_id:
 			finalizar_posesion()
 			return
 
@@ -612,6 +585,37 @@ func intentar_poseer_infectado() -> void:
 # INICIAR POSESIÓN
 # ============================================================
 
+func intentar_poseer_simbionte(bot: Node2D) -> bool:
+	if not modo_fantasma or not is_instance_valid(bot) or bot.is_queued_for_deletion():
+		return false
+	if not bot.is_infected or bot.player_duenio != player_id or bot == bot_poseido:
+		return false
+	var efecto: Node2D = bot.efecto_simbionte
+	if not is_instance_valid(efecto) or efecto.is_queued_for_deletion() or not efecto.es_valido():
+		return false
+	if not is_instance_valid(efecto.mundo) or not efecto.mundo.is_ancestor_of(self) or not efecto.mundo.simbionte_en_juego():
+		return false
+	if bot.controlado_por_jugador:
+		return false
+	if bot_poseido != null:
+		if not is_instance_valid(bot_poseido) or bot_poseido.is_queued_for_deletion() or tiempo_posesion <= 0.0:
+			return false
+		if not bot_poseido.is_infected or bot_poseido.player_duenio != player_id:
+			return false
+		# Switch hosts through the existing lifecycle, without granting extra time.
+		var restante: float = tiempo_posesion
+		var recarga: float = cooldown_posesion
+		finalizar_posesion()
+		iniciar_posesion(bot)
+		tiempo_posesion = restante
+		cooldown_posesion = recarga
+		return true
+	if cooldown_posesion > 0.0:
+		return false
+	iniciar_posesion(bot)
+	return true
+
+
 func iniciar_posesion(bot: Node2D) -> void:
 
 	bot_poseido = bot
@@ -679,10 +683,31 @@ func finalizar_posesion() -> void:
 # ============================================================
 
 func infectar_y_desaparecer() -> void:
+	if modo_fantasma or esta_desapareciendo:
+		return
+	esta_desapareciendo = true
+	velocity = Vector2.ZERO
+	AudioManager.efecto("pato_desaparecer", -12.0, false)
+	if animated_sprite.sprite_frames.has_animation("desaparecer"):
+		animated_sprite.play("desaparecer")
+	else:
+		push_warning("Pato: falta la animación desaparecer")
+		_terminar_desaparicion()
+
+
+func _terminar_desaparicion() -> void:
+	if not esta_desapareciendo or modo_fantasma:
+		return
+	if animated_sprite.sprite_frames.has_animation("desaparecer") and animated_sprite.animation != &"desaparecer":
+		return
+	_aplicar_infeccion_inicial()
+	convertirse_en_fantasma()
+	fantasma_activado.emit()
+
+
+func _aplicar_infeccion_inicial() -> void:
 	if modo_fantasma:
 		return
-	AudioManager.efecto("pato_desaparecer", -12.0, false)
-
 	var bots = get_tree().get_nodes_in_group("bots")
 	var bot_mas_cercano: Node2D = null
 	var distancia_minima: float = INF
@@ -705,14 +730,14 @@ func infectar_y_desaparecer() -> void:
 			player_id
 		)
 
-	convertirse_en_fantasma()
-
 
 # ============================================================
 # CONVERTIRSE EN FANTASMA
 # ============================================================
 
 func convertirse_en_fantasma() -> void:
+	if modo_fantasma:
+		return
 
 	esta_desapareciendo = false
 	modo_fantasma = true

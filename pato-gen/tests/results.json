@@ -1,0 +1,207 @@
+{
+  "checks": [
+    {
+      "passed": true,
+      "test": "1 first launch is detected"
+    },
+    {
+      "passed": true,
+      "test": "1 first launch starts introduction"
+    },
+    {
+      "passed": true,
+      "test": "cinematic blocks polled movement"
+    },
+    {
+      "passed": true,
+      "test": "3 early skip: gameplay camera restored"
+    },
+    {
+      "passed": true,
+      "test": "3 early skip: clocks restored"
+    },
+    {
+      "passed": true,
+      "test": "3 early skip: inputs restored"
+    },
+    {
+      "passed": true,
+      "test": "3 early skip: HUD and overlay restored"
+    },
+    {
+      "passed": true,
+      "test": "3 early skip: no stale global lock"
+    },
+    {
+      "passed": true,
+      "test": "3 skipping saved"
+    },
+    {
+      "passed": true,
+      "test": "4 second match goes directly to gameplay"
+    },
+    {
+      "passed": true,
+      "test": "4 normal match: gameplay camera restored"
+    },
+    {
+      "passed": true,
+      "test": "4 normal match: clocks restored"
+    },
+    {
+      "passed": true,
+      "test": "4 normal match: inputs restored"
+    },
+    {
+      "passed": true,
+      "test": "4 normal match: HUD and overlay restored"
+    },
+    {
+      "passed": true,
+      "test": "4 normal match: no stale global lock"
+    },
+    {
+      "passed": true,
+      "test": "5 voluntary replay works in a running match"
+    },
+    {
+      "passed": true,
+      "test": "cinematic reaches actual duck animation"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip preserves animation"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip completes infection after animation"
+    },
+    {
+      "passed": true,
+      "test": "9 repeated explosion does not duplicate infections"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip: gameplay camera restored"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip: clocks restored"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip: inputs restored"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip: HUD and overlay restored"
+    },
+    {
+      "passed": true,
+      "test": "3 mid-explosion skip: no stale global lock"
+    },
+    {
+      "passed": true,
+      "test": "2 cinematic completes into interactive tutorial"
+    },
+    {
+      "passed": true,
+      "test": "2 both players infected real NPCs"
+    },
+    {
+      "passed": true,
+      "test": "8 overview restored before interactive actions"
+    },
+    {
+      "passed": true,
+      "test": "2 movement is verified from real player displacement"
+    },
+    {
+      "passed": true,
+      "test": "2 E opens real mutations panel"
+    },
+    {
+      "passed": true,
+      "test": "2 actual purchase spends actual ADN"
+    },
+    {
+      "passed": true,
+      "test": "2 successful purchase and application are observed"
+    },
+    {
+      "passed": true,
+      "test": "2 later real infection advances observation"
+    },
+    {
+      "passed": true,
+      "test": "2 completion saved only after successful actions"
+    },
+    {
+      "passed": true,
+      "test": "2 completed: gameplay camera restored"
+    },
+    {
+      "passed": true,
+      "test": "2 completed: clocks restored"
+    },
+    {
+      "passed": true,
+      "test": "2 completed: inputs restored"
+    },
+    {
+      "passed": true,
+      "test": "2 completed: HUD and overlay restored"
+    },
+    {
+      "passed": true,
+      "test": "2 completed: no stale global lock"
+    },
+    {
+      "passed": true,
+      "test": "2 completion survives profile reload"
+    },
+    {
+      "passed": true,
+      "test": "6 abrupt close is recovered without automatic tutorial loop"
+    },
+    {
+      "passed": true,
+      "test": "6 corrupted preferences recover from backup"
+    },
+    {
+      "passed": true,
+      "test": "9 skipping preserves external pause ownership"
+    },
+    {
+      "passed": true,
+      "test": "reduced motion immediately restores overview"
+    },
+    {
+      "passed": true,
+      "test": "7 absent mechanics do not block the tutorial"
+    },
+    {
+      "passed": true,
+      "test": "7 absent mechanics are not reported as learned"
+    },
+    {
+      "passed": true,
+      "test": "7 missing action event has a finite fallback"
+    },
+    {
+      "passed": true,
+      "test": "8 custom camera configuration unchanged"
+    },
+    {
+      "passed": true,
+      "test": "8 does not steal camera from another system"
+    },
+    {
+      "passed": true,
+      "test": "9 scene change removes global cinematic lock"
+    }
+  ],
+  "engine": "4.7.1-stable (official)",
+  "failures": 0,
+  "total": 50
+}

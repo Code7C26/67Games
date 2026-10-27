@@ -107,7 +107,7 @@ func actualizar_visual() -> void:
 		if sprite_frio != null:
 			sprite_actual.texture = sprite_frio
 		else:
-			sprite_actual.texture = load("res://assets/zona hipnotica.png")
+			sprite_actual.texture = load("res://assets/Zona hipnotica.png")
 	elif tipo == TipoTemperatura.CALOR:
 		if sprite_calor != null:
 			sprite_actual.texture = sprite_calor

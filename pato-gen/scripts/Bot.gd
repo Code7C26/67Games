@@ -51,11 +51,15 @@ const INTERVALO_BROTE: float = 20.0
 var es_replica: bool = false
 
 var velocidad_base: float = 75.0
+const EfectoSimbionte = preload("res://scripts/efecto_simbionte.gd")
+var efecto_simbionte: Node2D = null
 var is_infected: bool = false
 var color_infeccion: Color = Color.WHITE
 var player_duenio: int = 0
 var cepa: String = ""
 var move_direction: Vector2 = Vector2.ZERO
+var _passage_egress_left := 0.0
+var _passage_egress_direction := Vector2.ZERO
 
 # Control táctico: la antigua zona fría atrae a bots sanos.
 # Se calcula sobre la dirección final, sin cambiar la IA original.
@@ -77,6 +81,9 @@ var probabilidad_curacion: float = CURACION_BASE
 var tiempo_escudo: float = 0.0
 # Evita reinfeccion instantanea tras ser liberado por el equipo rival.
 var proteccion_sano_ofensiva: float = 0.0
+var proteccion_coloso: float = 0.0
+# Consumida por la siguiente infección efectiva, nunca por un intento bloqueado.
+var reinfeccion_coloso_sin_recompensa := false
 var tiempo_intento_ofensivo: float = 0.0
 var mutaciones: Array[String] = []
 
@@ -140,6 +147,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if proteccion_coloso > 0.0:
+		var mundo: Node = get_tree().current_scene
+		if is_instance_valid(mundo) and mundo.has_method("simbionte_en_juego") and mundo.simbionte_en_juego():
+			proteccion_coloso = maxf(0.0, proteccion_coloso - delta)
+			queue_redraw()
+	_passage_egress_left = maxf(0.0, _passage_egress_left - delta)
 	proteccion_sano_ofensiva = maxf(0.0, proteccion_sano_ofensiva - delta)
 	tiempo_escudo = maxf(0.0, tiempo_escudo - delta)
 	_actualizar_curacion_ofensiva(delta)
@@ -158,7 +171,7 @@ func _physics_process(delta: float) -> void:
 		en_rabia = tiene_mutacion("rabia") and tiempo_sin_infectar >= 8.0
 		_actualizar_mutaciones_tiempo(delta)
 
-	if not controlado_por_jugador:
+	if not controlado_por_jugador and _passage_egress_left <= 0.0:
 		if tiempo_evasion <= 0.0 and area_vision:
 			if is_infected:
 				var presa: Node2D = obtener_humano_cercano()
@@ -180,6 +193,8 @@ func _physics_process(delta: float) -> void:
 	var mult: float = obtener_multiplicador_velocidad()
 	if controlado_por_jugador:
 		direccion_movimiento_real = direccion_control_jugador
+	elif _passage_egress_left > 0.0:
+		direccion_movimiento_real = _passage_egress_direction
 	else:
 		direccion_movimiento_real = move_direction
 		# No alterar la posesión, los infectados ni la evasión de paredes.
@@ -272,6 +287,8 @@ func _actualizar_mutaciones_tiempo(delta: float) -> void:
 
 
 func cambiar_direccion_aleatoria() -> void:
+	if _passage_egress_left > 0.0:
+		return
 	move_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 
 
@@ -340,14 +357,16 @@ func perseguir_a(posicion_objetivo: Vector2) -> void:
 
 
 func infectar(color_jugador: Color, id_jugador: int) -> void:
-	if is_infected or proteccion_sano_ofensiva > 0.0 or id_jugador < 1 or id_jugador > 2:
+	if is_infected or proteccion_sano_ofensiva > 0.0 or proteccion_coloso > 0.0 or id_jugador < 1 or id_jugador > 2:
 		return
 	activar_infeccion(color_jugador, id_jugador)
 
 
 func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool = true) -> void:
-	if is_infected:
+	if is_infected or proteccion_coloso > 0.0:
 		return
+	var recompensar := otorgar_adn and not reinfeccion_coloso_sin_recompensa
+	reinfeccion_coloso_sin_recompensa = false
 	is_infected = true
 	proteccion_sano_ofensiva = 0.0
 	tiempo_intento_ofensivo = 0.0
@@ -373,7 +392,7 @@ func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool 
 	if mapa and mapa.has_method("aplicar_mutaciones_a_bot"):
 		mapa.aplicar_mutaciones_a_bot(self)
 	actualizar_sprite_segun_infeccion()
-	if otorgar_adn and mapa and mapa.has_method("sumar_adn"):
+	if recompensar and mapa and mapa.has_method("sumar_adn"):
 		mapa.sumar_adn(id_jugador)
 	timer_contagio.start()
 	timer_curacion.start()
@@ -384,15 +403,68 @@ func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool 
 		AudioManager.efecto("contagio", -26.0)
 
 
-func curar_por_robot() -> void:
-	# Robot: cura directa sin activar la mutación Último aliento.
-	if is_infected:
+func aplicar_simbionte(mundo: Node, equipo: int) -> bool:
+	if not is_infected or player_duenio != equipo or is_queued_for_deletion() or is_instance_valid(efecto_simbionte):
+		return false
+	if not is_instance_valid(mundo) or not mundo.is_ancestor_of(self) or not mundo.simbionte_en_juego():
+		return false
+	var efecto := EfectoSimbionte.new()
+	efecto.name = "EfectoSimbionte"
+	efecto.anfitrion = self
+	efecto.mundo = mundo
+	efecto.equipo = equipo
+	efecto.factor_velocidad = mundo.velocidad_fusion
+	efecto.factor_curacion = mundo.curacion_fusion
+	efecto.radio_aura = mundo.radio_aura_simbionte
+	efecto.chance_aura = mundo.chance_aura_simbionte
+	efecto.intervalo_aura = mundo.intervalo_aura_simbionte
+	efecto.hasta_pulso = efecto.intervalo_aura
+	efecto_simbionte = efecto
+	add_child(efecto)
+	return true
+
+
+func quitar_simbionte() -> void:
+	if is_instance_valid(efecto_simbionte):
+		efecto_simbionte.terminar()
+	efecto_simbionte = null
+
+
+func multiplicador_curacion_simbionte() -> float:
+	if is_instance_valid(efecto_simbionte) and efecto_simbionte.es_valido():
+		return efecto_simbionte.factor_curacion
+	return 1.0
+
+
+func curar_por_robot(chance_base: float = 1.0, azar: RandomNumberGenerator = null) -> bool:
+	# One roll shared by robot and aura. Existing shields still do not stop robots.
+	if not is_infected:
+		return false
+	var tirada := azar.randf() if azar != null else randf()
+	if tirada < clampf(chance_base * multiplicador_curacion_simbionte(), 0.0, 1.0):
 		curar(false)
+		return true
+	return false
+
+
+func curar_por_coloso(chance_base: float, proteccion: float, azar: RandomNumberGenerator) -> bool:
+	if not curar_por_robot(chance_base, azar):
+		return false
+	proteccion_coloso = maxf(0.0, proteccion)
+	reinfeccion_coloso_sin_recompensa = true
+	queue_redraw()
+	return true
+
+
+func _draw() -> void:
+	if proteccion_coloso > 0.0 and not is_infected:
+		draw_arc(Vector2.ZERO, 22.0, 0.0, TAU, 32, Color("b6ef75"), 2.0, true)
 
 
 func curar(activar_ultimo_aliento: bool = true) -> void:
 	if not is_infected:
 		return
+	quitar_simbionte()
 	if activar_ultimo_aliento and tiene_mutacion("ultimo_aliento"):
 		_liberar_ultimo_aliento()
 	is_infected = false
@@ -457,6 +529,9 @@ func _contagiar_objetivo(objetivo: Node2D) -> void:
 	if not is_instance_valid(objetivo) or objetivo.is_infected:
 		return
 	objetivo.infectar(color_infeccion, player_duenio)
+	# Un sano protegido no cuenta como contagio exitoso ni genera bonificaciones.
+	if not objetivo.is_infected or objetivo.player_duenio != player_duenio:
+		return
 	tiempo_sin_infectar = 0.0
 	en_rabia = false
 	# Regeneración recupera una breve protección al conseguir contagiar.
@@ -529,7 +604,7 @@ func _liberar_pulso() -> void:
 func _intentar_curacion() -> void:
 	if not is_infected or tiempo_escudo > 0.0 or blindaje_restante > 0.0:
 		return
-	var chance: float = probabilidad_curacion
+	var chance: float = probabilidad_curacion * multiplicador_curacion_simbionte()
 	var mapa: Node = get_tree().current_scene
 	if mapa and mapa.has_method("obtener_multiplicador_curacion_natural"):
 		chance *= mapa.obtener_multiplicador_curacion_natural(player_duenio)
@@ -581,7 +656,7 @@ func _actualizar_curacion_ofensiva(delta: float) -> void:
 func recibir_curacion_ofensiva(chance_base: float, tiempo_proteccion: float) -> bool:
 	if not is_infected or tiempo_escudo > 0.0 or blindaje_restante > 0.0:
 		return false
-	var chance: float = chance_base
+	var chance: float = chance_base * multiplicador_curacion_simbionte()
 	if tiene_mutacion("caparazon"):
 		chance *= 0.80
 	if tiene_mutacion("regeneracion"):
@@ -639,6 +714,8 @@ func obtener_multiplicador_velocidad() -> float:
 				mult += SUPERCEPA_BONO_VELOCIDAD
 			if cantidad >= 25:
 				mult += SUPERCEPA_BONO_VELOCIDAD
+	if is_instance_valid(efecto_simbionte) and efecto_simbionte.es_valido():
+		mult *= efecto_simbionte.factor_velocidad
 	return mult
 
 
@@ -1166,3 +1243,16 @@ func ocultar_indicador_posesion() -> void:
 	if indicador_aura_posesion:
 		indicador_aura_posesion.visible = false
 		indicador_aura_posesion.scale = Vector2.ONE
+
+func on_map_passage(direction: Vector2) -> void:
+	if direction.is_zero_approx():
+		return
+	_passage_egress_direction = direction.normalized()
+	_passage_egress_left = 0.65
+	move_direction = _passage_egress_direction
+	direccion_evasion = Vector2.ZERO
+	tiempo_evasion = 0.0
+	tiempo_contacto_obstaculo = 0.0
+	tiempo_ultimo_obstaculo = 0.0
+	velocity = direction * speed
+	timer_direccion.start()

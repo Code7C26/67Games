@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cgxtf2fni3q0s" path="res://assets/Pato para abajo.png" id="3_vdoyc"]
 [ext_resource type="Texture2D" uid="uid://1j7a4h4v83tq" path="res://assets/Pato a la izquierda .png" id="5_amj2v"]
 [ext_resource type="Texture2D" uid="uid://dsv5pmw8n02fh" path="res://assets/Pato para abajo fantasma.png" id="5_t2u55"]
-[ext_resource type="Texture2D" uid="uid://qv36nxjn26g7" path="res://assets/Pato desaparecer.png" id="6_amj2v"]
+[ext_resource type="Texture2D" path="res://assets/ui/pato_transicion_github.png" id="6_amj2v"]
 [ext_resource type="Texture2D" uid="uid://cereuqb7auv2t" path="res://assets/Pato para arriba fantasma.png" id="6_t2u55"]
 [ext_resource type="Texture2D" uid="uid://ds5e0n8m48eym" path="res://assets/Pato a la derecha fantasma.png" id="7_juxsn"]
 [ext_resource type="Texture2D" uid="uid://d30k3q1rh3ars" path="res://assets/Pato a la izquierda fantasma.png" id="8_58tvl"]
@@ -288,39 +288,39 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tekgw"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a11ee"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4a4a"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(64, 32, 32, 32)
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a7eg0"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(96, 32, 32, 32)
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crelp"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(0, 64, 32, 32)
+region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a72vv"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxm8v"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(64, 64, 32, 32)
+region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yitis"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(96, 64, 32, 32)
+region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pblgg"]
 atlas = ExtResource("6_amj2v")
-region = Rect2(0, 96, 32, 32)
+region = Rect2(384, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maugy"]
 animations = [{
@@ -602,6 +602,7 @@ animations = [{
 }]
 
 [node name="Pato" type="CharacterBody2D" unique_id=1385956632]
+texture_filter = 1
 script = ExtResource("1_pp34b")
 color_jugador = Color(1, 1, 0, 1)
 

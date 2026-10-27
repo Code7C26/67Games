@@ -73,4 +73,9 @@ func _on_comenzar_pressed() -> void:
 	# El boton Comenzar marca el verdadero inicio del juego, aunque haya escena intermedia.
 	AudioManager.efecto("click")
 	AudioManager.reproducir_partida()
-	get_tree().change_scene_to_file("res://scenes/Shopping.tscn")
+	var onboarding := get_node_or_null("/root/PatogenOnboarding")
+	if onboarding:
+		onboarding.transition_to("res://scenes/Shopping.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/Shopping.tscn")
+

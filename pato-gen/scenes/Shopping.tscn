@@ -58,18 +58,13 @@
 [ext_resource type="Script" uid="uid://c6wb8sbleqo55" path="res://scripts/map_passage.gd" id="55_pc328"]
 [ext_resource type="Texture2D" uid="uid://bp3rmuh0gntns" path="res://assets/refined/passage_west.png" id="56_svamr"]
 [ext_resource type="Texture2D" uid="uid://bvmmonna6cp0l" path="res://assets/refined/passage_east.png" id="57_rh46w"]
-[ext_resource type="Texture2D" uid="uid://d05nwqwoxvn51" path="res://assets/Fondo enfermedades.jpg" id="60_veg3s"]
-[ext_resource type="Texture2D" uid="uid://s2pyvdnit4un" path="res://assets/termometro.png" id="61_dwbme"]
-[ext_resource type="Texture2D" uid="uid://diwckr8sg0sfv" path="res://assets/cadena.png" id="62_ry0lt"]
-[ext_resource type="Texture2D" uid="uid://bakafbxem5yft" path="res://assets/Reloj.png" id="63_mhbkx"]
-[ext_resource type="Texture2D" uid="uid://bbhycom7c72nu" path="res://assets/robi.png" id="64_7h8g6"]
-[ext_resource type="Texture2D" uid="uid://dl0wn0uejlcqy" path="res://assets/Frio.png" id="65_npmnc"]
-[ext_resource type="Texture2D" uid="uid://lmqd7m7tld1" path="res://assets/fuego.png" id="66_fjfl4"]
-[ext_resource type="Texture2D" uid="uid://c056ovjy10mp4" path="res://assets/fantasmi.png" id="67_520be"]
 [ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="68_dwbme"]
 [ext_resource type="PackedScene" uid="uid://b7mdnixqkn31a" path="res://scenes/Bot.tscn" id="69_ry0lt"]
 [ext_resource type="PackedScene" uid="uid://cg38sh5p0rw0q" path="res://scenes/game_over.tscn" id="70_ry0lt"]
 [ext_resource type="PackedScene" path="res://scenes/props/water_fountain_relleno.tscn" id="ambient_refill"]
+[ext_resource type="Script" uid="uid://be7v7jbf5t28p" path="res://scripts/match_hud.gd" id="hud_dock"]
+[ext_resource type="PackedScene" path="res://scenes/capullo.tscn" id="capullo_simbionte"]
+[ext_resource type="Script" path="res://scripts/evento_coloso_antiviral.gd" id="evento_coloso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6c8d"]
 size = Vector2(26, 20)
@@ -988,61 +983,8 @@ size = Vector2(24, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhldd"]
 size = Vector2(24, 80)
 
-[sub_resource type="LabelSettings" id="LabelSettings_krwdd"]
-font_size = 24
-font_color = Color(0, 1, 1, 1)
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_to5ov"]
-font_size = 24
-font_color = Color(1, 0, 1, 1)
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trd5m"]
-texture = ExtResource("60_veg3s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gyoe5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjq3g"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.07680776, 0.1527003, 0.2248945, 0.78431374)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(6.7383053e-06, 0.8853551, 0.9409151, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-shadow_color = Color(3.85046e-06, 0.8327868, 0.8821022, 0.3529412)
-shadow_size = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kghs"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.17154205, 0.0564764, 0.16108853, 0.78431374)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.9999971, 0.35539767, 0.5740389, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-shadow_color = Color(0.99999887, 0.3360757, 0.57057774, 0.3529412)
-shadow_size = 6
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6c8d"]
-load_path = "res://.godot/imported/fantasmi.png-8e159d9cb71f2f8602e96260ab51be4f.ctex"
+[sub_resource type="RectangleShape2D" id="passage_ns"]
+size = Vector2(104, 28)
 
 [node name="Shopping" type="Node2D" unique_id=1591793820]
 texture_filter = 1
@@ -3160,7 +3102,7 @@ polygon = PackedVector2Array(800, 888, 1216, 888, 1216, 892, 800, 892)
 [node name="Decoracion" type="Node2D" parent="." unique_id=536071460]
 
 [node name="MedallonSur" parent="Decoracion" unique_id=483414788 instance=ExtResource("4_mut5y")]
-position = Vector2(975, 932)
+position = Vector2(973, 923)
 
 [node name="MedallonNorte" parent="Decoracion" unique_id=1382354663 instance=ExtResource("4_mut5y")]
 position = Vector2(993, 133)
@@ -3746,6 +3688,7 @@ collision_layer = 0
 monitorable = false
 script = ExtResource("55_pc328")
 destination = NodePath("../LlegadaEste")
+exit_direction = Vector2(-1, 0)
 
 [node name="Umbral" type="CollisionShape2D" parent="PasosEntreExtremos/PasoOeste" unique_id=106283968]
 shape = SubResource("RectangleShape2D_dacy7")
@@ -3771,6 +3714,7 @@ collision_layer = 0
 monitorable = false
 script = ExtResource("55_pc328")
 destination = NodePath("../LlegadaOeste")
+exit_direction = Vector2(1, 0)
 
 [node name="Umbral" type="CollisionShape2D" parent="PasosEntreExtremos/PasoEste" unique_id=1873190950]
 shape = SubResource("RectangleShape2D_vhldd")
@@ -3790,403 +3734,42 @@ theme_override_colors/font_color = Color(0.41960785, 0.3254902, 0.20784314, 1)
 theme_override_font_sizes/font_size = 13
 text = "PASO A"
 
-[node name="HUD_ADN" type="CanvasLayer" parent="." unique_id=1427099323]
+[node name="LlegadaNorte" type="Marker2D" parent="PasosEntreExtremos" unique_id=295255687]
+position = Vector2(1040, 240)
+
+[node name="LlegadaSur" type="Marker2D" parent="PasosEntreExtremos" unique_id=701133125]
+position = Vector2(976, 944)
+
+[node name="PasoNorte" type="Area2D" parent="PasosEntreExtremos" unique_id=776809724 node_paths=PackedStringArray("destination")]
+position = Vector2(1040, 144)
+collision_layer = 0
+monitorable = false
+script = ExtResource("55_pc328")
+destination = NodePath("../LlegadaSur")
+exit_direction = Vector2(-0.707107, -0.707107)
+
+[node name="Umbral" type="CollisionShape2D" parent="PasosEntreExtremos/PasoNorte" unique_id=119513513]
+shape = SubResource("passage_ns")
+
+[node name="PasoSur" type="Area2D" parent="PasosEntreExtremos" unique_id=1360357105 node_paths=PackedStringArray("destination")]
+position = Vector2(976, 992)
+collision_layer = 0
+monitorable = false
+script = ExtResource("55_pc328")
+destination = NodePath("../LlegadaNorte")
+exit_direction = Vector2(0, 1)
+
+[node name="Umbral" type="CollisionShape2D" parent="PasosEntreExtremos/PasoSur" unique_id=1959381215]
+shape = SubResource("passage_ns")
+
+[node name="HUD_ADN" type="CanvasLayer" parent="." unique_id=2053472893]
 layer = 10
+script = ExtResource("hud_dock")
 
-[node name="LabelADN_Cian" type="Label" parent="HUD_ADN" unique_id=352762851]
-offset_right = 136.0
-offset_bottom = 71.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_colors/font_color = Color(0, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "ADN Cian: 0
-"
-label_settings = SubResource("LabelSettings_krwdd")
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1920226296]
 
-[node name="LabelADN_Magenta" type="Label" parent="HUD_ADN" unique_id=314504016]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -187.0
-offset_bottom = 71.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 0, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "ADN Magenta: 0
-"
-label_settings = SubResource("LabelSettings_to5ov")
-horizontal_alignment = 2
-
-[node name="PanelCian" type="Panel" parent="HUD_ADN" unique_id=1982734052]
-modulate = Color(1, 1, 1, 0.49411765)
-offset_top = 83.0
-offset_right = 331.0
-offset_bottom = 572.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_trd5m")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD_ADN/PanelCian" unique_id=2075620875]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 212.0
-offset_bottom = 446.0
-
-[node name="Label" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=195653971]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_gyoe5")
-text = "MUTACIONES CIAN"
-horizontal_alignment = 1
-
-[node name="BtnFiebre" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1280965871]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Fiebre [ 5 ]"
-icon = ExtResource("61_dwbme")
-expand_icon = true
-
-[node name="BtnCadena" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1117521850]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Contagio en         
-cadena [ 5 ]"
-icon = ExtResource("62_ry0lt")
-expand_icon = true
-
-[node name="BtnInfeccion" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=879997044]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Infeccion 
-retardada [ 5 ]"
-icon = ExtResource("63_mhbkx")
-expand_icon = true
-
-[node name="Label2" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=479485585]
-layout_mode = 2
-text = "HABILIDADES"
-horizontal_alignment = 1
-
-[node name="BtnInfeccion2" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=763962388]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Robot curativo [ 10 ]"
-icon = ExtResource("64_7h8g6")
-expand_icon = true
-
-[node name="BtnInfeccion3" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=452430184]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Zona de atraccion [ 4 ]"
-icon = ExtResource("65_npmnc")
-expand_icon = true
-
-[node name="BtnInfeccion4" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=101183833]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Zona caliente [ 4 ]"
-icon = ExtResource("66_fjfl4")
-expand_icon = true
-
-[node name="Label3" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=345568702]
-layout_mode = 2
-text = "POSESIONES"
-horizontal_alignment = 1
-
-[node name="BtnInfeccion5" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=1827317838]
-layout_mode = 2
-theme_override_constants/icon_max_width = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jjq3g")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jjq3g")
-text = "Enfermo
-[ 0 ]"
-icon = ExtResource("67_520be")
-expand_icon = true
-
-[node name="Label" type="Label" parent="HUD_ADN/PanelCian" unique_id=1200006851]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 245.0
-offset_right = 253.0
-offset_bottom = 277.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "G"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="HUD_ADN/PanelCian" unique_id=183697641]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 335.0
-offset_right = 253.0
-offset_bottom = 367.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "C"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="HUD_ADN/PanelCian" unique_id=86226902]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 289.0
-offset_right = 253.0
-offset_bottom = 321.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "X"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="HUD_ADN/PanelCian" unique_id=1978947582]
-layout_mode = 0
-offset_left = 220.0
-offset_top = 42.0
-offset_right = 249.0
-offset_bottom = 74.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "1"
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="HUD_ADN/PanelCian" unique_id=775833357]
-layout_mode = 0
-offset_left = 223.0
-offset_top = 168.0
-offset_right = 252.0
-offset_bottom = 200.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "5"
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="HUD_ADN/PanelCian" unique_id=848422120]
-layout_mode = 0
-offset_left = 221.0
-offset_top = 98.0
-offset_right = 250.0
-offset_bottom = 130.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "3"
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="HUD_ADN/PanelCian" unique_id=566968811]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 413.0
-offset_right = 253.0
-offset_bottom = 445.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jjq3g")
-text = "Q"
-horizontal_alignment = 1
-
-[node name="PanelMagenta" type="Panel" parent="HUD_ADN" unique_id=2084825451]
-modulate = Color(1, 1, 1, 0.49411765)
-anchors_preset = -1
-anchor_bottom = 0.031000001
-offset_left = 1608.0
-offset_top = 92.0
-offset_right = 1919.0
-offset_bottom = 547.52
-theme_override_styles/panel = SubResource("StyleBoxTexture_trd5m")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD_ADN/PanelMagenta" unique_id=1046037833]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 14.0
-offset_right = 214.0
-offset_bottom = 446.0
-
-[node name="Label" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1914335105]
-layout_mode = 2
-text = "MUTACIONES MAGENTA"
-horizontal_alignment = 1
-
-[node name="BtnFiebre" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=528888989]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Fiebre [ 5 ]"
-icon = ExtResource("61_dwbme")
-expand_icon = true
-
-[node name="BtnCadena" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1650872608]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Contagio en 
-cadena [ 5 ]"
-icon = ExtResource("62_ry0lt")
-expand_icon = true
-
-[node name="BtnInfeccion" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1505781044]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Infeccion 
-retardada [ 5 ]"
-icon = ExtResource("63_mhbkx")
-expand_icon = true
-
-[node name="Label2" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=679574902]
-layout_mode = 2
-text = "INVOCACIONES"
-horizontal_alignment = 1
-
-[node name="BtnInfeccion2" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1804911840]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Robot curativo[ 10 ] "
-icon = ExtResource("64_7h8g6")
-expand_icon = true
-
-[node name="BtnInfeccion3" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=56712602]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Zona de atraccion [ 4 ] "
-icon = ExtResource("65_npmnc")
-expand_icon = true
-
-[node name="BtnInfeccion4" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=1009833592]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Zona caliente [ 4 ]"
-icon = ExtResource("66_fjfl4")
-expand_icon = true
-
-[node name="Label3" type="Label" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=269062142]
-layout_mode = 2
-text = "POSESIONES"
-horizontal_alignment = 1
-
-[node name="BtnInfeccion5" type="Button" parent="HUD_ADN/PanelMagenta/VBoxContainer" unique_id=348273063]
-layout_mode = 2
-theme_override_constants/icon_max_width = 27
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2kghs")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2kghs")
-text = "Enfermo
-[ 0 ]"
-icon = SubResource("CompressedTexture2D_a6c8d")
-clip_text = true
-expand_icon = true
-
-[node name="Label" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=1728122172]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 245.0
-offset_right = 253.0
-offset_bottom = 277.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "H"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=873818865]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 335.0
-offset_right = 253.0
-offset_bottom = 367.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "N"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=793453708]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 289.0
-offset_right = 253.0
-offset_bottom = 321.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "B"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=1864471024]
-layout_mode = 0
-offset_left = 220.0
-offset_top = 42.0
-offset_right = 249.0
-offset_bottom = 74.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "6"
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=1756817128]
-layout_mode = 0
-offset_left = 223.0
-offset_top = 168.0
-offset_right = 252.0
-offset_bottom = 200.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "0"
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=3377254]
-layout_mode = 0
-offset_left = 221.0
-offset_top = 98.0
-offset_right = 250.0
-offset_bottom = 130.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "8"
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="HUD_ADN/PanelMagenta" unique_id=816109908]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 413.0
-offset_right = 253.0
-offset_bottom = 445.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_2kghs")
-text = "M"
-horizontal_alignment = 1
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=532200481]
-
-[node name="LabelContador" type="Label" parent="HUD" unique_id=795266295]
-process_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 56
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="LabelContador" type="Label" parent="HUD" unique_id=383278176]
+visible = false
 
 [node name="TimerInicio" type="Timer" parent="." unique_id=338176468]
 wait_time = 3.0
@@ -4198,6 +3781,19 @@ wait_time = 120.0
 one_shot = true
 
 [node name="Patos" type="Node" parent="." unique_id=2114011544]
+
+[node name="EventoColosoAntiviral" type="Node2D" parent="."]
+script = ExtResource("evento_coloso")
+
+[node name="Simbiontes" type="Node2D" parent="."]
+
+[node name="CapulloCian" parent="Simbiontes" instance=ExtResource("capullo_simbionte")]
+position = Vector2(656, 568)
+equipo = 1
+
+[node name="CapulloMagenta" parent="Simbiontes" instance=ExtResource("capullo_simbionte")]
+position = Vector2(1296, 568)
+equipo = 2
 
 [node name="Pato2" parent="Patos" unique_id=1385956632 instance=ExtResource("68_dwbme")]
 position = Vector2(1365, 593)
@@ -4407,5 +4003,5 @@ position = Vector2(281, 345)
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2013047026]
-position = Vector2(1060, 523)
+position = Vector2(1078, 526)
 zoom = Vector2(0.9, 0.9)

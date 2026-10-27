@@ -1,5 +1,28 @@
 extends Node2D
 
+signal fase_infeccion_iniciada
+var _transicion_iniciada := false
+var _patos_pendientes := 0
+@onready var interfaz = $HUD_ADN
+@onready var evento_coloso: Node = get_node_or_null("EventoColosoAntiviral")
+
+# Optional introduction module. Removing its autoload restores the normal path.
+func _enter_tree() -> void:
+	# Old editable scenes keep their source nodes intact on disk, but receive the
+	# same compatible HUD at runtime before @onready paths are resolved.
+	var old_hud := get_node_or_null("HUD_ADN")
+	if old_hud and not old_hud.has_method("sync"):
+		old_hud.free()
+		var replacement := CanvasLayer.new()
+		replacement.name = "HUD_ADN"
+		replacement.layer = 10
+		replacement.set_script(preload("res://scripts/match_hud.gd"))
+		add_child(replacement)
+	var onboarding := get_node_or_null("/root/PatogenOnboarding")
+	if onboarding:
+		onboarding.prepare_scene(self)
+
+
 
 # ============================================================
 # NODOS
@@ -15,55 +38,16 @@ extends Node2D
 @onready var panel_cian: Panel = $HUD_ADN/PanelCian
 @onready var panel_magenta: Panel = $HUD_ADN/PanelMagenta
 
-# Teclas visuales de habilidades - Cian
-@onready var tecla_g_cian: Label = $HUD_ADN/PanelCian/Label
-@onready var tecla_c_cian: Label = $HUD_ADN/PanelCian/Label2
-@onready var tecla_x_cian: Label = $HUD_ADN/PanelCian/Label3
-
-# Teclas visuales de mutaciones - Cian
-@onready var tecla_1_cian: Label = $HUD_ADN/PanelCian/Label4
-@onready var tecla_5_cian: Label = $HUD_ADN/PanelCian/Label5
-@onready var tecla_3_cian: Label = $HUD_ADN/PanelCian/Label6
-
-# Tecla visual de posesión - Cian
-@onready var tecla_q_cian: Label = $HUD_ADN/PanelCian/Label7
-
-# Teclas visuales de habilidades - Magenta
-@onready var tecla_h_magenta: Label = $HUD_ADN/PanelMagenta/Label
-@onready var tecla_n_magenta: Label = $HUD_ADN/PanelMagenta/Label2
-@onready var tecla_b_magenta: Label = $HUD_ADN/PanelMagenta/Label3
-
-# Teclas visuales de mutaciones - Magenta
-@onready var tecla_6_magenta: Label = $HUD_ADN/PanelMagenta/Label4
-@onready var tecla_0_magenta: Label = $HUD_ADN/PanelMagenta/Label5
-@onready var tecla_8_magenta: Label = $HUD_ADN/PanelMagenta/Label6
-
-# Tecla visual de posesión - Magenta
-@onready var tecla_q_magenta: Label = $HUD_ADN/PanelMagenta/Label7
-
-# Botones de mutaciones
+# Stable paths shared with the introduction adapter.
 @onready var btn_fiebre_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnFiebre
 @onready var btn_cadena_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnCadena
 @onready var btn_retardada_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnInfeccion
-
 @onready var btn_fiebre_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnFiebre
 @onready var btn_cadena_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnCadena
 @onready var btn_retardada_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnInfeccion
 
-# Botones de habilidades (para mantener las teclas visuales alineadas
-# aunque cambie el alto de los botones en tiempo de ejecución).
-@onready var btn_robot_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnInfeccion2
-@onready var btn_zona_frio_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnInfeccion3
-@onready var btn_zona_calor_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnInfeccion4
-@onready var btn_posesion_cian: Button = $HUD_ADN/PanelCian/VBoxContainer/BtnInfeccion5
-
-@onready var btn_robot_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnInfeccion2
-@onready var btn_zona_frio_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnInfeccion3
-@onready var btn_zona_calor_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnInfeccion4
-@onready var btn_posesion_magenta: Button = $HUD_ADN/PanelMagenta/VBoxContainer/BtnInfeccion5
-
 # Pantalla de Game Over (Asegúrate de que el nodo en la escena se llame GameOver)
-@onready var game_over_screen: CanvasLayer = $GameOver
+@onready var game_over_screen: CanvasLayer = get_node_or_null("GameOver")
 
 
 # Escena reutilizable de las zonas de temperatura.
@@ -89,6 +73,28 @@ var estado_actual: EstadoJuego = EstadoJuego.FASE_PATOS
 
 var adn_cian: int = 0
 var adn_magenta: int = 0
+
+# The race belongs to this match, never an autoload or a player/possession.
+const PAGO_SIMBIONTE := 5
+const META_SIMBIONTE := 60
+const COOLDOWN_SIMBIONTE := 1.5
+const ESCENA_SIMBIONTE = preload("res://scenes/simbionte.tscn")
+const NavegacionSimbionte = preload("res://scripts/navegacion_simbionte.gd")
+@export_group("Simbionte")
+@export_range(1.0, 3.0, 0.05) var velocidad_fusion: float = 1.35
+@export_range(0.0, 1.0, 0.05) var curacion_fusion: float = 0.5
+@export var radio_aura_simbionte: float = 140.0
+@export_range(0.0, 1.0, 0.05) var chance_aura_simbionte: float = 0.5
+@export_range(0.1, 5.0, 0.05) var intervalo_aura_simbionte: float = 0.75
+@export var velocidad_simbionte: float = 100.0
+@export_group("")
+var inversion_simbionte: Array[int] = [0, 0]
+var cooldown_simbionte: Array[float] = [0.0, 0.0]
+var ganador_simbionte: int = 0
+var capullos: Array[Node2D] = []
+var capullos_colocados := false
+var navegacion_simbionte: Node2D
+var simbionte: Node2D
 
 # ADN de remontada: se entrega al equipo que tenga 5+ infectados menos.
 @export var diferencia_minima_remontada: int = 5
@@ -229,118 +235,42 @@ func _ready() -> void:
 	cepa_cian = tipo1 if tipo1 in TIPOS else "atletico"
 	cepa_magenta = tipo2 if tipo2 in TIPOS else "atletico"
 	add_to_group("mapa")
-	_crear_panel_descripcion_mutacion()
 	_conectar_botones_mutaciones()
-	# Nombres de nodos antiguos; textos visibles de mutaciones actualizados.
-	tecla_1_cian.text = "1"
-	tecla_3_cian.text = "2"
-	tecla_5_cian.text = "3"
-	tecla_6_magenta.text = "8"
-	tecla_8_magenta.text = "9"
-	tecla_0_magenta.text = "0"
-	# Exponencial aún no tiene tercera rama: ocultamos también su etiqueta 5/0.
-	tecla_5_cian.visible = cepa_cian != "exponencial"
-	tecla_0_magenta.visible = cepa_magenta != "exponencial"
 	actualizar_menu_mutaciones()
 
 	timer_inicio.timeout.connect(_on_timer_inicio_timeout)
 	timer_juego.timeout.connect(_on_timer_juego_timeout)
 
 	if panel_cian:
-		panel_cian.hide()
+		panel_cian.show()
 
 	if panel_magenta:
-		panel_magenta.hide()
+		panel_magenta.show()
 
 	if game_over_screen:
 		game_over_screen.hide()
 
 	# Esperamos a que los Container terminen de calcular el tamaño
 	# de los botones antes de colocar las teclas.
-	call_deferred("alinear_teclas_habilidades")
+	interfaz.setup(self)
+	_preparar_simbionte()
+	if evento_coloso != null:
+		evento_coloso.configurar(self, contar_infecciones())
 
 
 # ============================================================
 # PROCESS
 # ============================================================
 
-func _process(_delta: float) -> void:
-	actualizar_adn_remontada(_delta)
-	actualizar_balance_tardio()
-	if tiempo_descripcion_mutacion > 0.0:
-		tiempo_descripcion_mutacion -= _delta
-		if tiempo_descripcion_mutacion <= 0.0 and is_instance_valid(panel_descripcion_mutacion):
-			panel_descripcion_mutacion.hide()
+func _process(delta: float) -> void:
+	# One population scan supplies balance, HUD and the environmental event.
+	var stats := contar_infecciones()
+	actualizar_adn_remontada(delta, stats)
+	actualizar_balance_tardio(stats)
+	interfaz.sync(stats)
+	if evento_coloso != null:
+		evento_coloso.poblacion = stats
 
-	if label_adn_cian:
-		label_adn_cian.text = (
-			"ADN Cian: "
-			+ str(adn_cian)
-			+ " [E: Menú] - " + _nombre_cepa(cepa_cian)
-		)
-
-	if label_adn_magenta:
-		label_adn_magenta.text = (
-			"ADN Mag: "
-			+ str(adn_magenta)
-			+ " [O: Menú] - " + _nombre_cepa(cepa_magenta)
-		)
-
-	if label_adn_cian:
-		if adn_cian >= COSTO_BASE:
-			label_adn_cian.modulate = Color.GREEN
-		else:
-			label_adn_cian.modulate = Color.WHITE
-
-	if label_adn_magenta:
-		if adn_magenta >= COSTO_BASE:
-			label_adn_magenta.modulate = Color.GREEN
-		else:
-			label_adn_magenta.modulate = Color.WHITE
-
-	actualizar_menu_mutaciones()
-	actualizar_cooldowns_habilidades()
-	alinear_teclas_habilidades()
-
-	# ========================================================
-	# FASE PATOS
-	# ========================================================
-
-	if estado_actual == EstadoJuego.FASE_PATOS:
-
-		var tiempo = ceil(timer_inicio.time_left)
-
-		if label_contador:
-			label_contador.text = (
-				"¡A infectar!\n"
-				+ str(tiempo)
-			)
-
-
-	# ========================================================
-	# FASE INFECCIÓN
-	# ========================================================
-
-	elif estado_actual == EstadoJuego.FASE_INFECCION:
-
-		var tiempo = ceil(timer_juego.time_left)
-		var stats = contar_infecciones()
-
-		if label_contador:
-			label_contador.text = (
-				"Tiempo: "
-				+ str(tiempo)
-				+ "s\n[Blue: "
-				+ str(stats.blue)
-				+ "]   [Magenta: "
-				+ str(stats.magenta)
-				+ "]"
-			)
-
-
-# ============================================================
-# ACTUALIZAR MENÚ DE MUTACIONES
-# ============================================================
 
 func actualizar_menu_mutaciones() -> void:
 	var botones_cian: Array[Button] = [btn_fiebre_cian, btn_cadena_cian, btn_retardada_cian]
@@ -353,8 +283,8 @@ func actualizar_menu_mutaciones() -> void:
 func _actualizar_boton_rama(boton: Button, id_jugador: int, indice_rama: int) -> void:
 	var ramas: Array = obtener_ramas_jugador(id_jugador)
 	if indice_rama >= ramas.size():
-		boton.text = "PRÓXIMAMENTE"
-		boton.tooltip_text = "Esta cepa tiene dos ramas por ahora."
+		boton.text = "PRÓXIMAMENTE\nRama en desarrollo"
+
 		boton.disabled = true
 		return
 	var mutaciones: Array[String] = mutaciones_p1 if id_jugador == 1 else mutaciones_p2
@@ -362,13 +292,13 @@ func _actualizar_boton_rama(boton: Button, id_jugador: int, indice_rama: int) ->
 	var base: String = str(ramas[indice_rama][0])
 	var siguiente: String = obtener_siguiente_evolucion(base, mutaciones)
 	if siguiente == "":
-		boton.text = _nombre_mutacion(str(ramas[indice_rama].back())) + " [COMPLETA]"
+		boton.text = _nombre_mutacion(str(ramas[indice_rama].back())) + "\nRAMA COMPLETA"
 		boton.disabled = true
-		boton.tooltip_text = "Rama completa. Ya compraste todas sus evoluciones."
+
 		return
 	var costo: int = obtener_costo_mutacion(base, mutaciones)
-	boton.text = _nombre_mutacion(siguiente) + " [ " + str(costo) + " ADN ]"
-	boton.tooltip_text = _descripcion_mutacion(siguiente) + "\n\nCoste: " + str(costo) + " ADN. Pasa el cursor para consultar; Shift + tecla muestra esta descripción sin comprar."
+	boton.text = _nombre_mutacion(siguiente) + "\n" + str(costo) + " ADN"
+
 	boton.disabled = adn < costo or estado_actual != EstadoJuego.FASE_INFECCION
 
 
@@ -416,181 +346,8 @@ func _descripcion_mutacion(mutacion: String) -> String:
 	return str(DESCRIPCIONES.get(mutacion, "No hay una descripción definida para esta mutación."))
 
 
-func _crear_panel_descripcion_mutacion() -> void:
-	var capa := CanvasLayer.new()
-	capa.name = "CapaDescripcionMutacion"
-	capa.layer = 20
-	add_child(capa)
-
-	panel_descripcion_mutacion = PanelContainer.new()
-	panel_descripcion_mutacion.name = "PanelDescripcionMutacion"
-	panel_descripcion_mutacion.visible = false
-	panel_descripcion_mutacion.anchor_left = 0.5
-	panel_descripcion_mutacion.anchor_right = 0.5
-	panel_descripcion_mutacion.anchor_top = 0.0
-	panel_descripcion_mutacion.anchor_bottom = 0.0
-	panel_descripcion_mutacion.offset_left = -300.0
-	panel_descripcion_mutacion.offset_right = 300.0
-	panel_descripcion_mutacion.offset_top = 35.0
-	panel_descripcion_mutacion.offset_bottom = 190.0
-	capa.add_child(panel_descripcion_mutacion)
-	# Fondo casi opaco para facilitar la lectura.
-	var estilo_descripcion: StyleBoxFlat = StyleBoxFlat.new()
-	estilo_descripcion.bg_color = Color(0.02, 0.04, 0.07, 0.97)
-	estilo_descripcion.set_corner_radius_all(10)
-	estilo_descripcion.set_border_width_all(2)
-	estilo_descripcion.border_color = Color(0.30, 0.65, 0.78, 1.0)
-	panel_descripcion_mutacion.add_theme_stylebox_override("panel", estilo_descripcion)
-
-	var margen := MarginContainer.new()
-	margen.add_theme_constant_override("margin_left", 14)
-	margen.add_theme_constant_override("margin_right", 14)
-	margen.add_theme_constant_override("margin_top", 10)
-	margen.add_theme_constant_override("margin_bottom", 10)
-	panel_descripcion_mutacion.add_child(margen)
-
-	label_descripcion_mutacion = Label.new()
-	label_descripcion_mutacion.name = "TextoDescripcionMutacion"
-	label_descripcion_mutacion.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label_descripcion_mutacion.add_theme_font_size_override("font_size", 16)
-	margen.add_child(label_descripcion_mutacion)
-
-
 func _mostrar_descripcion_rama(id_jugador: int, indice_rama: int) -> void:
-	var ramas: Array = obtener_ramas_jugador(id_jugador)
-	if indice_rama < 0 or indice_rama >= ramas.size():
-		_mostrar_descripcion("Esta cepa todavía no tiene una mutación asignada a esa tecla.")
-		return
-
-	var mutaciones: Array[String] = mutaciones_p1 if id_jugador == 1 else mutaciones_p2
-	var base: String = str(ramas[indice_rama][0])
-	var siguiente: String = obtener_siguiente_evolucion(base, mutaciones)
-	if siguiente == "":
-		_mostrar_descripcion("Esta rama ya está completa: " + _nombre_mutacion(str(ramas[indice_rama].back())) + ".")
-		return
-
-	var costo: int = obtener_costo_mutacion(base, mutaciones)
-	var adn: int = adn_cian if id_jugador == 1 else adn_magenta
-	var texto := _descripcion_mutacion(siguiente)
-	texto += "\n\nCoste: " + str(costo) + " ADN. "
-	if adn >= costo:
-		texto += "Tienes suficiente ADN. Pulsa la tecla sin Shift para comprar."
-	else:
-		texto += "Te faltan " + str(costo - adn) + " ADN."
-	_mostrar_descripcion(texto)
-
-
-func _mostrar_descripcion(texto: String) -> void:
-	if not is_instance_valid(panel_descripcion_mutacion):
-		return
-	label_descripcion_mutacion.text = texto
-	panel_descripcion_mutacion.show()
-	tiempo_descripcion_mutacion = 5.0
-
-
-func alinear_teclas_habilidades() -> void:
-	# Las teclas son Labels que están fuera del VBoxContainer.
-	# Por eso no siguen automáticamente el alto real de cada Button.
-	# Calculamos su posición a partir del botón correspondiente.
-
-	# HABILIDADES
-	_alinear_tecla_con_boton(tecla_g_cian, btn_robot_cian, panel_cian)
-	_alinear_tecla_con_boton(tecla_x_cian, btn_zona_frio_cian, panel_cian)
-	_alinear_tecla_con_boton(tecla_c_cian, btn_zona_calor_cian, panel_cian)
-
-	_alinear_tecla_con_boton(tecla_h_magenta, btn_robot_magenta, panel_magenta)
-	_alinear_tecla_con_boton(tecla_b_magenta, btn_zona_frio_magenta, panel_magenta)
-	_alinear_tecla_con_boton(tecla_n_magenta, btn_zona_calor_magenta, panel_magenta)
-
-	# MUTACIONES
-	_alinear_tecla_con_boton(tecla_1_cian, btn_fiebre_cian, panel_cian)
-	_alinear_tecla_con_boton(tecla_3_cian, btn_cadena_cian, panel_cian)
-	_alinear_tecla_con_boton(tecla_5_cian, btn_retardada_cian, panel_cian)
-
-	_alinear_tecla_con_boton(tecla_6_magenta, btn_fiebre_magenta, panel_magenta)
-	_alinear_tecla_con_boton(tecla_8_magenta, btn_cadena_magenta, panel_magenta)
-	_alinear_tecla_con_boton(tecla_0_magenta, btn_retardada_magenta, panel_magenta)
-
-	# POSESIÓN
-	_alinear_tecla_con_boton(tecla_q_cian, btn_posesion_cian, panel_cian)
-	_alinear_tecla_con_boton(tecla_q_magenta, btn_posesion_magenta, panel_magenta)
-
-
-func _alinear_tecla_con_boton(
-	tecla: Label,
-	boton: Button,
-	panel: Panel
-) -> void:
-	if tecla == null or boton == null or panel == null:
-		return
-	
-	# Convertimos la posición global del botón al espacio local del panel.
-	var boton_pos_local: Vector2 = panel.make_canvas_position_local(boton.global_position)
-	
-	# La tecla queda a la derecha del botón y centrada verticalmente.
-	var separacion := 10.0
-	tecla.position = Vector2(
-		boton_pos_local.x + boton.size.x + separacion,
-		boton_pos_local.y + (boton.size.y - tecla.size.y) * 0.5
-	)
-
-
-# ============================================================
-# ACTUALIZAR COOLDOWNS VISUALES
-# ============================================================
-
-func actualizar_cooldowns_habilidades() -> void:
-	var patos := get_tree().get_nodes_in_group("patos")
-
-	# Restaurar todos los indicadores antes de aplicar cooldowns.
-	_restaurar_tecla(tecla_g_cian, "Z")
-	_restaurar_tecla(tecla_c_cian, "V")
-	_restaurar_tecla(tecla_x_cian, "C")
-	_restaurar_tecla(tecla_q_cian, "X")
-	_restaurar_tecla(tecla_h_magenta, "H")
-	_restaurar_tecla(tecla_n_magenta, "L")
-	_restaurar_tecla(tecla_b_magenta, "K")
-	_restaurar_tecla(tecla_q_magenta, "J")
-
-	for pato in patos:
-		if not is_instance_valid(pato):
-			continue
-
-		if pato.player_id == 1:
-			_actualizar_tecla_cooldown(tecla_g_cian, pato.cooldown_robot, "Z")
-			_actualizar_tecla_cooldown(tecla_c_cian, pato.cooldown_zona_calor, "V")
-			_actualizar_tecla_cooldown(tecla_x_cian, pato.cooldown_zona_frio, "C")
-			_actualizar_tecla_cooldown(tecla_q_cian, pato.cooldown_posesion, "X")
-		else:
-			_actualizar_tecla_cooldown(tecla_h_magenta, pato.cooldown_robot, "H")
-			_actualizar_tecla_cooldown(tecla_n_magenta, pato.cooldown_zona_calor, "L")
-			_actualizar_tecla_cooldown(tecla_b_magenta, pato.cooldown_zona_frio, "K")
-			_actualizar_tecla_cooldown(tecla_q_magenta, pato.cooldown_posesion, "J")
-
-
-func _restaurar_tecla(label: Label, tecla: String) -> void:
-	if label == null:
-		return
-
-	label.text = tecla
-	label.modulate = Color.WHITE
-
-
-func _actualizar_tecla_cooldown(
-	label: Label,
-	segundos: float,
-	tecla: String
-) -> void:
-	if label == null or segundos <= 0.0:
-		return
-
-	label.text = str(int(ceil(segundos)))
-	label.modulate = Color(0.35, 0.35, 0.35, 1.0)
-
-
-# ============================================================
-# INPUT
-# ============================================================
+	interfaz.show_branch(id_jugador, indice_rama)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -625,6 +382,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# TECLA SOLA: comprar la mutación.
 	match event.keycode:
+		KEY_Q:
+			if not event.shift_pressed:
+				accion_simbionte(1)
+		KEY_U:
+			if not event.shift_pressed:
+				accion_simbionte(2)
 		KEY_E:
 			panel_cian.visible = not panel_cian.visible
 		KEY_O:
@@ -712,10 +475,9 @@ func crear_zona_temperatura(
 	# PAGAR LOS 4 ADN SOLO SI LA ZONA FUE CREADA
 	# ========================================================
 
-	if id_jugador == 1:
-		adn_cian -= COSTO_ZONA_TEMPERATURA
-	else:
-		adn_magenta -= COSTO_ZONA_TEMPERATURA
+	if not gastar_adn(id_jugador, COSTO_ZONA_TEMPERATURA):
+		zona.queue_free()
+		return false
 
 	print(
 		"Jugador ",
@@ -788,10 +550,9 @@ func crear_robot(
 	# PAGAR SOLO SI EL ROBOT FUE CREADO
 	# ========================================================
 
-	if id_jugador == 1:
-		adn_cian -= COSTO_ROBOT
-	else:
-		adn_magenta -= COSTO_ROBOT
+	if not gastar_adn(id_jugador, COSTO_ROBOT):
+		robot.queue_free()
+		return false
 
 	print(
 		"Jugador ",
@@ -835,12 +596,9 @@ func comprar_mutacion(id_jugador: int, tipo_base: String) -> void:
 	if adn < costo:
 		print("Jugador ", id_jugador, ": necesita ", costo, " ADN para ", siguiente)
 		return
-	if id_jugador == 1:
-		adn_cian -= costo
-		mutaciones_p1.append(siguiente)
-	else:
-		adn_magenta -= costo
-		mutaciones_p2.append(siguiente)
+	if not gastar_adn(id_jugador, costo):
+		return
+	mutaciones.append(siguiente)
 	actualizar_mutaciones_existentes(id_jugador)
 	actualizar_menu_mutaciones()
 	# Solo suena tras aplicar la compra y descontar el ADN.
@@ -888,13 +646,12 @@ func obtener_costo_mutacion(tipo_base: String, mutaciones: Array[String]) -> int
 	return 999
 
 
-func actualizar_adn_remontada(delta: float) -> void:
+func actualizar_adn_remontada(delta: float, stats: Dictionary) -> void:
 	if estado_actual != EstadoJuego.FASE_INFECCION:
 		tiempo_remontada = 0.0
 		equipo_remontada = 0
 		return
 
-	var stats: Dictionary = contar_infecciones()
 	var cian: int = int(stats["blue"])
 	var magenta: int = int(stats["magenta"])
 	var perdedor: int = 0
@@ -924,14 +681,13 @@ func actualizar_adn_remontada(delta: float) -> void:
 
 # Inestabilidad: aumenta SOLO la curacion natural del lider.
 # Ofensiva: se activa desde 20 y permanece hasta bajar a 15.
-func actualizar_balance_tardio() -> void:
+func actualizar_balance_tardio(stats: Dictionary) -> void:
 	multiplicador_curacion_cian = 1.0
 	multiplicador_curacion_magenta = 1.0
 	if estado_actual != EstadoJuego.FASE_INFECCION:
 		equipo_curacion_ofensiva = 0
 		return
 
-	var stats: Dictionary = contar_infecciones()
 	var cian: int = int(stats["blue"])
 	var magenta: int = int(stats["magenta"])
 	var diferencia: int = absi(cian - magenta)
@@ -969,6 +725,125 @@ func obtener_multiplicador_curacion_natural(id_jugador: int) -> float:
 	if id_jugador == 2:
 		return multiplicador_curacion_magenta
 	return 1.0
+
+
+func obtener_adn(id_jugador: int) -> int:
+	if id_jugador == 1:
+		return adn_cian
+	if id_jugador == 2:
+		return adn_magenta
+	return 0
+
+
+func gastar_adn(id_jugador: int, cantidad: int) -> bool:
+	if estado_actual != EstadoJuego.FASE_INFECCION or id_jugador not in [1, 2] or cantidad <= 0:
+		return false
+	if obtener_adn(id_jugador) < cantidad:
+		return false
+	if id_jugador == 1:
+		adn_cian -= cantidad
+	else:
+		adn_magenta -= cantidad
+	return true
+
+
+func _preparar_simbionte() -> void:
+	# Historical scenes can use this controller without adopting the mechanic.
+	var cian := get_node_or_null("Simbiontes/CapulloCian") as Node2D
+	var magenta := get_node_or_null("Simbiontes/CapulloMagenta") as Node2D
+	if cian == null or magenta == null:
+		return
+	capullos.assign([cian, magenta])
+	for capullo in capullos:
+		capullo.hide()
+	navegacion_simbionte = NavegacionSimbionte.new()
+	navegacion_simbionte.name = "NavegacionSimbionte"
+	navegacion_simbionte.limites = get_meta("bounds", Rect2(0, 80, 2128, 960))
+	navegacion_simbionte.preparada.connect(_colocar_capullos, CONNECT_ONE_SHOT)
+	add_child(navegacion_simbionte)
+
+
+func _colocar_capullos() -> void:
+	if ganador_simbionte != 0 or estado_actual == EstadoJuego.FIN:
+		return
+	for capullo in capullos:
+		if not is_instance_valid(capullo) or capullo.is_queued_for_deletion():
+			return
+	# The original spawn anchors the reachable interior, excluding exterior islands.
+	navegacion_simbionte.preparar_posiciones_capullos(capullos[0].global_position)
+	var posiciones: PackedVector2Array = navegacion_simbionte.sortear_posiciones_capullos()
+	if posiciones.size() != 2:
+		push_warning("No hay dos ubicaciones seguras para los capullos; se bloquea la inversión.")
+		return
+	for i in range(2):
+		capullos[i].global_position = posiciones[i]
+		capullos[i].show()
+	capullos_colocados = true
+
+
+func simbionte_en_juego() -> bool:
+	# The tutorial can hold TimerJuego without pausing the tree.
+	return is_inside_tree() and estado_actual == EstadoJuego.FASE_INFECCION and not get_tree().paused and not timer_juego.paused and not timer_juego.is_stopped()
+
+
+func accion_simbionte(id_jugador: int) -> bool:
+	if not simbionte_en_juego() or id_jugador not in [1, 2]:
+		return false
+	if ganador_simbionte == 0:
+		return invertir_simbionte(id_jugador)
+	if ganador_simbionte != id_jugador:
+		return false
+	# The traveller is freed on contact; the live effect belongs to its actual host.
+	for bot in get_tree().get_nodes_in_group("bots"):
+		if not is_instance_valid(bot) or bot.is_queued_for_deletion() or not is_ancestor_of(bot):
+			continue
+		var efecto: Node2D = bot.efecto_simbionte
+		if not is_instance_valid(efecto) or efecto.mundo != self or efecto.equipo != id_jugador or not efecto.es_valido():
+			continue
+		for pato in get_tree().get_nodes_in_group("patos"):
+			if is_instance_valid(pato) and not pato.is_queued_for_deletion() and is_ancestor_of(pato) and pato.player_id == id_jugador:
+				return pato.intentar_poseer_simbionte(bot)
+	return false
+
+
+func invertir_simbionte(id_jugador: int) -> bool:
+	if not simbionte_en_juego() or ganador_simbionte != 0 or id_jugador not in [1, 2]:
+		return false
+	if not capullos_colocados or capullos.size() != 2 or not is_instance_valid(navegacion_simbionte):
+		return false
+	var indice := id_jugador - 1
+	var capullo := capullos[indice]
+	if not is_instance_valid(capullo) or capullo.is_queued_for_deletion() or cooldown_simbionte[indice] > 0.0:
+		return false
+	if inversion_simbionte[indice] >= META_SIMBIONTE or obtener_adn(id_jugador) < PAGO_SIMBIONTE:
+		return false
+	# Prepare the last purchase before charging. No await or deferred commitment.
+	var viajero: Node2D = null
+	if inversion_simbionte[indice] + PAGO_SIMBIONTE == META_SIMBIONTE:
+		viajero = ESCENA_SIMBIONTE.instantiate()
+		if viajero == null:
+			return false
+	if not gastar_adn(id_jugador, PAGO_SIMBIONTE):
+		if viajero != null:
+			viajero.free()
+		return false
+	inversion_simbionte[indice] += PAGO_SIMBIONTE
+	cooldown_simbionte[indice] = COOLDOWN_SIMBIONTE
+	if viajero != null:
+		# First accepted final payment wins even if both inputs arrive this frame.
+		ganador_simbionte = id_jugador
+		viajero.equipo = id_jugador
+		viajero.mundo = self
+		viajero.navegacion = navegacion_simbionte
+		viajero.velocidad = velocidad_simbionte
+		viajero.position = to_local(capullo.global_position)
+		simbionte = viajero
+		add_child(viajero)
+		for huevo in capullos:
+			if is_instance_valid(huevo):
+				huevo.hide()
+				huevo.queue_free()
+	return true
 
 
 func sumar_adn(id_jugador: int) -> void:
@@ -1040,6 +915,9 @@ func crear_nube_persistente(posicion: Vector2, id_jugador: int, color: Color) ->
 
 
 func _physics_process(delta: float) -> void:
+	if simbionte_en_juego():
+		for i in range(2):
+			cooldown_simbionte[i] = maxf(0.0, cooldown_simbionte[i] - delta)
 	if nubes_activas.is_empty():
 		return
 	for i in range(nubes_activas.size() - 1, -1, -1):
@@ -1098,26 +976,48 @@ func crear_replicado(origen: Node2D) -> bool:
 
 
 func _on_timer_inicio_timeout() -> void:
-
-	var patos = get_tree().get_nodes_in_group("patos")
-
+	if _transicion_iniciada or estado_actual != EstadoJuego.FASE_PATOS:
+		return
+	_transicion_iniciada = true
+	timer_inicio.stop()
+	var patos := get_tree().get_nodes_in_group("patos")
 	for pato in patos:
-
-		if is_instance_valid(pato):
+		if is_ancestor_of(pato) and not pato.modo_fantasma:
+			_patos_pendientes += 1
+			pato.fantasma_activado.connect(_pato_listo, CONNECT_ONE_SHOT)
+	for pato in patos:
+		if is_ancestor_of(pato):
 			pato.infectar_y_desaparecer()
+	if _patos_pendientes == 0:
+		_comenzar_fase_infeccion()
 
+
+func _pato_listo() -> void:
+	_patos_pendientes -= 1
+	if _patos_pendientes == 0:
+		_comenzar_fase_infeccion()
+
+
+func _comenzar_fase_infeccion() -> void:
+	if estado_actual != EstadoJuego.FASE_PATOS:
+		return
 	estado_actual = EstadoJuego.FASE_INFECCION
 	timer_juego.start()
+	fase_infeccion_iniciada.emit()
 
-
-# ============================================================
-# FIN DEL JUEGO
-# ============================================================
 
 func _on_timer_juego_timeout() -> void:
 
 	estado_actual = EstadoJuego.FIN
 	timer_juego.stop()
+	if evento_coloso != null:
+		evento_coloso.finalizar()
+	# Remove powers before the paused result screen; never leave a live aura.
+	for bot in get_tree().get_nodes_in_group("bots"):
+		if is_ancestor_of(bot) and bot.has_method("quitar_simbionte"):
+			bot.quitar_simbionte()
+	if is_instance_valid(simbionte):
+		simbionte.queue_free()
 
 	var stats = contar_infecciones()
 	var mensaje_resultado: String = ""
@@ -1177,11 +1077,16 @@ func contar_infecciones() -> Dictionary:
 
 	var blue: int = 0
 	var magenta: int = 0
+	var sanos: int = 0
+	var total: int = 0
 
 
 	for bot in bots:
-
+		if not is_instance_valid(bot) or bot.is_queued_for_deletion() or not is_ancestor_of(bot):
+			continue
+		total += 1
 		if not bot.is_infected:
+			sanos += 1
 			continue
 
 
@@ -1197,5 +1102,7 @@ func contar_infecciones() -> Dictionary:
 
 	return {
 		"blue": blue,
-		"magenta": magenta
+		"magenta": magenta,
+		"sanos": sanos,
+		"total": total
 	}

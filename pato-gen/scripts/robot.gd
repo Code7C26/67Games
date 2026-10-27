@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name RobotCurador
+const CuracionRadial = preload("res://scripts/curacion_radial.gd")
 
 
 # ============================================================
@@ -168,29 +169,5 @@ func actualizar_animacion(direccion: Vector2) -> void:
 # ============================================================
 
 func intentar_curar() -> void:
-	var bots = get_tree().get_nodes_in_group("bots")
-
-	for bot in bots:
-
-		if not is_instance_valid(bot):
-			continue
-
-		if not bot.is_infected:
-			continue
-
-		var distancia := global_position.distance_to(bot.global_position)
-
-		if distancia > radio_curacion:
-			continue
-
-		# ----------------------------------------------------
-		# PROBABILIDAD DE CURACIÓN
-		# ----------------------------------------------------
-
-		if randf() > probabilidad_curacion:
-			continue
-
-		# Cura infectados de cualquier jugador.
-		# No activa Último Aliento.
-		if bot.has_method("curar_por_robot"):
-			bot.curar_por_robot()
+	# Team 0 excludes nobody: the robot retains its original two-team behavior.
+	CuracionRadial.aplicar(self, radio_curacion, probabilidad_curacion)

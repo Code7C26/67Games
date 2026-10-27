@@ -1,0 +1,8 @@
+[onboarding]
+
+schema=1
+intro_seen=false
+tutorial_completed=false
+last_result="interrupted"
+last_step="overview"
+reduced_motion=false

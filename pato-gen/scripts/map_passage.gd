@@ -4,13 +4,24 @@ signal transferred(body: CharacterBody2D, arrival: Marker2D)
 @export var enabled: bool = true
 @export var required_group: StringName = &"bots"
 @export var destination: Marker2D
+@export var exit_direction: Vector2 = Vector2.ZERO
 @export_range(0.2, 5.0, 0.1) var cooldown_seconds: float = 1.0
 const LOCK: StringName = &"patogen_map_passage_until_ms"
 var _queued: Dictionary = {}
 var _retry_time: float = 0.0
 
 func _ready() -> void:
-    body_entered.connect(_request_transfer)
+    body_entered.connect(_body_entered)
+    body_exited.connect(_body_exited)
+    set_physics_process(false)
+
+func _body_entered(body: Node) -> void:
+    set_physics_process(true)
+    _request_transfer(body)
+
+func _body_exited(_body: Node) -> void:
+    if get_overlapping_bodies().is_empty():
+        set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
     _retry_time += delta
@@ -61,10 +72,13 @@ func _landing_is_clear(body: CharacterBody2D) -> bool:
 func _transfer(reference: WeakRef, id: int) -> void:
     _queued.erase(id)
     var body: Node = reference.get_ref()
-    if not _eligible(body) or not _landing_is_clear(body):
+    if not _eligible(body) or not overlaps_body(body) or not _landing_is_clear(body):
         return
     body.set_meta(LOCK, Time.get_ticks_msec() + int(cooldown_seconds * 1000.0))
     destination.set_meta(&"passage_reserved_until_frame", Engine.get_physics_frames() + 1)
     body.global_position = destination.global_position
-    # Preserve velocity, faction, infection, timers and possession untouched.
+    body.reset_physics_interpolation()
+    if body.has_method("on_map_passage"):
+        body.on_map_passage(exit_direction)
+    # Infection, faction, currency and possession remain untouched.
     transferred.emit(body, destination)
