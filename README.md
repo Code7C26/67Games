@@ -1,206 +1,149 @@
 # Patogen
 
-> Videojuego 2D competitivo de infección y estrategia, desarrollado en Godot 4. Dos jugadores enfrentan sus cepas —**cian** y **magenta**— para expandir sus contagios, administrar ADN y usar habilidades sobre una población de bots que intenta sobrevivir.
+> Videojuego 2D competitivo de infección y estrategia para **dos jugadores locales**, desarrollado por **67Games** en Godot. Las cepas **cian** y **magenta** compiten por expandirse entre una población de bots, administrar ADN y evolucionar sus infectados.
 
 ![Estado](https://img.shields.io/badge/Estado-Prototipo%20jugable-orange)
-![Motor](https://img.shields.io/badge/Godot-4.7-478CBF?logo=godotengine&logoColor=white)
+![Motor](https://img.shields.io/badge/Godot-4.7.1-478CBF?logo=godotengine&logoColor=white)
 ![Lenguaje](https://img.shields.io/badge/Lenguaje-GDScript-478CBF)
 
-## Cómo ejecutar el proyecto
+Estado revisado contra los archivos del repositorio el **27/10/2026**. El juego principal incluye mutaciones por cepa, distorsión, remontada, audio, tutorial, Simbionte y Coloso Antiviral. El balance competitivo y la integración de los mapas adicionales siguen pendientes.
 
-1. Instalar [Godot Engine 4.7](https://godotengine.org/download/) (o una versión compatible).
-2. Clonar este repositorio:
+## Ejecutar el juego
+
+1. Instalar **Godot 4.7.1**, versión indicada por las pruebas del proyecto.
+2. Clonar el repositorio:
 
    ```bash
    git clone https://github.com/Code7C26/67Games.git
    ```
 
-3. Abrir Godot y seleccionar **Importar**.
-4. Elegir el archivo **`pato-gen/project.godot`**, correspondiente al **juego principal**.
-5. Abrir el proyecto importado y presionar **F5** para ejecutarlo.
+3. En Godot, seleccionar **Importar** y abrir **[`pato-gen/project.godot`](pato-gen/project.godot)**.
+4. Esperar la importación de recursos y pulsar **F5**.
 
-**Al iniciar el juego se muestra el menú principal.** Desde allí se accede al flujo de preparación e inicio de la partida. **F6** ejecuta únicamente la escena abierta en el editor, por lo que puede mostrar una pantalla diferente.
+El juego inicia en el menú principal, usa **GL Compatibility** y un lienzo de **1920 × 1080**. F6 ejecuta sólo la escena abierta en el editor.
 
-> **Importante:** `design/mapa-patogen/project.godot` es el proyecto del **mapa/prototipo de integración**; no debe confundirse con el punto de entrada del juego principal.
+El menú permite jugar, iniciar una partida con tutorial, consultar la guía y activar **movimiento reducido**. El tutorial guarda el progreso del perfil y también puede consultarse con **F1** durante la partida.
 
-### Flujo de una partida
+## Cómo se juega
 
-1. **Menú principal:** pantalla inicial del juego, desde la cual se inicia el recorrido hacia la partida.
-2. **Preparación:** existe una pantalla de prepartida destinada a seleccionar el tipo de infectado de cada cepa. La integración completa de sus opciones, estadísticas y mutaciones continúa en desarrollo.
-3. **Paciente Cero:** durante los primeros **15 segundos**, se controla al personaje inicial (*Pato*).
-4. **Primera infección:** al terminar ese tiempo, Pato deja de moverse, reproduce una animación de desaparición y contagia al bot sano más cercano.
-5. **Expansión de las cepas:** los bots infectados persiguen a los sanos; los jugadores compiten por aumentar sus contagios, conseguir ADN y aprovechar habilidades y zonas.
-6. **Evolución de la partida:** el marcador de infectados y la disponibilidad de bots sanos condicionan las estrategias, especialmente en las fases avanzadas.
+1. Cada jugador elige una cepa en la prepartida: **Atlético**, **Área** o **Exponencial**.
+2. En Shopping, la fase inicial de los patos está configurada en **3 segundos**. Al terminar, cada pato reproduce su desaparición, inicia el contagio y pasa al modo fantasma.
+3. Cuando termina esa transición comienza la fase de infección de **120 segundos**. El tutorial puede retener el reloj mientras enseña las acciones.
+4. Los bots sanos huyen; los infectados persiguen sanos y propagan su cepa. Los jugadores intervienen con posesión, mutaciones, zonas y robot.
+5. Al agotarse el reloj, **gana quien tenga más bots infectados en ese momento**. Conteos iguales producen **empate técnico**. El resultado pausa el mundo y permite reiniciar o volver al menú.
 
-El objetivo estratégico es **expandir la propia cepa y superar la presencia de la rival**. Los criterios exactos de finalización y victoria todavía no están documentados aquí porque no se dispone de su configuración actual.
+Estos tiempos corresponden a [Shopping.tscn](pato-gen/scenes/Shopping.tscn). El resultado se calcula en [Mapa.gd](pato-gen/scripts/Mapa.gd); no depende del ADN sobrante ni de los contagios históricos.
 
-### Controles
+## Controles
 
-PatoGen está diseñado para **dos jugadores locales**, identificados por las cepas **cian** y **magenta**. Los controles se organizan por jugador y por tipo de acción: **movimiento**, **mejoras**, **habilidades** y **zonas**.
+Las teclas siguientes están implementadas en [Pato.gd](pato-gen/scripts/Pato.gd) y [Mapa.gd](pato-gen/scripts/Mapa.gd). Varias se leen directamente desde el teclado y no aparecen en el Mapa de entrada de Godot.
 
-> **Estado de las teclas:** en los archivos disponibles no aparecen las asignaciones del juego principal para cada cepa. El movimiento con `WASD` y flechas está documentado **para el prototipo del mapa**, pero no se puede asegurar qué grupo pertenece a cian o magenta durante la partida. Se indican por separado las acciones que deben comprobarse, sin presentar teclas inventadas como funcionales.
-
-#### Jugador cian
-
-| Categoría | Acción | Tecla en el juego principal |
+| Acción | Cian · jugador 1 | Magenta · jugador 2 |
 | --- | --- | --- |
-| Movimiento | Arriba | **Por confirmar** (`W` en el prototipo del mapa) |
-| Movimiento | Abajo | **Por confirmar** (`S` en el prototipo del mapa) |
-| Movimiento | Izquierda | **Por confirmar** (`A` en el prototipo del mapa) |
-| Movimiento | Derecha | **Por confirmar** (`D` en el prototipo del mapa) |
-| Mejoras | Comprar o activar mejoras de la cepa cian | **Por confirmar** |
-| Mejoras | Cambiar entre los tres paneles de mutaciones cian | Flechas **de la interfaz** (tecla física por confirmar) |
-| Habilidad | Posesión | **Por confirmar** |
-| Habilidad | Robot | **Por confirmar** |
-| Zona | Colocar o activar zona caliente | **Por confirmar** |
-| Zona | Colocar o activar zona fría, si continúa disponible | **Por confirmar** |
-| Zona | Zona de distorsión | **Sin tecla confirmada; funcionalidad en desarrollo** |
+| Movimiento del pato/fantasma o bot poseído | **W A S D** | **Flechas** |
+| Mostrar/ocultar panel de mutaciones | **E** | **O** |
+| Comprar siguiente evolución de una rama | **1 / 2 / 3** | **8 / 9 / 0** |
+| Consultar una rama sin comprar | **Shift + 1 / 2 / 3** | **Shift + 8 / 9 / 0** |
+| Invocar robot curador | **Z** | **H** |
+| Colocar distorsión | **C** | **K** |
+| Colocar zona caliente | **V** | **L** |
+| Poseer un infectado aliado cercano | **X** | **J** |
+| Invertir en Simbionte; tras la fusión, poseer al portador | **Q** | **U** |
 
-#### Jugador magenta
+El Exponencial tiene **dos ramas**, por lo que la tercera opción no ofrece una compra. Los paneles también permiten consultar y comprar mediante la interfaz. Las habilidades requieren fase, saldo y recarga válidos.
 
-| Categoría | Acción | Tecla en el juego principal |
-| --- | --- | --- |
-| Movimiento | Arriba | **Por confirmar** (`↑` en el prototipo del mapa) |
-| Movimiento | Abajo | **Por confirmar** (`↓` en el prototipo del mapa) |
-| Movimiento | Izquierda | **Por confirmar** (`←` en el prototipo del mapa) |
-| Movimiento | Derecha | **Por confirmar** (`→` en el prototipo del mapa) |
-| Mejoras | Comprar o activar mejoras de la cepa magenta | **Por confirmar** |
-| Mejoras | Cambiar entre los tres paneles de mutaciones magenta | Flechas **de la interfaz** (tecla física por confirmar) |
-| Habilidad | Posesión | **Por confirmar** |
-| Habilidad | Robot | **Por confirmar** |
-| Zona | Colocar o activar zona caliente | **Por confirmar** |
-| Zona | Colocar o activar zona fría, si continúa disponible | **Por confirmar** |
-| Zona | Zona de distorsión | **Sin tecla confirmada; funcionalidad en desarrollo** |
+## Cepas y evolución
 
-**Mejoras y mutaciones:** el menú de cian está organizado en `VBoxContainer1`, `VBoxContainer2` y `VBoxContainer3`; el de magenta en `VBoxContainer4`, `VBoxContainer5` y `VBoxContainer6`. Estos son **paneles de interfaz**, no teclas del teclado. No se ha comprobado qué teclas ejecutan cada mejora ni si la selección se realiza exclusivamente con botones.
+La selección de prepartida se aplica a la partida y a sus bots. Cada cepa tiene estadísticas y ramas propias; las compras mejoran infectados existentes y se aplican a los nuevos.
 
-#### Controles comunes y del editor
-
-| Contexto | Acción | Control |
-| --- | --- | --- |
-| Menú principal y prepartida | Elegir opciones y tipo de infectado | Botones de la interfaz |
-| Editor de Godot | Iniciar el juego completo desde el menú principal | `F5` |
-| Editor de Godot | Ejecutar únicamente la escena abierta | `F6` |
-
-**Cómo confirmar las teclas pendientes:** abrir `pato-gen/project.godot` con Godot y consultar **Proyecto → Configuración del proyecto → Mapa de entrada**. Revisar también los scripts que procesan controles (por ejemplo, `Input.is_key_pressed()`, `Input.is_action_pressed()` y `_input()`), porque pueden usar teclas directamente sin declararlas en el Mapa de entrada. Una vez verificadas, sustituir las celdas **«Por confirmar»** por la tecla real de cada cepa.
-
-## Funciones y mecánicas del juego
-
-### Competencia entre dos cepas
-
-- Cada jugador representa una cepa diferenciada visualmente: **cian** o **magenta**.
-- Los bots infectados pertenecen a una cepa, permitiendo comparar su presencia mediante un **marcador de infectados**.
-- El recurso **ADN** forma parte de la estrategia y está vinculado a los nuevos contagios.
-- La disponibilidad de bots sanos es importante: cuando escasean, resulta más difícil seguir contagiando y obteniendo ADN.
-
-### Paciente Cero
-
-- El personaje **Pato** es controlable durante los **15 segundos iniciales**.
-- Al agotarse el tiempo, se bloquea su movimiento y se reproduce la animación **`desaparecer`**, sin repetición.
-- Al finalizar la animación, infecta al bot sano más cercano y el personaje inicial deja la escena.
-- Esta transición da paso al protagonismo de los bots y a la propagación de la infección.
-
-### Bots, inteligencia artificial y contagio
-
-| Estado | Comportamiento |
+| Cepa | Ramas de mutaciones |
 | --- | --- |
-| **Sano** | Se desplaza de forma autónoma, cambia de dirección y huye de los infectados que detecta en su área de visión. |
-| **Infectado** | Busca y persigue bots sanos para extender la cepa a la que pertenece. |
-| **Curado** | Vuelve al estado sano y puede recibir protección temporal frente a nuevos contagios. |
+| **Atlético** | Fiebre → Rabia; Parásito → Colonia → Mente colmena; Caparazón → Regeneración → Infección inmortal |
+| **Área** | Contagio en cadena → Último aliento → Explosión infecciosa; Esporas → Nube tóxica → Epidemia ambiental; Sobrecarga → Pulso viral → Tormenta infecciosa |
+| **Exponencial** | Adaptación → Evolución rápida → Supercepa; División celular → Replicación → Brote masivo |
 
-- Los bots utilizan áreas de **visión** y **contagio** para detectar objetivos e interactuar.
-- El sistema revisa posibles contagios de forma periódica (en la implementación documentada, cada **0,5 segundos**) y aplica una **probabilidad configurable**.
-- La curación se evalúa periódicamente (en la implementación documentada, cada **1 segundo**).
-- Existe un **escudo temporal** de protección frente a nuevas infecciones después de la recuperación.
-- Los bots admiten distintos **sprites y animaciones**, además de parámetros modificables de velocidad, curación y contagio.
+Las evoluciones de una rama cuestan **5, 10 y 15 ADN**, según su nivel y longitud. Los infectados usan sprites de su tipo y contorno de equipo; al curarse recuperan el aspecto sano.
 
-### ADN, habilidades y zonas
+## ADN, habilidades y remontada
 
-El ADN y los tiempos de reutilización (*cooldowns*) obligan a decidir **cuándo conviene activar cada recurso**, no solo a contagiar más bots.
+- **Contagios:** una infección recompensada suma **1 ADN**. Las réplicas no generan ADN; la primera reinfección después del tratamiento del Coloso tampoco.
+- **Posesión:** control directo de un infectado aliado durante **10 s**, con **20 s** de recarga.
+- **Robot curador:** cuesta **10 ADN**, con **25 s** de recarga; puede curar infectados de ambos equipos.
+- **Distorsión:** cuesta **4 ADN**, con **10 s** de recarga. Atrae bots sanos; el código conserva el identificador histórico `FRIO`.
+- **Zona caliente:** cuesta **4 ADN**, con **10 s** de recarga propia; modifica velocidad y contagio.
+- **Remontada:** el equipo con **5 o más infectados menos** recibe **1 ADN por segundo** mientras mantenga esa desventaja.
+- **Balance tardío:** aumenta la curación natural del líder según la diferencia; la curación ofensiva de remontada se activa con una diferencia de 20 y se desactiva al bajar a 15.
 
-| Mecánica | Función dentro del juego | Estado documentado |
-| --- | --- | --- |
-| **Posesión** | Habilidad activa que aporta intervención directa sobre la partida. | Presente en el desarrollo, con cooldown. |
-| **Robot** | Recurso especial que permite otra forma de intervención durante la partida. | Presente en el desarrollo, con cooldown. |
-| **Zona caliente** | Zona ambiental con efectos sobre las condiciones de los bots, relacionadas con la temperatura. | Funcional y con representación visual animada. |
-| **Zona fría** | Segunda clase de zona ambiental; su utilidad táctica está siendo reconsiderada. | En revisión de diseño. |
-| **Zona de distorsión** | Propuesta de zona de control que **atraiga bots sanos** para influir en su movimiento. | Propuesta en desarrollo; no se presenta como integrada. |
+Son parámetros actuales de implementación; requieren partidas humanas para validar su equilibrio.
 
-Los sistemas de temperatura contemplan modificadores de **velocidad** y **contagio**. Sus valores concretos pueden variar según el balance de cada versión.
+## Simbionte
 
-### Tipos de infectado, mutaciones y aspectos visuales
+Ambos jugadores compiten por financiar un único Simbionte. **Q/U** invierte **5 ADN por pulsación**, con **1,5 s** de recarga, hasta **60 ADN**. El primero que completa la inversión gana la carrera.
 
-- El diseño contempla **tipos de infectado con estilos distintos** y **especializaciones permanentes por tipo**, en lugar de limitar toda la progresión a tres mutaciones universales.
-- La pantalla de prepartida permite preparar la selección de tipo, mientras continúa la integración de sus **estadísticas base**, mutaciones y menús.
-- Se están organizando **tres paneles de mutaciones por cepa**: `VBoxContainer1` a `VBoxContainer3` para cian y `VBoxContainer4` a `VBoxContainer6` para magenta.
-- Se crearon sprites específicos para los infectados de cada cepa. Su asignación automática al infectarse y la recuperación del sprite de bot sano al curarse forman parte del trabajo de integración visual.
+El viajero busca un infectado aliado accesible y se fusiona por contacto. La fusión dura **20 s**, mejora movimiento y resistencia a la curación, y emite un aura que cura únicamente infectados rivales. No los convierte al equipo del portador.
 
-### Interfaz, música y efectos
+Después de fusionarse, **Q/U** selecciona directamente al portador aliado para poseerlo. **X/J** conserva la posesión normal del aliado cercano. Cambiar de portador no extiende los relojes; curar al anfitrión termina la fusión.
 
-- **Menú principal** como pantalla de entrada del juego.
-- **Pantalla de prepartida**, menús de mutaciones e interfaz para diferenciar a ambos jugadores.
-- **Marcador**, **ADN** y visualización de habilidades con sus tiempos de reutilización.
-- **Música del menú** incorporada durante el desarrollo; la transición a la **música de partida** y la integración general de **efectos sonoros** están en proceso.
-- El proyecto principal declara un autoload llamado **`AudioManager`** para gestionar el audio.
+Reglas, parámetros y pruebas: [SIMBIONTE.md](pato-gen/tests/SIMBIONTE.md).
 
-## Estado técnico actual
+## Coloso Antiviral
 
-El proyecto se encuentra en etapa de **prototipo jugable de infección competitiva**. Los siguientes sistemas forman parte del desarrollo documentado:
+Evento ambiental **neutral** integrado en Shopping. Tras los primeros 30 s de infección, una crisis sostenida de **7 sanos o menos** puede iniciar su aparición, con aviso previo. Hay como máximo **dos apariciones** por partida y no se inician nuevos intentos cuando quedan 25 s o menos.
 
-- **Lógica de bots** con movimiento autónomo, persecución, huida, infección y curación.
-- **Paciente Cero** y su transición automática al primer contagio.
-- **Dos cepas**, recuento de infectados y sistema de ADN.
-- **Habilidades** de posesión, robot y zona caliente, con cooldowns.
-- **Zonas ambientales animadas** y multiplicadores que afectan el comportamiento de los bots.
-- **Menús** principal y de preparación, con integración progresiva de mutaciones.
-- **Recursos gráficos** de bots sanos e infectados y **recursos sonoros** del equipo.
-- **Mapa Patogen Mall:** escenario 2D de centro comercial con 13 locales, atrio central, mezzanine, colisiones y áreas diferenciadas.
+El Coloso recorre el mapa y cura infectados sin priorizar equipo. Las paredes bloquean su pulso; evita curar la última infección de cada equipo. Se retira por tiempo, presupuesto de curaciones, recuperación de población o falta de objetivos.
 
-### Pendiente
+No puede poseerse ni concede recompensas por derrotarlo. Su arte actual es provisional. La intervención tiene límites y **no garantiza** restaurar toda la población sana.
 
-- Finalizar y comprobar las **mutaciones**, **especializaciones por tipo**, estadísticas y navegación entre sus paneles.
-- Completar la aplicación de los **sprites de infectados por cepa** y el retorno al aspecto sano tras la curación.
-- Desarrollar y equilibrar la **zona de distorsión** si finalmente sustituye o complementa a la zona fría.
-- Ajustar el **balance de partida avanzada**: se propuso otorgar **1 ADN por segundo** al jugador que vaya perdiendo por una diferencia de **5 o más infectados**; su integración efectiva debe verificarse en código.
-- Terminar la **música de partida**, las transiciones musicales y la conexión de los **efectos de sonido** con las acciones correspondientes.
-- Verificar y completar las **teclas definitivas por jugador** para movimiento, mejoras, posesión, robot y zonas; las acciones ya están separadas en las tablas de controles.
-- Confirmar y describir las **condiciones de victoria, derrota y fin de partida**.
-- Continuar con las pruebas, la corrección de errores, el balance general y las **exportaciones jugables**.
+Probabilidades, tiempos, protección y pruebas: [COLOSO_ANTIVIRAL.md](pato-gen/tests/COLOSO_ANTIVIRAL.md).
 
-## Estructura del repositorio
+## Mapas y proyectos
+
+| Ruta | Estado y uso |
+| --- | --- |
+| [`pato-gen/`](pato-gen/) | **Juego principal**: menú, selección, tutorial y partida en Shopping, con Simbionte y Coloso. |
+| [`proyecto/`](proyecto/) | Otra copia del juego con diferencias. Para ejecutar y desarrollar la versión principal, usar `pato-gen/`. Unificación pendiente en [#9](https://github.com/Code7C26/67Games/issues/9). |
+| [`design/mapa-patogen/`](design/mapa-patogen/) | Prototipo/editor del mapa Mall. Incluye `PatogenMall_MapOnly.tscn` y [guía de integración](design/mapa-patogen/MAP_INTEGRATION.md). |
+| [`Patogen_Pato_Splash/`](Patogen_Pato_Splash/) | Proyecto editable y demo del parque, con ambiente, NPCs y Gran Chapuzón de 360°. Integración con la partida real pendiente. |
+| [`Patogen_Laboratorio_AV07.zip`](Patogen_Laboratorio_AV07.zip) | Entrega independiente del laboratorio; debe extraerse e importarse como proyecto separado. Integración con la partida real pendiente. |
+| [`assets/`](assets/), [`docs/`](docs/), [`src/`](src/) | Recursos compartidos, documentación y otros archivos del equipo. |
+
+Los proyectos independientes de mapas no quedan seleccionables en la partida por estar presentes en el repositorio. Pato Splash expone conexiones para la IA y el contagio reales: consultar [INTEGRACION.md](Patogen_Pato_Splash/docs/INTEGRACION.md) y [GIRO360_CORONA.md](Patogen_Pato_Splash/docs/GIRO360_CORONA.md). Sus visitantes y HUD de demo no sustituyen los sistemas del juego.
+
+## Pruebas
+
+Las suites están en [`pato-gen/tests/`](pato-gen/tests/). Desde la raíz del repositorio, con el ejecutable de consola de Godot disponible como `godot`:
 
 ```text
-assets/                         Recursos gráficos y sonoros del equipo
-  Sprites Pato/                 Sprites del personaje inicial
-  Sprites NPC/                  Sprites de bots y personajes
-  Sonidos/                      Música y efectos de sonido
-design/mapa-patogen/            Proyecto de mapa e integración de Godot
-  project.godot                 Configuración del prototipo del mapa
-  main.tscn                     Escena principal del prototipo del mapa
-  PatogenMall_MapOnly.tscn      Mapa integrable en otras escenas
-  scripts/                      Lógica del mapa, personajes y visuales
-  Art/                          Tiles y recursos del escenario
-  MAP_INTEGRATION.md            Guía de integración del mapa
-pato-gen/                       Proyecto principal del videojuego
-  project.godot                 Configuración del juego que se debe importar
-src/                            Otros archivos fuente del repositorio
-docs/                           Documentación y material de diseño
-README.md                       Presentación y guía del proyecto
+godot --headless --path pato-gen --audio-driver Dummy --max-fps 60 --script res://tests/test_simbionte.gd -- --onboarding-test
 ```
 
-## Integración del mapa
+El mismo patrón permite ejecutar las suites headless de Simbionte, Coloso y regresiones. **`test_match_ui.gd` y `test_menu.gd` requieren renderizado**: ejecutarlas sin `--headless`. Los detalles y escenarios están en los documentos de cada mecánica.
 
-Para utilizar solamente el escenario en otra escena de Godot, se puede instanciar `design/mapa-patogen/PatogenMall_MapOnly.tscn`. Esta escena está pensada para incorporar el escenario **sin crear automáticamente jugadores, bots ni HUD**; mantiene las colisiones, zonas y marcadores del mapa.
+La documentación del Coloso registra **530 comprobaciones aprobadas** en su ejecución del 27/10/2026. Es un resultado documentado de esa ejecución; esta actualización del README no vuelve a ejecutar las suites ni certifica el balance competitivo.
 
-Las zonas de este prototipo de mapa se agrupan bajo `patogen_condition_zone` y exponen los metadatos `zone_id`, `zone_type` e `intensity`. La guía técnica se encuentra en [`design/mapa-patogen/MAP_INTEGRATION.md`](design/mapa-patogen/MAP_INTEGRATION.md).
+Hay avisos de recursos/audio y ObjectDB al cerrar algunas pruebas, además del error de perfil corrupto provocado deliberadamente por el test del tutorial. El lanzador local mencionado en las notas de pruebas aún no está versionado; su reproducción y automatización se siguen en [#6](https://github.com/Code7C26/67Games/issues/6) y [#12](https://github.com/Code7C26/67Games/issues/12).
 
-## Tecnologías
+## Próximo trabajo
 
-- **Godot Engine 4.7**.
-- **GDScript** para la lógica del juego.
-- **Godot 2D** para el movimiento, las colisiones, la inteligencia artificial y la interfaz.
-- **Git y GitHub** para el control de versiones y la colaboración.
+Los issues incluyen estado actual, referencias y criterios de aceptación. **P1** identifica el trabajo prioritario; **P2**, las tareas posteriores.
 
-## Autoría
+| Prioridad | Issue |
+| --- | --- |
+| P1 | [#4 · Integrar Laboratorio AV-07 en una partida real](https://github.com/Code7C26/67Games/issues/4) |
+| P1 | [#5 · Conectar Pato Splash con bots, infección y HUD](https://github.com/Code7C26/67Games/issues/5) |
+| P1 | [#6 · Pruebas reproducibles y regresiones automáticas](https://github.com/Code7C26/67Games/issues/6) |
+| P1 | [#7 · Balance humano de cepas, remontada, Simbionte y Coloso](https://github.com/Code7C26/67Games/issues/7) |
+| P1 | [#8 · Exportación Windows y build de prueba](https://github.com/Code7C26/67Games/issues/8) |
+| P2 | [#9 · Unificar la fuente canónica y proyectos históricos](https://github.com/Code7C26/67Games/issues/9) |
+| P2 | [#10 · Guía de juego para Simbionte y Coloso](https://github.com/Code7C26/67Games/issues/10) |
+| P2 | [#11 · Rendimiento de la partida completa](https://github.com/Code7C26/67Games/issues/11) |
+| P2 | [#12 · Avisos de recursos y ObjectDB](https://github.com/Code7C26/67Games/issues/12) |
+| P2 | [#13 · Arte definitivo del Coloso Antiviral](https://github.com/Code7C26/67Games/issues/13) |
 
-Proyecto desarrollado de forma colaborativa por el equipo **67Games**.
+La exportación del juego principal está pendiente. Los ZIP de mapas son proyectos editables de Godot.
+
+## Tecnologías y autoría
+
+**Godot 4.7.1**, **GDScript**, herramientas 2D de Godot, **Aseprite**, Git y GitHub.
+
+Desarrollado de forma colaborativa por el equipo **67Games**.
