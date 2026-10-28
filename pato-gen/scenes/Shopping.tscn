@@ -66,6 +66,8 @@
 [ext_resource type="PackedScene" path="res://scenes/capullo.tscn" id="capullo_simbionte"]
 [ext_resource type="Script" path="res://scripts/evento_coloso_antiviral.gd" id="evento_coloso"]
 
+[ext_resource type="Script" path="res://scripts/shopping_effects.gd" id="readability"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6c8d"]
 size = Vector2(26, 20)
 
@@ -985,6 +987,8 @@ size = Vector2(24, 80)
 
 [sub_resource type="RectangleShape2D" id="passage_ns"]
 size = Vector2(104, 28)
+
+
 
 [node name="Shopping" type="Node2D" unique_id=1591793820]
 texture_filter = 1
@@ -4005,3 +4009,5 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2013047026]
 position = Vector2(1078, 526)
 zoom = Vector2(0.9, 0.9)
+[node name="Readability" type="Node2D" parent="."]
+script = ExtResource("readability")

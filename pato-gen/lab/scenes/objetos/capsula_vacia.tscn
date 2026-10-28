@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_wwfj1"]
+[ext_resource type="Texture2D" path="res://lab/assets/capsula_vacia.png" id="2_06ihe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vijyw"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(0, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2l22"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(96, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf4ci"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(192, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnkby"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(288, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_805is"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(384, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0fkw"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(480, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8jsv"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(576, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aownq"]
+atlas = ExtResource("2_06ihe")
+region = Rect2(672, 0, 96, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt01v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vijyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2l22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf4ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnkby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_805is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0fkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8jsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aownq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.25
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j3c4"]
+size = Vector2(78, 121)
+
+[node name="CapsulaVacia" type="Node2D" unique_id=996809786]
+texture_filter = 1
+script = ExtResource("1_wwfj1")
+metadata/footprint = Rect2(9, 15, 78, 121)
+metadata/size = Vector2(96, 144)
+metadata/asset_id = "capsula_vacia"
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=1390778631]
+position = Vector2(-48, -144)
+sprite_frames = SubResource("SpriteFrames_mt01v")
+autoplay = "default"
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=708822138]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=2022313008]
+position = Vector2(0, -68.5)
+shape = SubResource("RectangleShape2D_1j3c4")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=385082873]
+vertices = PackedVector2Array(-39, -129, 39, -129, 39, -8, -39, -8)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

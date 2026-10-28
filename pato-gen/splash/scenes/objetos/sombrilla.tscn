@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_g204v"]
+[ext_resource type="Texture2D" path="res://splash/assets/sombrilla.png" id="2_2qwqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw7g7"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(0, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7vlu"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(96, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_car0f"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(192, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ee7q"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(288, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cs7q"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(384, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hhqb"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(480, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egm8r"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(576, 0, 96, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i52bu"]
+atlas = ExtResource("2_2qwqn")
+region = Rect2(672, 0, 96, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dx5ox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw7g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7vlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_car0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ee7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cs7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hhqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egm8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i52bu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8crb"]
+size = Vector2(80, 55)
+
+[node name="Sombrilla" type="Node2D" unique_id=1528965952]
+texture_filter = 1
+script = ExtResource("1_g204v")
+metadata/footprint = Rect2(8, 16, 80, 55)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1881948672]
+position = Vector2(0, -44)
+sprite_frames = SubResource("SpriteFrames_dx5ox")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1518184081]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=551640613]
+position = Vector2(0, -44.5)
+shape = SubResource("RectangleShape2D_t8crb")

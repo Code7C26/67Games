@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_silbato.png" id="1_d1ihh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uaj0"]
+atlas = ExtResource("1_d1ihh")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnknw"]
+atlas = ExtResource("1_d1ihh")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqo25"]
+atlas = ExtResource("1_d1ihh")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok88n"]
+atlas = ExtResource("1_d1ihh")
+region = Rect2(120, 0, 40, 40)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uaj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnknw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqo25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok88n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.142857142857142
+}]

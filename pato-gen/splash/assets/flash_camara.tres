@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/flash_camara.png" id="1_y8bji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8bji"]
+atlas = ExtResource("1_y8bji")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gsne"]
+atlas = ExtResource("1_y8bji")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6tfa"]
+atlas = ExtResource("1_y8bji")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61biu"]
+atlas = ExtResource("1_y8bji")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8bji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gsne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6tfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61biu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 14.285714285714285
+}]

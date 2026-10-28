@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_reposera_protector.png" id="1_1w8k2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w8k2"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia3uo"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7nid"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmyku"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p60ts"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_catpd"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj6sg"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj1fw"]
+atlas = ExtResource("1_1w8k2")
+region = Rect2(224, 0, 32, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w8k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia3uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7nid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmyku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p60ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_catpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj6sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj1fw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.3333333333333335
+}]

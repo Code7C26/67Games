@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_naqb2"]
+[ext_resource type="Texture2D" path="res://lab/assets/campana_extractora.png" id="2_g22xh"]
+[ext_resource type="Texture2D" path="res://lab/assets/campana_extractora_normal.png" id="3_g22xh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_unmj1"]
+diffuse_texture = ExtResource("2_g22xh")
+normal_texture = ExtResource("3_g22xh")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unmj1"]
+size = Vector2(106, 56)
+
+[node name="CampanaExtractora" type="Node2D" unique_id=488042162]
+texture_filter = 1
+script = ExtResource("1_naqb2")
+metadata/footprint = Rect2(3, 4, 106, 56)
+metadata/size = Vector2(112, 64)
+metadata/asset_id = "campana_extractora"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1624934011]
+position = Vector2(-56, -64)
+texture = SubResource("CanvasTexture_unmj1")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=377689256]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1190552264]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_unmj1")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=316076293]
+vertices = PackedVector2Array(-53, -60, 53, -60, 53, -4, -53, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

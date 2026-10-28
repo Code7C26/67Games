@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b2iofop1t6jac"]
+[gd_scene format=3]
 
 [ext_resource type="Script" uid="uid://bm0uxxq2o2j7c" path="res://scripts/Mapa.gd" id="1_1vsrf"]
 [ext_resource type="Texture2D" uid="uid://d05nwqwoxvn51" path="res://assets/Fondo enfermedades.jpg" id="2_18fom"]

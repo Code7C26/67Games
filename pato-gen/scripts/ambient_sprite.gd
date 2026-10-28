@@ -8,6 +8,8 @@ func _ready() -> void:
     _start_ambient.call_deferred()
 
 func _start_ambient() -> void:
+    if not is_inside_tree() or is_queued_for_deletion():
+        return
     if not animar:
         stop()
         return

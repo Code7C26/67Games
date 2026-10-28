@@ -1,0 +1,69 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="68_dwbme"]
+[ext_resource type="PackedScene" uid="uid://cg38sh5p0rw0q" path="res://scenes/game_over.tscn" id="70_ry0lt"]
+[ext_resource type="Script" uid="uid://be7v7jbf5t28p" path="res://scripts/match_hud.gd" id="hud_dock"]
+[ext_resource type="PackedScene" path="res://scenes/capullo.tscn" id="capullo_simbionte"]
+[ext_resource type="Script" path="res://scripts/evento_coloso_antiviral.gd" id="evento_coloso"]
+[ext_resource type="Script" path="res://scripts/integrated_map.gd" id="map_controller"]
+[ext_resource type="PackedScene" path="res://splash/scenes/PatoSplash.tscn" id="environment"]
+
+[node name="PatoSplash" type="Node2D"]
+texture_filter = 1
+y_sort_enabled = true
+script = ExtResource("map_controller")
+map_id = "splash"
+metadata/bounds = Rect2(32, 112, 1856, 860)
+metadata/defer_map_intro = true
+
+[node name="Environment" parent="." instance=ExtResource("environment")]
+y_sort_enabled = true
+
+[node name="HUD_ADN" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("hud_dock")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="LabelContador" type="Label" parent="HUD"]
+visible = false
+
+[node name="TimerInicio" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="TimerJuego" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
+[node name="Patos" type="Node2D" parent="."]
+
+[node name="EventoColosoAntiviral" type="Node2D" parent="."]
+script = ExtResource("evento_coloso")
+
+[node name="Simbiontes" type="Node2D" parent="."]
+
+[node name="CapulloCian" parent="Simbiontes" instance=ExtResource("capullo_simbionte")]
+position = Vector2(656, 568)
+equipo = 1
+
+[node name="CapulloMagenta" parent="Simbiontes" instance=ExtResource("capullo_simbionte")]
+position = Vector2(1296, 568)
+equipo = 2
+
+[node name="Pato2" parent="Patos" instance=ExtResource("68_dwbme")]
+position = Vector2(1365, 593)
+player_id = 2
+
+[node name="Pato" parent="Patos" instance=ExtResource("68_dwbme")]
+position = Vector2(593, 593)
+
+[node name="Bots" type="Node2D" parent="."]
+
+[node name="GameOver" parent="." instance=ExtResource("70_ry0lt")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1078, 526)
+zoom = Vector2(0.9, 0.9)

@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_ip4o4"]
+[ext_resource type="Texture2D" path="res://splash/assets/casilleros.png" id="2_ln4on"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rbxn"]
+size = Vector2(120, 62)
+
+[node name="Casilleros" type="Node2D" unique_id=1927502556]
+texture_filter = 1
+script = ExtResource("1_ip4o4")
+metadata/footprint = Rect2(4, 12, 120, 62)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=505847746]
+position = Vector2(0, -40)
+texture = ExtResource("2_ln4on")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1275093672]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=57300614]
+position = Vector2(0, -37)
+shape = SubResource("RectangleShape2D_5rbxn")

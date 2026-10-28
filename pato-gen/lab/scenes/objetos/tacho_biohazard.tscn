@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_rgwd7"]
+[ext_resource type="Texture2D" path="res://lab/assets/tacho_biohazard.png" id="2_cat4u"]
+[ext_resource type="Texture2D" path="res://lab/assets/tacho_biohazard_normal.png" id="3_cat4u"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jb6ob"]
+diffuse_texture = ExtResource("2_cat4u")
+normal_texture = ExtResource("3_cat4u")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb6ob"]
+size = Vector2(18, 24)
+
+[node name="TachoBiohazard" type="Node2D" unique_id=1584643228]
+texture_filter = 1
+script = ExtResource("1_rgwd7")
+metadata/footprint = Rect2(3, 4, 18, 24)
+metadata/size = Vector2(24, 32)
+metadata/asset_id = "tacho_biohazard"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1669833475]
+position = Vector2(-12, -32)
+texture = SubResource("CanvasTexture_jb6ob")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1046413465]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1858498385]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_jb6ob")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1289354615]
+vertices = PackedVector2Array(-9, -28, 9, -28, 9, -4, -9, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

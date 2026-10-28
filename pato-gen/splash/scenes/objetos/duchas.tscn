@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_adcwi"]
+[ext_resource type="Texture2D" path="res://splash/assets/duchas.png" id="2_ke67v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8peat"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ht0w"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln0kd"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(256, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn38r"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(384, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpxcl"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(512, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umxkg"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(640, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2mb8"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(768, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um0tk"]
+atlas = ExtResource("2_ke67v")
+region = Rect2(896, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_46vd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8peat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ht0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln0kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn38r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpxcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umxkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2mb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um0tk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.333333333333334
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly6ao"]
+size = Vector2(120, 78)
+
+[node name="Duchas" type="Node2D" unique_id=280313588]
+texture_filter = 1
+script = ExtResource("1_adcwi")
+metadata/footprint = Rect2(4, 12, 120, 78)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1354065516]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_46vd0")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=18013810]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=703591786]
+position = Vector2(0, -45)
+shape = SubResource("RectangleShape2D_ly6ao")

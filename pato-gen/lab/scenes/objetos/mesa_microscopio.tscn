@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_xu3ha"]
+[ext_resource type="Texture2D" path="res://lab/assets/mesa_microscopio.png" id="2_53r2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxp3g"]
+size = Vector2(122, 64)
+
+[node name="MesaMicroscopio" type="Node2D" unique_id=1989188244]
+texture_filter = 1
+script = ExtResource("1_xu3ha")
+metadata/footprint = Rect2(3, 4, 122, 64)
+metadata/size = Vector2(128, 72)
+metadata/asset_id = "mesa_microscopio"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1061183170]
+position = Vector2(-64, -72)
+texture = ExtResource("2_53r2n")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1972452874]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=736518582]
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_wxp3g")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=39499323]
+vertices = PackedVector2Array(-61, -68, 61, -68, 61, -4, -61, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

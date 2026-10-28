@@ -1,0 +1,54 @@
+{ "frames": [
+   {
+    "filename": "hoja_palmera 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 24, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 24, "h": 16 },
+    "sourceSize": { "w": 24, "h": 16 },
+    "duration": 200
+   },
+   {
+    "filename": "hoja_palmera 1.aseprite",
+    "frame": { "x": 24, "y": 0, "w": 24, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 24, "h": 16 },
+    "sourceSize": { "w": 24, "h": 16 },
+    "duration": 200
+   },
+   {
+    "filename": "hoja_palmera 2.aseprite",
+    "frame": { "x": 48, "y": 0, "w": 24, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 24, "h": 16 },
+    "sourceSize": { "w": 24, "h": 16 },
+    "duration": 200
+   },
+   {
+    "filename": "hoja_palmera 3.aseprite",
+    "frame": { "x": 72, "y": 0, "w": 24, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 24, "h": 16 },
+    "sourceSize": { "w": 24, "h": 16 },
+    "duration": 200
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "hoja_palmera.png",
+  "format": "RGBA8888",
+  "size": { "w": 96, "h": 16 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Hoja de palmera / cuatro orientaciones sin rotacion filtrada", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

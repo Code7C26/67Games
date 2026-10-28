@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_tobogan.png" id="1_eoyk1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoyk1"]
+atlas = ExtResource("1_eoyk1")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxefg"]
+atlas = ExtResource("1_eoyk1")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nevlh"]
+atlas = ExtResource("1_eoyk1")
+region = Rect2(64, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vyaj"]
+atlas = ExtResource("1_eoyk1")
+region = Rect2(96, 0, 32, 36)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoyk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxefg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nevlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vyaj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.666666666666667
+}]

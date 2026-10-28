@@ -122,11 +122,28 @@ var timer_contagio: Timer
 var timer_curacion: Timer
 
 
+const Readability = preload("res://scripts/npc_readability.gd")
+var map_host: Node
+var map_route := PackedVector2Array()
+var map_route_age := 0.0
+var map_previous := Vector2.ZERO
+var map_stuck := 0.0
+var map_avoid_left := 0.0
+var map_avoid_direction := Vector2.ZERO
+
 func _ready() -> void:
+	map_host = get_parent()
+	while map_host != null and not map_host.has_method("contar_infecciones"):
+		map_host = map_host.get_parent()
+	if map_host != null and map_host.has_meta("npc_skins"):
+		skins.assign(map_host.get_meta("npc_skins"))
+		if map_host.map_id == "splash": add_to_group("park_watch_targets")
+	Readability.shadow(self)
 	crear_indicador_posesion()
 	if skins.size() > 0 and animated_sprite:
 		animated_sprite.sprite_frames = skins.pick_random()
 	if animated_sprite:
+		animated_sprite.sprite_frames = Readability.padded(animated_sprite.sprite_frames)
 		sprite_frames_sano = animated_sprite.sprite_frames
 		_preparar_material_borde()
 	add_to_group("bots")
@@ -200,6 +217,7 @@ func _physics_process(delta: float) -> void:
 		# No alterar la posesión, los infectados ni la evasión de paredes.
 		if not is_infected and tiempo_evasion <= 0.0:
 			direccion_movimiento_real = _direccion_con_distorsion(direccion_movimiento_real)
+	direccion_movimiento_real = _map_direction(delta, direccion_movimiento_real)
 	velocity = direccion_movimiento_real * speed * multiplicador_velocidad_temp * mult
 	move_and_slide()
 	if get_slide_collision_count() > 0:
@@ -856,14 +874,16 @@ func reaccionar_a_obstaculo() -> void:
 func _preparar_material_borde() -> void:
 	if not animated_sprite:
 		return
-	var shader_borde: Shader = load("res://shaders/borde_infeccion.gdshader")
+	var shader_borde: Shader = load("res://shaders/npc_outline.gdshader")
 	if shader_borde == null:
-		push_warning("No se encontro res://shaders/borde_infeccion.gdshader")
+		push_warning("No se encontro res://shaders/npc_outline.gdshader")
 		return
 	material_borde_infeccion = ShaderMaterial.new()
 	material_borde_infeccion.shader = shader_borde
 	material_borde_infeccion.set_shader_parameter("borde_activo", false)
+	material_borde_infeccion.set_shader_parameter("pulse_phase", float(get_instance_id() % 100) * 0.1)
 	animated_sprite.material = material_borde_infeccion
+	animated_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
 
 func _aplicar_borde_infeccion(color: Color) -> void:
@@ -950,7 +970,7 @@ func actualizar_sprite_segun_infeccion() -> void:
 func _cambiar_sprite_frames(nuevos: SpriteFrames) -> void:
 	var animacion_anterior: StringName = animated_sprite.animation
 	var estaba_reproduciendo: bool = animated_sprite.is_playing()
-	animated_sprite.sprite_frames = nuevos
+	animated_sprite.sprite_frames = Readability.padded(nuevos)
 	if nuevos.has_animation(animacion_anterior):
 		animated_sprite.animation = animacion_anterior
 	elif nuevos.has_animation("Abajo"):
@@ -1256,3 +1276,46 @@ func on_map_passage(direction: Vector2) -> void:
 	tiempo_ultimo_obstaculo = 0.0
 	velocity = direction * speed
 	timer_direccion.start()
+
+
+func _map_direction(delta: float, fallback: Vector2) -> Vector2:
+	# Optional navigation for the imported environments. Possession and evasion
+	# continue using the production controls and infection rules.
+	if not is_instance_valid(map_host) or not map_host.has_signal("map_ready") or not map_host.map_is_ready:
+		return fallback
+	if controlado_por_jugador or tiempo_evasion > 0.0 or _passage_egress_left > 0.0:
+		map_route.clear()
+		return fallback
+	if not is_infected and obtener_amenaza_cercana() != null:
+		map_route.clear()
+		return fallback
+	var navigation: Node2D = map_host.npc_navigation
+	map_avoid_left = maxf(0.0,map_avoid_left-delta)
+	if map_avoid_left > 0.0: return map_avoid_direction
+	map_route_age += delta
+	map_stuck = map_stuck + delta if global_position.distance_squared_to(map_previous) < 0.04 else 0.0
+	map_previous = global_position
+	if map_stuck > 1.0:
+		map_route.clear()
+		map_stuck = 0.0
+	var prey: Node2D = obtener_humano_cercano() if is_infected else null
+	if map_route.is_empty() or (prey != null and map_route_age > 0.6):
+		var target: Vector2 = prey.global_position if prey != null else map_host.npc_destinations[randi() % map_host.npc_destinations.size()]
+		map_route = navigation.ruta(global_position, target)
+		map_route_age = 0.0
+	while not map_route.is_empty() and global_position.distance_squared_to(map_route[0]) < 36.0:
+		map_route.remove_at(0)
+	var direction := global_position.direction_to(map_route[0]) if not map_route.is_empty() else fallback
+	# Physical NPCs can meet head-on on the same grid edge. Step aside without
+	# disabling their collisions, teleporting them or changing infection contact.
+	if prey == null:
+		for i in get_slide_collision_count():
+			var other := get_slide_collision(i).get_collider()
+			if other is Node and other.is_in_group("bots"):
+				for side in [1.0,-1.0]:
+					var tangent: Vector2 = direction.orthogonal()*side
+					if navigation.segmento_libre(global_position,global_position+tangent*32.0):
+						map_avoid_direction=tangent
+						map_avoid_left=0.45
+						return tangent
+	return direction

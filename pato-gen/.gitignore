@@ -1,3 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Reproducible test output and editor recovery files.
+/tests/run_data/
+/tests/results.json
+/tests/menu_results.json
+*.tmp
+*.bak

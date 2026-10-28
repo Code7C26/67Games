@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_limpieza.png" id="1_vp2r1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp2r1"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(0, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpff5"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(48, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lkb8"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(96, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llei0"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(144, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvn8i"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(192, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo1js"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(240, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a61h"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(288, 0, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehcdf"]
+atlas = ExtResource("1_vp2r1")
+region = Rect2(336, 0, 48, 44)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp2r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpff5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lkb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llei0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvn8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo1js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a61h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehcdf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.555555555555555
+}]

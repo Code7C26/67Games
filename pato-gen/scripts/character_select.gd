@@ -19,6 +19,10 @@ var indice_magenta: int = 0
 
 func _ready() -> void:
 	AudioManager.reproducir_menu()
+	var chosen: Dictionary = get_tree().root.get_meta("patogen_cepas", {})
+	var strains := ["atletico", "area", "exponencial"]
+	indice_cian = maxi(0, strains.find(chosen.get(1,"atletico")))
+	indice_magenta = maxi(0, strains.find(chosen.get(2,"atletico")))
 	actualizar_visualizacion()
 
 # --- FUNCIONES PARA EL JUGADOR CIAN ---
@@ -72,10 +76,10 @@ func _on_comenzar_pressed() -> void:
 	})
 	# El boton Comenzar marca el verdadero inicio del juego, aunque haya escena intermedia.
 	AudioManager.efecto("click")
-	AudioManager.reproducir_partida()
+	AudioManager.reproducir_menu()
 	var onboarding := get_node_or_null("/root/PatogenOnboarding")
 	if onboarding:
-		onboarding.transition_to("res://scenes/Shopping.tscn")
+		onboarding.transition_to("res://scenes/map_select.tscn")
 	else:
-		get_tree().change_scene_to_file("res://scenes/Shopping.tscn")
+		get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 

@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_p4hr8"]
+[ext_resource type="Texture2D" path="res://lab/assets/autoclave.png" id="2_3fhml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxa45"]
+size = Vector2(90, 72)
+
+[node name="Autoclave" type="Node2D" unique_id=144594026]
+texture_filter = 1
+script = ExtResource("1_p4hr8")
+metadata/footprint = Rect2(3, 4, 90, 72)
+metadata/size = Vector2(96, 80)
+metadata/asset_id = "autoclave"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1263655921]
+position = Vector2(-48, -80)
+texture = ExtResource("2_3fhml")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=106540769]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1960472939]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_bxa45")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1663604870]
+vertices = PackedVector2Array(-45, -76, 45, -76, 45, -4, -45, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

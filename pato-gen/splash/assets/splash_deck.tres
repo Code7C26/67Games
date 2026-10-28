@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/splash_deck.png" id="1_5cpjh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yra2t"]
+atlas = ExtResource("1_5cpjh")
+region = Rect2(0, 0, 48, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jekh8"]
+atlas = ExtResource("1_5cpjh")
+region = Rect2(48, 0, 48, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61k0c"]
+atlas = ExtResource("1_5cpjh")
+region = Rect2(96, 0, 48, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myav8"]
+atlas = ExtResource("1_5cpjh")
+region = Rect2(144, 0, 48, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yra2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jekh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61k0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myav8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]

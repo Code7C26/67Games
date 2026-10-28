@@ -81,6 +81,7 @@ func setup(host: Node) -> void:
 	# Shopping also has "Paredes", but it is a TileMapLayer, not the old arena.
 	elif host.get_node_or_null("Paredes") is StaticBody2D:
 		world_rect = Rect2(-32, -200, 1220, 1040)
+	world_rect = host.get_meta("view_bounds", world_rect)
 	world.get_node("HUD/LabelContador").hide()
 	for duck in get_tree().get_nodes_in_group("patos"):
 		if host.is_ancestor_of(duck):
