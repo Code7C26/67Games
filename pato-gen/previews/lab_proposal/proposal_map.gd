@@ -37,11 +37,50 @@ func _expand_lower_sector() -> void:
 			for point in visual.polygon: minimum=minf(minimum,point.y)
 			if minimum>=832: visual.position.y+=lower_extension
 	# New row: realistic wet benches and reagent storage, with clear walkways.
-	_prop(environment,"MesadaLavado", "sink_bench",Vector2(264,992),Vector2(192,88))
-	_prop(environment,"MesadaPreparacion", "wet_bench",Vector2(784,992),Vector2(192,80))
-	_prop(environment,"MesadaReactivos", "wet_bench",Vector2(1280,992),Vector2(192,80))
+	_prop(environment,"MesadaLavado", "sink_bench_detailed",Vector2(264,992),Vector2(192,88))
+	_prop(environment,"MesadaPreparacion", "prep_bench",Vector2(784,992),Vector2(192,80))
+	_prop(environment,"MesadaReactivos", "reagent_bench",Vector2(1280,992),Vector2(192,80))
 	_prop(environment,"EstantesInsumos", "supply_shelf",Vector2(1728,1000),Vector2(128,112))
 	_complete_lower_rooms(environment)
+	_add_room_details(environment)
+
+func _add_room_details(environment: Node) -> void:
+	var props:=environment.get_node("04_Objetos")
+	_detail(props,"hygiene_station",Vector2(120,920))
+	_detail(props,"wall_services",Vector2(624,920))
+	_detail(props,"wall_services",Vector2(1408,920))
+	_detail(props,"sample_board",Vector2(1584,928))
+	var floor_details:=Node2D.new()
+	floor_details.name="PreviewFloorDetails"
+	environment.get_node("02_Senaletica_y_luces").add_child(floor_details)
+	for point in [Vector2(224,1040),Vector2(304,1040),Vector2(1224,1040),Vector2(1320,1040)]:
+		_detail(floor_details,"floor_drain",point)
+	for point in [Vector2(784,1060),Vector2(1728,1060)]:
+		_detail(floor_details,"cable_tray",point)
+	for entry in [[Vector2(64,1052),"HIGIENE / AV-07"],[Vector2(552,1052),"MATERIAL ESTERIL"],[Vector2(1128,1052),"REACTIVOS / CONTROL"],[Vector2(1544,1052),"CADENA DE FRIO"]]:
+		var label:=Label.new()
+		label.text=entry[1]
+		label.position=entry[0]
+		label.add_theme_font_override("font",load("res://lab/assets/Pixel-Regular.ttf"))
+		label.add_theme_font_size_override("font_size",11)
+		label.modulate=Color(0.43,0.66,0.69,0.7)
+		floor_details.add_child(label)
+
+func _detail(parent: Node,id: String,point: Vector2) -> void:
+	var prop:=Node2D.new()
+	prop.name="Detail_"+id
+	prop.position=point
+	var texture:=load(ASSETS+id+".png") as Texture2D
+	var sprite:=Sprite2D.new()
+	sprite.name="Textura"
+	sprite.texture=texture
+	sprite.centered=false
+	sprite.position=Vector2(-texture.get_width()*0.5,-texture.get_height())
+	prop.add_child(sprite)
+	# Decorative details have no physics, infection membership or per-frame script.
+	prop.set_meta("asset_id","detail_"+id)
+	prop.set_meta("size",texture.get_size())
+	parent.add_child(prop)
 
 func _complete_lower_rooms(environment: Node) -> void:
 	var props:=environment.get_node("04_Objetos")
