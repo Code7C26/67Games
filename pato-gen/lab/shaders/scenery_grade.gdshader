@@ -1,4 +1,5 @@
 shader_type canvas_item;
+#include "res://lab/shaders/local_surface_light.gdshaderinc"
 uniform float ambient : hint_range(0.0, 1.0) = 0.64;
 uniform vec3 shadow_tint = vec3(-0.035, 0.025, 0.05);
 uniform vec3 highlight_tint = vec3(0.045, 0.02, -0.025);

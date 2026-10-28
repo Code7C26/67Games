@@ -30,6 +30,9 @@ func run() -> void:
 		for i in 2: await process_frame
 		var before: Image = await shot()
 		var samples: Array[Vector2i] = []
+		var candidates: Array[Dictionary] = []
+		var lab: bool = map_name=="Laboratorio"
+		var ambient: float = host.get_node("Environment").npc_ambient if lab else 1.0
 		for actor in get_nodes_in_group("bots")+get_nodes_in_group("patos"):
 			var sprite: AnimatedSprite2D = actor.animated_sprite
 			var texture: Texture2D = sprite.sprite_frames.get_frame_texture(sprite.animation,sprite.frame)
@@ -41,19 +44,24 @@ func run() -> void:
 					if source.a<0.99: continue
 					var pixel := Vector2i((sprite.get_global_transform_with_canvas()*(origin+Vector2(x+0.5,y+0.5))).floor())
 					if pixel.x<0 or pixel.y<0 or pixel.x>=before.get_width() or pixel.y>=before.get_height(): continue
-					var visible := before.get_pixelv(pixel)
-					# Skip pixels hidden by authored props or existing floating labels.
-					if minf(difference(visible,source),difference(visible,source.srgb_to_linear()))<0.025: samples.append(pixel)
+					var multiplier: float = ambient if actor.is_in_group("bots") else 1.0
+					candidates.append({"pixel":pixel,"source":source,"ambient":multiplier})
 		for light in host.find_children("*","Light2D",true,false): light.enabled = false
 		for i in 3: await process_frame
 		var after: Image = await shot()
+		for candidate in candidates:
+			var visible := after.get_pixelv(candidate.pixel)
+			var raw: Color = candidate.source*Color(candidate.ambient,candidate.ambient,candidate.ambient,1)
+			var linear: Color = candidate.source.srgb_to_linear()*Color(candidate.ambient,candidate.ambient,candidate.ambient,1)
+			# Match the unlit body to skip props and floating labels covering it.
+			if minf(difference(visible,raw),difference(visible,linear))<0.003: samples.append(candidate.pixel)
 		var changed := 0
 		var maximum := 0.0
 		for pixel in samples:
 			var delta := difference(before.get_pixelv(pixel),after.get_pixelv(pixel))
 			maximum = maxf(maximum,delta)
 			if delta>0.01: changed+=1
-		var ok := samples.size()>300 and changed==0
+		var ok := samples.size()>300 and (changed>100 if lab else changed==0)
 		if not ok: failures+=1
 		print("VISUAL_ACTOR_PIXELS ",map_name," samples=",samples.size()," changed=",changed," maximum_delta=",maximum," ","PASS" if ok else "FAIL")
 		host.queue_free()

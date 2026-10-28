@@ -1,4 +1,5 @@
 shader_type canvas_item;
+#include "res://lab/shaders/local_surface_light.gdshaderinc"
 #include "res://shaders/sunlight_mask.gdshaderinc"
 uniform float ambient : hint_range(0.0, 1.0) = 0.66;
 uniform vec3 shadow_tint = vec3(-0.03, 0.025, 0.045);
