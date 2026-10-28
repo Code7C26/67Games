@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/reaccion_cubrir.png" id="1_vjyki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjyki"]
+atlas = ExtResource("1_vjyki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxoms"]
+atlas = ExtResource("1_vjyki")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceink"]
+atlas = ExtResource("1_vjyki")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnd7y"]
+atlas = ExtResource("1_vjyki")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjyki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxoms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceink")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnd7y")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

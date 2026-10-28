@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/toallero.png" id="1_mf6aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf6aw"]
+size = Vector2(48, 40)
+
+[node name="Toallero" type="Node2D" unique_id=1525549112]
+texture_filter = 1
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1190503396]
+position = Vector2(0, -32)
+texture = ExtResource("1_mf6aw")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=526091202]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=810972289]
+position = Vector2(0, -26)
+shape = SubResource("RectangleShape2D_mf6aw")

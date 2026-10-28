@@ -19,7 +19,7 @@ func _enter_tree() -> void:
 		replacement.set_script(preload("res://scripts/match_hud.gd"))
 		add_child(replacement)
 	var onboarding := get_node_or_null("/root/PatogenOnboarding")
-	if onboarding:
+	if onboarding and not get_meta("defer_map_intro", false):
 		onboarding.prepare_scene(self)
 
 
@@ -957,6 +957,10 @@ func crear_replicado(origen: Node2D) -> bool:
 		return false
 	if jugador == 2 and replicas_magenta >= MAX_REPLICAS_POR_JUGADOR:
 		return false
+	var posicion_replica := origen.global_position + Vector2.RIGHT.rotated(randf_range(0.0, TAU)) * 28.0
+	if has_method("safe_replica_position"):
+		posicion_replica = call("safe_replica_position", origen.global_position)
+		if not posicion_replica.is_finite(): return false
 	var replicado: Node2D = ESCENA_BOT.instantiate() as Node2D
 	if replicado == null:
 		return false
@@ -964,7 +968,7 @@ func crear_replicado(origen: Node2D) -> bool:
 	if contenedor == null:
 		contenedor = self
 	contenedor.add_child(replicado)
-	replicado.global_position = origen.global_position + Vector2.RIGHT.rotated(randf_range(0.0, TAU)) * 28.0
+	replicado.global_position = posicion_replica
 	# La réplica cuenta como infectado, pero NO da ADN y NO dispara compras.
 	replicado.es_replica = true
 	replicado.activar_infeccion(origen.color_infeccion, jugador, false)

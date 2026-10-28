@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_w8t01"]
+[ext_resource type="Texture2D" path="res://lab/assets/lockers_pasillo.png" id="2_h818b"]
+[ext_resource type="Texture2D" path="res://lab/assets/lockers_pasillo_normal.png" id="3_h818b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_802p7"]
+diffuse_texture = ExtResource("2_h818b")
+normal_texture = ExtResource("3_h818b")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_802p7"]
+size = Vector2(58, 40)
+
+[node name="LockersPasillo" type="Node2D" unique_id=770196989]
+texture_filter = 1
+script = ExtResource("1_w8t01")
+metadata/footprint = Rect2(3, 4, 58, 40)
+metadata/size = Vector2(64, 48)
+metadata/asset_id = "lockers_pasillo"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=349063757]
+position = Vector2(-32, -48)
+texture = SubResource("CanvasTexture_802p7")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=59958273]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1640861126]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_802p7")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=71988176]
+vertices = PackedVector2Array(-29, -44, 29, -44, 29, -4, -29, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

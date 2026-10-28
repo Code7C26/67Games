@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/letrero_helados.png" id="1_ycci7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1sar"]
+atlas = ExtResource("1_ycci7")
+region = Rect2(0, 0, 80, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yutvn"]
+atlas = ExtResource("1_ycci7")
+region = Rect2(80, 0, 80, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5fts"]
+atlas = ExtResource("1_ycci7")
+region = Rect2(160, 0, 80, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kefwl"]
+atlas = ExtResource("1_ycci7")
+region = Rect2(240, 0, 80, 26)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1sar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yutvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5fts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kefwl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]

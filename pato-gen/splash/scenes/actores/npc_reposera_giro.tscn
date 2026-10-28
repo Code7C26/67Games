@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_lddqw"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_giro.tres" id="2_7pkgm"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_akvsy"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_wsff0"]
+
+[node name="DescansoGiro" type="Node2D" unique_id=1700156925]
+z_index = 2
+script = ExtResource("1_lddqw")
+action_asset = "npc_reposera_giro"
+exit_offset = Vector2(-38, 50)
+phase_offset = 1.46
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=2073252319]
+texture_filter = 1
+sprite_frames = ExtResource("2_7pkgm")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=283523817]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_akvsy")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=1900198709]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_wsff0")

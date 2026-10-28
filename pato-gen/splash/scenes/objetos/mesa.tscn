@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_slyir"]
+[ext_resource type="Texture2D" path="res://splash/assets/mesa.png" id="2_xs1r1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xdsv"]
+size = Vector2(56, 28)
+
+[node name="Mesa" type="Node2D" unique_id=1699022403]
+texture_filter = 1
+script = ExtResource("1_slyir")
+metadata/footprint = Rect2(4, 7, 56, 28)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=111426381]
+position = Vector2(0, -24)
+texture = ExtResource("2_xs1r1")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1610650006]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=303590578]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_3xdsv")

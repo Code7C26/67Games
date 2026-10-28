@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_empapado.png" id="1_jomvj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfu22"]
+atlas = ExtResource("1_jomvj")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84k5q"]
+atlas = ExtResource("1_jomvj")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jr20"]
+atlas = ExtResource("1_jomvj")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryykw"]
+atlas = ExtResource("1_jomvj")
+region = Rect2(96, 0, 32, 40)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfu22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84k5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jr20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryykw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]

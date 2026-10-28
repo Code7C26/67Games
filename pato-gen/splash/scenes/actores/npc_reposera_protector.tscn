@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_3a47v"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_protector.tres" id="2_lyqdp"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_hy5o3"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_k02l6"]
+
+[node name="DescansoProtector" type="Node2D" unique_id=332177863]
+z_index = 2
+script = ExtResource("1_3a47v")
+action_asset = "npc_reposera_protector"
+reaction_kind = 1
+walking_skin = "banador_2"
+exit_offset = Vector2(-24, 50)
+phase_offset = 2.19
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=601262584]
+texture_filter = 1
+sprite_frames = ExtResource("2_lyqdp")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=1812020813]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_hy5o3")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=641007348]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_k02l6")

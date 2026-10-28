@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_idkuo"]
+[ext_resource type="Texture2D" path="res://lab/assets/capsula_rota.png" id="2_tf5fg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7heh"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(0, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv0vd"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(96, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7qbs"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(192, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar1bs"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(288, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piln1"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(384, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyogj"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(480, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eku5"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(576, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r8iw"]
+atlas = ExtResource("2_tf5fg")
+region = Rect2(672, 0, 96, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xi4q7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7heh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv0vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7qbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar1bs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piln1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyogj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eku5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r8iw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.25
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elw86"]
+size = Vector2(78, 121)
+
+[node name="CapsulaRota" type="Node2D" unique_id=30672559]
+texture_filter = 1
+script = ExtResource("1_idkuo")
+metadata/footprint = Rect2(9, 15, 78, 121)
+metadata/size = Vector2(96, 144)
+metadata/asset_id = "capsula_rota"
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=1634792557]
+position = Vector2(-48, -144)
+sprite_frames = SubResource("SpriteFrames_xi4q7")
+autoplay = "default"
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1492953354]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=783232779]
+position = Vector2(0, -68.5)
+shape = SubResource("RectangleShape2D_elw86")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=47210614]
+vertices = PackedVector2Array(-39, -129, 39, -129, 39, -8, -39, -8)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

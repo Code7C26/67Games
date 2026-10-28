@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_wrxyh"]
+[ext_resource type="Texture2D" path="res://splash/assets/escalera.png" id="2_qeo0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8duxb"]
+size = Vector2(24, 30)
+
+[node name="Escalera" type="Node2D" unique_id=473934773]
+texture_filter = 1
+script = ExtResource("1_wrxyh")
+metadata/footprint = Rect2(4, 12, 24, 30)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1078739159]
+position = Vector2(0, -24)
+texture = ExtResource("2_qeo0n")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=650509039]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=75263700]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_8duxb")

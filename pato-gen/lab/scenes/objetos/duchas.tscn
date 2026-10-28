@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_rsj4s"]
+[ext_resource type="Texture2D" path="res://lab/assets/duchas.png" id="2_kcpan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ep8v"]
+size = Vector2(122, 72)
+
+[node name="Duchas" type="Node2D" unique_id=2002544772]
+texture_filter = 1
+script = ExtResource("1_rsj4s")
+metadata/footprint = Rect2(3, 4, 122, 72)
+metadata/size = Vector2(128, 80)
+metadata/asset_id = "duchas"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1595710399]
+position = Vector2(-64, -80)
+texture = ExtResource("2_kcpan")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=267542080]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=2044425389]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_5ep8v")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1813941537]
+vertices = PackedVector2Array(-61, -76, 61, -76, 61, -4, -61, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

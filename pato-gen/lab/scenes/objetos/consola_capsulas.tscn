@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_gw1kr"]
+[ext_resource type="Texture2D" path="res://lab/assets/consola_capsulas.png" id="2_hroey"]
+[ext_resource type="Texture2D" path="res://lab/assets/consola_capsulas_normal.png" id="3_hroey"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xfuit"]
+diffuse_texture = ExtResource("2_hroey")
+normal_texture = ExtResource("3_hroey")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfuit"]
+size = Vector2(90, 56)
+
+[node name="ConsolaCapsulas" type="Node2D" unique_id=1979520673]
+texture_filter = 1
+script = ExtResource("1_gw1kr")
+metadata/footprint = Rect2(3, 4, 90, 56)
+metadata/size = Vector2(96, 64)
+metadata/asset_id = "consola_capsulas"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=356339362]
+position = Vector2(-48, -64)
+texture = SubResource("CanvasTexture_xfuit")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1682150424]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1898208831]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_xfuit")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=341402242]
+vertices = PackedVector2Array(-45, -60, 45, -60, 45, -4, -45, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

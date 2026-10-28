@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_4fuf6"]
+[ext_resource type="Texture2D" path="res://lab/assets/locker_hazmat.png" id="2_jl5ja"]
+[ext_resource type="Texture2D" path="res://lab/assets/locker_hazmat_normal.png" id="3_jl5ja"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nmxf3"]
+diffuse_texture = ExtResource("2_jl5ja")
+normal_texture = ExtResource("3_jl5ja")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmxf3"]
+size = Vector2(90, 80)
+
+[node name="LockerHazmat" type="Node2D" unique_id=1055847360]
+texture_filter = 1
+script = ExtResource("1_4fuf6")
+metadata/footprint = Rect2(3, 4, 90, 80)
+metadata/size = Vector2(96, 88)
+metadata/asset_id = "locker_hazmat"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=414686186]
+position = Vector2(-48, -88)
+texture = SubResource("CanvasTexture_nmxf3")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=267854490]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=862710136]
+position = Vector2(0, -44)
+shape = SubResource("RectangleShape2D_nmxf3")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=901448158]
+vertices = PackedVector2Array(-45, -84, 45, -84, 45, -4, -45, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

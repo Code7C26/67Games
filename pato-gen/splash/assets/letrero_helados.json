@@ -1,0 +1,54 @@
+{ "frames": [
+   {
+    "filename": "letrero_helados 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 80, "h": 26 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 26 },
+    "sourceSize": { "w": 80, "h": 26 },
+    "duration": 200
+   },
+   {
+    "filename": "letrero_helados 1.aseprite",
+    "frame": { "x": 80, "y": 0, "w": 80, "h": 26 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 26 },
+    "sourceSize": { "w": 80, "h": 26 },
+    "duration": 200
+   },
+   {
+    "filename": "letrero_helados 2.aseprite",
+    "frame": { "x": 160, "y": 0, "w": 80, "h": 26 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 26 },
+    "sourceSize": { "w": 80, "h": 26 },
+    "duration": 200
+   },
+   {
+    "filename": "letrero_helados 3.aseprite",
+    "frame": { "x": 240, "y": 0, "w": 80, "h": 26 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 26 },
+    "sourceSize": { "w": 80, "h": 26 },
+    "duration": 200
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "letrero_helados.png",
+  "format": "RGBA8888",
+  "size": { "w": 320, "h": 26 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Heladeria / letrero luminoso / cuatro estados suaves", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

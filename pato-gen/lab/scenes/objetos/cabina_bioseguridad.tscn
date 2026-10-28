@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_gy7eg"]
+[ext_resource type="Texture2D" path="res://lab/assets/cabina_bioseguridad.png" id="2_25h4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe1cb"]
+size = Vector2(138, 88)
+
+[node name="CabinaBioseguridad" type="Node2D" unique_id=417756635]
+texture_filter = 1
+script = ExtResource("1_gy7eg")
+metadata/footprint = Rect2(3, 4, 138, 88)
+metadata/size = Vector2(144, 96)
+metadata/asset_id = "cabina_bioseguridad"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1855939745]
+position = Vector2(-72, -96)
+texture = ExtResource("2_25h4e")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1889209031]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1190558756]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_oe1cb")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=2123616249]
+vertices = PackedVector2Array(-69, -92, 69, -92, 69, -4, -69, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

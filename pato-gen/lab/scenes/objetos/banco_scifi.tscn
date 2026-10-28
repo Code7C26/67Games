@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_mx8xy"]
+[ext_resource type="Texture2D" path="res://lab/assets/banco_scifi.png" id="2_tjj2g"]
+[ext_resource type="Texture2D" path="res://lab/assets/banco_scifi_normal.png" id="3_tjj2g"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2krhi"]
+diffuse_texture = ExtResource("2_tjj2g")
+normal_texture = ExtResource("3_tjj2g")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2krhi"]
+size = Vector2(58, 24)
+
+[node name="BancoScifi" type="Node2D" unique_id=1838865649]
+texture_filter = 1
+script = ExtResource("1_mx8xy")
+metadata/footprint = Rect2(3, 4, 58, 24)
+metadata/size = Vector2(64, 32)
+metadata/asset_id = "banco_scifi"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=400275122]
+position = Vector2(-32, -32)
+texture = SubResource("CanvasTexture_2krhi")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1833802081]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1691975443]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_2krhi")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1879722459]
+vertices = PackedVector2Array(-29, -28, 29, -28, 29, -4, -29, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

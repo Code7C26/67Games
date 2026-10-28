@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_8t823"]
+[ext_resource type="Texture2D" path="res://splash/assets/kiosco.png" id="2_71wkx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4gyk"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(0, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vq3n"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(192, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdahs"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(384, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdhsf"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(576, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl574"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(768, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmyna"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(960, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go6uc"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(1152, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at7dp"]
+atlas = ExtResource("2_71wkx")
+region = Rect2(1344, 0, 192, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43pn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4gyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vq3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdahs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdhsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl574")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmyna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go6uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at7dp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxa3m"]
+size = Vector2(184, 142)
+
+[node name="Kiosco" type="Node2D" unique_id=1288261447]
+texture_filter = 1
+script = ExtResource("1_8t823")
+metadata/footprint = Rect2(4, 12, 184, 142)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1513281550]
+position = Vector2(0, -80)
+sprite_frames = SubResource("SpriteFrames_43pn7")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1677709483]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=2136958229]
+position = Vector2(0, -77)
+shape = SubResource("RectangleShape2D_wxa3m")

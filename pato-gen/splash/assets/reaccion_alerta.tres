@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/reaccion_alerta.png" id="1_2tm45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tm45"]
+atlas = ExtResource("1_2tm45")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ildmq"]
+atlas = ExtResource("1_2tm45")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnr8h"]
+atlas = ExtResource("1_2tm45")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exlor"]
+atlas = ExtResource("1_2tm45")
+region = Rect2(72, 0, 24, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tm45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ildmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnr8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exlor")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

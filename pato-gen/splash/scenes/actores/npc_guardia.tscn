@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_xwit2"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_guardia.tres" id="2_3rror"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_nb3p3"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_8ado5"]
+
+[node name="GuardiaEste" type="Node2D" unique_id=1256495528]
+z_index = 2
+script = ExtResource("1_xwit2")
+reaction_kind = 2
+walking_skin = "salvavidas_2"
+exit_offset = Vector2(-40, 90)
+phase_offset = 0.73
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=295519609]
+texture_filter = 1
+sprite_frames = ExtResource("2_3rror")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=1489258210]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_nb3p3")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=281393059]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_8ado5")

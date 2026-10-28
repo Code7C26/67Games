@@ -32,7 +32,10 @@ func prepare_scene(host: Node) -> void:
 	prepared[host.get_instance_id()] = mode
 	if mode != "direct":
 		get_tree().root.set_meta("patogen_intro_managed", true)
-	host.ready.connect(func(): _attach.call_deferred(host, mode), CONNECT_ONE_SHOT)
+	if host.is_node_ready():
+		_attach.call_deferred(host, mode)
+	else:
+		host.ready.connect(func(): _attach.call_deferred(host, mode), CONNECT_ONE_SHOT)
 	host.tree_exiting.connect(func():
 		if is_instance_valid(active_director) and host.is_ancestor_of(active_director):
 			active_director.interrupt()

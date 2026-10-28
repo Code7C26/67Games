@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/hoja_palmera.png" id="1_b5u3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ewx8"]
+atlas = ExtResource("1_b5u3t")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aaqp"]
+atlas = ExtResource("1_b5u3t")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afu01"]
+atlas = ExtResource("1_b5u3t")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6pyk"]
+atlas = ExtResource("1_b5u3t")
+region = Rect2(72, 0, 24, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ewx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aaqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afu01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6pyk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]

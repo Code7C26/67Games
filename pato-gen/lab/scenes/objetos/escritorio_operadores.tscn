@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_hp6bp"]
+[ext_resource type="Texture2D" path="res://lab/assets/escritorio_operadores.png" id="2_lmyya"]
+[ext_resource type="Texture2D" path="res://lab/assets/escritorio_operadores_normal.png" id="3_lmyya"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lvd8m"]
+diffuse_texture = ExtResource("2_lmyya")
+normal_texture = ExtResource("3_lmyya")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvd8m"]
+size = Vector2(60, 44)
+
+[node name="EscritorioOperadores" type="Node2D" unique_id=1993146920]
+texture_filter = 1
+script = ExtResource("1_hp6bp")
+metadata/footprint = Rect2(2, 2, 60, 44)
+metadata/size = Vector2(64, 48)
+metadata/asset_id = "escritorio_operadores"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=811599865]
+position = Vector2(-32, -48)
+texture = SubResource("CanvasTexture_lvd8m")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1637306014]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1909596717]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_lvd8m")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=2061956439]
+vertices = PackedVector2Array(-30, -46, 30, -46, 30, -2, -30, -2)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

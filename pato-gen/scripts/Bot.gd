@@ -122,11 +122,25 @@ var timer_contagio: Timer
 var timer_curacion: Timer
 
 
+const Readability = preload("res://scripts/npc_readability.gd")
+var map_host: Node
+var map_route := PackedVector2Array()
+const NpcBrain = preload("res://scripts/npc_brain.gd")
+var npc_brain := NpcBrain.new()
+
 func _ready() -> void:
+	map_host = get_parent()
+	while map_host != null and not map_host.has_method("contar_infecciones"):
+		map_host = map_host.get_parent()
+	if map_host != null and map_host.has_meta("npc_skins"):
+		skins.assign(map_host.get_meta("npc_skins"))
+		if map_host.map_id == "splash": add_to_group("park_watch_targets")
+	Readability.shadow(self)
 	crear_indicador_posesion()
 	if skins.size() > 0 and animated_sprite:
 		animated_sprite.sprite_frames = skins.pick_random()
 	if animated_sprite:
+		animated_sprite.sprite_frames = Readability.padded(animated_sprite.sprite_frames)
 		sprite_frames_sano = animated_sprite.sprite_frames
 		_preparar_material_borde()
 	add_to_group("bots")
@@ -200,6 +214,7 @@ func _physics_process(delta: float) -> void:
 		# No alterar la posesión, los infectados ni la evasión de paredes.
 		if not is_infected and tiempo_evasion <= 0.0:
 			direccion_movimiento_real = _direccion_con_distorsion(direccion_movimiento_real)
+	direccion_movimiento_real = _map_direction(delta, direccion_movimiento_real)
 	velocity = direccion_movimiento_real * speed * multiplicador_velocidad_temp * mult
 	move_and_slide()
 	if get_slide_collision_count() > 0:
@@ -749,6 +764,10 @@ func tiene_mutacion(nombre: String) -> bool:
 
 
 func reaccionar_a_obstaculo() -> void:
+	# Imported maps keep their route when touching scenery or another guest.
+	# Their planner owns recovery; the legacy random bounce fights its waypoints.
+	if is_instance_valid(map_host) and map_host.has_signal("map_ready"):
+		return
 
 	# IMPORTANTE:
 	# Si está controlado por el jugador, no modificamos
@@ -856,14 +875,16 @@ func reaccionar_a_obstaculo() -> void:
 func _preparar_material_borde() -> void:
 	if not animated_sprite:
 		return
-	var shader_borde: Shader = load("res://shaders/borde_infeccion.gdshader")
+	var shader_borde: Shader = load("res://shaders/npc_outline.gdshader")
 	if shader_borde == null:
-		push_warning("No se encontro res://shaders/borde_infeccion.gdshader")
+		push_warning("No se encontro res://shaders/npc_outline.gdshader")
 		return
 	material_borde_infeccion = ShaderMaterial.new()
 	material_borde_infeccion.shader = shader_borde
 	material_borde_infeccion.set_shader_parameter("borde_activo", false)
+	material_borde_infeccion.set_shader_parameter("pulse_phase", float(get_instance_id() % 100) * 0.1)
 	animated_sprite.material = material_borde_infeccion
+	animated_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
 
 func _aplicar_borde_infeccion(color: Color) -> void:
@@ -950,7 +971,7 @@ func actualizar_sprite_segun_infeccion() -> void:
 func _cambiar_sprite_frames(nuevos: SpriteFrames) -> void:
 	var animacion_anterior: StringName = animated_sprite.animation
 	var estaba_reproduciendo: bool = animated_sprite.is_playing()
-	animated_sprite.sprite_frames = nuevos
+	animated_sprite.sprite_frames = Readability.padded(nuevos)
 	if nuevos.has_animation(animacion_anterior):
 		animated_sprite.animation = animacion_anterior
 	elif nuevos.has_animation("Abajo"):
@@ -1256,3 +1277,11 @@ func on_map_passage(direction: Vector2) -> void:
 	tiempo_ultimo_obstaculo = 0.0
 	velocity = direction * speed
 	timer_direccion.start()
+
+
+func _map_direction(delta: float, fallback: Vector2) -> Vector2:
+	if not is_instance_valid(map_host) or not map_host.has_signal("map_ready") or not map_host.map_is_ready:
+		return fallback
+	var direction := npc_brain.direction(self, map_host, delta, fallback)
+	map_route = npc_brain.route
+	return direction

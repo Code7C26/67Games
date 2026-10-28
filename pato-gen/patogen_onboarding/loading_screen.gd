@@ -63,7 +63,8 @@ func load_scene(scene_path: String) -> void:
 	if busy:
 		return
 	path = scene_path
-	message.text = "Preparando el shopping…" if path.ends_with("Shopping.tscn") else "Preparando la selección de cepas…"
+	var names := {"Shopping":"el shopping", "Laboratorio":"el laboratorio AV-07", "PatoSplash":"Pato Splash", "map_select":"la selección de mapas", "character_select":"la selección de cepas"}
+	message.text = "Preparando %s…" % names.get(path.get_file().get_basename(),"la partida")
 	if not ResourceLoader.exists(path):
 		_fail("No se encontró esta escena. Podés volver al menú e intentarlo de nuevo.")
 		return
@@ -94,6 +95,10 @@ func _process(delta: float) -> void:
 			_fail("No se pudo abrir la escena. Volvé al menú para continuar.")
 			return
 		progress.value = 100
+		await get_tree().scene_changed
+		var host := get_tree().current_scene
+		if host != null and host.has_signal("map_ready") and not host.map_is_ready:
+			await host.map_ready
 		fade = create_tween()
 		fade.tween_interval(0.1)
 		fade.tween_property(canvas, "modulate:a", 0.0, 0.25)

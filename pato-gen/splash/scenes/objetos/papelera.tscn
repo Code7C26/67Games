@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_52wyr"]
+[ext_resource type="Texture2D" path="res://splash/assets/papelera.png" id="2_j14bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3kv1"]
+size = Vector2(24, 22)
+
+[node name="Papelera" type="Node2D" unique_id=459818947]
+texture_filter = 1
+script = ExtResource("1_52wyr")
+metadata/footprint = Rect2(4, 12, 24, 22)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1122662565]
+position = Vector2(0, -20)
+texture = ExtResource("2_j14bb")
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1113522035]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1904180752]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_v3kv1")

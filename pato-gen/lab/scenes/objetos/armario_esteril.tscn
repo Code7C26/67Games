@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_1tr8w"]
+[ext_resource type="Texture2D" path="res://lab/assets/armario_esteril.png" id="2_yanw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42yim"]
+size = Vector2(74, 88)
+
+[node name="ArmarioEsteril" type="Node2D" unique_id=1815816913]
+texture_filter = 1
+script = ExtResource("1_1tr8w")
+metadata/footprint = Rect2(3, 4, 74, 88)
+metadata/size = Vector2(80, 96)
+metadata/asset_id = "armario_esteril"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=596332862]
+position = Vector2(-40, -96)
+texture = ExtResource("2_yanw1")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1254459273]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1415776634]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_42yim")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=535891964]
+vertices = PackedVector2Array(-37, -92, 37, -92, 37, -4, -37, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
