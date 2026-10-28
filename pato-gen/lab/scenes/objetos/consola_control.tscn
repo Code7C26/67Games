@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_o1akc"]
+[ext_resource type="Texture2D" path="res://lab/assets/consola_control.png" id="2_nr56w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyoui"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(0, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2om5a"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(160, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oui5f"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(320, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxj0u"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(480, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdnc0"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(640, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yojqt"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(800, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sq0k"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(960, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bnf7"]
+atlas = ExtResource("2_nr56w")
+region = Rect2(1120, 0, 160, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lks26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyoui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2om5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oui5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxj0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdnc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yojqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sq0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bnf7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1gb5"]
+size = Vector2(154, 72)
+
+[node name="ConsolaControl" type="Node2D" unique_id=1702274867]
+texture_filter = 1
+script = ExtResource("1_o1akc")
+metadata/footprint = Rect2(3, 4, 154, 72)
+metadata/size = Vector2(160, 80)
+metadata/asset_id = "consola_control"
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=1263689359]
+position = Vector2(-80, -80)
+sprite_frames = SubResource("SpriteFrames_lks26")
+autoplay = "default"
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=814593275]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1458379303]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_x1gb5")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=2008646001]
+vertices = PackedVector2Array(-77, -76, 77, -76, 77, -4, -77, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

@@ -94,7 +94,9 @@ func configurar_borde_pato() -> void:
 		return
 
 	# Mantener el sprite principal con sus colores originales.
-	animated_sprite.material = null
+	var bright := CanvasItemMaterial.new()
+	bright.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
+	animated_sprite.material = bright
 	animated_sprite.modulate = Color.WHITE
 
 	# Componer silueta y contorno ANTES de aplicar transparencia.
@@ -109,6 +111,7 @@ func configurar_borde_pato() -> void:
 
 	var shader_color := Shader.new()
 	shader_color.code = """shader_type canvas_item;
+render_mode unshaded;
 uniform vec4 color_borde : source_color = vec4(0.0, 0.0, 1.0, 1.0);
 void fragment() {
     vec4 tex = texture(TEXTURE, UV);

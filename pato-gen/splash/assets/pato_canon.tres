@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/pato_canon.png" id="1_kl6s5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chxjw"]
+atlas = ExtResource("1_kl6s5")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo5l3"]
+atlas = ExtResource("1_kl6s5")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uijs0"]
+atlas = ExtResource("1_kl6s5")
+region = Rect2(320, 0, 160, 144)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chxjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo5l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uijs0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]

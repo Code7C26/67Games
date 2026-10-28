@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_heladero.png" id="1_gqnia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqnia"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glmvd"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42kcv"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb2lv"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ckxg"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stjgq"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6rr5"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd1ih"]
+atlas = ExtResource("1_gqnia")
+region = Rect2(280, 0, 40, 40)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqnia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glmvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42kcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ckxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stjgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6rr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd1ih")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.545454545454546
+}]

@@ -1,0 +1,89 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/ambient.gd" id="1_ns6d3"]
+[ext_resource type="Texture2D" path="res://splash/assets/pato_gigante.png" id="2_nuuve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7y8c"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb7pj"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh62p"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx17x"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(480, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tatd4"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(640, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wkx8"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(800, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dualj"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(960, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o83al"]
+atlas = ExtResource("2_nuuve")
+region = Rect2(1120, 0, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp7or"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7y8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb7pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh62p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx17x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tatd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wkx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dualj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o83al")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmmee"]
+size = Vector2(152, 126)
+
+[node name="PatoGigante" type="Node2D" unique_id=323585740]
+texture_filter = 1
+script = ExtResource("1_ns6d3")
+metadata/footprint = Rect2(4, 12, 152, 126)
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=1905735836]
+position = Vector2(0, -72)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_dp7or")
+autoplay = "default"
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1077900044]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1790489465]
+position = Vector2(0, -69)
+shape = SubResource("RectangleShape2D_hmmee")

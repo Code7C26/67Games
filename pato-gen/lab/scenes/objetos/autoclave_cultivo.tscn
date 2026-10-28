@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_nb1qb"]
+[ext_resource type="Texture2D" path="res://lab/assets/autoclave_cultivo.png" id="2_ngjsb"]
+[ext_resource type="Texture2D" path="res://lab/assets/autoclave_cultivo_normal.png" id="3_ngjsb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f2a8u"]
+diffuse_texture = ExtResource("2_ngjsb")
+normal_texture = ExtResource("3_ngjsb")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2a8u"]
+size = Vector2(58, 72)
+
+[node name="AutoclaveCultivo" type="Node2D" unique_id=2077170266]
+texture_filter = 1
+script = ExtResource("1_nb1qb")
+metadata/footprint = Rect2(3, 4, 58, 72)
+metadata/size = Vector2(64, 80)
+metadata/asset_id = "autoclave_cultivo"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=207357568]
+position = Vector2(-32, -80)
+texture = SubResource("CanvasTexture_f2a8u")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=54326995]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=72287116]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_f2a8u")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=723185335]
+vertices = PackedVector2Array(-29, -76, 29, -76, 29, -4, -29, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

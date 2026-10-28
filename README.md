@@ -6,7 +6,7 @@
 ![Motor](https://img.shields.io/badge/Godot-4.7.1-478CBF?logo=godotengine&logoColor=white)
 ![Lenguaje](https://img.shields.io/badge/Lenguaje-GDScript-478CBF)
 
-Estado revisado contra los archivos del repositorio el **27/10/2026**. El juego principal incluye mutaciones por cepa, distorsión, remontada, audio, tutorial, Simbionte y Coloso Antiviral. El balance competitivo y la integración de los mapas adicionales siguen pendientes.
+Estado revisado contra los archivos del repositorio el **28/10/2026**. El juego principal incluye mutaciones por cepa, distorsión, remontada, audio, tutorial, Simbionte y Coloso Antiviral. Shopping, Laboratorio AV-07 y Pato Splash se seleccionan antes de la partida. El balance competitivo sigue pendiente.
 
 ## Ejecutar el juego
 
@@ -20,19 +20,19 @@ Estado revisado contra los archivos del repositorio el **27/10/2026**. El juego 
 3. En Godot, seleccionar **Importar** y abrir **[`pato-gen/project.godot`](pato-gen/project.godot)**.
 4. Esperar la importación de recursos y pulsar **F5**.
 
-El juego inicia en el menú principal, usa **GL Compatibility** y un lienzo de **1920 × 1080**. F6 ejecuta sólo la escena abierta en el editor.
+El juego inicia en el menú principal, usa **Mobile/Vulkan con HDR 2D** y un lienzo de **1920 × 1080**. F6 ejecuta sólo la escena abierta en el editor.
 
 El menú permite jugar, iniciar una partida con tutorial, consultar la guía y activar **movimiento reducido**. El tutorial guarda el progreso del perfil y también puede consultarse con **F1** durante la partida.
 
 ## Cómo se juega
 
 1. Cada jugador elige una cepa en la prepartida: **Atlético**, **Área** o **Exponencial**.
-2. En Shopping, la fase inicial de los patos está configurada en **3 segundos**. Al terminar, cada pato reproduce su desaparición, inicia el contagio y pasa al modo fantasma.
+2. Elegir **Shopping**, **Laboratorio AV-07** o **Pato Splash**. En los tres mapas, la fase inicial de los patos está configurada en **3 segundos**. Al terminar, cada pato reproduce su desaparición, inicia el contagio y pasa al modo fantasma.
 3. Cuando termina esa transición comienza la fase de infección de **120 segundos**. El tutorial puede retener el reloj mientras enseña las acciones.
 4. Los bots sanos huyen; los infectados persiguen sanos y propagan su cepa. Los jugadores intervienen con posesión, mutaciones, zonas y robot.
 5. Al agotarse el reloj, **gana quien tenga más bots infectados en ese momento**. Conteos iguales producen **empate técnico**. El resultado pausa el mundo y permite reiniciar o volver al menú.
 
-Estos tiempos corresponden a [Shopping.tscn](pato-gen/scenes/Shopping.tscn). El resultado se calcula en [Mapa.gd](pato-gen/scripts/Mapa.gd); no depende del ADN sobrante ni de los contagios históricos.
+Los tres mapas comparten estos tiempos y 65 huéspedes jugables. Ver [integración y pruebas](pato-gen/docs/MAPAS_INTEGRADOS.md). El resultado se calcula en [Mapa.gd](pato-gen/scripts/Mapa.gd); no depende del ADN sobrante ni de los contagios históricos.
 
 ## Controles
 
@@ -88,7 +88,7 @@ Reglas, parámetros y pruebas: [SIMBIONTE.md](pato-gen/tests/SIMBIONTE.md).
 
 ## Coloso Antiviral
 
-Evento ambiental **neutral** integrado en Shopping. Tras los primeros 30 s de infección, una crisis sostenida de **7 sanos o menos** puede iniciar su aparición, con aviso previo. Hay como máximo **dos apariciones** por partida y no se inician nuevos intentos cuando quedan 25 s o menos.
+Evento ambiental **neutral** integrado en los tres mapas. Tras los primeros 30 s de infección, una crisis sostenida de **7 sanos o menos** puede iniciar su aparición, con aviso previo. Hay como máximo **dos apariciones** por partida y no se inician nuevos intentos cuando quedan 25 s o menos.
 
 El Coloso recorre el mapa y cura infectados sin priorizar equipo. Las paredes bloquean su pulso; evita curar la última infección de cada equipo. Se retira por tiempo, presupuesto de curaciones, recuperación de población o falta de objetivos.
 
@@ -100,14 +100,14 @@ Probabilidades, tiempos, protección y pruebas: [COLOSO_ANTIVIRAL.md](pato-gen/t
 
 | Ruta | Estado y uso |
 | --- | --- |
-| [`pato-gen/`](pato-gen/) | **Juego principal**: menú, selección, tutorial y partida en Shopping, con Simbionte y Coloso. |
+| [`pato-gen/`](pato-gen/) | **Juego principal**: menú, cepas, selector de tres mapas, tutorial y partida, con Simbionte y Coloso. |
 | [`proyecto/`](proyecto/) | Otra copia del juego con diferencias. Para ejecutar y desarrollar la versión principal, usar `pato-gen/`. Unificación pendiente en [#9](https://github.com/Code7C26/67Games/issues/9). |
 | [`design/mapa-patogen/`](design/mapa-patogen/) | Prototipo/editor del mapa Mall. Incluye `PatogenMall_MapOnly.tscn` y [guía de integración](design/mapa-patogen/MAP_INTEGRATION.md). |
-| [`Patogen_Pato_Splash/`](Patogen_Pato_Splash/) | Proyecto editable y demo del parque, con ambiente, NPCs y Gran Chapuzón de 360°. Integración con la partida real pendiente. |
-| [`Patogen_Laboratorio_AV07.zip`](Patogen_Laboratorio_AV07.zip) | Entrega independiente del laboratorio; debe extraerse e importarse como proyecto separado. Integración con la partida real pendiente. |
+| [`Patogen_Pato_Splash/`](Patogen_Pato_Splash/) | Proyecto editable y demo del parque, con ambiente, NPCs y Gran Chapuzón de 360°. La versión integrada se encuentra en `pato-gen/splash/`. |
+| [`Patogen_Laboratorio_AV07.zip`](Patogen_Laboratorio_AV07.zip) | Entrega histórica independiente. La versión revisada e integrada se encuentra en `pato-gen/lab/`. |
 | [`assets/`](assets/), [`docs/`](docs/), [`src/`](src/) | Recursos compartidos, documentación y otros archivos del equipo. |
 
-Los proyectos independientes de mapas no quedan seleccionables en la partida por estar presentes en el repositorio. Pato Splash expone conexiones para la IA y el contagio reales: consultar [INTEGRACION.md](Patogen_Pato_Splash/docs/INTEGRACION.md) y [GIRO360_CORONA.md](Patogen_Pato_Splash/docs/GIRO360_CORONA.md). Sus visitantes y HUD de demo no sustituyen los sistemas del juego.
+Los tres mapas se eligen desde el juego principal. Las carpetas y ZIP independientes conservan sus demos históricas; para jugar con infección, habilidades, HUD y resultados reales, usar `pato-gen/`. Pato Splash conserva sus 16 personajes de ambiente con recorridos continuos, además de los 65 huéspedes de la partida. Consultar [MAPAS_INTEGRADOS.md](pato-gen/docs/MAPAS_INTEGRADOS.md).
 
 ## Pruebas
 
@@ -129,8 +129,8 @@ Los issues incluyen estado actual, referencias y criterios de aceptación. **P1*
 
 | Prioridad | Issue |
 | --- | --- |
-| P1 | [#4 · Integrar Laboratorio AV-07 en una partida real](https://github.com/Code7C26/67Games/issues/4) |
-| P1 | [#5 · Conectar Pato Splash con bots, infección y HUD](https://github.com/Code7C26/67Games/issues/5) |
+| P1 | [#4 · Laboratorio integrado; pendiente playtest de balance](https://github.com/Code7C26/67Games/issues/4) |
+| P1 | [#5 · Splash integrado; pendiente playtest de balance](https://github.com/Code7C26/67Games/issues/5) |
 | P1 | [#6 · Pruebas reproducibles y regresiones automáticas](https://github.com/Code7C26/67Games/issues/6) |
 | P1 | [#7 · Balance humano de cepas, remontada, Simbionte y Coloso](https://github.com/Code7C26/67Games/issues/7) |
 | P1 | [#8 · Exportación Windows y build de prueba](https://github.com/Code7C26/67Games/issues/8) |

@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_pelota.png" id="1_sa7y5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa7y5"]
+atlas = ExtResource("1_sa7y5")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d58e"]
+atlas = ExtResource("1_sa7y5")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t32l7"]
+atlas = ExtResource("1_sa7y5")
+region = Rect2(64, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mbxa"]
+atlas = ExtResource("1_sa7y5")
+region = Rect2(96, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej5eu"]
+atlas = ExtResource("1_sa7y5")
+region = Rect2(128, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag78l"]
+atlas = ExtResource("1_sa7y5")
+region = Rect2(160, 0, 32, 36)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa7y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d58e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t32l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mbxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej5eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag78l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

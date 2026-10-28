@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_bn0nu"]
+[ext_resource type="Texture2D" path="res://lab/assets/cinta_viales.png" id="2_fdkly"]
+[ext_resource type="Texture2D" path="res://lab/assets/cinta_viales_normal.png" id="3_fdkly"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qn551"]
+diffuse_texture = ExtResource("2_fdkly")
+normal_texture = ExtResource("3_fdkly")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn551"]
+size = Vector2(138, 40)
+
+[node name="CintaViales" type="Node2D" unique_id=652100526]
+texture_filter = 1
+script = ExtResource("1_bn0nu")
+metadata/footprint = Rect2(3, 4, 138, 40)
+metadata/size = Vector2(144, 48)
+metadata/asset_id = "cinta_viales"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=155521011]
+position = Vector2(-72, -48)
+texture = SubResource("CanvasTexture_qn551")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1390608785]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1833058843]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_qn551")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=659560621]
+vertices = PackedVector2Array(-69, -44, 69, -44, 69, -4, -69, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

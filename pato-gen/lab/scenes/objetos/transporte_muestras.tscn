@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_2xysc"]
+[ext_resource type="Texture2D" path="res://lab/assets/transporte_muestras.png" id="2_ymw3v"]
+[ext_resource type="Texture2D" path="res://lab/assets/transporte_muestras_normal.png" id="3_ymw3v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0onrb"]
+diffuse_texture = ExtResource("2_ymw3v")
+normal_texture = ExtResource("3_ymw3v")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0onrb"]
+size = Vector2(58, 24)
+
+[node name="TransporteMuestras" type="Node2D" unique_id=1867953585]
+texture_filter = 1
+script = ExtResource("1_2xysc")
+metadata/footprint = Rect2(3, 4, 58, 24)
+metadata/size = Vector2(64, 32)
+metadata/asset_id = "transporte_muestras"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=755734262]
+position = Vector2(-32, -32)
+texture = SubResource("CanvasTexture_0onrb")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=232314894]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1910682944]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_0onrb")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1329199283]
+vertices = PackedVector2Array(-29, -28, 29, -28, 29, -4, -29, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

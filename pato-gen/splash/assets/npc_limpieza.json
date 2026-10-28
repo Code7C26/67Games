@@ -1,0 +1,91 @@
+{ "frames": [
+   {
+    "filename": "npc_limpieza 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 1.aseprite",
+    "frame": { "x": 48, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 2.aseprite",
+    "frame": { "x": 96, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 3.aseprite",
+    "frame": { "x": 144, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 4.aseprite",
+    "frame": { "x": 192, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 5.aseprite",
+    "frame": { "x": 240, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 6.aseprite",
+    "frame": { "x": 288, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   },
+   {
+    "filename": "npc_limpieza 7.aseprite",
+    "frame": { "x": 336, "y": 0, "w": 48, "h": 44 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 44 },
+    "sourceSize": { "w": 48, "h": 44 },
+    "duration": 180
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "npc_limpieza.png",
+  "format": "RGBA8888",
+  "size": { "w": 384, "h": 44 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "default", "from": 0, "to": 7, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Accion pixel art / paleta Patogen", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

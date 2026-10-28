@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/fuente_burbujas.png" id="1_6c4fk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxxcm"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1d2k"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrpin"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubthw"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf2ts"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_700ba"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s73ca"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kipm2"]
+atlas = ExtResource("1_6c4fk")
+region = Rect2(336, 0, 48, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxxcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1d2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrpin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubthw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf2ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_700ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s73ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kipm2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]

@@ -1,0 +1,37 @@
+{ "frames": [
+   {
+    "filename": "huella_mojada 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 16, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 12 },
+    "sourceSize": { "w": 16, "h": 12 },
+    "duration": 200
+   },
+   {
+    "filename": "huella_mojada 1.aseprite",
+    "frame": { "x": 16, "y": 0, "w": 16, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 12 },
+    "sourceSize": { "w": 16, "h": 12 },
+    "duration": 200
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "huella_mojada.png",
+  "format": "RGBA8888",
+  "size": { "w": 32, "h": 12 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "default", "from": 0, "to": 1, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Accion pixel art / paleta Patogen", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

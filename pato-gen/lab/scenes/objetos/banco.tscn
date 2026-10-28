@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_b66nf"]
+[ext_resource type="Texture2D" path="res://lab/assets/banco.png" id="2_36oy8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gs7j"]
+size = Vector2(58, 56)
+
+[node name="Banco" type="Node2D" unique_id=1012104176]
+texture_filter = 1
+script = ExtResource("1_b66nf")
+metadata/footprint = Rect2(3, 4, 58, 56)
+metadata/size = Vector2(64, 64)
+metadata/asset_id = "banco"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=469309378]
+position = Vector2(-32, -64)
+texture = ExtResource("2_36oy8")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=124988769]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1812609431]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_7gs7j")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1758055937]
+vertices = PackedVector2Array(-29, -60, 29, -60, 29, -4, -29, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

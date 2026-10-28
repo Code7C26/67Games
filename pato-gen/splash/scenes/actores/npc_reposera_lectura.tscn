@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://splash/scripts/stationary_npc.gd" id="1_y2kdp"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/npc_reposera_lectura.tres" id="2_3gugh"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_alerta.tres" id="3_ji045"]
+[ext_resource type="SpriteFrames" path="res://splash/assets/reaccion_cubrir.tres" id="4_y2m3f"]
+
+[node name="DescansoLibro" type="Node2D" unique_id=934474629]
+z_index = 2
+script = ExtResource("1_y2kdp")
+action_asset = "npc_reposera_lectura"
+walking_skin = "banador_3"
+exit_offset = Vector2(-24, 50)
+phase_offset = 2.92
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=773275292]
+texture_filter = 1
+sprite_frames = ExtResource("2_3gugh")
+autoplay = "default"
+
+[node name="Alerta" type="AnimatedSprite2D" parent="." unique_id=1556835430]
+visible = false
+texture_filter = 1
+position = Vector2(0, -34)
+sprite_frames = ExtResource("3_ji045")
+
+[node name="Cubrir" type="AnimatedSprite2D" parent="." unique_id=846096047]
+visible = false
+texture_filter = 1
+sprite_frames = ExtResource("4_y2m3f")

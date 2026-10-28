@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_8wgms"]
+[ext_resource type="Texture2D" path="res://lab/assets/contenedores_bio.png" id="2_b5vo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbdsh"]
+size = Vector2(122, 56)
+
+[node name="ContenedoresBio" type="Node2D" unique_id=1754258191]
+texture_filter = 1
+script = ExtResource("1_8wgms")
+metadata/footprint = Rect2(3, 4, 122, 56)
+metadata/size = Vector2(128, 64)
+metadata/asset_id = "contenedores_bio"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1362994099]
+position = Vector2(-64, -64)
+texture = ExtResource("2_b5vo0")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1941120682]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1294421252]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_tbdsh")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1408200714]
+vertices = PackedVector2Array(-61, -60, 61, -60, 61, -4, -61, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

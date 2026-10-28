@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_ok1fj"]
+[ext_resource type="Texture2D" path="res://lab/assets/umbral.png" id="2_efd1k"]
+
+[node name="Umbral" type="Node2D" unique_id=878851360]
+texture_filter = 1
+script = ExtResource("1_ok1fj")
+metadata/footprint = Rect2(0, 0, 0, 0)
+metadata/size = Vector2(128, 32)
+metadata/asset_id = "umbral"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=328776373]
+position = Vector2(-64, -32)
+texture = ExtResource("2_efd1k")
+centered = false

@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_xt3jx"]
+[ext_resource type="Texture2D" path="res://lab/assets/biorreactor.png" id="2_x37e0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oloh"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(0, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfaah"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(96, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0srnq"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(192, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4xv2"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(288, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crb7y"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(384, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r3xo"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(480, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7wfk"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(576, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auv8b"]
+atlas = ExtResource("2_x37e0")
+region = Rect2(672, 0, 96, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cd5dw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oloh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfaah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0srnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4xv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crb7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r3xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7wfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auv8b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.555555555555555
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yqd3"]
+size = Vector2(90, 104)
+
+[node name="Biorreactor" type="Node2D" unique_id=1464520598]
+texture_filter = 1
+script = ExtResource("1_xt3jx")
+metadata/footprint = Rect2(3, 4, 90, 104)
+metadata/size = Vector2(96, 112)
+metadata/asset_id = "biorreactor"
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=1387115684]
+position = Vector2(-48, -112)
+sprite_frames = SubResource("SpriteFrames_cd5dw")
+autoplay = "default"
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=518948651]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1886319601]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_7yqd3")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=469480039]
+vertices = PackedVector2Array(-45, -108, 45, -108, 45, -4, -45, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

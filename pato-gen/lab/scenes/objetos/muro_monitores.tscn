@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_vobfb"]
+[ext_resource type="Texture2D" path="res://lab/assets/muro_monitores.png" id="2_njqlk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x53aa"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(0, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ravy"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(192, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogsws"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(384, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o5cv"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(576, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwthk"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(768, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60r5d"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(960, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g46rv"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(1152, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6f18"]
+atlas = ExtResource("2_njqlk")
+region = Rect2(1344, 0, 192, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aq6an"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x53aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ravy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogsws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o5cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwthk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g46rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6f18")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.166666666666667
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amxjm"]
+size = Vector2(186, 72)
+
+[node name="MuroMonitores" type="Node2D" unique_id=389908161]
+texture_filter = 1
+script = ExtResource("1_vobfb")
+metadata/footprint = Rect2(3, 4, 186, 72)
+metadata/size = Vector2(192, 80)
+metadata/asset_id = "muro_monitores"
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=211192321]
+position = Vector2(-96, -80)
+sprite_frames = SubResource("SpriteFrames_aq6an")
+autoplay = "default"
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1120117088]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=765738967]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_amxjm")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=2051930]
+vertices = PackedVector2Array(-93, -76, 93, -76, 93, -4, -93, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

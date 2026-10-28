@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://splash/assets/npc_guardia.png" id="1_e0358"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0358"]
+atlas = ExtResource("1_e0358")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5xbx"]
+atlas = ExtResource("1_e0358")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4vfa"]
+atlas = ExtResource("1_e0358")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2e8m"]
+atlas = ExtResource("1_e0358")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3k5p"]
+atlas = ExtResource("1_e0358")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31r0x"]
+atlas = ExtResource("1_e0358")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7exnx"]
+atlas = ExtResource("1_e0358")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xusj"]
+atlas = ExtResource("1_e0358")
+region = Rect2(280, 0, 40, 40)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0358")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5xbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4vfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2e8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3k5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31r0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7exnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xusj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.166666666666667
+}]

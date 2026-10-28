@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_mkp18"]
+[ext_resource type="Texture2D" path="res://lab/assets/mesada_centrifuga.png" id="2_0dmkt"]
+[ext_resource type="Texture2D" path="res://lab/assets/mesada_centrifuga_normal.png" id="3_0dmkt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5nlgb"]
+diffuse_texture = ExtResource("2_0dmkt")
+normal_texture = ExtResource("3_0dmkt")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nlgb"]
+size = Vector2(122, 64)
+
+[node name="MesadaCentrifuga" type="Node2D" unique_id=840477851]
+texture_filter = 1
+script = ExtResource("1_mkp18")
+metadata/footprint = Rect2(3, 4, 122, 64)
+metadata/size = Vector2(128, 72)
+metadata/asset_id = "mesada_centrifuga"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1520830809]
+position = Vector2(-64, -72)
+texture = SubResource("CanvasTexture_5nlgb")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=568167984]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=808416557]
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_5nlgb")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=880273493]
+vertices = PackedVector2Array(-61, -68, 61, -68, 61, -4, -61, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

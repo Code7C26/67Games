@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_q47xu"]
+[ext_resource type="Texture2D" path="res://lab/assets/tanque_sintesis.png" id="2_1ukcx"]
+[ext_resource type="Texture2D" path="res://lab/assets/tanque_sintesis_normal.png" id="3_1ukcx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xurxg"]
+diffuse_texture = ExtResource("2_1ukcx")
+normal_texture = ExtResource("3_1ukcx")
+specular_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xurxg"]
+size = Vector2(90, 104)
+
+[node name="TanqueSintesis" type="Node2D" unique_id=1465503751]
+texture_filter = 1
+script = ExtResource("1_q47xu")
+metadata/footprint = Rect2(3, 4, 90, 104)
+metadata/size = Vector2(96, 112)
+metadata/asset_id = "tanque_sintesis"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=415079167]
+position = Vector2(-48, -112)
+texture = SubResource("CanvasTexture_xurxg")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1440150286]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=892924928]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_xurxg")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1292740595]
+vertices = PackedVector2Array(-45, -108, 45, -108, 45, -4, -45, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

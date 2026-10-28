@@ -71,6 +71,10 @@ func _run() -> void:
 	current_scene.indice_magenta = 1
 	current_scene._on_comenzar_pressed()
 	await wait_loading()
+	check(current_scene.scene_file_path.ends_with("map_select.tscn"), "real loading enters map selection")
+	current_scene._select(0)
+	current_scene._launch()
+	await wait_loading()
 	check(current_scene.scene_file_path.ends_with("Shopping.tscn"), "real loading enters shopping")
 	check(current_scene.cepa_cian == "exponencial" and current_scene.cepa_magenta == "area", "loading preserves both strain selections")
 	var director: Node = current_scene.get_node("PatogenIntroduction")

@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_qmix8"]
+[ext_resource type="Texture2D" path="res://lab/assets/sintetizador.png" id="2_x1s66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njkip"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(0, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qiho"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(96, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doev4"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(192, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtnop"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(288, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l70dk"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(384, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k3ry"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(480, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a11a8"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(576, 0, 96, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkxf4"]
+atlas = ExtResource("2_x1s66")
+region = Rect2(672, 0, 96, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4t8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njkip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qiho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doev4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtnop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l70dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k3ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a11a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkxf4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4fsj"]
+size = Vector2(90, 104)
+
+[node name="Sintetizador" type="Node2D" unique_id=1882624401]
+texture_filter = 1
+script = ExtResource("1_qmix8")
+metadata/footprint = Rect2(3, 4, 90, 104)
+metadata/size = Vector2(96, 112)
+metadata/asset_id = "sintetizador"
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=1814187224]
+position = Vector2(-48, -112)
+sprite_frames = SubResource("SpriteFrames_k4t8g")
+autoplay = "default"
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=1286154767]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1521143767]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_d4fsj")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=689145986]
+vertices = PackedVector2Array(-45, -108, 45, -108, 45, -4, -45, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

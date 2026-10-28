@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://lab/scripts/prop_animation.gd" id="1_6rwgv"]
+[ext_resource type="Texture2D" path="res://lab/assets/carro_muestras.png" id="2_wp0ng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8s4r"]
+size = Vector2(58, 72)
+
+[node name="CarroMuestras" type="Node2D" unique_id=1699434390]
+texture_filter = 1
+script = ExtResource("1_6rwgv")
+metadata/footprint = Rect2(3, 4, 58, 72)
+metadata/size = Vector2(64, 80)
+metadata/asset_id = "carro_muestras"
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1903192487]
+position = Vector2(-32, -80)
+texture = ExtResource("2_wp0ng")
+centered = false
+
+[node name="Colision" type="StaticBody2D" parent="." unique_id=608341933]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Colision" unique_id=1859167296]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_n8s4r")
+
+[node name="ObstaculoNavegacion" type="NavigationObstacle2D" parent="." unique_id=1986241863]
+vertices = PackedVector2Array(-29, -76, 29, -76, 29, -4, -29, -4)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
