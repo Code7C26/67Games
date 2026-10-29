@@ -1,5 +1,7 @@
 # Laboratorio: círculos de luz y acabado de equipos · 28/10/2026
 
+> Actualización 29/10/2026: la ampliación aprobada ya está integrada en la escena de partida. Los valores, la disposición de 28 luces y la validación vigente se documentan en [`lab/expanded/README.md`](../lab/expanded/README.md). El resto de este documento conserva el registro de la fase anterior.
+
 Rama `codex/lab-light-pools`, sobre la integración publicada `01d3cd1`. Esta revisión sustituye los valores anteriores de iluminación del laboratorio. Sólo se modifica `pato-gen/`.
 
 ## Resultado y valores ajustables

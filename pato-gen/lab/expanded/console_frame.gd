@@ -1,4 +1,5 @@
 extends Control
+@export var status_label := ""
 var aperture:=Rect2(12,68,1896,790)
 const FONT=preload("res://Fuentes/press-start-2p.ttf")
 const DARK=Color("0b1721")
@@ -25,7 +26,8 @@ func _draw() -> void:
 		_side_console(14,aperture.position.x-30,false)
 		_side_console(aperture.end.x+16,size.x-aperture.end.x-30,true)
 	draw_string(FONT,Vector2(548,32),"AV-07",HORIZONTAL_ALIGNMENT_LEFT,-1,14,TEAL)
-	draw_string(FONT,Vector2(size.x-734,30),"MUESTRA",HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("aab9be"))
+	if not status_label.is_empty():
+		draw_string(FONT,Vector2(size.x-734,30),status_label,HORIZONTAL_ALIGNMENT_LEFT,-1,11,Color("aab9be"))
 
 func _side_console(x: float,width: float,right: bool) -> void:
 	var panel:=Rect2(x,106,width,132)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q8yl24pevr1y"
-path="res://.godot/imported/incubator.png-f3eaf0f2817592c2870f1275f3b63cdc.ctex"
+uid="uid://dw2iwyc4cuo6j"
+path="res://.godot/imported/wet_bench.png-bc1a6f8c5bbbe4c900e95405ec86d70e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/incubator.png"
-dest_files=["res://.godot/imported/incubator.png-f3eaf0f2817592c2870f1275f3b63cdc.ctex"]
+source_file="res://lab/expanded/assets/wet_bench.png"
+dest_files=["res://.godot/imported/wet_bench.png-bc1a6f8c5bbbe4c900e95405ec86d70e.ctex"]
 
 [params]
 

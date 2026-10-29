@@ -1,5 +1,5 @@
 extends "res://lab/scripts/laboratorio_effects.gd"
-## Only attached to the sample scene. No production lights/materials are edited.
+## Approved AV-07 lighting and white/UV equipment emission.
 @export_range(0.0,3.0,0.05) var source_glow_energy := 2.15
 @export_range(0.0,1.0,0.01) var source_glow_opacity := 0.58
 @export var incubator_light_color := Color(0.86,0.83,1.0)
@@ -14,7 +14,7 @@ extends "res://lab/scripts/laboratorio_effects.gd"
 	Vector2(286,722),Vector2(674,729),Vector2(928,741),Vector2(1299,737),Vector2(1693,731),
 	Vector2(169,973),Vector2(351,970),Vector2(624,977),Vector2(926,977),
 	Vector2(1182,973),Vector2(1678,969),Vector2(1406,985)]
-var preview_incubators: Array[AnimatedSprite2D] = []
+var incubators: Array[AnimatedSprite2D] = []
 var motion_was_reduced := false
 var ceiling_wall_occluders := 0
 
@@ -23,12 +23,31 @@ func _ready() -> void:
 	glow_threshold=0.90
 	light_energy=marked_light_energy
 	fixture_diameter=marked_light_diameter
-	finish_scene=preload("res://previews/lab_proposal/PreviewFinish.tscn")
+	finish_scene=preload("res://lab/expanded/SceneryFinish.tscn")
 	super._ready()
+	get_node("01_Pisos").light_mask |= 4
 	_tag_ceiling_occluders()
 	var vignette := get_node("VinetaBordes") as Polygon2D
 	var bounds: Rect2=get_parent().get_meta("bounds")
 	vignette.polygon=PackedVector2Array([bounds.position,Vector2(bounds.end.x,bounds.position.y),bounds.end,Vector2(bounds.position.x,bounds.end.y)])
+
+func _grade(node: Node, surface_material: ShaderMaterial) -> void:
+	super._grade(node,surface_material)
+	# Mobile also checks the receiver's mask before sampling a light's shadow.
+	# Keep scenery on bit 2 for illumination, plus bit 4 for ceiling shadows.
+	if node is CanvasItem: node.light_mask |= 4
+
+func _light_actor(actor: Node) -> void:
+	super._light_actor(actor)
+	if not is_inside_tree() or not is_instance_valid(actor) or not actor.is_inside_tree(): return
+	if actor.is_in_group("bots") and get_parent().is_ancestor_of(actor):
+		actor.animated_sprite.light_mask = 5
+
+func _light(parent: Node, point: Vector2, tint: Color, energy: float, diameter: float, texture: Texture2D=null) -> PointLight2D:
+	var light:=super._light(parent,point,tint,energy,diameter,texture)
+	# Equipment shadows must be received by both actor bodies (1) and scenery (2).
+	light.shadow_item_cull_mask=3
+	return light
 
 func _ceiling_grid(lights: Node2D) -> void:
 	for index in ceiling_points.size():
@@ -69,20 +88,20 @@ func _equipment(prop: Node2D) -> void:
 	if original==null: original=prop.get_node_or_null("TexturaAnimada")
 	if original==null: return
 	if id=="biorreactor":
-		AssetFinish.apply(original,"incubator","res://previews/lab_proposal/assets/")
-		preview_incubators.append(original as AnimatedSprite2D)
+		AssetFinish.apply(original,"incubator","res://lab/expanded/assets/")
+		incubators.append(original as AnimatedSprite2D)
 		equipment_lights[-1].color=incubator_light_color
 	elif id in ["wet_bench","sink_bench","supply_shelf","prep_bench","reagent_bench","sink_bench_detailed"]:
 		return
-	if str(prop.name)=="Preview_carrito_carga":
-		AssetFinish.apply(original,"sealed_transport","res://previews/lab_proposal/assets/")
+	if str(prop.name)=="Lower_carrito_carga":
+		AssetFinish.apply(original,"sealed_transport","res://lab/expanded/assets/")
 	if not prop.has_node("EmisionSelectiva"): return
 	var emission: Node2D=prop.get_node("EmisionSelectiva")
 	if original is AnimatedSprite2D:
 		emission.sprite_frames=original.sprite_frames
 		emission.frame=original.frame
 	var material:=ShaderMaterial.new()
-	material.shader=preload("res://previews/lab_proposal/source_glow.gdshader")
+	material.shader=preload("res://lab/expanded/source_glow.gdshader")
 	material.set_shader_parameter("frame_size",prop.get_meta("size"))
 	var regions: Dictionary={
 		"biorreactor":Vector4(30,21,48,70),"capsula_pato":Vector4(20,30,5,72),
@@ -109,7 +128,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	var reduced := Preferences.reduced_motion(self)
 	if reduced!=motion_was_reduced:
-		for sprite in preview_incubators:
+		for sprite in incubators:
 			if reduced: sprite.pause()
 			else: sprite.play()
 		motion_was_reduced=reduced

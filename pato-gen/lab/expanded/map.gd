@@ -1,7 +1,7 @@
 extends "res://scripts/integrated_map.gd"
-## Isolated proposal. The production map/selector/physics resources are not saved.
+## Expanded AV-07 geometry, built before the shared match navigation starts.
 @export var lower_extension := 224.0
-const ASSETS := "res://previews/lab_proposal/assets/"
+const ASSETS := "res://lab/expanded/assets/"
 
 func _enter_tree() -> void:
 	_expand_lower_sector()
@@ -51,7 +51,7 @@ func _add_room_details(environment: Node) -> void:
 	_detail(props,"wall_services",Vector2(1408,920))
 	_detail(props,"sample_board",Vector2(1584,928))
 	var floor_details:=Node2D.new()
-	floor_details.name="PreviewFloorDetails"
+	floor_details.name="LowerFloorDetails"
 	environment.get_node("02_Senaletica_y_luces").add_child(floor_details)
 	for point in [Vector2(224,1040),Vector2(304,1040),Vector2(1224,1040),Vector2(1320,1040)]:
 		_detail(floor_details,"floor_drain",point)
@@ -85,7 +85,7 @@ func _detail(parent: Node,id: String,point: Vector2) -> void:
 func _complete_lower_rooms(environment: Node) -> void:
 	var props:=environment.get_node("04_Objetos")
 	# The former southern equipment row must not become a barricade in front
-	# of the new doors. All of these changes belong to this preview instance.
+	# of the new doors. Keep the four lower-room entrances clear.
 	props.get_node("Sintesis_Cinta").position=Vector2(1288,672)
 	props.get_node("Sintesis_Tanque_A").position.y=840
 	props.get_node("Sintesis_Tanque_B").position.y=840
@@ -115,13 +115,13 @@ func _complete_lower_rooms(environment: Node) -> void:
 
 func _existing_prop(parent: Node,id: String,point: Vector2) -> void:
 	var prop: Node2D=load("res://lab/scenes/objetos/"+id+".tscn").instantiate()
-	prop.name="Preview_"+id
+	prop.name="Lower_"+id
 	prop.position=point
 	parent.add_child(prop)
 
 func _wall(parent: Node,point: Vector2,size: Vector2) -> void:
 	var wall:=Node2D.new()
-	wall.name="PreviewPartition"
+	wall.name="LowerPartition"
 	wall.position=point
 	var vertical:=size.y>size.x
 	var reference:=parent.get_node("Pared_004" if vertical else "Pared_013")
@@ -156,7 +156,7 @@ func _wall(parent: Node,point: Vector2,size: Vector2) -> void:
 
 func _threshold(environment: Node,door: Vector3) -> void:
 	var frame:=Node2D.new()
-	frame.name="PreviewDoorThreshold"
+	frame.name="LowerDoorThreshold"
 	var geometry:=environment.get_node("02_Senaletica_y_luces")
 	geometry.add_child(frame)
 	_rectangle(frame,Rect2(door.x,860,door.y-door.x,12),Color("415e69"))

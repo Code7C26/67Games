@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw2iwyc4cuo6j"
-path="res://.godot/imported/wet_bench.png-5e091542fe4344b3674051d240f51122.ctex"
+uid="uid://03vfo46wmrji"
+path="res://.godot/imported/supply_shelf.png-20ac5ad0673affa83512559a219357fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/wet_bench.png"
-dest_files=["res://.godot/imported/wet_bench.png-5e091542fe4344b3674051d240f51122.ctex"]
+source_file="res://lab/expanded/assets/supply_shelf.png"
+dest_files=["res://.godot/imported/supply_shelf.png-20ac5ad0673affa83512559a219357fe.ctex"]
 
 [params]
 

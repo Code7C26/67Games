@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdk8c8bhixwyh"
-path="res://.godot/imported/sink_bench.png-84f2257b6064f394e33450371a18f982.ctex"
+uid="uid://dnt154ayrov1m"
+path="res://.godot/imported/prep_bench.png-a6a41d07fc5b3cd3e488b43fb70937f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/sink_bench.png"
-dest_files=["res://.godot/imported/sink_bench.png-84f2257b6064f394e33450371a18f982.ctex"]
+source_file="res://lab/expanded/assets/prep_bench.png"
+dest_files=["res://.godot/imported/prep_bench.png-a6a41d07fc5b3cd3e488b43fb70937f8.ctex"]
 
 [params]
 

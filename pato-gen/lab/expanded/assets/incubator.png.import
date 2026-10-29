@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvx67ekmvg7ws"
-path="res://.godot/imported/reagent_bench.png-93b6193c40691cec34212c46f9d60597.ctex"
+uid="uid://q8yl24pevr1y"
+path="res://.godot/imported/incubator.png-69b31ca34b567c4eb02d156ae9889a05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/reagent_bench.png"
-dest_files=["res://.godot/imported/reagent_bench.png-93b6193c40691cec34212c46f9d60597.ctex"]
+source_file="res://lab/expanded/assets/incubator.png"
+dest_files=["res://.godot/imported/incubator.png-69b31ca34b567c4eb02d156ae9889a05.ctex"]
 
 [params]
 

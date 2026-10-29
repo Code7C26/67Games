@@ -1,5 +1,5 @@
 -- New, editable proposal assets. Run with PATOGEN_ROOT via Aseprite MCP.
-local root=assert(PATOGEN_ROOT).."previews/lab_proposal/assets/"
+local root=assert(PATOGEN_ROOT).."lab/expanded/assets/"
 app.fs.makeAllDirectories(root)
 local pc=app.pixelColor
 local function C(s)

@@ -49,7 +49,7 @@ func run() -> void:
 			check(finish.reflection_count==0 and finish.glare_count==0,"Shopping arcade and display glare removed")
 		elif map_name=="Laboratorio":
 			var lab=host.get_node("Environment")
-			check(lab.fixtures.size()==lab.fixture_columns*lab.fixture_rows,"Lab regular artificial ceiling grid")
+			check(lab.fixtures.size()==lab.ceiling_points.size(),"Lab authored artificial ceiling positions")
 			var concealed:=true
 			for fixture in lab.fixtures: concealed=concealed and not fixture.visual.visible and fixture.light.enabled
 			check(concealed,"Lab ceiling sources are invisible while their illumination stays active")

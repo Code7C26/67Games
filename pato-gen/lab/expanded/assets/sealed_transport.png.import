@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnt154ayrov1m"
-path="res://.godot/imported/prep_bench.png-b97a705852c2f55d6321c60295d106b9.ctex"
+uid="uid://c2taig4w0rdgx"
+path="res://.godot/imported/sealed_transport.png-5917a8c604727c34b354a7863b0ef87e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/prep_bench.png"
-dest_files=["res://.godot/imported/prep_bench.png-b97a705852c2f55d6321c60295d106b9.ctex"]
+source_file="res://lab/expanded/assets/sealed_transport.png"
+dest_files=["res://.godot/imported/sealed_transport.png-5917a8c604727c34b354a7863b0ef87e.ctex"]
 
 [params]
 

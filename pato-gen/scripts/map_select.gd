@@ -1,7 +1,7 @@
 extends Control
 const MAPS := [
 	{"id":"shopping", "title":"SHOPPING", "scene":"Shopping", "detail":"Locales, cine y pasajes entre extremos."},
-	{"id":"lab", "title":"LABORATORIO AV-07", "scene":"Laboratorio", "detail":"Siete salas conectadas por el pasillo central."},
+	{"id":"lab", "title":"LABORATORIO AV-07", "scene":"Laboratorio", "detail":"Once sectores: cultivo, criogenia y salas de preparación."},
 	{"id":"splash", "title":"PATO SPLASH", "scene":"PatoSplash", "detail":"Piscinas, paseos y el gran chapuzón."}
 ]
 const FONT = preload("res://Fuentes/press-start-2p.ttf")

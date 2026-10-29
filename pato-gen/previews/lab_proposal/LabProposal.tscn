@@ -1,18 +1,5 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/Laboratorio.tscn" id="base"]
-[ext_resource type="Script" path="res://previews/lab_proposal/proposal_map.gd" id="map"]
-[ext_resource type="Script" path="res://previews/lab_proposal/proposal_environment.gd" id="environment"]
-[ext_resource type="Script" path="res://previews/lab_proposal/proposal_hud.gd" id="hud"]
 
-[node name="LaboratorioMuestra" instance=ExtResource("base")]
-script = ExtResource("map")
-metadata/bounds = Rect2(16, 80, 1888, 1024)
-metadata/preview_only = true
-
-[node name="Environment" parent="." index="0"]
-position = Vector2(0, 0)
-script = ExtResource("environment")
-
-[node name="HUD_ADN" parent="." index="1"]
-script = ExtResource("hud")
+[node name="Laboratorio" instance=ExtResource("base")]

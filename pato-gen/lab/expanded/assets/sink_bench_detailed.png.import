@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy4i2umib5il8"
-path="res://.godot/imported/floor_drain.png-61154056b545257b2e5022239a8f1249.ctex"
+uid="uid://bh36bcvysbi6m"
+path="res://.godot/imported/sink_bench_detailed.png-e125769d839245a5f4227e3c04315e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/floor_drain.png"
-dest_files=["res://.godot/imported/floor_drain.png-61154056b545257b2e5022239a8f1249.ctex"]
+source_file="res://lab/expanded/assets/sink_bench_detailed.png"
+dest_files=["res://.godot/imported/sink_bench_detailed.png-e125769d839245a5f4227e3c04315e89.ctex"]
 
 [params]
 

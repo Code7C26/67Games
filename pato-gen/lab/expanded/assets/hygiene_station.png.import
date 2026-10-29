@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://03vfo46wmrji"
-path="res://.godot/imported/supply_shelf.png-f39192648fb73c973e419e583a00f89c.ctex"
+uid="uid://bm6uct2exnd77"
+path="res://.godot/imported/hygiene_station.png-366140e9cf6aef6efc6ab088a4fc6fa8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/supply_shelf.png"
-dest_files=["res://.godot/imported/supply_shelf.png-f39192648fb73c973e419e583a00f89c.ctex"]
+source_file="res://lab/expanded/assets/hygiene_station.png"
+dest_files=["res://.godot/imported/hygiene_station.png-366140e9cf6aef6efc6ab088a4fc6fa8.ctex"]
 
 [params]
 

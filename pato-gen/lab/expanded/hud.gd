@@ -1,11 +1,11 @@
 extends "res://scripts/match_hud.gd"
-## A console frame surrounds the sample; the map remains unobstructed.
+## Laboratory console frame, using the shared HUD and camera layout.
 var console_frame: Control
-const Frame = preload("res://previews/lab_proposal/console_frame.gd")
+const Frame = preload("res://lab/expanded/console_frame.gd")
 
 func _ready() -> void:
 	console_frame=Frame.new()
-	console_frame.name="PreviewConsoleFrame"
+	console_frame.name="LabConsoleFrame"
 	console_frame.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	console_frame.z_index=-20
 	add_child(console_frame)

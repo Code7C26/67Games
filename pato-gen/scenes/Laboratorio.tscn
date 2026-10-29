@@ -2,22 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://q45hva8dnrr4" path="res://scenes/Pato.tscn" id="68_dwbme"]
 [ext_resource type="PackedScene" uid="uid://cg38sh5p0rw0q" path="res://scenes/game_over.tscn" id="70_ry0lt"]
-[ext_resource type="Script" uid="uid://be7v7jbf5t28p" path="res://scripts/match_hud.gd" id="hud_dock"]
+[ext_resource type="Script" path="res://lab/expanded/hud.gd" id="hud_dock"]
 [ext_resource type="PackedScene" path="res://scenes/capullo.tscn" id="capullo_simbionte"]
 [ext_resource type="Script" path="res://scripts/evento_coloso_antiviral.gd" id="evento_coloso"]
-[ext_resource type="Script" path="res://scripts/integrated_map.gd" id="map_controller"]
+[ext_resource type="Script" path="res://lab/expanded/map.gd" id="map_controller"]
 [ext_resource type="PackedScene" path="res://lab/scenes/Laboratorio.tscn" id="environment"]
+
+[ext_resource type="Script" path="res://lab/expanded/effects.gd" id="lab_effects"]
 
 [node name="Laboratorio" type="Node2D"]
 texture_filter = 1
 y_sort_enabled = true
 script = ExtResource("map_controller")
 map_id = "lab"
-metadata/bounds = Rect2(16, 80, 1888, 800)
+metadata/bounds = Rect2(16, 80, 1888, 1024)
 metadata/defer_map_intro = true
 
 [node name="Environment" parent="." instance=ExtResource("environment")]
 y_sort_enabled = true
+
+script = ExtResource("lab_effects")
 
 [node name="HUD_ADN" type="CanvasLayer" parent="."]
 layer = 10

@@ -33,18 +33,18 @@ func run() -> void:
 	host.timer_inicio.stop()
 	var lab = host.get_node("Environment")
 	var finish = lab.get_node("SceneryFinish")
-	check(lab.fixtures.size()==12,"Lab uses twelve larger ceiling light pools")
-	check(lab.fixture_diameter>280.0 and lab.light_energy<1.25,"Lab larger pools have reduced intensity")
+	check(lab.fixtures.size()==28,"Lab uses all twenty-eight approved ceiling positions")
+	check(lab.fixture_diameter>=280.0 and lab.light_energy<1.0,"Lab larger pools have reduced intensity")
 	var shadows := true
 	for light in lab.get_node("08_Luces").get_children():
 		if light is PointLight2D:
-			shadows=shadows and light.shadow_enabled and light.shadow_color.a==1.0 and light.shadow_item_cull_mask==2 and light.range_item_cull_mask==3
+			shadows=shadows and light.shadow_enabled and light.shadow_color.a==1.0 and light.shadow_item_cull_mask in [3,4] and light.range_item_cull_mask==3
 	check(shadows,"Every ceiling and equipment light blocks at scenery occluders")
 	var origins_clear := true
 	for fixture in lab.fixtures:
 		for occluder in finish.get_node("SceneryOcclusion").get_children():
-			if Geometry2D.is_point_in_polygon(occluder.to_local(fixture.light.global_position),occluder.occluder.polygon): origins_clear=false
-	check(origins_clear,"Ceiling lights are outside solid wall and equipment footprints")
+			if (occluder.occluder_light_mask & fixture.light.shadow_item_cull_mask) != 0 and Geometry2D.is_point_in_polygon(occluder.to_local(fixture.light.global_position),occluder.occluder.polygon): origins_clear=false
+	check(origins_clear,"Overhead light origins stay outside their blocking wall footprints")
 	check(lab.polished_props>=35,"Lab applies polished variants throughout its equipment")
 	for actor in get_nodes_in_group("bots"):
 		actor.set_physics_process(false)
@@ -53,6 +53,7 @@ func run() -> void:
 	var actor = get_nodes_in_group("bots")[0]
 	var body: AnimatedSprite2D = actor.animated_sprite
 	check(body.material.get_shader_parameter("local_light_response")==lab.npc_light_response,"NPC body opts into local lighting")
+	check(body.light_mask==5 and lab.get_node("01_Pisos").light_mask==6,"NPC bodies and scenery receive ceiling shadows")
 	check(body.sprite_frames.get_meta("outline_padding",false),"NPC atlas padding is preserved")
 	var replica = load("res://scenes/Bot.tscn").instantiate()
 	host.get_node("Bots").add_child(replica)
@@ -85,7 +86,7 @@ func run() -> void:
 			swatch.position=center+Vector2(-8,offset-8)
 			swatch.size=Vector2(16,16)
 			swatch.color=Color(0.35,0.35,0.35)
-			swatch.light_mask=2
+			swatch.light_mask=lab.get_node("01_Pisos").light_mask
 			swatch.z_index=30
 			lab.add_child(swatch)
 			swatches.append(swatch)

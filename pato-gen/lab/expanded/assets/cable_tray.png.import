@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm6uct2exnd77"
-path="res://.godot/imported/hygiene_station.png-9e7b11e43253543e860d3d6e3859ee76.ctex"
+uid="uid://npixtvyi486b"
+path="res://.godot/imported/cable_tray.png-c54b2fa3755c8153493a6ff5c9d78291.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/hygiene_station.png"
-dest_files=["res://.godot/imported/hygiene_station.png-9e7b11e43253543e860d3d6e3859ee76.ctex"]
+source_file="res://lab/expanded/assets/cable_tray.png"
+dest_files=["res://.godot/imported/cable_tray.png-c54b2fa3755c8153493a6ff5c9d78291.ctex"]
 
 [params]
 

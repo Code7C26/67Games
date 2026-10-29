@@ -1,5 +1,5 @@
 -- Aseprite MCP: run after draw_assets.lua. Only writes proposal variants.
-local root=assert(PATOGEN_ROOT).."previews/lab_proposal/assets/"
+local root=assert(PATOGEN_ROOT).."lab/expanded/assets/"
 local pc=app.pixelColor
 local function c(hex)
  return pc.rgba(tonumber(hex:sub(1,2),16),tonumber(hex:sub(3,4),16),tonumber(hex:sub(5,6),16),255)

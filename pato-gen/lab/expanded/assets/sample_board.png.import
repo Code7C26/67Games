@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2taig4w0rdgx"
-path="res://.godot/imported/sealed_transport.png-279a035aef02b8b7043ce2ad4c494878.ctex"
+uid="uid://c1l6dw0jndji"
+path="res://.godot/imported/sample_board.png-d2a84eb37abb077a119d9b2e0677584f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://previews/lab_proposal/assets/sealed_transport.png"
-dest_files=["res://.godot/imported/sealed_transport.png-279a035aef02b8b7043ce2ad4c494878.ctex"]
+source_file="res://lab/expanded/assets/sample_board.png"
+dest_files=["res://.godot/imported/sample_board.png-d2a84eb37abb077a119d9b2e0677584f.ctex"]
 
 [params]
 

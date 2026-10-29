@@ -39,7 +39,7 @@ func run() -> void:
 			check(lighting_safe,map_name+" lights only target scenery mask")
 			var actors_safe := true
 			for actor in get_nodes_in_group("bots"):
-				actors_safe = actors_safe and actor.animated_sprite.modulate==Color.WHITE and actor.animated_sprite.light_mask==1
+				actors_safe = actors_safe and actor.animated_sprite.modulate==Color.WHITE and actor.animated_sprite.light_mask==(5 if map_name=="Laboratorio" else 1)
 				actors_safe = actors_safe and actor.material_borde_infeccion.shader.resource_path=="res://shaders/npc_outline.gdshader"
 				actors_safe = actors_safe and actor.animated_sprite.sprite_frames.get_meta("outline_padding",false)
 				actors_safe = actors_safe and is_equal_approx(actor.get_node("ContactShadow").color.a,0.38)
