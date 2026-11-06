@@ -6,7 +6,9 @@
 ![Motor](https://img.shields.io/badge/Godot-4.7.1-478CBF?logo=godotengine&logoColor=white)
 ![Lenguaje](https://img.shields.io/badge/Lenguaje-GDScript-478CBF)
 
-Estado revisado contra los archivos del repositorio el **28/10/2026**. El juego principal incluye mutaciones por cepa, distorsión, remontada, audio, tutorial, Simbionte y Coloso Antiviral. Shopping, Laboratorio AV-07 y Pato Splash se seleccionan antes de la partida. El balance competitivo sigue pendiente.
+Estado documental revisado contra los archivos publicados del repositorio el **06/11/2026**. El juego principal incluye mutaciones por cepa, distorsión, remontada, audio, tutorial, Simbionte y Coloso Antiviral. Shopping, Laboratorio AV-07 y Pato Splash se seleccionan antes de la partida. El balance competitivo sigue pendiente.
+
+La [documentación del producto y su propuesta comercial](docs/README.md) reúne los mapas de empatía, CUPID, FODA y viabilidad. Los perfiles de público son hipótesis por validar. Podés participar mediante la [encuesta de Patogen](https://docs.google.com/forms/d/e/1FAIpQLSdcVXtVcuFnc-ONDs5G1jO4dhMEx9lVbaN2AGFfKulQGXbKgg/viewform?usp=sharing&ouid=109783700324919521831).
 
 ## Ejecutar el juego
 
