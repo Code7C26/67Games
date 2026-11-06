@@ -1,5 +1,8 @@
 Documentación actual del proyecto
 https://github.com/Code7C26/67Games/blob/main/docs/README.md
 
-Documento externo de referencia
+Manual de usuario en PDF
+https://github.com/Code7C26/67Games/blob/main/docs/Manual%20de%20Usuario%20de%20Patogen.pdf
+
+Documento original en Drive
 https://docs.google.com/document/d/1z0NH5mU8Zf6SjVaefRJPLJFSC4-g_4A8/edit

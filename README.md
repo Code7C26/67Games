@@ -10,6 +10,8 @@ Estado documental revisado contra los archivos publicados del repositorio el **0
 
 La [documentación del producto y su propuesta comercial](docs/README.md) reúne los mapas de empatía, CUPID, FODA y viabilidad. Los perfiles de público son hipótesis por validar. Podés participar mediante la [encuesta de Patogen](https://docs.google.com/forms/d/e/1FAIpQLSdcVXtVcuFnc-ONDs5G1jO4dhMEx9lVbaN2AGFfKulQGXbKgg/viewform?usp=sharing&ouid=109783700324919521831).
 
+Para aprender a jugar, consultá el [manual de usuario](docs/Manual_de_Usuario.md), también disponible en [PDF](docs/Manual%20de%20Usuario%20de%20Patogen.pdf) y [Word](docs/Manual%20de%20Usuario%20de%20Patogen.docx).
+
 ## Ejecutar el juego
 
 1. Instalar **Godot 4.7.1**, versión indicada por las pruebas del proyecto.

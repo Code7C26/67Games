@@ -17,6 +17,7 @@ Revisión del **06/11/2026**, basada en el juego principal de [`pato-gen/`](../p
 | Documento | Contenido y alcance |
 | --- | --- |
 | [Guía del juego](../README.md) | Instalación, controles, reglas, mecánicas y pendientes técnicos. |
+| [Manual de usuario](Manual_de_Usuario.md) | Guía para abrir el prototipo y jugar. Disponible también en [Word](Manual%20de%20Usuario%20de%20Patogen.docx) y [PDF](Manual%20de%20Usuario%20de%20Patogen.pdf). |
 | [Investigación de usuarios](INVESTIGACION_USUARIOS.md) | Fuente editable de los mapas A y B, roles CUPID y preguntas pendientes de validación. |
 | [Mapa A](Mapa_Empatia_A.png) | Perfil provisional del jugador de partidas locales. |
 | [Mapa B](Mapa_Empatia_B.png) | Perspectiva provisional del equipo, identificado como actor interno. |
