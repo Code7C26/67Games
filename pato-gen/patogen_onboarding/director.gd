@@ -159,7 +159,7 @@ func _begin_tutorial() -> void:
 	if bridge.supports("movement"):
 		_enter("move", 40)
 		ui.highlight(bridge.duck)
-		ui.show_card("02 / TOMÁ EL CONTROL", "Movete por el shopping.", "Tu pato sigue presente como fantasma después del brote.", "Jugador cian: usá WASD para desplazarte.", "", 2)
+		ui.show_card("02 / TOMÁ EL CONTROL", "Movete por el shopping.", "Tu pato sigue presente como fantasma después del brote.", "Jugador azul: usá WASD para desplazarte.", "", 2)
 	else:
 		missed_steps.append("movement_unavailable")
 		_open_step()
@@ -171,7 +171,7 @@ func _open_step() -> void:
 		return
 	_enter("open", 45)
 	ui.highlight(bridge.highlight_target("mutation_menu"))
-	ui.show_card("03 / EVOLUCIÓN", "Abrí tus mutaciones.", "Cada contagio aporta ADN. Lo podés invertir en las evoluciones de tu cepa.", "Jugador cian: presioná E para abrir el menú.", "", 3)
+	ui.show_card("03 / EVOLUCIÓN", "Abrí tus mutaciones.", "Cada contagio aporta ADN. Lo podés invertir en las evoluciones de tu cepa.", "Jugador azul: presioná E para abrir el menú.", "", 3)
 
 func _buy_step() -> void:
 	var info: Dictionary = bridge.mutation_info()

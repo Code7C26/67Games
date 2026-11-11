@@ -16,8 +16,8 @@ func _ready() -> void:
 	play("reposo_Abajo")
 
 func configurar_equipo(equipo: int) -> void:
-	material.set_shader_parameter("color_vena", Color("42c7c8") if equipo == 1 else Color("e489ce"))
-	material.set_shader_parameter("color_brillo", Color("a2efe0") if equipo == 1 else Color("ffd1ef"))
+	material.set_shader_parameter("color_vena", Color("528dff") if equipo == 1 else Color("ef69cd"))
+	material.set_shader_parameter("color_brillo", Color("c6daff") if equipo == 1 else Color("ffd1ef"))
 
 func transicionar(nombre: StringName, invertir := false) -> void:
 	en_transicion = true

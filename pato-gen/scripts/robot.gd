@@ -170,4 +170,4 @@ func actualizar_animacion(direccion: Vector2) -> void:
 
 func intentar_curar() -> void:
 	# Team 0 excludes nobody: the robot retains its original two-team behavior.
-	CuracionRadial.aplicar(self, radio_curacion, probabilidad_curacion)
+	CuracionRadial.aplicar(self, radio_curacion, probabilidad_curacion, 0, jugador_invocador)

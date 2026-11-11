@@ -17,11 +17,12 @@ var chance_aura: float = 0.5
 var intervalo_aura: float = 0.75
 var hasta_pulso: float = 0.75
 var activo := true
-var color_equipo := Color.CYAN
+var entrada_inmediata_disponible := false
+var color_equipo := Color("528dff")
 
 func _ready() -> void:
 	z_index = 4
-	color_equipo = Color("58d8d8") if equipo == 1 else Color("e489ce")
+	color_equipo = Color("528dff") if equipo == 1 else Color("ef69cd")
 	sprite_original = anfitrion.get_node_or_null("AnimatedSprite2D")
 	if is_instance_valid(sprite_original):
 		visibilidad_original = sprite_original.visible
@@ -70,12 +71,14 @@ func avanzar(delta: float) -> void:
 	# Fractional intervals can leave a tiny positive remainder at the boundary.
 	if hasta_pulso <= 0.0 or is_zero_approx(hasta_pulso):
 		hasta_pulso = intervalo_aura
-		CuracionRadial.aplicar(self, radio_aura, chance_aura, equipo)
+		CuracionRadial.aplicar(self, radio_aura, chance_aura, equipo, equipo)
 	queue_redraw()
 
-func terminar() -> void:
+func terminar(por_robot: bool = false) -> void:
 	if not activo:
 		return
+	if por_robot and es_valido() and is_instance_valid(mundo):
+		mundo.reubicar_simbionte(self)
 	activo = false
 	_restaurar_aspecto()
 	if is_instance_valid(anfitrion) and anfitrion.efecto_simbionte == self:

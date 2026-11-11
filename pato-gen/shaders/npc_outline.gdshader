@@ -16,6 +16,17 @@ void fragment() {
 	n = max(n, texture(TEXTURE, UV - vec2(s.x,0.0)).a);
 	n = max(n, texture(TEXTURE, UV + vec2(0.0,s.y)).a);
 	n = max(n, texture(TEXTURE, UV - vec2(0.0,s.y)).a);
+	// Infected guests use a continuous 2px team outline; healthy guests keep 1px.
+	if (borde_activo) {
+		n = max(n, texture(TEXTURE, UV + vec2(2.0*s.x,0.0)).a);
+		n = max(n, texture(TEXTURE, UV - vec2(2.0*s.x,0.0)).a);
+		n = max(n, texture(TEXTURE, UV + vec2(0.0,2.0*s.y)).a);
+		n = max(n, texture(TEXTURE, UV - vec2(0.0,2.0*s.y)).a);
+		n = max(n, texture(TEXTURE, UV + vec2(s.x,s.y)).a);
+		n = max(n, texture(TEXTURE, UV + vec2(s.x,-s.y)).a);
+		n = max(n, texture(TEXTURE, UV + vec2(-s.x,s.y)).a);
+		n = max(n, texture(TEXTURE, UV - vec2(s.x,s.y)).a);
+	}
 	float edge = n * (1.0-c.a);
 	vec3 outline = borde_activo ? color_borde.rgb * (0.94 + 0.06*sin(TIME*2.4+pulse_phase)) : vec3(0.04,0.06,0.10);
 	float alpha = c.a + edge;

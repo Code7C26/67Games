@@ -1,10 +1,13 @@
 extends Node2D
 
+const Equipos = preload("res://scripts/equipos_infeccion.gd")
+
 signal fase_infeccion_iniciada
 var _transicion_iniciada := false
 var _patos_pendientes := 0
 @onready var interfaz = $HUD_ADN
 @onready var evento_coloso: Node = get_node_or_null("EventoColosoAntiviral")
+@onready var evento_alfa: Node = get_node_or_null("EventoParasitoAlfa")
 
 # Optional introduction module. Removing its autoload restores the normal path.
 func _enter_tree() -> void:
@@ -91,6 +94,7 @@ const NavegacionSimbionte = preload("res://scripts/navegacion_simbionte.gd")
 var inversion_simbionte: Array[int] = [0, 0]
 var cooldown_simbionte: Array[float] = [0.0, 0.0]
 var ganador_simbionte: int = 0
+var reubicacion_simbionte_usada := false
 var capullos: Array[Node2D] = []
 var capullos_colocados := false
 var navegacion_simbionte: Node2D
@@ -145,7 +149,7 @@ const COSTO_ROBOT: int = 10
 # CEPAS, RAMAS Y EVOLUCIONES (una cepa fija por jugador)
 # ============================================================
 
-const TIPOS: Array[String] = ["atletico", "area", "exponencial"]
+const TIPOS: Array[String] = ["atletico", "area", "exponencial", "garfio", "camaleon", "rastreador"]
 const RAMAS: Dictionary = {
 	"atletico": [
 		["fiebre", "rabia"],
@@ -159,7 +163,26 @@ const RAMAS: Dictionary = {
 	],
 	"exponencial": [
 		["adaptacion", "evolucion_rapida", "supercepa"],
-		["division_celular", "replicacion", "brote_masivo"]
+		["division_celular", "replicacion", "brote_masivo"],
+		["reciclaje", "biomasa", "renacimiento"]
+	],
+	# Los identificadores se conservan para la compra y la herencia de los tres niveles.
+	# Garfio: Presa vulnerable / Doble tendón / Reenganche.
+	"garfio": [
+		["tendon_reforzado", "ligamentos_elasticos", "alcance_predador"],
+		["arrastre_brutal", "anclaje_tenaz", "traccion_brutal"],
+		["gancho_virulento", "inoculo_dirigido", "garra_patogena"]
+	],
+	"camaleon": [
+		["pigmentacion_avanzada", "mimetismo", "cromatoforos"],
+		["desvanecimiento", "retorno_sigiloso", "adaptacion_fugaz"],
+		["ataque_sorpresa", "emboscada_viral", "golpe_furtivo"]
+	],
+	# Rastreador: Llamado de manada / Cerco depredador / Marca biológica.
+	"rastreador": [
+		["olfato_reforzado", "olfato_agudo", "olfato_superior"],
+		["fijacion_presa", "memoria_persistente", "rastro_tenaz"],
+		["instinto_manada", "rastro_compartido", "caza_coordinada"]
 	]
 }
 
@@ -169,6 +192,9 @@ var contagios_cian: int = 0
 var contagios_magenta: int = 0
 var replicas_cian: int = 0
 var replicas_magenta: int = 0
+var biomasa_reciclaje: Array[int] = [0, 0]
+
+const BIOMASA_POR_NIVEL: Array[int] = [5, 4, 3]
 
 const MAX_REPLICAS_POR_JUGADOR: int = 8
 const MAX_BOTS_TOTALES: int = 100
@@ -191,6 +217,9 @@ func _nombre_cepa(cepa: String) -> String:
 		"atletico": return "ATLÉTICO"
 		"area": return "DE ÁREA"
 		"exponencial": return "EXPONENCIAL"
+		"garfio": return "GARFIO"
+		"camaleon": return "CAMALEÓN"
+		"rastreador": return "RASTREADOR"
 	return "ATLÉTICO"
 
 func obtener_cepa_jugador(id_jugador: int) -> String:
@@ -204,7 +233,9 @@ func obtener_ramas_jugador(id_jugador: int) -> Array:
 	return RAMAS.get(obtener_cepa_jugador(id_jugador), [])
 
 func obtener_contagios_jugador(id_jugador: int) -> int:
-	return contagios_cian if id_jugador == 1 else contagios_magenta
+	if id_jugador == 1:
+		return contagios_cian
+	return contagios_magenta if id_jugador == 2 else 0
 
 func _comprar_rama(id_jugador: int, indice_rama: int) -> void:
 	if estado_actual != EstadoJuego.FASE_INFECCION:
@@ -256,6 +287,8 @@ func _ready() -> void:
 	_preparar_simbionte()
 	if evento_coloso != null:
 		evento_coloso.configurar(self, contar_infecciones())
+	if evento_alfa != null:
+		evento_alfa.configurar(self)
 
 
 # ============================================================
@@ -311,12 +344,34 @@ func _nombre_mutacion(mutacion: String) -> String:
 		"esporas": "Esporas", "nube_toxica": "Nube tóxica", "epidemia_ambiental": "Epidemia ambiental",
 		"sobrecarga": "Sobrecarga", "pulso_viral": "Pulso viral", "tormenta_infecciosa": "Tormenta infecciosa",
 		"adaptacion": "Adaptación", "evolucion_rapida": "Evolución rápida", "supercepa": "Supercepa",
-		"division_celular": "División celular", "replicacion": "Replicación", "brote_masivo": "Brote masivo"
+		"division_celular": "División celular", "replicacion": "Replicación", "brote_masivo": "Brote masivo",
+		"reciclaje": "Reciclaje", "biomasa": "Biomasa", "renacimiento": "Renacimiento",
+		"tendon_reforzado": "Presa vulnerable", "ligamentos_elasticos": "Presa vulnerable II", "alcance_predador": "Presa vulnerable III",
+		"arrastre_brutal": "Doble tendón", "anclaje_tenaz": "Doble tendón II", "traccion_brutal": "Doble tendón III",
+		"gancho_virulento": "Reenganche", "inoculo_dirigido": "Reenganche II", "garra_patogena": "Reenganche III",
+		"pigmentacion_avanzada": "Pigmentación avanzada", "mimetismo": "Mimetismo", "cromatoforos": "Cromatóforos",
+		"desvanecimiento": "Desvanecimiento", "retorno_sigiloso": "Retorno sigiloso", "adaptacion_fugaz": "Adaptación fugaz",
+		"ataque_sorpresa": "Ataque sorpresa", "emboscada_viral": "Emboscada viral", "golpe_furtivo": "Golpe furtivo",
+		"olfato_reforzado": "Llamado de manada", "olfato_agudo": "Llamado de manada II", "olfato_superior": "Llamado de manada III",
+		"fijacion_presa": "Cerco depredador", "memoria_persistente": "Cerco depredador II", "rastro_tenaz": "Cerco depredador III",
+		"instinto_manada": "Marca biológica", "rastro_compartido": "Marca biológica II", "caza_coordinada": "Marca biológica III"
 	}
 	return str(NOMBRES.get(mutacion, mutacion))
 
 
 func _descripcion_mutacion(mutacion: String) -> String:
+	const RASTREADOR: Dictionary = {
+		"olfato_reforzado": "LLAMADO DE MANADA\nAl fijar una presa visible, convoca automáticamente hasta 3 infectados aliados disponibles a 180 píxeles. Comparten su último punto observado durante un máximo de 8 segundos; recarga de 8 segundos. Funciona también al poseerlo, sin interrumpir habilidades ni asignar un aliado a dos manadas.",
+		"olfato_agudo": "LLAMADO DE MANADA II\nAmplía la convocatoria a 200 píxeles. Conserva hasta 3 aliados, 8 segundos de coordinación y 8 segundos de recarga. No aumenta velocidad ni contagio y no transmite información al rival.",
+		"olfato_superior": "LLAMADO DE MANADA III\nAmplía la convocatoria a 220 píxeles, máximo de esta rama. Mantiene el límite de 3 aliados disponibles y los tiempos de 8 segundos; perder la presa válida disuelve la manada.",
+		"fijacion_presa": "CERCO DEPREDADOR\nCon Llamado de manada y al menos 2 aliados coordinados, uno persigue de frente y los demás se aproximan por los flancos, separados hasta 48 píxeles del rastro observado. Respeta obstáculos; sin ruta lateral válida o suficientes participantes, vuelve a la persecución normal.",
+		"memoria_persistente": "CERCO DEPREDADOR II\nAmplía la separación lateral del cerco a 60 píxeles. Requiere una manada convocada con al menos 2 aliados. La navegación conserva colisiones y no concede velocidad ni probabilidad de contagio.",
+		"rastro_tenaz": "CERCO DEPREDADOR III\nAmplía la separación lateral a 72 píxeles, máximo de esta rama. Mantiene un perseguidor directo y rutas laterales diferentes cuando son transitables; el cerco no garantiza capturas.",
+		"instinto_manada": "MARCA BIOLÓGICA\nMarca una sola presa durante 8 segundos. El Rastreador y su manada conservan la última posición observada; solo la visión real de un miembro puede actualizarla. La marca vence aunque vuelvan a verla y se cancela al invalidarse la presa. No modifica escudos ni contagio.",
+		"rastro_compartido": "MARCA BIOLÓGICA II\nExtiende la marca a 9 segundos, sin renovarla en cada observación. Solo comparte el último punto conocido con esta manada; una presa oculta no revela su posición actual.",
+		"caza_coordinada": "MARCA BIOLÓGICA III\nExtiende la marca a 10 segundos, máximo de esta rama. Conserva una única presa marcada; infección, curación o eliminación cancelan el rastro y nunca revelan información al equipo contrario."
+	}
+	if RASTREADOR.has(mutacion): return RASTREADOR[mutacion]
 	# Descripciones basadas en los efectos implementados actualmente en Bot.gd.
 	const DESCRIPCIONES: Dictionary = {
 		"fiebre": "FIEBRE\nMientras persigue a un humano, gana +5% de velocidad por cada 2 segundos de persecución, hasta +45%.",
@@ -341,7 +396,28 @@ func _descripcion_mutacion(mutacion: String) -> String:
 		"supercepa": "SUPERCEPA\nAl llegar a 12 infecciones de tu jugador, añade +2,5 puntos porcentuales de contagio y +5% de velocidad. Al llegar a 25, añade otros +2,5 puntos porcentuales de contagio y +5% de velocidad.",
 		"division_celular": "DIVISIÓN CELULAR\nCada 28 segundos intenta crear un nuevo infectado cerca de este bot. Las réplicas no otorgan ADN, no pueden reproducirse y respetan el límite de 8 réplicas por jugador.",
 		"replicacion": "REPLICACIÓN\nReduce de 28 a 23 segundos el intervalo entre intentos de crear nuevos infectados.",
-		"brote_masivo": "BROTE MASIVO\nReduce el intervalo de replicación a 20 segundos y hace dos intentos de creación por ciclo. Solo los infectados originales pueden reproducirse y los límites de población siguen aplicándose."
+		"brote_masivo": "BROTE MASIVO\nReduce el intervalo de replicación a 20 segundos y hace dos intentos de creación por ciclo. Solo los infectados originales pueden reproducirse y los límites de población siguen aplicándose.",
+		"reciclaje": "RECICLAJE\nCada huésped original que perdés por curación aporta 1 de biomasa, una sola vez por equipo y partida. No cuentan las réplicas ni las curas de tu propio equipo. Con 5 de biomasa, el próximo contagio válido de un original crea una réplica adicional junto al nuevo infectado. Se guarda una carga; si no hay espacio o cupo, se conserva para otro contagio. Comparte el límite de 8 réplicas y no genera ADN extra.",
+		"biomasa": "BIOMASA\nMejora Reciclaje: reduce de 5 a 4 la biomasa necesaria para preparar una réplica adicional. Conserva el progreso acumulado y las mismas reglas de aporte, contagio y población.",
+		"renacimiento": "RENACIMIENTO\nMejora Reciclaje: reduce de 4 a 3 la biomasa necesaria. La réplica se libera con el siguiente contagio válido de un original; las réplicas, la posesión y las reinfecciones sin recompensa del Coloso no consumen la reserva. Comparte el cupo de División celular.",
+		"tendon_reforzado": "PRESA VULNERABLE\nAl completar el arrastre, desorienta a esa presa durante 1 segundo y reduce su movimiento al 50%. El siguiente intento de ese mismo Garfio suma 25 puntos porcentuales, hasta un máximo del 90%. Se consume aunque falle; respeta escudos e inmunidad y no añade intentos.",
+		"ligamentos_elasticos": "PRESA VULNERABLE II\nLa presa desorientada se mueve al 40% durante el mismo segundo. Conserva +25 puntos porcentuales para un único intento del captor, máximo 90%; otros infectados no reciben el bono.",
+		"alcance_predador": "PRESA VULNERABLE III\nLa presa desorientada se mueve al 30% durante 1 segundo. Mantiene el bono único de +25 puntos porcentuales y el máximo del 90%. Cada presa de Doble tendón conserva su propio efecto, que se cancela si deja de ser válida.",
+		"arrastre_brutal": "DOBLE TENDÓN\nEl mismo garfio puede capturar hasta 2 sanos con alcance, visión y colisiones independientes. Comparten recarga; el arrastre doble dura un 25% más. Si un agarre falla, el otro continúa. Mantiene la cadencia normal de contagio. Poseído: apuntá y pulsá X / J o Enganchar.",
+		"anclaje_tenaz": "DOBLE TENDÓN II\nReduce la duración adicional del arrastre doble al 20%. Mantiene hasta 2 presas, colisiones independientes y una sola recarga; no acelera a Garfio ni garantiza contagios.",
+		"traccion_brutal": "DOBLE TENDÓN III\nReduce la duración adicional del arrastre doble al 15%, máximo de esta rama. Cada apéndice se cancela de forma independiente y los intentos de contagio conservan su cadencia.",
+		"gancho_virulento": "REENGANCHE\nSi el intento vinculado a una captura contagia a la presa, reduce la siguiente recarga a 3/7 de la normal: de 7 a 3 segundos con el balance inicial. Se activa una sola vez por ataque, incluso con Doble tendón. Un fallo o un contagio ajeno a la captura conserva la recarga normal.",
+		"inoculo_dirigido": "REENGANCHE II\nLa recarga tras contagiar una presa capturada baja a 2,8/7 de la normal: de 7 a 2,8 segundos. No acumula reducciones y solo responde al contagio de ese Garfio vinculado a su captura.",
+		"garra_patogena": "REENGANCHE III\nLa recarga tras contagiar una presa capturada baja a 2,6/7 de la normal: de 7 a 2,6 segundos. Una sola activación por ataque; nunca elimina la recarga ni se activa si el intento falla.",
+		"pigmentacion_avanzada": "PIGMENTACIÓN AVANZADA\nReduce la detección del Camaleón camuflado del 30% al 27% del alcance normal del observador. Conserva la revelación y reacción inmediata a 35 píxeles o menos; no aumenta la velocidad ni el contagio.",
+		"mimetismo": "MIMETISMO\nMejora Pigmentación avanzada: la detección camuflada pasa del 27% al 24% del alcance normal. Nunca oculta a un Camaleón a 35 píxeles o menos. Intentar contagiar sigue rompiendo el camuflaje, incluso si falla.",
+		"cromatoforos": "CROMATÓFOROS\nMejora Pigmentación avanzada: la detección camuflada pasa del 24% al 21% del alcance normal. Es el límite de esta rama; mantiene un mínimo de 35 píxeles y las reglas de revelación por contacto y habilidades visibles.",
+		"desvanecimiento": "DESVANECIMIENTO\nAl contagiar exitosamente a un humano, reduce la recarga restante del camuflaje a un máximo de 1 segundo. Funciona con contagios normales y emboscadas. Un intento fallido conserva los 5 segundos normales; no se oculta junto a un sano ni durante un aura visible. La IA se oculta automáticamente; poseído, pulsá X/J o Camuflar cuando esté listo.",
+		"retorno_sigiloso": "RETORNO SIGILOSO\nMejora Desvanecimiento: cada contagio exitoso deja como máximo 0,9 segundos de recarga. No reduce la recuperación tras un fallo ni activa el camuflaje inmediatamente. Conserva la distancia de revelación de 35 píxeles.",
+		"adaptacion_fugaz": "ADAPTACIÓN FUGAZ\nMejora Desvanecimiento: cada contagio exitoso deja como máximo 0,8 segundos de recarga. Es el límite de esta rama. Permanecer a 35 píxeles o menos de un humano sano o mantener un aura visible sigue impidiendo el camuflaje.",
+		"ataque_sorpresa": "ATAQUE SORPRESA\nEl primer intento de contagio desde cada ciclo de camuflaje suma 25 puntos porcentuales a la probabilidad existente, con un máximo final del 90%. Después se revela, aunque falle. No repite el bono hasta ocultarse de nuevo y nunca ignora las inmunidades del objetivo.",
+		"emboscada_viral": "EMBOSCADA VIRAL\nMejora Ataque sorpresa: el bono del primer intento camuflado pasa de +25 a +30 puntos porcentuales. El máximo final sigue siendo 90%; un fallo consume la emboscada y conserva la recuperación normal.",
+		"golpe_furtivo": "GOLPE FURTIVO\nMejora Ataque sorpresa: el primer intento camuflado suma 35 puntos porcentuales, máximo de esta rama y con probabilidad final limitada al 90%. No garantiza contagios ni añade intentos, contagio colectivo o réplicas."
 	}
 	return str(DESCRIPCIONES.get(mutacion, "No hay una descripción definida para esta mutación."))
 
@@ -599,6 +675,9 @@ func comprar_mutacion(id_jugador: int, tipo_base: String) -> void:
 	if not gastar_adn(id_jugador, costo):
 		return
 	mutaciones.append(siguiente)
+	var meta_biomasa := obtener_meta_biomasa(id_jugador)
+	if meta_biomasa > 0:
+		biomasa_reciclaje[id_jugador - 1] = mini(biomasa_reciclaje[id_jugador - 1], meta_biomasa)
 	actualizar_mutaciones_existentes(id_jugador)
 	actualizar_menu_mutaciones()
 	# Solo suena tras aplicar la compra y descontar el ADN.
@@ -806,6 +885,35 @@ func accion_simbionte(id_jugador: int) -> bool:
 	return false
 
 
+func reubicar_simbionte(efecto: Node2D) -> bool:
+	if not simbionte_en_juego() or is_queued_for_deletion() or get_tree().current_scene != self or reubicacion_simbionte_usada:
+		return false
+	if not is_instance_valid(efecto) or efecto.is_queued_for_deletion() or not efecto.es_valido() or efecto.mundo != self:
+		return false
+	if ganador_simbionte != efecto.equipo or ganador_simbionte not in [1, 2] or efecto.anfitrion.efecto_simbionte != efecto:
+		return false
+	if not is_instance_valid(navegacion_simbionte) or navegacion_simbionte.is_queued_for_deletion():
+		return false
+	if is_instance_valid(simbionte) and not simbionte.is_queued_for_deletion():
+		return false
+	var viajero: Node2D = ESCENA_SIMBIONTE.instantiate()
+	if viajero == null:
+		return false
+	# The chance belongs to the match: a new effect cannot generate a third host.
+	reubicacion_simbionte_usada = true
+	viajero.equipo = efecto.equipo
+	viajero.mundo = self
+	viajero.navegacion = navegacion_simbionte
+	viajero.velocidad = velocidad_simbionte
+	viajero.tiempo_fusion = efecto.restante
+	viajero.huesped_anterior_id = efecto.anfitrion.get_instance_id()
+	viajero.position = to_local(efecto.anfitrion.global_position)
+	simbionte = viajero
+	# Selection starts on the next physics tick, after the old host is healthy.
+	add_child(viajero)
+	return true
+
+
 func invertir_simbionte(id_jugador: int) -> bool:
 	if not simbionte_en_juego() or ganador_simbionte != 0 or id_jugador not in [1, 2]:
 		return false
@@ -829,6 +937,7 @@ func invertir_simbionte(id_jugador: int) -> bool:
 		return false
 	inversion_simbionte[indice] += PAGO_SIMBIONTE
 	cooldown_simbionte[indice] = COOLDOWN_SIMBIONTE
+	capullo.recibir_inversion()
 	if viajero != null:
 		# First accepted final payment wins even if both inputs arrive this frame.
 		ganador_simbionte = id_jugador
@@ -841,6 +950,7 @@ func invertir_simbionte(id_jugador: int) -> bool:
 		add_child(viajero)
 		for huevo in capullos:
 			if is_instance_valid(huevo):
+				huevo.despedir(huevo.equipo == id_jugador)
 				huevo.hide()
 				huevo.queue_free()
 	return true
@@ -855,6 +965,52 @@ func sumar_adn(id_jugador: int) -> void:
 		contagios_magenta += 1
 
 
+func obtener_meta_biomasa(id_jugador: int) -> int:
+	if id_jugador not in [1, 2] or obtener_cepa_jugador(id_jugador) != "exponencial":
+		return 0
+	var mutaciones: Array[String] = mutaciones_p1 if id_jugador == 1 else mutaciones_p2
+	if "reciclaje" not in mutaciones:
+		return 0
+	if "renacimiento" in mutaciones:
+		return BIOMASA_POR_NIVEL[2]
+	return BIOMASA_POR_NIVEL[1] if "biomasa" in mutaciones else BIOMASA_POR_NIVEL[0]
+
+
+func registrar_biomasa(bot: Node2D, equipo_curador: int) -> void:
+	if not simbionte_en_juego() or not is_instance_valid(bot) or bot.is_queued_for_deletion() or not is_ancestor_of(bot):
+		return
+	if not bot.is_infected or bot.es_replica or bot.player_duenio not in [1, 2]:
+		return
+	var equipo: int = bot.player_duenio
+	var meta := obtener_meta_biomasa(equipo)
+	if meta == 0 or equipo_curador == equipo or biomasa_reciclaje[equipo - 1] >= meta:
+		return
+	var marca := 1 << (equipo - 1)
+	# La marca sobrevive a curaciones y cambios de dueño; cada original aporta una vez por equipo.
+	if (bot.equipos_reciclados & marca) != 0:
+		return
+	bot.equipos_reciclados |= marca
+	biomasa_reciclaje[equipo - 1] += 1
+
+
+func intentar_reciclaje(origen: Node2D, nuevo_infectado: Node2D) -> bool:
+	if not simbionte_en_juego() or not is_instance_valid(origen) or not is_instance_valid(nuevo_infectado):
+		return false
+	if origen.is_queued_for_deletion() or nuevo_infectado.is_queued_for_deletion() or not is_ancestor_of(origen) or not is_ancestor_of(nuevo_infectado):
+		return false
+	if not origen.is_infected or not nuevo_infectado.is_infected or origen.es_replica or nuevo_infectado.es_replica:
+		return false
+	var equipo: int = origen.player_duenio
+	var meta := obtener_meta_biomasa(equipo)
+	if meta == 0 or nuevo_infectado.player_duenio != equipo or biomasa_reciclaje[equipo - 1] < meta:
+		return false
+	# Solo se consume tras una creación efectiva, usando el mismo cupo y suelo seguro que División.
+	if not crear_replicado(nuevo_infectado):
+		return false
+	biomasa_reciclaje[equipo - 1] = 0
+	return true
+
+
 func aplicar_mutaciones_a_bot(bot: Node2D) -> void:
 	if not is_instance_valid(bot) or not bot.is_infected:
 		return
@@ -862,6 +1018,9 @@ func aplicar_mutaciones_a_bot(bot: Node2D) -> void:
 		bot.aplicar_mutaciones(mutaciones_p1, cepa_cian)
 	elif bot.player_duenio == 2:
 		bot.aplicar_mutaciones(mutaciones_p2, cepa_magenta)
+	elif bot.player_duenio == Equipos.ALFA:
+		var sin_mutaciones: Array[String] = []
+		bot.aplicar_mutaciones(sin_mutaciones, "alfa")
 
 
 func actualizar_mutaciones_existentes(
@@ -945,8 +1104,20 @@ func _physics_process(delta: float) -> void:
 				nodo.infectar(nube["color"], int(nube["jugador"]))
 
 
+func safe_replica_position(origin: Vector2) -> Vector2:
+	if not is_instance_valid(navegacion_simbionte) or not navegacion_simbionte.lista:
+		return Vector2.INF
+	navegacion_simbionte.actualizar_exclusiones()
+	var angle := randf() * TAU
+	for i in range(8):
+		var point := origin + Vector2.RIGHT.rotated(angle + i * TAU / 8.0) * 32.0
+		if navegacion_simbionte.limites.has_point(point) and navegacion_simbionte.segmento_libre(origin, point):
+			return point
+	return Vector2.INF
+
+
 func crear_replicado(origen: Node2D) -> bool:
-	if not is_instance_valid(origen) or not origen.is_infected:
+	if not is_instance_valid(origen) or not origen.is_infected or origen.es_replica:
 		return false
 	if obtener_cepa_jugador(origen.player_duenio) != "exponencial":
 		return false
@@ -957,10 +1128,9 @@ func crear_replicado(origen: Node2D) -> bool:
 		return false
 	if jugador == 2 and replicas_magenta >= MAX_REPLICAS_POR_JUGADOR:
 		return false
-	var posicion_replica := origen.global_position + Vector2.RIGHT.rotated(randf_range(0.0, TAU)) * 28.0
-	if has_method("safe_replica_position"):
-		posicion_replica = call("safe_replica_position", origen.global_position)
-		if not posicion_replica.is_finite(): return false
+	var posicion_replica := safe_replica_position(origen.global_position)
+	if not posicion_replica.is_finite():
+		return false
 	var replicado: Node2D = ESCENA_BOT.instantiate() as Node2D
 	if replicado == null:
 		return false
@@ -977,6 +1147,20 @@ func crear_replicado(origen: Node2D) -> bool:
 	else:
 		replicas_magenta += 1
 	return true
+
+
+func crear_infectado_alfa(posicion: Vector2) -> Node2D:
+	# El evento valida el suelo. Esta fuente no consume cuotas ni el tope de réplicas.
+	if not simbionte_en_juego() or not posicion.is_finite():
+		return null
+	var bot := ESCENA_BOT.instantiate() as Node2D
+	var contenedor: Node2D = get_node_or_null("Bots") as Node2D
+	if contenedor == null:
+		contenedor = self
+	bot.position = contenedor.to_local(posicion)
+	contenedor.add_child(bot)
+	bot.activar_infeccion(Equipos.COLOR_ALFA, Equipos.ALFA, false)
+	return bot
 
 
 func _on_timer_inicio_timeout() -> void:
@@ -1016,10 +1200,18 @@ func _on_timer_juego_timeout() -> void:
 	timer_juego.stop()
 	if evento_coloso != null:
 		evento_coloso.finalizar()
+	if evento_alfa != null:
+		evento_alfa.finalizar()
 	# Remove powers before the paused result screen; never leave a live aura.
 	for bot in get_tree().get_nodes_in_group("bots"):
 		if is_ancestor_of(bot) and bot.has_method("quitar_simbionte"):
 			bot.quitar_simbionte()
+		if is_ancestor_of(bot) and bot.has_method("cancelar_garfio"):
+			bot.cancelar_garfio()
+		if is_ancestor_of(bot) and bot.has_method("cancelar_camaleon"):
+			bot.cancelar_camaleon()
+		if is_ancestor_of(bot) and bot.has_method("cancelar_rastreador"):
+			bot.cancelar_rastreador()
 	if is_instance_valid(simbionte):
 		simbionte.queue_free()
 
@@ -1029,7 +1221,7 @@ func _on_timer_juego_timeout() -> void:
 	if stats.blue > stats.magenta:
 
 		mensaje_resultado = (
-			"¡GANO EL JUGADOR CIAN!\n"
+			"¡GANO EL JUGADOR AZUL!\n"
 			+ "(Infectados: "
 			+ str(stats.blue)
 			+ ")"
@@ -1081,6 +1273,7 @@ func contar_infecciones() -> Dictionary:
 
 	var blue: int = 0
 	var magenta: int = 0
+	var verdes: int = 0
 	var sanos: int = 0
 	var total: int = 0
 
@@ -1102,11 +1295,14 @@ func contar_infecciones() -> Dictionary:
 		elif bot.player_duenio == 2:
 
 			magenta += 1
+		elif bot.player_duenio == Equipos.ALFA:
+			verdes += 1
 
 
 	return {
 		"blue": blue,
 		"magenta": magenta,
+		"verdes": verdes,
 		"sanos": sanos,
 		"total": total
 	}

@@ -27,7 +27,7 @@ func run() -> void:
 			var finish = host.find_child("SceneryFinish",true,false)
 			check(finish != null,map_name+" visual finish is attached")
 			check(get_nodes_in_group("bots").size()==65,map_name+" population unchanged")
-			check(host.timer_inicio.wait_time==3.0 and host.timer_juego.wait_time==120.0,map_name+" match durations unchanged")
+			check(host.timer_inicio.wait_time==15.0 and host.timer_juego.wait_time==150.0,map_name+" uses 15-second host search and 150-second match")
 			if map_name=="PatoSplash":
 				check(finish.reflection_count>0 and finish.glare_count>0 and finish.water_count==4,map_name+" outdoor water reflections preserved")
 			else:

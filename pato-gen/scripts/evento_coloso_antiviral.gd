@@ -22,17 +22,18 @@ enum Estado { ESPERA, AVISO, ACTIVO, FINALIZADO }
 @export var duracion_maxima := 20.0
 @export var recuperacion_sostenida := 3.0
 @export var max_curaciones := 12
-@export var radio_curacion := 140.0
-@export_range(0.0, 1.0) var chance_curacion := 0.80
+@export var radio_curacion := 170.0
+@export_range(0.0, 1.0) var chance_curacion := 0.95
 @export var intervalo_curacion := 1.0
-@export var proteccion_sano := 3.0
-@export var velocidad := 65.0
+@export var proteccion_sano := 6.0
+@export var velocidad := 82.0
 
 var mundo: Node
 var poblacion: Dictionary = {}
 var poblacion_inicial := 0
 var estado := Estado.ESPERA
 var apariciones := 0
+var curaciones_ultima_aparicion := 0
 var tiempo_partida := 0.0
 var tiempo_crisis := 0.0
 var espera_restante := 0.0
@@ -198,6 +199,7 @@ func _materializar() -> void:
 		_cancelar_aviso()
 		return
 	coloso = ESCENA.instantiate()
+	curaciones_ultima_aparicion = 0
 	coloso.evento = self
 	coloso.position = mundo.to_local(posicion_aviso)
 	mundo.add_child(coloso)
@@ -216,6 +218,8 @@ func _cancelar_aviso() -> void:
 
 func _retirar(motivo: String) -> void:
 	if is_instance_valid(coloso):
+		# Persist before freeing: the final pulse may retire between HUD frames.
+		curaciones_ultima_aparicion = coloso.curaciones
 		coloso.hide()
 		coloso.queue_free()
 	coloso = null
@@ -228,6 +232,7 @@ func _retirar(motivo: String) -> void:
 
 func finalizar() -> void:
 	if is_instance_valid(coloso):
+		curaciones_ultima_aparicion = coloso.curaciones
 		coloso.hide()
 		coloso.queue_free()
 	coloso = null

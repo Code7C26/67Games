@@ -70,7 +70,7 @@ func _run() -> void:
 	await physics_frame
 	for portal_name in ["PasoNorte", "PasoSur", "PasoOeste", "PasoEste"]:
 		await test_portal(portal_name)
-	# Actual mouse and keyboard delivery, plus all three strains and costs.
+	# Actual mouse and keyboard delivery, plus all six strains and costs.
 	host.adn_cian = 30
 	host.adn_magenta = 30
 	await process_frame
@@ -90,11 +90,15 @@ func _run() -> void:
 	await process_frame
 	check(hud.adn_labels[0].text == "%d ADN" % host.adn_cian, "displayed ADN matches model")
 	check(hud.dna_sprites[0].is_playing(), "Aseprite ADN feedback plays after debit")
-	for strain in ["atletico", "area", "exponencial"]:
+	for strain in ["atletico", "area", "exponencial", "garfio", "camaleon", "rastreador"]:
 		host.cepa_magenta = strain
 		host.mutaciones_p2.clear()
 		host.adn_magenta = 30
 		await process_frame
+		if strain in ["garfio", "rastreador"]:
+			hud.show_branch(2, 0)
+			var mechanic := "25 puntos porcentuales" if strain == "garfio" else "3 infectados aliados"
+			check(mechanic in hud.descriptions[1].text, "%s description explains the new first mutation before purchase" % strain)
 		for level in range(host.obtener_ramas_jugador(2)[0].size()):
 			var cost: int = host.obtener_costo_mutacion(host.obtener_ramas_jugador(2)[0][0], host.mutaciones_p2)
 			var old: int = host.adn_magenta
@@ -102,6 +106,25 @@ func _run() -> void:
 			await process_frame
 			check(host.adn_magenta == old - cost, "%s keyboard mutation level %d charges %d" % [strain, level, cost])
 		check(hud.panels[1].get_node("VBoxContainer/BtnFiebre").disabled, "%s completed branch disabled" % strain)
+		if strain in ["garfio", "rastreador"]:
+			var expected := "Presa vulnerable III" if strain == "garfio" else "Llamado de manada III"
+			check(expected in hud.panels[1].get_node("VBoxContainer/BtnFiebre").text, "%s completed HUD names the new mutation" % strain)
+			hud.show_branch(2, 0)
+			check("Rama completa" in hud.descriptions[1].text, "%s completed mutation description reports all evolutions active" % strain)
+			for branch in [1, 2]:
+				host.adn_magenta = 30
+				await process_frame
+				hud.show_branch(2, branch)
+				var details: Array = ["2 sanos", "3/7"] if strain == "garfio" else ["2 aliados", "8 segundos"]
+				check(details[branch - 1] in hud.descriptions[1].text, "%s branch %d describes its tactical mechanic" % [strain, branch + 1])
+				for level in 3:
+					var old: int = host.adn_magenta
+					key(KEY_9 if branch == 1 else KEY_0)
+					await process_frame
+					check(old - host.adn_magenta == [5, 10, 15][level], "%s branch %d level %d keeps keyboard cost" % [strain, branch + 1, level + 1])
+				var names: Array = ["Doble tendón III", "Reenganche III"] if strain == "garfio" else ["Cerco depredador III", "Marca biológica III"]
+				var completed: Button = hud.panels[1].get_node("VBoxContainer").get_child(branch)
+				check(completed.disabled and names[branch - 1] in completed.text and completed.icon != null, "%s branch %d completes with its new name and existing icon" % [strain, branch + 1])
 	host.adn_cian = 0
 	await process_frame
 	check(button.disabled, "unaffordable mutation disabled")

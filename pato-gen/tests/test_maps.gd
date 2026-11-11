@@ -68,7 +68,7 @@ func run() -> void:
 		bot.activar_infeccion(Color.CYAN,1,false)
 		mate.activar_infeccion(Color.MAGENTA,2,false)
 		check(bot.material_borde_infeccion.get_shader_parameter("borde_activo") and mate.material_borde_infeccion.get_shader_parameter("borde_activo"),map_name+" infection outline activates")
-		check(bot.material_borde_infeccion.get_shader_parameter("color_borde")==Color.CYAN and mate.material_borde_infeccion.get_shader_parameter("color_borde")==Color.MAGENTA,map_name+" team colours stay separate")
+		check(bot.material_borde_infeccion.get_shader_parameter("color_borde")==preload("res://scripts/equipos_infeccion.gd").COLOR_AZUL and mate.material_borde_infeccion.get_shader_parameter("color_borde")==preload("res://scripts/equipos_infeccion.gd").COLOR_MAGENTA,map_name+" team colours stay separate")
 		bot.curar_por_robot()
 		check(not bot.is_infected and not bot.material_borde_infeccion.get_shader_parameter("borde_activo"),map_name+" cure restores healthy outline")
 		host._on_timer_inicio_timeout()

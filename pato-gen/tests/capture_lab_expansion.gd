@@ -36,7 +36,7 @@ func run() -> void:
 		verify(light.shadow_enabled and light.shadow_item_cull_mask==4,"Marked ceiling lights retain wall occlusion")
 	verify(maximum_mark_error<1.5,"Light centers match the marked screenshot")
 	verify(environment.ceiling_wall_occluders==36,"All thirty-six original and new wall volumes block the ceiling lights")
-	verify(host.timer_inicio.wait_time==3 and host.timer_juego.wait_time==120,"Match timings stay unchanged")
+	verify(host.timer_inicio.wait_time==15 and host.timer_juego.wait_time==150,"15-second host search and 150-second match")
 	verify(not host.has_meta("preview_only"),"The actual production scene is integrated")
 	verify(host.interfaz.console_frame.name=="LabConsoleFrame","Integrated console frame follows the gameplay HUD")
 	verify(host.interfaz.console_frame.status_label=="", "Production HUD has no sample badge")

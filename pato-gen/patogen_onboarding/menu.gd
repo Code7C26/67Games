@@ -214,7 +214,7 @@ func _show_guide() -> void:
 	label.add_theme_font_size_override("font_size", 28)
 	items.add_child(label)
 	var text := Label.new()
-	text.text = "1. El pato inicia el brote y se convierte en fantasma.\n2. Los contagios suman ADN para evolucionar tu cepa.\n3. Al terminar el tiempo, gana quien tenga más infectados.\n\nCIAN: WASD · mutaciones E · posesión X\nMAGENTA: flechas · mutaciones O · posesión J\n\nConsultá cada mutación con el cursor antes de comprar."
+	text.text = "1. El pato inicia el brote y se convierte en fantasma.\n2. Los contagios suman ADN para evolucionar tu cepa.\n3. Al terminar el tiempo, gana quien tenga más infectados.\n\nAZUL: WASD · mutaciones E · posesión X\nMAGENTA: flechas · mutaciones O · posesión J\n\nConsultá cada mutación con el cursor antes de comprar."
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.add_theme_font_size_override("font_size", 19)
 	items.add_child(text)

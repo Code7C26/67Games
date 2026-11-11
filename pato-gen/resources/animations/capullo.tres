@@ -1,0 +1,134 @@
+[gd_resource type="SpriteFrames" load_steps=26 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/capullo/capullo_sheet.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="f1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f2"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f3"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f4"]
+atlas = ExtResource("1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f5"]
+atlas = ExtResource("1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f6"]
+atlas = ExtResource("1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f7"]
+atlas = ExtResource("1")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f8"]
+atlas = ExtResource("1")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f9"]
+atlas = ExtResource("1")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f10"]
+atlas = ExtResource("1")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f11"]
+atlas = ExtResource("1")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f12"]
+atlas = ExtResource("1")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f13"]
+atlas = ExtResource("1")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f14"]
+atlas = ExtResource("1")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f15"]
+atlas = ExtResource("1")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f16"]
+atlas = ExtResource("1")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f17"]
+atlas = ExtResource("1")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f18"]
+atlas = ExtResource("1")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f19"]
+atlas = ExtResource("1")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f20"]
+atlas = ExtResource("1")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f21"]
+atlas = ExtResource("1")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f22"]
+atlas = ExtResource("1")
+region = Rect2(672, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f23"]
+atlas = ExtResource("1")
+region = Rect2(704, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="f24"]
+atlas = ExtResource("1")
+region = Rect2(736, 0, 32, 32)
+
+[resource]
+animations = [
+{
+"frames": [{"duration": 2.4, "texture": SubResource("f1")}, {"duration": 2.4, "texture": SubResource("f2")}, {"duration": 2.6, "texture": SubResource("f3")}, {"duration": 2.4, "texture": SubResource("f4")}],
+"loop": true,
+"name": &"reposo",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1, "texture": SubResource("f5")}, {"duration": 1.5, "texture": SubResource("f6")}, {"duration": 1.6, "texture": SubResource("f7")}, {"duration": 1.6, "texture": SubResource("f8")}],
+"loop": false,
+"name": &"inversion",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.6, "texture": SubResource("f9")}, {"duration": 1.4, "texture": SubResource("f10")}, {"duration": 1.6, "texture": SubResource("f11")}, {"duration": 1.4, "texture": SubResource("f12")}],
+"loop": true,
+"name": &"inquieto",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.2, "texture": SubResource("f13")}, {"duration": 1, "texture": SubResource("f14")}, {"duration": 1, "texture": SubResource("f15")}, {"duration": 1.2, "texture": SubResource("f16")}, {"duration": 1.4, "texture": SubResource("f17")}, {"duration": 1.6, "texture": SubResource("f18")}],
+"loop": false,
+"name": &"eclosion",
+"speed": 10.0
+},
+{
+"frames": [{"duration": 1.5, "texture": SubResource("f19")}, {"duration": 1.2, "texture": SubResource("f20")}, {"duration": 1.2, "texture": SubResource("f21")}, {"duration": 1.2, "texture": SubResource("f22")}, {"duration": 1.4, "texture": SubResource("f23")}, {"duration": 1.8, "texture": SubResource("f24")}],
+"loop": false,
+"name": &"marchitar",
+"speed": 10.0
+}
+]
+

@@ -75,7 +75,7 @@ func run():
 	check(host.timer_juego.time_left < before_time - 0.9, "real match timer advances")
 	var seconds := ceili(host.timer_juego.time_left)
 	check(host.interfaz.clock_label.text == "%02d:%02d" % [floori(seconds / 60.0), seconds % 60], "display matches actual timer")
-	check(host.interfaz.mutation_icons.size() == 23, "all 23 mutation icons loaded")
+	check(host.interfaz.mutation_icons.size() == 53, "all 53 mutation icons loaded, including Camaleon")
 	host._on_timer_juego_timeout()
 	check(paused and host.game_over_screen.visible, "game-over still displays result and pauses")
 	paused = false

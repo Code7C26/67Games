@@ -19,7 +19,7 @@ func run() -> void:
 		for i in 4: await process_frame
 		var finish=host.find_child("SceneryFinish",true,false)
 		check(get_nodes_in_group("bots").size()==65,map_name+" retains 65 guests")
-		check(host.timer_inicio.wait_time==3 and host.timer_juego.wait_time==120,map_name+" retains phase durations")
+		check(host.timer_inicio.wait_time==15 and host.timer_juego.wait_time==150,map_name+" uses 15-second host search and 150-second match")
 		var particles=finish.get_node("AmbientParticles")
 		check(particles.emitters.size()>=3 and particles.emitters.size()<=4,map_name+" bounded ambient emitter pool")
 		var count:=get_node_count()

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/camaleon_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+factor_deteccion = 0.3
+distancia_revelacion = 35.0
+recuperacion = 5.0
+transicion_visual = 0.22
+multiplicador_velocidad = 1.0
+factores_pigmentacion = PackedFloat32Array(0.27, 0.24, 0.21)
+bonos_ataque_sorpresa = PackedFloat32Array(0.25, 0.30, 0.35)
+probabilidad_maxima_ataque = 0.9
+tiempos_desvanecimiento = PackedFloat32Array(1, 0.9, 0.8)
+recuperacion_minima = 0.25

@@ -1,5 +1,28 @@
 extends CharacterBody2D
 
+const Equipos = preload("res://scripts/equipos_infeccion.gd")
+const VisualPreferences = preload("res://scripts/visual_preferences.gd")
+const CapturaGarfio = preload("res://scripts/garfio.gd")
+const CamuflajeCamaleon = preload("res://scripts/camaleon.gd")
+const ArteCamaleon = preload("res://scripts/camaleon_arte.gd")
+const InstintoRastreador = preload("res://scripts/rastreador.gd")
+const ArteRastreador = preload("res://scripts/rastreador_arte.gd")
+var rastreador: Node2D = null
+@export_group("Cepa Rastreador")
+@export var configuracion_rastreador: Resource = preload("res://resources/rastreador_config.tres")
+@export_group("")
+var camaleon: Node2D = null
+@export_group("Cepa Camaleón")
+@export var configuracion_camaleon: Resource = preload("res://resources/camaleon_config.tres")
+@export_group("")
+var garfio: Node2D = null
+var captor_garfio: Node2D = null
+var ultimo_contacto_garfio: WeakRef = null
+var espera_contacto_garfio := 0.0
+@export_group("Cepa Garfio")
+@export var configuracion_garfio: Resource = preload("res://resources/garfio_config.tres")
+@export_group("")
+
 # PatoGen: cepas elegidas antes de la partida, evolución por rama.
 # Se conservan posesión, evasión de obstáculos, temperatura y robots curadores.
 
@@ -27,13 +50,18 @@ extends CharacterBody2D
 @export var exponencial_derecha: Texture2D
 @export_group("Animaciones infectados")
 const TAMANO_FOTOGRAMA_INFECTADO: int = 32
-@export_range(1.0, 30.0, 0.5) var fps_infectados: float = 8.0
+@export_range(1.0, 30.0, 0.5) var fps_infectados: float = 10.0
 @export_group("")
 
 var sprite_frames_sano: SpriteFrames = null
 
 const CONTAGIO_BASE: float = 0.35
 const CURACION_BASE: float = 0.01 # Probabilidad POR SEGUNDO
+const INTERVALO_CONTAGIO := 0.7
+const INCUBACION_CONTAGIO := 1.1
+const ESCALA_VISUAL := 1.16
+const ALTURA_CUERPO_INFECTADO := 29.0
+static var frames_infectados_cache: Dictionary = {}
 
 # ===== BALANCE DE EXPONENCIAL =====
 const CONTAGIO_EXPONENCIAL_INICIAL: float = 0.28
@@ -49,6 +77,8 @@ const INTERVALO_BROTE: float = 20.0
 
 # Las replicas no se reproducen: frena la multiplicacion en cascada.
 var es_replica: bool = false
+# Una marca por equipo y huésped original, conservada al curarse y reinfectarse.
+var equipos_reciclados: int = 0
 
 var velocidad_base: float = 75.0
 const EfectoSimbionte = preload("res://scripts/efecto_simbionte.gd")
@@ -84,6 +114,16 @@ var proteccion_sano_ofensiva: float = 0.0
 var proteccion_coloso: float = 0.0
 # Consumida por la siguiente infección efectiva, nunca por un intento bloqueado.
 var reinfeccion_coloso_sin_recompensa := false
+var incubacion_contagio := 0.0
+var feedback_restante := 0.0
+var feedback_color := Color.WHITE
+var feedback_curacion := false
+var pulso_restante := 0.0
+var pulso_radio := 0.0
+var pulso_centro := Vector2.ZERO
+var pulso_color := Color.WHITE
+var escala_sprite_base := Vector2.ONE
+var posicion_sprite_base := Vector2.ZERO
 var tiempo_intento_ofensivo: float = 0.0
 var mutaciones: Array[String] = []
 
@@ -140,8 +180,11 @@ func _ready() -> void:
 	if skins.size() > 0 and animated_sprite:
 		animated_sprite.sprite_frames = skins.pick_random()
 	if animated_sprite:
+		escala_sprite_base = animated_sprite.scale
+		posicion_sprite_base = animated_sprite.position
 		animated_sprite.sprite_frames = Readability.padded(animated_sprite.sprite_frames)
 		sprite_frames_sano = animated_sprite.sprite_frames
+		_ajustar_tamano_visual()
 		_preparar_material_borde()
 	add_to_group("bots")
 	velocidad_base = speed
@@ -151,7 +194,7 @@ func _ready() -> void:
 		timer_direccion.wait_time = randf_range(1.5, 3.0)
 		timer_direccion.start()
 	timer_contagio = Timer.new()
-	timer_contagio.wait_time = 0.5
+	timer_contagio.wait_time = INTERVALO_CONTAGIO
 	timer_contagio.timeout.connect(_intentar_contagio_area)
 	add_child(timer_contagio)
 	timer_curacion = Timer.new()
@@ -161,6 +204,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_instance_valid(camaleon): camaleon.actualizar(delta)
+	espera_contacto_garfio = maxf(0.0, espera_contacto_garfio - delta)
+	if espera_contacto_garfio <= 0.0: ultimo_contacto_garfio = null
+	incubacion_contagio = maxf(0.0, incubacion_contagio - delta)
+	if feedback_restante > 0.0:
+		feedback_restante = maxf(0.0, feedback_restante - delta)
+		queue_redraw()
+	if pulso_restante > 0.0:
+		pulso_restante = maxf(0.0, pulso_restante - delta)
+		queue_redraw()
 	if proteccion_coloso > 0.0:
 		var mundo: Node = get_tree().current_scene
 		if is_instance_valid(mundo) and mundo.has_method("simbionte_en_juego") and mundo.simbionte_en_juego():
@@ -168,6 +221,7 @@ func _physics_process(delta: float) -> void:
 			queue_redraw()
 	_passage_egress_left = maxf(0.0, _passage_egress_left - delta)
 	proteccion_sano_ofensiva = maxf(0.0, proteccion_sano_ofensiva - delta)
+	if is_instance_valid(rastreador): rastreador.actualizar(delta)
 	tiempo_escudo = maxf(0.0, tiempo_escudo - delta)
 	_actualizar_curacion_ofensiva(delta)
 	blindaje_restante = maxf(0.0, blindaje_restante - delta)
@@ -184,18 +238,37 @@ func _physics_process(delta: float) -> void:
 		tiempo_sin_infectar += delta
 		en_rabia = tiene_mutacion("rabia") and tiempo_sin_infectar >= 8.0
 		_actualizar_mutaciones_tiempo(delta)
+	if is_instance_valid(garfio):
+		garfio.actualizar(delta)
+	if is_instance_valid(captor_garfio) and captor_garfio.arrastrar_objetivo(self, delta):
+		actualizar_animacion(direccion_movimiento_real)
+		return
+	if is_instance_valid(garfio) and garfio.bloquea_movimiento():
+		velocity = Vector2.ZERO
+		direccion_movimiento_real = Vector2.ZERO
+		actualizar_animacion(Vector2.ZERO)
+		return
 
 	if not controlado_por_jugador and _passage_egress_left <= 0.0:
 		if tiempo_evasion <= 0.0 and area_vision:
 			if is_infected:
-				var presa: Node2D = obtener_humano_cercano()
-				if presa == null and tiene_mutacion("mente_colmena"):
-					presa = _objetivo_compartido()
-				if presa:
+				var presa: Node2D = null
+				var posicion_presa := Vector2.INF
+				posicion_presa = posicion_manada()
+				if posicion_presa.is_finite():
+					pass # La coordinación entrega puntos observados, nunca el cuerpo oculto.
+				elif is_instance_valid(rastreador):
+					posicion_presa = rastreador.posicion_persecucion()
+				else:
+					presa = obtener_humano_cercano()
+					if presa == null and tiene_mutacion("mente_colmena"):
+						presa = _objetivo_compartido()
+					if presa != null: posicion_presa = presa.global_position
+				if posicion_presa.is_finite():
 					if tiempo_persiguiendo <= 0.0:
 						# AudioManager lo limita globalmente para evitar 100 alertas a la vez.
 						AudioManager.efecto("alerta_persecucion", -23.0, false)
-					perseguir_a(presa.global_position)
+					perseguir_a(posicion_presa)
 					tiempo_persiguiendo += delta
 				else:
 					tiempo_persiguiendo = 0.0
@@ -216,12 +289,16 @@ func _physics_process(delta: float) -> void:
 			direccion_movimiento_real = _direccion_con_distorsion(direccion_movimiento_real)
 	direccion_movimiento_real = _map_direction(delta, direccion_movimiento_real)
 	velocity = direccion_movimiento_real * speed * multiplicador_velocidad_temp * mult
+	var vulnerabilidad := get_node_or_null("PresaVulnerable")
+	if not is_infected and is_instance_valid(vulnerabilidad):
+		velocity *= vulnerabilidad.factor_movimiento()
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		reaccionar_a_obstaculo()
 	else:
 		tiempo_contacto_obstaculo = 0.0
-	actualizar_animacion(direccion_movimiento_real)
+	# Animated strains walk only with actual movement, including wall sliding.
+	actualizar_animacion(get_real_velocity() if is_infected and cepa in ["camaleon", "rastreador"] else direccion_movimiento_real)
 
 
 # La distorsión modifica la dirección temporal, sin sobreescribir move_direction.
@@ -318,9 +395,48 @@ func _on_timer_timeout() -> void:
 
 func obtener_amenaza_cercana() -> Node2D:
 	for nodo in area_vision.get_overlapping_bodies():
-		if nodo != self and nodo.is_in_group("bots") and nodo.is_infected:
+		if nodo != self and nodo.is_in_group("bots") and nodo.is_infected and percibe_infectado(nodo, rango_vision_local()):
 			return nodo
 	return null
+
+
+func rango_vision_local() -> float:
+	var colision := area_vision.get_node_or_null("CollisionShape2D") as CollisionShape2D
+	if colision != null and colision.shape is CircleShape2D:
+		return colision.shape.radius * colision.global_transform.x.length()
+	return 53.0
+
+
+func percibe_infectado(candidato: Node2D, rango_normal: float) -> bool:
+	# Both AreaVision and the route planner retain their own normal broad phase.
+	if not is_instance_valid(candidato) or candidato.is_queued_for_deletion(): return false
+	if is_infected or candidato.cepa != "camaleon" or not is_instance_valid(candidato.camaleon): return true
+	var sigilo: Node2D = candidato.camaleon
+	var distancia := global_position.distance_to(candidato.global_position)
+	if distancia <= sigilo.parametros.distancia_revelacion:
+		sigilo.revelar("proximidad")
+		return true
+	if sigilo.camuflado:
+		return distancia <= maxf(sigilo.parametros.distancia_revelacion, rango_normal * sigilo.factor_deteccion())
+	return true
+
+
+func amenaza_camaleon_inmediata() -> Node2D:
+	if is_infected or area_vision == null: return null
+	for otro in area_vision.get_overlapping_bodies():
+		if otro == self or not otro.is_in_group("bots") or not otro.is_infected or otro.cepa != "camaleon" or not is_instance_valid(otro.camaleon): continue
+		if global_position.distance_to(otro.global_position) <= otro.camaleon.parametros.distancia_revelacion:
+			otro.revelar_camaleon("proximidad")
+			return otro
+	return null
+
+
+func revelar_camaleon(motivo: String = "acción") -> void:
+	if is_instance_valid(camaleon): camaleon.revelar(motivo)
+
+
+func cancelar_camaleon() -> void:
+	if is_instance_valid(camaleon): camaleon.cancelar()
 
 
 func obtener_humano_cercano() -> Node2D:
@@ -372,21 +488,26 @@ func perseguir_a(posicion_objetivo: Vector2) -> void:
 
 
 func infectar(color_jugador: Color, id_jugador: int) -> void:
-	if is_infected or proteccion_sano_ofensiva > 0.0 or proteccion_coloso > 0.0 or id_jugador < 1 or id_jugador > 2:
+	if is_infected or proteccion_sano_ofensiva > 0.0 or proteccion_coloso > 0.0 or not Equipos.valido(id_jugador):
 		return
 	activar_infeccion(color_jugador, id_jugador)
 
 
 func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool = true) -> void:
-	if is_infected or proteccion_coloso > 0.0:
+	if is_infected or proteccion_coloso > 0.0 or not Equipos.valido(id_jugador):
 		return
-	var recompensar := otorgar_adn and not reinfeccion_coloso_sin_recompensa
+	InstintoRastreador.invalidar_bot(self)
+	_limpiar_presa_vulnerable()
+	cancelar_garfio()
+	var recompensar := otorgar_adn and id_jugador in [Equipos.CIAN, Equipos.MAGENTA] and not reinfeccion_coloso_sin_recompensa
 	reinfeccion_coloso_sin_recompensa = false
 	is_infected = true
 	proteccion_sano_ofensiva = 0.0
 	tiempo_intento_ofensivo = 0.0
-	color_infeccion = color_jugador
+	# All entry points (including older scenes) use the same blue/magenta palette.
+	color_infeccion = Equipos.COLOR_AZUL if id_jugador == Equipos.AZUL else (Equipos.COLOR_MAGENTA if id_jugador == Equipos.MAGENTA else color_jugador)
 	player_duenio = id_jugador
+	incubacion_contagio = INCUBACION_CONTAGIO
 	tiempo_escudo = 3.0
 	tiempo_persiguiendo = 0.0
 	tiempo_sin_infectar = 0.0
@@ -401,7 +522,8 @@ func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool 
 	tiempo_sobrecarga = 0.0
 	pulsos_pendientes = 0
 	modulate = Color.WHITE
-	_aplicar_borde_infeccion(color_jugador)
+	_aplicar_borde_infeccion(color_infeccion)
+	_feedback_estado(color_infeccion, false)
 
 	var mapa: Node = get_tree().current_scene
 	if mapa and mapa.has_method("aplicar_mutaciones_a_bot"):
@@ -418,8 +540,32 @@ func activar_infeccion(color_jugador: Color, id_jugador: int, otorgar_adn: bool 
 		AudioManager.efecto("contagio", -26.0)
 
 
-func aplicar_simbionte(mundo: Node, equipo: int) -> bool:
+func infectar_para_recuperar_posesion(id_jugador: int) -> bool:
+	if is_queued_for_deletion() or id_jugador not in [Equipos.CIAN, Equipos.MAGENTA]:
+		return false
+	if is_infected and player_duenio != 3 - id_jugador:
+		return false
+	# Soltar al dueño anterior antes de entregar el control al nuevo jugador.
+	for pato in get_tree().get_nodes_in_group("patos"):
+		if pato.bot_poseido == self:
+			pato.finalizar_posesion()
+	if controlado_por_jugador:
+		desactivar_control_jugador()
+	if is_infected:
+		# Quita simbionte y mutaciones rivales sin disparar Último aliento.
+		curar(false, id_jugador)
+	# Esta recuperación garantiza un huésped incluso tras una curación protegida.
+	# Los contagios normales siguen respetando ambas inmunidades.
+	proteccion_sano_ofensiva = 0.0
+	proteccion_coloso = 0.0
+	activar_infeccion(Equipos.color_equipo(id_jugador), id_jugador, false)
+	return is_infected and player_duenio == id_jugador
+
+
+func aplicar_simbionte(mundo: Node, equipo: int, tiempo_restante: float = 20.0) -> bool:
 	if not is_infected or player_duenio != equipo or is_queued_for_deletion() or is_instance_valid(efecto_simbionte):
+		return false
+	if tiempo_restante <= 0.0:
 		return false
 	if not is_instance_valid(mundo) or not mundo.is_ancestor_of(self) or not mundo.simbionte_en_juego():
 		return false
@@ -428,6 +574,7 @@ func aplicar_simbionte(mundo: Node, equipo: int) -> bool:
 	efecto.anfitrion = self
 	efecto.mundo = mundo
 	efecto.equipo = equipo
+	efecto.restante = minf(20.0, tiempo_restante)
 	efecto.factor_velocidad = mundo.velocidad_fusion
 	efecto.factor_curacion = mundo.curacion_fusion
 	efecto.radio_aura = mundo.radio_aura_simbionte
@@ -435,13 +582,14 @@ func aplicar_simbionte(mundo: Node, equipo: int) -> bool:
 	efecto.intervalo_aura = mundo.intervalo_aura_simbionte
 	efecto.hasta_pulso = efecto.intervalo_aura
 	efecto_simbionte = efecto
+	revelar_camaleon("aura del Simbionte")
 	add_child(efecto)
 	return true
 
 
-func quitar_simbionte() -> void:
+func quitar_simbionte(por_robot: bool = false) -> void:
 	if is_instance_valid(efecto_simbionte):
-		efecto_simbionte.terminar()
+		efecto_simbionte.terminar(por_robot)
 	efecto_simbionte = null
 
 
@@ -451,13 +599,13 @@ func multiplicador_curacion_simbionte() -> float:
 	return 1.0
 
 
-func curar_por_robot(chance_base: float = 1.0, azar: RandomNumberGenerator = null) -> bool:
+func curar_por_robot(chance_base: float = 1.0, azar: RandomNumberGenerator = null, equipo_curador: int = 0, origen: Node2D = null) -> bool:
 	# One roll shared by robot and aura. Existing shields still do not stop robots.
 	if not is_infected:
 		return false
 	var tirada := azar.randf() if azar != null else randf()
 	if tirada < clampf(chance_base * multiplicador_curacion_simbionte(), 0.0, 1.0):
-		curar(false)
+		curar(false, equipo_curador, is_instance_valid(origen) and origen.is_in_group("robots_curadores"))
 		return true
 	return false
 
@@ -474,15 +622,56 @@ func curar_por_coloso(chance_base: float, proteccion: float, azar: RandomNumberG
 func _draw() -> void:
 	if proteccion_coloso > 0.0 and not is_infected:
 		draw_arc(Vector2.ZERO, 22.0, 0.0, TAU, 32, Color("b6ef75"), 2.0, true)
+	if feedback_restante > 0.0:
+		var progreso := 0.4 if VisualPreferences.reduced_motion(self) else 1.0 - feedback_restante / 0.9
+		var color := Color(feedback_color, minf(1.0, feedback_restante / 0.25) * 0.9)
+		var radio := 18.0 + progreso * 9.0
+		draw_arc(Vector2.ZERO, radio, 0.0, TAU, 32, color, 2.0, true)
+		if feedback_curacion:
+			draw_line(Vector2(-5, -24), Vector2(5, -24), color, 3.0, true)
+			draw_line(Vector2(0, -29), Vector2(0, -19), color, 3.0, true)
+	if pulso_restante > 0.0:
+		var progreso := 1.0 if VisualPreferences.reduced_motion(self) else 1.0 - pulso_restante / 0.75
+		var centro := to_local(pulso_centro)
+		draw_arc(centro, pulso_radio, 0.0, TAU, 48, Color(pulso_color, pulso_restante * 0.4), 1.5, true)
+		draw_arc(centro, maxf(1.0, pulso_radio * progreso), 0.0, TAU, 48, Color(pulso_color, pulso_restante * 0.9), 2.5, true)
 
 
-func curar(activar_ultimo_aliento: bool = true) -> void:
+func _feedback_estado(color: Color, es_curacion: bool) -> void:
+	feedback_color = color
+	feedback_curacion = es_curacion
+	feedback_restante = 0.9
+	queue_redraw()
+
+
+func curar(activar_ultimo_aliento: bool = true, equipo_curador: int = 0, por_robot: bool = false) -> void:
 	if not is_infected:
 		return
-	quitar_simbionte()
+	InstintoRastreador.invalidar_bot(self)
+	_limpiar_presa_vulnerable()
+	cancelar_rastreador()
+	if is_instance_valid(rastreador):
+		rastreador.queue_free()
+		rastreador = null
+	if is_instance_valid(camaleon):
+		camaleon.cancelar()
+		camaleon.queue_free()
+		camaleon = null
+	cancelar_garfio()
+	ultimo_contacto_garfio = null
+	espera_contacto_garfio = 0.0
+	if is_instance_valid(garfio):
+		garfio.queue_free()
+		garfio = null
+	var mapa: Node = get_tree().current_scene
+	if mapa and mapa.has_method("registrar_biomasa"):
+		mapa.registrar_biomasa(self, equipo_curador)
+	quitar_simbionte(por_robot)
 	if activar_ultimo_aliento and tiene_mutacion("ultimo_aliento"):
 		_liberar_ultimo_aliento()
 	is_infected = false
+	incubacion_contagio = 0.0
+	_feedback_estado(Color("b6ef75"), true)
 	color_infeccion = Color.WHITE
 	player_duenio = 0
 	cepa = ""
@@ -527,28 +716,82 @@ func _chance_contagio() -> float:
 
 
 func _intentar_contagio_area() -> void:
-	if not is_infected or area_infeccion == null:
+	if not is_infected or area_infeccion == null or incubacion_contagio > 0.0:
 		return
+	if is_instance_valid(camaleon) and not camaleon._partida_activa(): return
+	if is_instance_valid(garfio) and not garfio._partida_activa(): return
 	var chance: float = _chance_contagio()
-	for objetivo in area_infeccion.get_overlapping_bodies():
+	# A crowd no longer changes color in a single tick. Area keeps its group advantage.
+	var restantes := 2 if cepa == "area" else 1
+	var objetivos := area_infeccion.get_overlapping_bodies()
+	objetivos.shuffle()
+	for objetivo in objetivos:
 		if not objetivo.is_in_group("bots") or objetivo == self or objetivo.is_infected:
 			continue
-		if randf() < chance:
+		if cepa == "garfio":
+			# Los dos tendones y las llegadas pendientes comparten la misma cadencia.
+			if is_instance_valid(garfio) and (garfio.reserva_objetivo(objetivo) or not garfio.puede_intentar_contagio(objetivo)): continue
+			if espera_contacto_garfio > 0.0 and ultimo_contacto_garfio != null and ultimo_contacto_garfio.get_ref() == objetivo: continue
+		# Sólo el primer objetivo desde camuflaje recibe Ataque sorpresa.
+		# El cálculo no añade tiradas ni cambia la probabilidad de otras cepas.
+		var chance_intento: float = camaleon.preparar_intento(chance) if is_instance_valid(camaleon) else chance
+		if is_instance_valid(garfio): chance_intento = garfio.preparar_intento(objetivo, chance_intento)
+		if randf() < chance_intento:
 			_contagiar_objetivo(objetivo)
+		var exito: bool = objetivo.is_infected and objetivo.player_duenio == player_duenio
+		if is_instance_valid(garfio): garfio.registrar_intento(objetivo, exito)
+		if exito:
+			restantes -= 1
+			if restantes == 0:
+				break
 	# Esporas pueden alcanzar humanos fuera del área de contacto normal.
 	if tiene_mutacion("esporas"):
 		_contagio_esporas()
 
 
+func intentar_contagio_garfio(objetivo: Node2D, _bono: float = 0.0) -> bool:
+	if not is_infected or cepa != "garfio" or incubacion_contagio > 0.0:
+		return false
+	if not is_instance_valid(garfio) or not garfio._partida_activa():
+		return false
+	if not is_instance_valid(objetivo) or objetivo.is_queued_for_deletion() or objetivo.is_infected:
+		return false
+	if objetivo.controlado_por_jugador or not objetivo.is_inside_tree(): return false
+	if objetivo.map_host != map_host or objetivo.proteccion_coloso > 0.0 or objetivo.proteccion_sano_ofensiva > 0.0:
+		return false
+	if espera_contacto_garfio > 0.0 and ultimo_contacto_garfio != null and ultimo_contacto_garfio.get_ref() == objetivo:
+		return false
+	if global_position.distance_to(objetivo.global_position) > configuracion_garfio.distancia_contacto + 0.2:
+		return false
+	if not garfio._linea_libre(global_position, objetivo.global_position, objetivo): return false
+	if not garfio.puede_intentar_contagio(objetivo): return false
+	# Reutiliza la probabilidad, temperatura, infectar() y recompensa existentes.
+	ultimo_contacto_garfio = weakref(objetivo)
+	espera_contacto_garfio = INTERVALO_CONTAGIO
+	var chance: float = garfio.preparar_intento(objetivo, _chance_contagio())
+	if randf() < chance: _contagiar_objetivo(objetivo)
+	var exito: bool = objetivo.is_infected and objetivo.player_duenio == player_duenio
+	garfio.registrar_intento(objetivo, exito)
+	return exito
+
+
 func _contagiar_objetivo(objetivo: Node2D) -> void:
 	if not is_instance_valid(objetivo) or objetivo.is_infected:
 		return
+	if is_instance_valid(camaleon) and not camaleon._partida_activa(): return
+	revelar_camaleon("contagio")
+	var contagio_recompensable: bool = not objetivo.reinfeccion_coloso_sin_recompensa
 	objetivo.infectar(color_infeccion, player_duenio)
 	# Un sano protegido no cuenta como contagio exitoso ni genera bonificaciones.
 	if not objetivo.is_infected or objetivo.player_duenio != player_duenio:
 		return
+	if is_instance_valid(camaleon): camaleon.registrar_contagio_exitoso()
 	tiempo_sin_infectar = 0.0
 	en_rabia = false
+	if tiene_mutacion("reciclaje") and contagio_recompensable:
+		var mapa: Node = get_tree().current_scene
+		if mapa and mapa.has_method("intentar_reciclaje"):
+			mapa.intentar_reciclaje(self, objetivo)
 	# Regeneración recupera una breve protección al conseguir contagiar.
 	if tiene_mutacion("regeneracion"):
 		blindaje_restante = maxf(blindaje_restante, 2.0)
@@ -580,6 +823,12 @@ func _contagio_esporas() -> void:
 
 
 func _contagio_radial(posicion: Vector2, radio: float, probabilidad: float) -> void:
+	# Mutation bursts keep their strength, with a readable source and range.
+	pulso_centro = posicion
+	pulso_radio = radio
+	pulso_color = color_infeccion
+	pulso_restante = 0.75
+	queue_redraw()
 	for objetivo in get_tree().get_nodes_in_group("bots"):
 		if objetivo == self or not is_instance_valid(objetivo) or objetivo.is_infected:
 			continue
@@ -605,15 +854,6 @@ func _liberar_pulso() -> void:
 		radio = 105.0
 		chance = 0.22
 	_contagio_radial(global_position, radio, chance)
-	# Indicador visible breve para poder distinguir los pulsos.
-	var onda := Polygon2D.new()
-	onda.polygon = crear_poligono_circular(radio)
-	onda.color = Color(color_infeccion.r, color_infeccion.g, color_infeccion.b, 0.18)
-	onda.z_index = 3
-	add_child(onda)
-	var animacion: Tween = create_tween()
-	animacion.tween_property(onda, "modulate:a", 0.0, 0.45)
-	animacion.tween_callback(onda.queue_free)
 
 
 func _intentar_curacion() -> void:
@@ -664,11 +904,12 @@ func _actualizar_curacion_ofensiva(delta: float) -> void:
 			enemigos.append(cuerpo)
 	if not enemigos.is_empty():
 		var objetivo: Node2D = enemigos.pick_random()
-		objetivo.recibir_curacion_ofensiva(mapa.chance_curacion_ofensiva, mapa.proteccion_sano_tras_curacion_ofensiva)
+		revelar_camaleon("curación ofensiva")
+		objetivo.recibir_curacion_ofensiva(mapa.chance_curacion_ofensiva, mapa.proteccion_sano_tras_curacion_ofensiva, player_duenio)
 
 
 # Se respetan escudo, blindaje y mutaciones defensivas del objetivo.
-func recibir_curacion_ofensiva(chance_base: float, tiempo_proteccion: float) -> bool:
+func recibir_curacion_ofensiva(chance_base: float, tiempo_proteccion: float, equipo_curador: int = 0) -> bool:
 	if not is_infected or tiempo_escudo > 0.0 or blindaje_restante > 0.0:
 		return false
 	var chance: float = chance_base * multiplicador_curacion_simbionte()
@@ -683,7 +924,7 @@ func recibir_curacion_ofensiva(chance_base: float, tiempo_proteccion: float) -> 
 		cooldown_inmortal = 15.0
 		AudioManager.efecto("escudo_activado", -15.0, false)
 		return false
-	curar()
+	curar(true, equipo_curador)
 	proteccion_sano_ofensiva = maxf(0.0, tiempo_proteccion)
 	return true
 
@@ -738,6 +979,8 @@ func aplicar_mutaciones(nuevas_mutaciones: Array[String], nueva_cepa: String = "
 	# Los humanos sanos no tienen cepa; sus stats se restauran al curarse.
 	if not is_infected:
 		return
+	if configuracion_garfio == null:
+		configuracion_garfio = preload("res://resources/garfio_config.tres")
 	cepa = nueva_cepa
 	mutaciones = nuevas_mutaciones.duplicate()
 	speed = velocidad_base
@@ -755,12 +998,82 @@ func aplicar_mutaciones(nuevas_mutaciones: Array[String], nueva_cepa: String = "
 		"exponencial":
 			probabilidad_contagio = CONTAGIO_EXPONENCIAL_INICIAL
 			probabilidad_curacion *= 1.20  # se cura MÁS rápido
+		"garfio":
+			speed *= configuracion_garfio.multiplicador_velocidad
+			probabilidad_contagio = configuracion_garfio.probabilidad_contagio
+		"camaleon":
+			if configuracion_camaleon == null: configuracion_camaleon = preload("res://resources/camaleon_config.tres")
+			speed *= configuracion_camaleon.multiplicador_velocidad
+		"rastreador":
+			if configuracion_rastreador == null: configuracion_rastreador = preload("res://resources/rastreador_config.tres")
+			speed *= configuracion_rastreador.multiplicador_velocidad
+	if cepa == "rastreador":
+		if not is_instance_valid(rastreador):
+			rastreador = InstintoRastreador.new()
+			rastreador.name = "Rastreador"
+			rastreador.anfitrion = self
+			rastreador.parametros = configuracion_rastreador
+			add_child(rastreador)
+		else:
+			rastreador.parametros = configuracion_rastreador
+	elif is_instance_valid(rastreador):
+		rastreador.cancelar()
+		rastreador.queue_free()
+		rastreador = null
+	if cepa == "camaleon":
+		if not is_instance_valid(camaleon):
+			camaleon = CamuflajeCamaleon.new()
+			camaleon.name = "Camaleon"
+			camaleon.anfitrion = self
+			camaleon.parametros = configuracion_camaleon
+			add_child(camaleon)
+		else:
+			camaleon.parametros = configuracion_camaleon
+			camaleon.recarga_restante = minf(camaleon.recarga_restante, camaleon.recarga())
+	elif is_instance_valid(camaleon):
+		camaleon.cancelar()
+		camaleon.queue_free()
+		camaleon = null
+	if cepa == "garfio":
+		if not is_instance_valid(garfio):
+			garfio = CapturaGarfio.new()
+			garfio.name = "Garfio"
+			garfio.anfitrion = self
+			garfio.parametros = configuracion_garfio
+			add_child(garfio)
+	elif is_instance_valid(garfio):
+		garfio.cancelar()
+		garfio.queue_free()
+		garfio = null
 	# La temperatura sigue aplicándose por separado en tiempo real.
 	probabilidad_contagio = clampf(probabilidad_contagio, 0.0, 1.0)
 
 
 func tiene_mutacion(nombre: String) -> bool:
 	return nombre in mutaciones
+
+
+func cancelar_rastreador() -> void:
+	if is_instance_valid(rastreador): rastreador.cancelar()
+
+
+func cancelar_garfio() -> void:
+	if is_instance_valid(captor_garfio): captor_garfio.cancelar_objetivo(self)
+	captor_garfio = null
+	if is_instance_valid(garfio): garfio.cancelar()
+
+
+func _limpiar_presa_vulnerable() -> void:
+	var referencia: Variant = get_meta("garfio_captura") if has_meta("garfio_captura") else null
+	if referencia is WeakRef:
+		var captura: Node2D = referencia.get_ref()
+		if is_instance_valid(captura): captura.cancelar_objetivo(self)
+	var efecto := get_node_or_null("PresaVulnerable")
+	if is_instance_valid(efecto): efecto.cancelar()
+
+
+func posicion_manada() -> Vector2:
+	return InstintoRastreador.posicion_manada(self)
 
 
 func reaccionar_a_obstaculo() -> void:
@@ -869,7 +1182,7 @@ func reaccionar_a_obstaculo() -> void:
 
 
 # ============================================================
-# CONTORNO DE INFECCION (cian/magenta sin teñir el personaje)
+# CONTORNO DE INFECCION (azul/magenta sin teñir el personaje)
 # ============================================================
 
 func _preparar_material_borde() -> void:
@@ -906,9 +1219,27 @@ func _quitar_borde_infeccion() -> void:
 func actualizar_sprite_segun_infeccion() -> void:
 	if not animated_sprite:
 		return
+	# El Alfa usa texturas oscuras propias; no atenuar su borde de equipo.
+	animated_sprite.self_modulate = Color.WHITE
+	if is_instance_valid(material_borde_infeccion):
+		var shader_actual: Shader = load("res://shaders/camaleon.gdshader" if is_infected and cepa == "camaleon" else "res://shaders/npc_outline.gdshader")
+		if material_borde_infeccion.shader != shader_actual:
+			material_borde_infeccion.shader = shader_actual
+		material_borde_infeccion.set_shader_parameter("borde_activo", is_infected)
+		material_borde_infeccion.set_shader_parameter("color_borde", color_infeccion)
 	if not is_infected:
 		if sprite_frames_sano:
 			_cambiar_sprite_frames(sprite_frames_sano)
+		return
+	if cepa == "rastreador":
+		_cambiar_sprite_frames(ArteRastreador.frames())
+		return
+	if cepa == "garfio":
+		_cambiar_sprite_frames(load("res://resources/animations/garfio.tres"))
+		return
+	if cepa == "camaleon":
+		_cambiar_sprite_frames(ArteCamaleon.frames())
+		if is_instance_valid(camaleon): camaleon.animar(Vector2.ZERO)
 		return
 
 	var arriba: Texture2D
@@ -916,6 +1247,11 @@ func actualizar_sprite_segun_infeccion() -> void:
 	var izquierda: Texture2D
 	var derecha: Texture2D
 	match cepa:
+		"alfa":
+			arriba = preload("res://assets/alfa/infectado_arriba.png")
+			abajo = preload("res://assets/alfa/infectado_abajo.png")
+			izquierda = preload("res://assets/alfa/infectado_izquierda.png")
+			derecha = preload("res://assets/alfa/infectado_derecha.png")
 		"atletico":
 			arriba = atletico_arriba
 			abajo = atletico_abajo
@@ -938,6 +1274,10 @@ func actualizar_sprite_segun_infeccion() -> void:
 		push_warning("Faltan PNG para la cepa: " + cepa + ". Revisar Bot.tscn")
 		return
 
+	var clave := "%d:%d:%d:%d:%s" % [arriba.get_instance_id(), abajo.get_instance_id(), izquierda.get_instance_id(), derecha.get_instance_id(), fps_infectados]
+	if frames_infectados_cache.has(clave):
+		_cambiar_sprite_frames(frames_infectados_cache[clave])
+		return
 	var frames: SpriteFrames = SpriteFrames.new()
 	# SpriteFrames.new() trae una animación default que no necesitamos.
 	if frames.has_animation("default"):
@@ -965,6 +1305,7 @@ func actualizar_sprite_segun_infeccion() -> void:
 				cuadro.atlas = textura
 				cuadro.region = Rect2(columna * TAMANO_FOTOGRAMA_INFECTADO, fila * TAMANO_FOTOGRAMA_INFECTADO, TAMANO_FOTOGRAMA_INFECTADO, TAMANO_FOTOGRAMA_INFECTADO)
 				frames.add_frame(nombre, cuadro)
+	frames_infectados_cache[clave] = frames
 	_cambiar_sprite_frames(frames)
 
 
@@ -972,14 +1313,27 @@ func _cambiar_sprite_frames(nuevos: SpriteFrames) -> void:
 	var animacion_anterior: StringName = animated_sprite.animation
 	var estaba_reproduciendo: bool = animated_sprite.is_playing()
 	animated_sprite.sprite_frames = Readability.padded(nuevos)
+	_ajustar_tamano_visual()
 	if nuevos.has_animation(animacion_anterior):
 		animated_sprite.animation = animacion_anterior
 	elif nuevos.has_animation("Abajo"):
 		animated_sprite.animation = "Abajo"
+	elif nuevos.has_animation("idle_abajo"):
+		animated_sprite.animation = "idle_abajo"
 	if estaba_reproduciendo:
 		animated_sprite.play()
 	else:
 		animated_sprite.stop()
+
+
+func _ajustar_tamano_visual() -> void:
+	var metrics := Readability.body_metrics(animated_sprite.sprite_frames)
+	var factor := ESCALA_VISUAL
+	if is_infected and cepa in ["atletico", "area", "exponencial", "garfio", "camaleon", "rastreador"] and metrics.x > 0.0:
+		factor *= ALTURA_CUERPO_INFECTADO / metrics.x
+	animated_sprite.scale = escala_sprite_base * factor
+	# Keep the feet on the same ground line while enlarging only the artwork.
+	animated_sprite.position = posicion_sprite_base + Vector2(0, (15.0 - metrics.y * factor) * escala_sprite_base.y)
 
 
 # ============================================================
@@ -991,6 +1345,15 @@ func actualizar_animacion(
 ) -> void:
 
 	if not animated_sprite:
+		return
+	if is_infected and cepa == "rastreador" and is_instance_valid(rastreador):
+		ArteRastreador.animar(animated_sprite, direccion, rastreador.en_pose_deteccion())
+		return
+	if is_infected and cepa == "camaleon" and is_instance_valid(camaleon):
+		camaleon.animar(direccion)
+		return
+	if is_infected and cepa == "garfio" and is_instance_valid(garfio):
+		garfio.animar(direccion)
 		return
 
 
@@ -1048,6 +1411,11 @@ func _on_area_infeccion_body_entered(
 func activar_control_jugador(
 	id_jugador: int
 ) -> void:
+	if id_jugador not in [Equipos.CIAN, Equipos.MAGENTA] or not is_infected or player_duenio != id_jugador:
+		return
+	if is_instance_valid(garfio) and garfio.bloquea_movimiento():
+		garfio.cancelar()
+	InstintoRastreador.liberar_miembro(self)
 
 	controlado_por_jugador = true
 	jugador_controlador = id_jugador
@@ -1182,15 +1550,10 @@ func mostrar_indicador_posesion(
 	if not indicador_area_infeccion or not indicador_aura_posesion:
 		return
 
-	var color_jugador := Color.CYAN
+	var color_jugador := Equipos.COLOR_AZUL
 
 	if id_jugador == 2:
-		color_jugador = Color(
-			1.0,
-			0.0,
-			1.0,
-			1.0
-		)
+		color_jugador = Equipos.COLOR_MAGENTA
 
 	# Área real de infección: más visible.
 	indicador_area_infeccion.color = Color(
@@ -1266,6 +1629,7 @@ func ocultar_indicador_posesion() -> void:
 		indicador_aura_posesion.scale = Vector2.ONE
 
 func on_map_passage(direction: Vector2) -> void:
+	cancelar_garfio()
 	if direction.is_zero_approx():
 		return
 	_passage_egress_direction = direction.normalized()
@@ -1280,6 +1644,12 @@ func on_map_passage(direction: Vector2) -> void:
 
 
 func _map_direction(delta: float, fallback: Vector2) -> Vector2:
+	if is_instance_valid(map_host) and not map_host.has_signal("map_ready") and posicion_manada().is_finite():
+		return InstintoRastreador.direccion_manada(self, fallback)
+	if is_instance_valid(rastreador) and is_instance_valid(map_host) and not map_host.has_signal("map_ready"):
+		var direction: Vector2 = rastreador.direccion_local(fallback)
+		map_route = rastreador.ruta_local
+		return direction
 	if not is_instance_valid(map_host) or not map_host.has_signal("map_ready") or not map_host.map_is_ready:
 		return fallback
 	var direction := npc_brain.direction(self, map_host, delta, fallback)

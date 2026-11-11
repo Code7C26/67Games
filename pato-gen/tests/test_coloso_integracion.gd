@@ -59,13 +59,13 @@ func run() -> void:
 	for bot in get_nodes_in_group("bots"):
 		if not bot.is_infected:
 			healed = bot
-	check(healed != null and healed.proteccion_coloso == 3.0, "real radial pulse applies protection to its actual recipient")
+	check(healed != null and healed.proteccion_coloso == evento.proteccion_sano, "real radial pulse applies configured protection to its actual recipient")
 	host.timer_juego.paused = true
 	healed._physics_process(1.0)
-	check(healed.proteccion_coloso == 3.0, "tutorial hold freezes new protection even when bot physics is called")
+	check(healed.proteccion_coloso == evento.proteccion_sano, "tutorial hold freezes new protection even when bot physics is called")
 	host.timer_juego.paused = false
 	healed._physics_process(1.0)
-	check(healed.proteccion_coloso == 2.0, "protection counts gameplay seconds normally")
+	check(healed.proteccion_coloso == evento.proteccion_sano - 1.0, "protection counts gameplay seconds normally")
 	evento.avanzar(1.0, host.contar_infecciones())
 	check(evento.coloso == null and actor.curaciones == 2, "second successful pulse exhausts configured budget and retires")
 	var counted: Dictionary = host.contar_infecciones()

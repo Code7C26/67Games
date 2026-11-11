@@ -64,6 +64,7 @@
 [ext_resource type="PackedScene" path="res://scenes/props/water_fountain_relleno.tscn" id="ambient_refill"]
 [ext_resource type="Script" uid="uid://be7v7jbf5t28p" path="res://scripts/match_hud.gd" id="hud_dock"]
 [ext_resource type="PackedScene" path="res://scenes/capullo.tscn" id="capullo_simbionte"]
+[ext_resource type="Script" path="res://scripts/evento_parasito_alfa.gd" id="evento_alfa"]
 [ext_resource type="Script" path="res://scripts/evento_coloso_antiviral.gd" id="evento_coloso"]
 
 [ext_resource type="Script" path="res://scripts/shopping_effects.gd" id="readability"]
@@ -3776,15 +3777,18 @@ script = ExtResource("hud_dock")
 visible = false
 
 [node name="TimerInicio" type="Timer" parent="." unique_id=338176468]
-wait_time = 3.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="TimerJuego" type="Timer" parent="." unique_id=817377821]
-wait_time = 120.0
+wait_time = 150.0
 one_shot = true
 
 [node name="Patos" type="Node" parent="." unique_id=2114011544]
+
+[node name="EventoParasitoAlfa" type="Node2D" parent="."]
+script = ExtResource("evento_alfa")
 
 [node name="EventoColosoAntiviral" type="Node2D" parent="."]
 script = ExtResource("evento_coloso")

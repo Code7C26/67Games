@@ -3419,7 +3419,7 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
-text = "ADN Cian: 0
+text = "ADN Azul: 0
 "
 label_settings = SubResource("LabelSettings_7qbt7")
 
@@ -3453,7 +3453,7 @@ offset_bottom = 446.0
 
 [node name="Label" type="Label" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=790865224]
 layout_mode = 2
-text = "MUTACIONES CIAN"
+text = "MUTACIONES AZUL"
 horizontal_alignment = 1
 
 [node name="BtnFiebre" type="Button" parent="HUD_ADN/PanelCian/VBoxContainer" unique_id=717071468]

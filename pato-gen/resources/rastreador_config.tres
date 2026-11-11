@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/rastreador_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+multiplicador_deteccion = 1.75
+memoria_persecucion = 6.0
+intervalo_reevaluacion = 1.0
+intervalo_observacion = 0.2
+rango_base_navegado = 240.0
+multiplicador_velocidad = 1.0
+radios_manada = PackedFloat32Array(180.0, 200.0, 220.0)
+maximo_aliados = 3
+intervalo_manada = 8.0
+duracion_manada = 8.0
+distancias_cerco = PackedFloat32Array(48.0, 60.0, 72.0)
+duraciones_marca = PackedFloat32Array(8.0, 9.0, 10.0)

@@ -1,6 +1,6 @@
 # Coloso Antiviral — implementación inicial
 
-Implementado el 27/10/2026 para Godot 4.7.1. Es una intervención ambiental neutral, sin vida, daño, recompensas por derrotarlo ni posesión. Su aspecto actual es provisional y está dibujado por código.
+Implementado el 27/10/2026 para Godot 4.7.1. Es una intervención ambiental neutral, sin vida, daño, recompensas por derrotarlo ni posesión. Usa el sprite aprobado de 32 × 32 en `assets/coloso/coloso_antiviral.png`. Desde el 04/11/2026 se muestra a escala 1,75 con filtro nearest, separando cuerpo y piernas mediante regiones de esa misma textura para animar marcha y respiración. La preferencia de movimiento reducido suaviza la marcha y elimina respiración y onda expansiva. Se conservan la colisión de radio 20 y los límites de aparición y curación. El original editable está en `work/coloso-sprite/coloso_32_v01.aseprite`, fuera del proyecto.
 
 ## Reglas actuales
 
@@ -18,14 +18,14 @@ Implementado el 27/10/2026 para Godot 4.7.1. Es una intervención ambiental neut
 
 ## Intervención
 
-- Movimiento autónomo a 65 unidades/s, cuerpo de radio 20. Selecciona concentraciones de infectados en destinos accesibles; no prioriza colores. No bloquea bots ni usa sus pasajes.
-- Radio curativo de 140 unidades. Un intento por segundo, 80% de probabilidad, máximo un objetivo por pulso.
+- Movimiento autónomo a 82 unidades/s, cuerpo de radio 20, con aceleración y frenado. Suaviza esquinas saltando hasta 12 celdas únicamente cuando un barrido de la huella completa confirma el tramo libre. Selecciona concentraciones de infectados en destinos accesibles y conserva el destino anterior como candidato para evitar cambios innecesarios; no prioriza colores. No bloquea bots ni usa sus pasajes.
+- Radio curativo de 170 unidades. Un intento por segundo, 95% de probabilidad, máximo un objetivo por pulso. La carga alrededor de los pies anticipa el intento; cada cura exitosa dibuja un rayo hasta el receptor, un círculo y el texto «SANO» durante 0,9 segundos.
 - Las paredes bloquean la curación del Coloso. El RRobot y el Simbionte conservan su curación radial por distancia, incluso a través de paredes.
 - Se reutiliza `curar_por_robot()` y `curar(false)`: no activa Último aliento; ignora escudos ordinarios y respeta la resistencia del Simbionte. Curar al portador termina su fusión mediante la limpieza existente.
 - Nunca selecciona la última infección de un equipo. Esta protección no cambia las otras fuentes de curación del juego.
-- Un bot tratado queda protegido de reinfección durante 3 segundos, con un aro verde. La siguiente infección efectiva no da ADN ni incrementa contagios acumulados, independientemente del equipo. Esa infección sí cuenta en la población y recibe las mutaciones correspondientes. Después vuelve a las reglas económicas normales.
+- Un bot tratado queda protegido de reinfección durante 6 segundos, con un aro verde. La siguiente infección efectiva no da ADN ni incrementa contagios acumulados, independientemente del equipo. Esa infección sí cuenta en la población y recibe las mutaciones correspondientes. Después vuelve a las reglas económicas normales.
 - No trata dos veces a la misma entidad durante una intervención. No crea ni elimina bots, no devuelve cuotas de réplica y no copia poderes.
-- Termina al cumplirse cualquiera de estas condiciones: **20 segundos**, **12 curaciones exitosas**, **17 o más sanos durante 3 segundos**, ausencia de objetivos elegibles durante 3 segundos, retirada de la entidad o fin de partida. La detección de falta de objetivos se actualiza con la búsqueda de ruta cada 2 segundos.
+- Termina al cumplirse cualquiera de estas condiciones: **20 segundos**, **12 curaciones exitosas**, **17 o más sanos durante 3 segundos**, ausencia de objetivos elegibles durante 3 segundos, retirada de la entidad o fin de partida. La detección de falta de objetivos se actualiza con la búsqueda de ruta cada segundo.
 - La recuperación puede ser parcial: no se extiende el plazo ni se aumenta el presupuesto para alcanzar los 17 sanos.
 - El resultado final sigue dependiendo de los infectados al terminar `TimerJuego`. Reiniciar borra apariciones, efectos, marcas y contadores nuevos.
 
@@ -56,7 +56,11 @@ El lanzador `work/coloso-antiviral/run_checks.ps1`, fuera del proyecto, guarda l
 
 Las pruebas originales de HUD y menú se ejecutan con renderizado. Se mantienen los avisos de recursos/ObjectDB al cierre que ya estaban documentados en `SIMBIONTE.md`; el test del tutorial provoca deliberadamente un error de lectura de su perfil corrupto. No se cambió AudioManager ni se ocultaron esos diagnósticos.
 
-Resultado de esta ejecución: **530 comprobaciones aprobadas**, sin fallos de aserción ni errores de script en las ejecuciones finales: 72 reglas del Coloso, 37 integración, 10 comprobaciones sobre las dos partidas automáticas, 94 Simbionte, 23 posiciones/balance, 52 posesión, 34 sprites, 23 regresiones, 112 HUD, 50 tutorial y 23 menú. Las cuatro capturas finales se guardaron correctamente; se revisaron visualmente la intervención en el mapa y el detalle del Coloso.
+Resultado de la implementación inicial: **530 comprobaciones aprobadas**, sin fallos de aserción ni errores de script en las ejecuciones finales: 72 reglas del Coloso, 37 integración, 10 comprobaciones sobre las dos partidas automáticas, 94 Simbionte, 23 posiciones/balance, 52 posesión, 34 sprites, 23 regresiones, 112 HUD, 50 tutorial y 23 menú. Las cuatro capturas finales se guardaron correctamente; se revisaron visualmente la intervención en el mapa y el detalle del Coloso.
+
+Integración del sprite, 29/10/2026: se repitieron las 72 comprobaciones de reglas y las 37 de integración (**109 aprobadas, 0 fallos**) y se regeneraron las cuatro capturas. Se revisaron la intervención dentro de Shopping y el detalle renderizado con la nueva textura. Persisten los avisos de recursos/ObjectDB al salir. No se repitió el resto de la batería inicial para este cambio visual.
+
+Mejora de lectura, 04/11/2026: **137 comprobaciones aprobadas, 0 fallos**: 72 reglas, 37 integración, 16 lectura y 12 sobre dos partidas automáticas. `test_coloso_lectura.gd` verifica alcance a 160 unidades, protección y su vencimiento, receptor del efecto visual, articulación, pausa y movimiento reducido. `capture_coloso_lectura.gd` guarda dos pasos de marcha y una curación en `work/jugabilidad-nov04/coloso`; se revisaron las imágenes renderizadas con conversión de HDR lineal a sRGB. Persisten avisos de recursos/ObjectDB al cerrar algunas pruebas. Las pruebas automáticas no validan balance competitivo humano.
 
 ## Balance pendiente
 

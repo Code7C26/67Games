@@ -240,7 +240,7 @@ func highlight_target(key: String) -> Node:
 	return null
 
 func controls_text() -> String:
-	return "CIAN: WASD para moverte · E para mutaciones · X para poseer.\nMAGENTA: flechas · O para mutaciones · J para poseer.\nPasá el cursor sobre una mutación para conocer su efecto y costo."
+	return "AZUL: WASD para moverte · E para mutaciones · X para poseer.\nMAGENTA: flechas · O para mutaciones · J para poseer.\nPasá el cursor sobre una mutación para conocer su efecto y costo."
 
 func can_tutorial_start() -> bool:
 	if not is_instance_valid(world) or get_tree().paused:

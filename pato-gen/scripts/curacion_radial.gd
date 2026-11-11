@@ -1,9 +1,10 @@
 extends RefCounted
+const Equipos = preload("res://scripts/equipos_infeccion.gd")
 ## Shared robot/symbiont pulse. Healing and resistance belong to Bot.gd.
-static func aplicar(origen: Node2D, radio: float, chance: float, equipo_excluido: int = 0) -> void:
+static func aplicar(origen: Node2D, radio: float, chance: float, equipo_excluido: int = 0, equipo_curador: int = 0) -> void:
 	for bot in candidatos(origen, radio, equipo_excluido):
 		if bot.has_method("curar_por_robot"):
-			bot.curar_por_robot(chance)
+			bot.curar_por_robot(chance, null, equipo_curador, origen)
 
 static func candidatos(origen: Node2D, radio: float, equipo_excluido: int = 0) -> Array[Node2D]:
 	var resultado: Array[Node2D] = []
@@ -28,8 +29,9 @@ static func candidatos_coloso(origen: Node2D, radio: float, tratados: Dictionary
 	# Recuento vivo: las estadísticas del cuadro anterior no protegen al último bot.
 	var stats: Dictionary = mundo.contar_infecciones()
 	for bot in candidatos(origen, radio):
-		var cantidad: int = stats.blue if bot.player_duenio == 1 else stats.magenta
-		if cantidad > 1 and not tratados.has(bot.get_instance_id()):
+		var cantidad: int = int(stats.blue) if bot.player_duenio == Equipos.CIAN else int(stats.magenta)
+		# La última infección de cada jugador está protegida; la neutral no.
+		if (bot.player_duenio == Equipos.ALFA or cantidad > 1) and not tratados.has(bot.get_instance_id()):
 			resultado.append(bot)
 	return resultado
 

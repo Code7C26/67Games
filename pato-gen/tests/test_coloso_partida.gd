@@ -31,6 +31,8 @@ func partida(semilla: int, cepa1: String, cepa2: String, fusion: bool) -> void:
 	root.add_child(host)
 	current_scene = host
 	host.timer_inicio.stop()
+	host.evento_alfa.probabilidad = 1.0
+	host.evento_alfa.azar_espacial.seed = semilla + 3
 	var evento: Node2D = host.evento_coloso
 	evento.azar_aparicion.seed = semilla
 	evento.azar_espacial.seed = semilla + 1
@@ -45,7 +47,7 @@ func partida(semilla: int, cepa1: String, cepa2: String, fusion: bool) -> void:
 		pato.convertirse_en_fantasma()
 		pato.set_physics_process(false)
 	host.estado_actual = host.EstadoJuego.FASE_INFECCION
-	host.timer_juego.start(120.0)
+	host.timer_juego.start()
 	host.adn_cian = 100
 	host.adn_magenta = 40
 	if fusion:
@@ -75,8 +77,8 @@ func partida(semilla: int, cepa1: String, cepa2: String, fusion: bool) -> void:
 	while host.estado_actual != host.EstadoJuego.FIN and Time.get_ticks_msec() < deadline:
 		await process_frame
 		var stats: Dictionary = host.contar_infecciones()
-		cuentas_validas = cuentas_validas and stats.total == stats.sanos + stats.blue + stats.magenta
-		cuentas_validas = cuentas_validas and stats.total == 65 + host.replicas_cian + host.replicas_magenta
+		cuentas_validas = cuentas_validas and stats.total == stats.sanos + stats.blue + stats.magenta + stats.verdes
+		cuentas_validas = cuentas_validas and stats.total == 65 + host.replicas_cian + host.replicas_magenta + host.evento_alfa.generados
 		min_sanos = mini(min_sanos, stats.sanos)
 		max_total = maxi(max_total, stats.total)
 		max_activos = maxi(max_activos, get_nodes_in_group("colosos_antivirales").size())
@@ -84,8 +86,9 @@ func partida(semilla: int, cepa1: String, cepa2: String, fusion: bool) -> void:
 			curaciones[evento.apariciones] = evento.coloso.curaciones
 			presupuestos_validos = presupuestos_validos and evento.coloso.curaciones <= 12
 	var numero_apariciones: int = evento.apariciones
-	check(host.estado_actual == host.EstadoJuego.FIN and paused, "120-second automatic match reaches normal game over: " + str(semilla))
-	check(cuentas_validas and max_total <= 81, "population accounting stays exact through infections, cures and replicas: " + str(semilla))
+	check(host.estado_actual == host.EstadoJuego.FIN and paused, "%d-second automatic match reaches normal game over: %d" % [host.timer_juego.wait_time, semilla])
+	check(cuentas_validas and max_total <= 90 and host.evento_alfa.generados > 0, "population accounting stays exact through three strains, cures and replicas: " + str(semilla))
+	check(host.evento_alfa.alfa == null and host.evento_alfa.estado == host.evento_alfa.Estado.FINALIZADO, "Alfa ends during full automatic match: " + str(semilla))
 	check(max_activos <= 1 and numero_apariciones <= 2 and presupuestos_validos, "automatic match respects concurrency, appearance and healing caps: " + str(semilla))
 	var probabilidades_validas := true
 	for registro in registros:

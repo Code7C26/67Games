@@ -5,6 +5,8 @@ signal map_ready
 var map_is_ready := false
 var npc_navigation: Node2D
 var npc_destinations := PackedVector2Array()
+const NPC_SECTOR_SIZE := Vector2(320.0, 256.0)
+var npc_roam_sectors: Dictionary = {}
 var ambient_evacuation: Node2D
 
 func _enter_tree() -> void:
@@ -44,6 +46,11 @@ func _ready() -> void:
 	add_child(npc_navigation)
 	await npc_navigation.preparada
 	npc_destinations = npc_navigation.posiciones_transitables($Patos/Pato.position, 19.0)
+	for point in npc_destinations:
+		var sector := npc_sector(point)
+		var points: PackedVector2Array = npc_roam_sectors.get(sector, PackedVector2Array())
+		points.append(point)
+		npc_roam_sectors[sector] = points
 	if npc_destinations.size() < 65:
 		push_error("El mapa no tiene 65 posiciones transitables para la partida.")
 		return
@@ -93,6 +100,10 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if map_is_ready: super._physics_process(delta)
+
+func npc_sector(point: Vector2) -> Vector2i:
+	var bounds: Rect2 = npc_navigation.limites
+	return Vector2i(((point - bounds.position) / NPC_SECTOR_SIZE).floor())
 
 func safe_replica_position(origin: Vector2) -> Vector2:
 	npc_navigation.actualizar_exclusiones()

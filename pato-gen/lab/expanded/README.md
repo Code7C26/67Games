@@ -11,7 +11,7 @@ La propuesta visual aprobada está integrada en `scenes/Laboratorio.tscn`, la es
 - Las luces del techo usan la máscara 4 de las 36 paredes; las de equipos conservan la máscara 2 de paredes y mobiliario. Así una fuente sobre una mesada ilumina su superficie sin quedar atrapada en la huella de ese mismo mueble. Se conservan normales, brillos y sombras de contacto.
 - Emisión selectiva de pantallas y tiras: energía 2.15, opacidad 0.58. Glow 0.65 y umbral 0.90. Los tubos de criogenia conservan el detalle del vidrio.
 - Consola alrededor del HUD compartido, sin cubrir el área jugable. El juego ya no muestra la etiqueta de muestra. La miniatura del selector se obtiene de la escena integrada.
-- Movimiento reducido congela incubadoras, parpadeo y partículas según las preferencias existentes. No se cambian fases de 3/120 s, controles, cepas ni economía. Los cuerpos de NPC responden a la iluminación y los bordes de equipo/HUD conservan su lectura.
+- Movimiento reducido congela incubadoras, parpadeo y partículas según las preferencias existentes. Las fases vigentes desde el 05/11/2026 son 15 s para buscar huésped y 150 s de partida; se conservan controles, cepas y economía. Los cuerpos de NPC responden a la iluminación y los bordes de equipo/HUD conservan su lectura.
 
 `map.gd` construye la geometría antes de preparar la navegación compartida. `effects.gd` extiende los efectos existentes del laboratorio; `hud.gd` extiende el HUD real. No hay dependencias de producción hacia la carpeta de muestras ni se modifican los sprites originales.
 

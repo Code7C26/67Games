@@ -5,15 +5,17 @@ Implementado para Godot 4.7.1. La escena de partida es `Shopping.tscn`.
 ## Cómo jugar
 
 - **Q (cian) / U (magenta):** invertir 5 ADN desde cualquier posición, también durante la posesión.
-- Después de la fusión, **Q / U** poseen directamente al portador aliado desde cualquier distancia. Durante el viaje o tras expirar/curarse la fusión no seleccionan otro bot ni cobran ADN.
-- La posesión directa usa los 10 s y la recarga de 20 s existentes. Si ya se controla otro bot, transfiere el control conservando el tiempo y la recarga restantes. Repetir la tecla no reinicia ninguno de los relojes. **X / J** mantienen la selección normal del infectado más cercano.
+- Después de la fusión, **Q / U** poseen directamente al portador aliado desde cualquier distancia, también si es el segundo huésped. Durante el viaje o cuando ya no hay fusión no seleccionan otro bot ni cobran ADN.
+- El **segundo huésped** permite una entrada inmediata con **Q/U** aunque la posesión esté en recarga. El permiso se consume solo al entrar, también si se usa X/J o se transfiere desde otro bot, y no se recupera al salir. Esa entrada conserva la duración normal de posesión y no reinicia el tiempo de fusión.
+- La posesión directa usa los 10 s y la recarga de 20 s existentes. Si ya se controla otro bot, transfiere el control conservando el tiempo y la recarga restantes. Repetir la tecla no reinicia ninguno de los relojes. **X / J** seleccionan el infectado aliado más cercano. Si no quedan aliados, contagian y poseen al sano más cercano; si no hay sanos, roban y poseen al rival más cercano. Esta recuperación no genera ADN ni permite robar invitados verdes del Alfa y conserva los tiempos normales de posesión y recarga.
 - Cada pulsación aceptada tiene 1,5 segundos de recarga individual. Mantener la tecla no compra repetidamente.
 - Se necesitan 12 pagos: 60 ADN. No hay devolución; el rival conserva únicamente su saldo no gastado.
-- La primera solicitud válida que completa los 60 gana. No hay segundo Simbionte en esa partida.
+- La primera solicitud válida que completa los 60 gana. Hay un único Simbionte por partida, con una sola oportunidad de cambiar de huésped si lo cura un robot.
 - El viajero busca al infectado aliado más cercano, camina hasta él y se fusiona por contacto. Si deja de ser válido, busca otro. Si no hay aliados, espera.
-- Los **20 segundos** comienzan al tocar al bot. Poseerlo con **X / J** no altera ese plazo.
+- Los **20 segundos** comienzan al tocar al primer bot. La posesión no altera ese plazo. Si un robot cura al primer portador, el Simbionte sale desde esa posición y busca otro infectado aliado, excluyendo al anterior incluso si se reinfecta. Los segundos de fusión restantes se pausan durante el viaje y continúan al tocar al segundo huésped; no recibe otros 20 s.
 - El aura cura solamente infectados rivales. No los convierte al equipo del anfitrión.
-- Si curan al anfitrión, la fusión termina. Tampoco se transmite por réplica o reinfección.
+- La segunda búsqueda se activa únicamente si un RRobot logra curar al primer portador; una tirada fallida no consume esa oportunidad. La curación natural, ofensiva, del aura o del Coloso, el robo por posesión y la expiración terminan la fusión sin nueva búsqueda. Si curan al segundo portador, termina definitivamente. Tampoco se transmite por réplica o reinfección.
+- Mientras busca un huésped válido, un hilo del color del equipo conecta al viajero con su objetivo. Sigue el movimiento y cambia con la selección; se oculta sin objetivo o al fusionarse. Respeta pausa y movimiento reducido. Es una guía visual: la fusión sigue exigiendo contacto físico y camino libre.
 - El reinicio borra inversiones, recargas, ganador, viajero y efecto. No se conserva nada en un autoload.
 
 ## Valores iniciales de balance
@@ -35,9 +37,9 @@ El radio del aura sigue el criterio del robot: distancia, sin bloqueo por parede
 
 ## Organización
 
-- `Mapa.gd`: única autoridad del gasto de ADN y la carrera. Las compras existentes usan `gastar_adn()` sin cambiar sus costos. Las escenas históricas que no contienen los dos capullos siguen funcionando sin activar esta mecánica.
+- `Mapa.gd`: única autoridad del gasto de ADN, la carrera y la oportunidad de buscar un segundo huésped. Las compras existentes usan `gastar_adn()` sin cambiar sus costos. Las escenas históricas que no contienen los dos capullos siguen funcionando sin activar esta mecánica.
 - `Bot.gd`: conserva infección, curación, estadísticas y posesión. Aplica un componente temporal sin sobrescribir valores base, mutaciones ni factores de calor.
-- `curacion_radial.gd`: filtro compartido por el RRobot y el aura; delega la curación en el bot. El robot conserva el filtro de ambos equipos.
+- `curacion_radial.gd`: filtro compartido por el RRobot y el aura; delega la curación en el bot pasando el origen para distinguir una cura de robot real. El robot conserva el filtro de ambos equipos.
 - `efecto_simbionte.gd`: duración, bonificaciones y aura; hijo del bot, con limpieza al curarse, expirar, salir de escena o terminar la partida.
 - `simbionte.gd`: viajero independiente del grupo `bots`, para no alterar población, contagios o ADN.
 - `navegacion_simbionte.gd`: cuadrícula A* de 16 px construida por partes desde las colisiones reales. Reserva espacio para el cuerpo; suaviza segmentos solo cuando caben físicamente. Excluye actores móviles del cálculo de paredes.
@@ -66,6 +68,10 @@ La suite `test_simbionte.gd` usa fondos y escenarios controlados **solo dentro d
 
 `test_simbionte_possession.gd` verifica Q/U para ambos equipos: pagos, espera durante el viaje, selección directa del portador distante, transferencia de posesión sin extender tiempos, recarga normal, filtros de equipo/fase/pausa, curación, expiración y eliminación del anfitrión.
 
+`test_simbionte_reubicacion.gd` prueba la salida por robot real, búsqueda y contacto físico con un segundo huésped, límite de una oportunidad, tiempo restante, fuentes de curación excluidas, Q/U, economía, pausa, fin y reinicio. `test_simbionte_hilo.gd` verifica objetivos móviles, cambio de dueño, eliminación de nodos, movimiento reducido y retirada del hilo al fusionarse. Con renderizado también guarda una captura de ambos equipos.
+
+La suite de reubicación también verifica la entrada inmediata del segundo huésped con recarga positiva, que los intentos bloqueados no consuman el permiso, que X/J lo consuman al entrar y que transferir desde otro bot preserve los relojes sin dejar una segunda entrada gratis.
+
 Ejecutar con el binario de consola de Godot:
 
 ```text
@@ -83,6 +89,10 @@ Resultados del 23/10/2026: **301 comprobaciones aprobadas** (93 Simbionte, 23 re
 Ajuste del 26/10/2026: **224 comprobaciones aprobadas** (94 Simbionte, 23 posiciones y balance, 34 sprites, 23 regresiones y 50 tutorial). Se revisaron capturas reales de las posiciones aleatorias y del aura ampliada; la escena Shopping y los recursos de animación conservan sus hashes anteriores. La recarga pasa de 3 a 1,5 s, el viaje de 150 a 100 px/s y el aura de 90 px / 20% / 1 s a 140 px / 40% / 0,75 s. Se tolera el residuo de precisión decimal en el límite del pulso. Los originales de este ajuste, logs y capturas están en `work/simbionte-balance-oct26/`.
 
 Ajuste posterior de posesión directa: aura al **50% por pulso**, con radio de 140 px e intervalo de 0,75 s. Q/U reutilizan el ciclo de posesión existente para seleccionar el portador fusionado y transferir el control sin aumentar los tiempos. **226 comprobaciones aprobadas** (52 posesión directa, 94 Simbionte, 23 posiciones y balance, 34 sprites y 23 regresiones). Originales y logs en `work/simbionte-direct-possession/`. Persisten los avisos de recursos de audio al cierre ya documentados en algunas suites.
+
+Segunda oportunidad del 07/11/2026: **606 comprobaciones aprobadas** en diez suites (94 Simbionte, 34 sprites, 56 legibilidad, 52 posesión directa, 86 segundo huésped, 30 hilo, 72 Coloso, 44 recuperación por posesión, 23 regresiones y 115 reciclaje). La prueba del hilo también pasó con Vulkan Mobile/HDR y se revisó su captura para ambos equipos. Se preservaron los hashes de Shopping, el controlador de apariencia y las animaciones. Originales, diferencias, logs y captura en `work/simbionte-segundo-huesped-nov07/`. Algunas suites siguen mostrando los avisos de audio al cierre documentados abajo.
+
+Entrada inmediata del 07/11/2026: **253 comprobaciones aprobadas** (107 reubicación, 52 posesión directa y 94 Simbionte). El segundo contacto permite Q/U sin esperar la recarga previa, con un permiso que consume cualquier posesión exitosa de ese huésped. Se verificaron ambos equipos, X/J, cambio desde otro bot, intentos bloqueados y ausencia de reinicios de relojes. Originales, diferencias y logs en `work/simbionte-entrada-inmediata-nov07/`.
 
 Diagnósticos separados de la mecánica:
 
