@@ -22,8 +22,8 @@ La documentación describe el juego principal de [`pato-gen/`](../pato-gen/) y l
 | [Manual de usuario en español](Manual_de_Usuario.md) | Guía para abrir la build de Windows o el proyecto Godot, elegir cepa y jugar. Disponible en [Word](Manual%20de%20Usuario%20de%20Patogen.docx) y [PDF](Manual%20de%20Usuario%20de%20Patogen.pdf). |
 | [User Manual in English](User_Manual.md) | English-language guide to installation, controls, strains, abilities, and match rules. Available in [Word](User%20Manual%20of%20Patogen.docx) and [PDF](User%20Manual%20of%20Patogen.pdf). |
 | [Investigación de usuarios](INVESTIGACION_USUARIOS.md) | Mapas A y B basados en las pruebas presenciales, roles CUPID y resultados comunicados. |
-| [Mapa A](Mapa_Empatia_A_resultados.png) | Mapa de empatía del jugador, basado en las pruebas presenciales y su devolución. |
-| [Mapa B](Mapa_Empatia_B_resultados.png) | Mapa de empatía del equipo como actor interno y su respuesta a la devolución. |
+| [Mapa A](Mapa_Empatia_A.png) | Mapa de empatía del jugador, basado en las pruebas presenciales y su devolución. |
+| [Mapa B](Mapa_Empatia_B.png) | Mapa de empatía del equipo como actor interno y su respuesta a la devolución. |
 | [CUPID](CUPID.docx) | Comprador, usuario, pagador, influenciador y decisor de la compra. |
 | [FODA](FODA.md) | Análisis del juego y del equipo que incorpora la evidencia de las pruebas presenciales. |
 | [Viabilidad comercial](Viabilidad_Comercial.md) | Fuente editable del informe de costos, monetización y propiedad intelectual. |
