@@ -1,34 +1,41 @@
 # Manual de usuario de Patogen
 
-67Games · Prototipo jugable · Revisión del 06/11/2026
+67Games · Guía para jugar Patogen
 
-Patogen es un juego de infección y estrategia para **dos jugadores locales en una misma computadora y pantalla**. Cada jugador controla una cepa, propaga su infección y usa ADN para evolucionarla. Gana quien tenga más personajes infectados de su equipo al terminar el tiempo.
+Patogen es un juego de infección y estrategia para **dos jugadores locales en una misma computadora y pantalla**. Cada jugador elige una de seis cepas, propaga su infección y usa ADN para evolucionarla. Gana quien tenga más personajes infectados de su equipo al terminar el tiempo. Las pruebas presenciales con parejas del curso confirmaron que la mayoría de los beta testers se sintió cómoda con los controles y que, después de dos partidas, se comprenden los controles y las mecánicas. La única recomendación de esas pruebas fue agregar movimiento al mapa; esa mejora ya está integrada.
 
 ## Antes de jugar
 
-Necesitás dos personas, teclado y mouse, y una copia del proyecto principal. Los jugadores comparten el teclado. La versión documentada se ejecuta desde Godot; el repositorio todavía no presenta una exportación final del juego principal lista para instalar. Los ZIP independientes de mapas son demos de desarrollo.
+Necesitás dos personas, teclado y mouse. Los jugadores comparten el teclado. Podés usar la build de Windows publicada o abrir el proyecto con Godot.
 
-### Abrir el prototipo
+### Abrir la versión para Windows
 
-1. Obtené la última versión de [67Games en GitHub](https://github.com/Code7C26/67Games). Si la descargás como ZIP, descomprimila antes de abrirla.
-2. Instalá Godot 4.7.1, la versión indicada por las pruebas del proyecto.
-3. En Godot, elegí **Importar** y seleccioná el archivo **pato-gen/project.godot** de la carpeta descargada.
+1. Descargá [PatoGen-Windows.zip](https://github.com/Code7C26/67Games/raw/refs/heads/main/PatoGen-Windows.zip) desde el repositorio.
+2. Extraé el ZIP completo en una carpeta.
+3. Abrí `PatoGen-Windows/PatoGen.exe`.
+4. Hacé clic en la ventana del juego para darle foco y comprobá que ambos jugadores puedan usar sus teclas.
+
+No hace falta instalar Godot. Para compartir el juego, enviá el ZIP completo porque contiene las instrucciones y licencias.
+
+### Abrir el proyecto con Godot
+
+1. Instalá Godot 4.7.1, versión indicada por la configuración del proyecto.
+2. Obtené el repositorio [67Games en GitHub](https://github.com/Code7C26/67Games) y descomprimilo si lo descargaste como ZIP.
+3. En Godot, elegí **Importar** y seleccioná `pato-gen/project.godot`.
 4. Esperá a que se importen los recursos y presioná **F5** para ejecutar el proyecto completo.
-5. Comprobá que ambos jugadores puedan usar sus teclas. Si jugás desde el editor, hacé clic en la ventana del juego para darle el foco.
 
-Para esta entrega no se publican requisitos mínimos de hardware validados. El proyecto utiliza renderizado Mobile/Vulkan. Si no inicia, consultá al equipo e indicá tu sistema y el mensaje que aparece.
+Para esta entrega no se publican requisitos mínimos de hardware validados. El proyecto utiliza renderizado Mobile/Vulkan. Si el juego no inicia, consultá al equipo e indicá tu sistema y el mensaje que aparece.
 
 ### Empezar una partida
 
-1. En el menú principal, elegí **Nueva partida con tutorial** si es tu primera vez. **Jugar** inicia el flujo normal; la primera visita puede incluir una introducción que se puede omitir.
-2. Usá las flechas de selección de cada lado para elegir **Atlético**, **Área** o **Exponencial**. Cian es el jugador 1 y magenta el jugador 2.
-3. Continuá a la selección de mapa. Elegí **Shopping**, **Laboratorio AV-07** o **Pato Splash** y pulsá **Comenzar partida**.
-4. Mové tu pato durante los **3 segundos iniciales** para elegir desde dónde comenzar. Al terminar, desaparece con una animación, infecta al personaje sano más cercano disponible y se convierte en fantasma.
-5. Durante los **120 segundos de infección**, administrá ADN, comprá mutaciones y usá tus habilidades. El tutorial puede detener temporalmente el reloj mientras enseña.
+1. La presentación de 67Games dura unos 3,4 segundos y se puede omitir. En el menú podés cambiar **English / Español**. El idioma y el estado del tutorial se guardan en el perfil local de Windows.
+2. Elegí **Nueva partida con tutorial** si es tu primera vez. **Jugar** inicia el flujo normal; la primera visita puede incluir una introducción que se puede omitir.
+3. En la selección de cepas, cada lado puede elegir con **A / D** para el jugador azul (cian) y **← / →** para el jugador magenta, o hacer clic en una cepa. Hay seis opciones: Atlético, Área, Exponencial, Garfio, Camaleón y Rastreador.
+4. Continuá a la selección de mapa. Elegí **Shopping**, **Laboratorio AV-07** o **Pato Splash** y pulsá **Comenzar partida**.
+5. Mové tu pato durante los **3 segundos iniciales** para elegir desde dónde comenzar. Al terminar, desaparece con una animación, infecta al personaje sano más cercano disponible y se convierte en fantasma.
+6. Durante los **120 segundos de infección**, administrá ADN, comprá mutaciones y usá tus habilidades. El tutorial puede detener temporalmente el reloj mientras enseña.
 
-El menú también ofrece **Ver tutorial**, **Movimiento reducido** y **Salir**. Movimiento reducido modifica animaciones de la introducción y la guía; no cambia las reglas de la partida.
-
-<!-- PAGE -->
+El menú también ofrece **Ver tutorial**, **Movimiento reducido** y **Salir**. Movimiento reducido modifica algunas animaciones de la introducción y la guía; no cambia las reglas de la partida. Durante la partida, **Esc** abre la pausa y **F1** muestra la guía.
 
 ## Pantalla de juego
 
@@ -38,11 +45,12 @@ Partida en Shopping con los contadores superiores y ambos paneles de mutaciones 
 
 | Elemento | Para qué sirve |
 | --- | --- |
-| P1 Cian y P2 Magenta | Identifican los equipos. El número de infectados indica cuántos personajes pertenecen a cada uno en ese momento. |
+| P1 Azul/Cian y P2 Magenta | Identifican los equipos. El número de infectados indica cuántos personajes pertenecen a cada uno en ese momento. |
 | Reloj y mensaje de fase | Muestran la etapa de la partida y el tiempo restante. Durante la introducción puede verse «Busca tu huésped». |
 | ADN | Es el saldo disponible para compras y habilidades. Gastarlo no reduce directamente el contador de infectados. |
 | Panel de mutaciones | Permite consultar y comprar la siguiente evolución de cada rama. Se muestra u oculta con E u O. |
 | Indicadores del Simbionte | Muestran el avance de la inversión de cada equipo hacia 60 ADN. |
+| Botón contextual | Si controlás un Garfio o un Camaleón, muestra la acción disponible: enganchar o camuflar. |
 
 Los infectados se desplazan automáticamente. Los sanos huyen y los infectados buscan nuevos huéspedes. Tu fantasma te permite intervenir; cuando poseés a un infectado, las mismas teclas de movimiento pasan a controlar a ese personaje.
 
@@ -61,13 +69,14 @@ Los infectados se desplazan automáticamente. Los sanos huyen y los infectados b
 | Invocar robot curador | Z | H |
 | Colocar distorsión | C | K |
 | Colocar zona caliente | V | L |
-| Poseer al infectado aliado más cercano | X | J |
+| Poseer al infectado aliado más cercano o activar acción de cepa | X | J |
 | Invertir en el Simbionte o poseer a su portador aliado | Q | U |
 | Abrir la guía durante la partida | F1 | F1 |
+| Abrir o cerrar la pausa durante la partida | Esc | Esc |
 
 También podés usar los botones visibles del panel para consultar y comprar opciones. La interfaz se maneja con el mouse compartido. Si una descripción es larga, usá la rueda del mouse para leerla.
 
-**Escape** permite omitir o cerrar la guía visible según el contexto. No es una tecla de pausa general de la partida. Para repetir el tutorial, volvé al menú y elegí Nueva partida con tutorial.
+Al controlar una cepa especial, la acción de **X / J** cambia: Garfio engancha y Camaleón intenta camuflarse. Si no estás controlando un huésped, la tecla permite poseer al infectado aliado más cercano. En pantallas de introducción o guía, seguí la indicación visible para continuar u omitir.
 
 ### Fases de la partida
 
@@ -87,7 +96,16 @@ Si una acción no se activa, comprobá que estés en la fase de infección, teng
 
 ## Cepas y mutaciones
 
-Las tres cepas ofrecen ramas distintas. Elegí una antes de la partida y consultá las descripciones del panel para conocer el efecto de cada compra. El balance entre cepas todavía se está probando con jugadores.
+Las seis cepas ofrecen estilos distintos. Elegí una antes de la partida y consultá las descripciones del panel para conocer el efecto de cada compra. Las pruebas presenciales confirmaron que la mayoría de los beta testers encontró cómodos los controles y pudo comprender los controles y las mecánicas después de dos partidas.
+
+| Cepa | Estilo de juego | Acción o ventaja distintiva |
+| --- | --- | --- |
+| Atlético | Persecución rápida. | Presiona a los huéspedes con su velocidad. |
+| Área | Propagación y control de zonas. | Favorece contagios en cadena y el uso de zonas. |
+| Exponencial | Crecimiento y adaptación. | Puede reproducirse y mejorar a medida que avanza la partida. |
+| Garfio | Captura y arrastre. | Engancha a huéspedes sanos visibles y los acerca; esquivar o bloquear el gancho es posible y el contagio no está garantizado. |
+| Camaleón | Infiltración y emboscada. | Se camufla cuando está listo y no hay humanos sanos demasiado cerca; una acción incompatible puede revelarlo. |
+| Rastreador | Búsqueda y coordinación. | Detecta y recuerda presas observadas; algunas mejoras coordinan a infectados aliados. |
 
 | Cepa | Rama | Evoluciones en orden |
 | --- | --- | --- |
@@ -99,8 +117,17 @@ Las tres cepas ofrecen ramas distintas. Elegí una antes de la partida y consult
 | Área | 3 | Sobrecarga → Pulso viral → Tormenta infecciosa |
 | Exponencial | 1 | Adaptación → Evolución rápida → Supercepa |
 | Exponencial | 2 | División celular → Replicación → Brote masivo |
+| Garfio | 1 | Presa vulnerable I → II → III |
+| Garfio | 2 | Doble tendón I → II → III |
+| Garfio | 3 | Reenganche I → II → III |
+| Camaleón | 1 | Pigmentación avanzada → Mimetismo → Cromatóforos |
+| Camaleón | 2 | Desvanecimiento → Retorno sigiloso → Adaptación fugaz |
+| Camaleón | 3 | Ataque sorpresa → Emboscada viral → Golpe furtivo |
+| Rastreador | 1 | Llamado de manada I → II → III |
+| Rastreador | 2 | Cerco depredador I → II → III |
+| Rastreador | 3 | Marca biológica I → II → III |
 
-Cada rama avanza en orden. La primera evolución cuesta **5 ADN**, la segunda **10 ADN** y la tercera **15 ADN**, cuando existe. El Exponencial tiene dos ramas: la tercera tecla de compra no ofrece una evolución.
+Cada rama avanza en orden. La primera evolución cuesta **5 ADN**, la segunda **10 ADN** y la tercera **15 ADN**, cuando existe. Todas las cepas nuevas tienen tres ramas. Exponencial tiene dos ramas: la tercera tecla de compra no ofrece una evolución.
 
 ### Ejemplo de compra
 
@@ -111,8 +138,6 @@ Para magenta, la primera rama se consulta con **Shift + 8** y se compra con **8*
 ### Elegir qué mejorar
 
 Antes de gastar, revisá el tiempo restante, tu saldo y la cantidad de infectados de ambos equipos. Las mutaciones compiten por el mismo ADN que las habilidades y el Simbionte. Guardar recursos puede ser útil, pero el ADN sobrante no suma puntos al resultado final.
-
-<!-- PAGE -->
 
 ## Habilidades y eventos
 
@@ -137,11 +162,17 @@ Es un evento neutral que puede aparecer cuando quedan muy pocos sanos. Cura infe
 
 No lo controlás ni lo derrotás para ganar recompensas. Prestá atención al aviso de aparición y al cambio de conteos. Su presencia no garantiza que toda la población vuelva a estar sana.
 
+### Uso de las nuevas cepas
+
+- **Garfio:** la IA intenta capturar automáticamente cuando puede. Si poseés a un Garfio, apuntá con el movimiento y pulsá **X / J** o el botón **Enganchar**. La presa puede escapar, la pared puede bloquear el ataque y la llegada produce un solo intento de contagio.
+- **Camaleón:** se oculta solo si está listo y lejos de humanos sanos. Al poseerlo, pulsá **X / J** o **Camuflar** para volver a intentarlo. Contagiar o usar ciertas habilidades puede revelarlo.
+- **Rastreador:** funciona sin una tecla adicional. Recuerda la última ubicación observada de una presa y, con mejoras, coordina a algunos infectados aliados. Si pierde el rastro, vuelve a buscar.
+
+Las descripciones completas de las evoluciones aparecen en el panel del juego. El [repositorio](https://github.com/Code7C26/67Games) conserva las reglas técnicas de [Garfio y Rastreador](https://github.com/Code7C26/67Games/blob/main/pato-gen/docs/MUTACIONES_GARFIO_RASTREADOR.md) y [Camaleón](https://github.com/Code7C26/67Games/blob/main/pato-gen/docs/CAMALEON.md).
+
 ### Remontada
 
 Si tu equipo tiene al menos **5 infectados menos** que el rival, recibe **1 ADN por segundo** mientras mantenga esa desventaja. También existen ajustes de curación para limitar diferencias grandes. Son ayudas automáticas: no garantizan empatar ni ganar.
-
-<!-- PAGE -->
 
 ## Primera partida y ayuda
 
@@ -161,13 +192,10 @@ Al terminar el reloj se comparan los infectados actuales. El número mayor gana;
 | Una compra o habilidad no funciona | Revisá fase, saldo, recarga y si la rama ya está completa. Exponencial no tiene tercera rama. |
 | X o J no permite poseer | Necesitás modo fantasma, un infectado aliado y recarga disponible. Si el aliado se cura, perdés su control. |
 | Q o U ya no agrega inversión | Puede faltar ADN, seguir la recarga o haberse decidido la carrera. Tras la fusión, esa tecla pasa a seleccionar al portador aliado. |
+| X o J no engancha o no camufla | La acción especial sólo aparece al poseer un Garfio o Camaleón. Revisá el botón contextual, la fase de juego y el estado del huésped. |
 | Bajó mi número de infectados | La curación natural, robots y Coloso pueden reducirlo. El aura del Simbionte rival también cura a tus infectados. |
 | El reloj no avanza | El tutorial puede retenerlo mientras espera una acción. En la pantalla de resultado la partida ya terminó. |
 
 ### Compartir una observación
 
-Usá la [encuesta de Patogen](https://docs.google.com/forms/d/e/1FAIpQLSdcVXtVcuFnc-ONDs5G1jO4dhMEx9lVbaN2AGFfKulQGXbKgg/viewform?usp=sharing&ouid=109783700324919521831) o los [issues del repositorio](https://github.com/Code7C26/67Games/issues). Indicá mapa, cepas, equipo, acción intentada y qué ocurrió. Una captura ayuda a explicar problemas de lectura o controles.
-
-### Versión de esta guía
-
-La guía corresponde al código y escenas publicados del prototipo revisados el 06/11/2026. Los costos y tiempos pueden cambiar con el balance. Para cambios posteriores, consultá la [documentación actual](README.md) y el [README del juego](../README.md).
+Usá la [encuesta de Patogen](https://docs.google.com/forms/d/e/1FAIpQLSdcVXtVcuFnc-ONDs5G1jO4dhMEx9lVbaN2AGFfKulQGXbKgg/viewform?usp=sharing&ouid=109783700324919521831) o los [issues del repositorio](https://github.com/Code7C26/67Games/issues). Indicá mapa, cepas, equipo, acción intentada y qué ocurrió. Una captura ayuda a explicar problemas de lectura o controles. Esta guía abarca el modo local, las seis cepas y los tres mapas; para cambios del proyecto, revisá la [documentación](README.md) y el [README del juego](../README.md).
