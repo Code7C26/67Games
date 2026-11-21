@@ -1,20 +1,20 @@
 # Viabilidad comercial de Patogen
 
-**67Games · Revisión 06/11/2026**
+**67Games**
 Integrantes: Felipe Virga, Matias Moschella y Federico Bonetto.
 Materia: Emprendimiento. Docente: Tamara Pichinni. Fecha de entrega del trabajo original: 13/08/2026.
 
-Patogen tiene una base jugable; su viabilidad comercial requiere pruebas con jugadores, una versión distribuible y una propuesta de precio. Este informe actualiza su alcance y distingue las estimaciones económicas del trabajo original de los gastos realizados y las cotizaciones vigentes.
+Patogen cuenta con una base jugable y pruebas presenciales con parejas del curso. Los controles, las mecánicas y el balance fueron probados; la mayoría de los beta testers encontró cómodos los controles y comprendió el juego después de dos partidas. La única recomendación fue agregar movimiento al mapa, y ya está integrada. Este informe describe el alcance comercial disponible y distingue las estimaciones económicas del trabajo original de los gastos realizados y las cotizaciones vigentes.
 
 ## Producto y monetización
 
-Patogen es un videojuego 2D de infección y estrategia para dos jugadores locales en una misma computadora, desarrollado en Godot. Cada jugador elige una cepa entre Atlético, Área y Exponencial. Shopping, Laboratorio AV-07 y Pato Splash están integrados en el juego principal, con 65 huéspedes jugables por mapa.
+Patogen es un videojuego 2D de infección y estrategia para dos jugadores locales en una misma computadora, desarrollado en Godot. Cada jugador elige una cepa entre Atlético, Área, Exponencial, Garfio, Camaleón y Rastreador. Shopping, Laboratorio AV-07 y Pato Splash están integrados en el juego principal, con 65 huéspedes jugables por mapa.
 
 Después de los 3 segundos iniciales de los patos y su transición comienza una fase de infección de 120 segundos. Gana quien tenga más bots infectados al terminar; un conteo igual produce empate técnico. Hay ADN, mutaciones, posesión, robot curador, distorsión, zona caliente, remontada, Simbionte, Coloso Antiviral, audio y tutorial. El tutorial puede retener el reloj mientras enseña.
 
-El juego principal es `pato-gen/`. El balance humano y la exportación distribuible siguen pendientes. El prototipo no ofrece servidores de partidas, matchmaking ni una tienda de skins. Las cepas y mutaciones forman parte de la estrategia de juego.
+El juego principal es `pato-gen/`. El repositorio publica `PatoGen-Windows.zip`, una build de 64 bits que se ejecuta sin instalar Godot. Como tarea técnica queda registrar su funcionamiento en otra computadora, fuera del editor. Las pruebas presenciales ya incluyeron controles, mecánicas y balance. El juego no ofrece servidores de partidas, matchmaking ni una tienda de skins. Las cepas y mutaciones forman parte de la estrategia.
 
-Se mantiene como propuesta la **licencia de pago único** para acceder al juego. No hay precio validado, previsión de ventas comprobada ni rentabilidad demostrada en esta documentación. La propuesta no depende de microtransacciones o suscripciones. La publicación en Steam es una alternativa por evaluar, no un lanzamiento acreditado.
+La **licencia de pago único** es el modelo de acceso descrito en el trabajo. Esta documentación no registra un precio acordado, ventas ni datos de disposición a pagar; por eso no presenta proyecciones de ingresos ni de rentabilidad. El juego no depende de microtransacciones o suscripciones. Steam no figura como plataforma de publicación realizada.
 
 El comprador adquiere la licencia y el pagador la abona; pueden ser la misma persona. Los usuarios participan de las partidas locales. Amigos, reseñas y creadores pueden influir en la compra. 67Games decide el alcance y la publicación del producto. Un eventual sponsor financiaría el desarrollo mediante un acuerdo separado, todavía no acreditado.
 
@@ -75,19 +75,18 @@ Antes de distribuir una versión, el equipo debe reunir la atribución y las con
 
 El proyecto actual es software y no incluye hardware propio documentado. Por eso, una evaluación de patentes o diseños de un dispositivo físico no forma parte del alcance actual de Patogen.
 
-## Validación y próximos pasos
+## Estado técnico y comercial
 
-1. Exportar una versión de prueba del juego principal y verificarla en el entorno previsto para compartirla.
-2. Observar partidas de dos personas para comprobar comprensión de controles, condición de victoria, ADN y mutaciones.
-3. Comparar cepas y mapas para ajustar balance, remontada, Simbionte y Coloso. Las pruebas automáticas no sustituyen esta evidencia.
-4. Registrar intención de repetir, situaciones de juego local y disposición a pagar. Los mapas A y B y el FODA son hipótesis que requieren contraste.
-5. Registrar horas y gastos reales, revisar licencias y obtener cotizaciones antes de fijar presupuesto, precio o fecha de lanzamiento.
+- Las pruebas presenciales con parejas del curso cubrieron controles, mecánicas y balance. La mayoría de los beta testers encontró cómodos los controles y comprendió el juego después de dos partidas. La única recomendación fue agregar movimiento al mapa, ya integrado.
+- La prueba de `PatoGen-Windows.zip` en otra computadora, fuera del editor, sigue registrada como tarea técnica en el [issue #8](https://github.com/Code7C26/67Games/issues/8).
+- No se informaron un precio acordado, ventas ni disposición a pagar. Por ese motivo, este documento no cuantifica demanda, ingresos ni rentabilidad.
+- Las cifras de costos del trabajo original se distinguen de gastos efectivamente realizados; las cotizaciones y licencias deben consultarse antes de una contratación o publicación. La titularidad y los recursos de terceros también deben quedar documentados antes de distribuir el juego.
 
-La base técnica permite organizar estas pruebas, pero no demuestra demanda ni rentabilidad. La siguiente decisión comercial debe apoyarse en resultados documentados de uso y compra, manteniendo el pago único como propuesta hasta validarlo.
+Las pruebas disponibles describen la experiencia de juego y sus resultados. La documentación no presenta datos comerciales que permitan calcular ventas o rentabilidad.
 
 ## Fuentes
 
-Producto revisado el 06/11/2026: [README](../README.md), [reglas](../pato-gen/scripts/Mapa.gd), [controles](../pato-gen/scripts/Pato.gd), [selector](../pato-gen/scripts/map_select.gd), [mapas integrados](../pato-gen/docs/MAPAS_INTEGRADOS.md), [usuarios y CUPID](INVESTIGACION_USUARIOS.md), [FODA](FODA.md), [pendientes](https://github.com/Code7C26/67Games/issues) y [encuesta](https://docs.google.com/forms/d/e/1FAIpQLSdcVXtVcuFnc-ONDs5G1jO4dhMEx9lVbaN2AGFfKulQGXbKgg/viewform?usp=sharing&ouid=109783700324919521831).
+Fuentes del estado actual del producto: [README](../README.md), [reglas](../pato-gen/scripts/Mapa.gd), [controles](../pato-gen/scripts/Pato.gd), [selector de cepas](../pato-gen/scripts/character_select.gd), [mapas integrados](../pato-gen/docs/MAPAS_INTEGRADOS.md), [usuarios y CUPID](INVESTIGACION_USUARIOS.md), [FODA](FODA.md), [build de Windows](../PatoGen-Windows.zip), [pendientes](https://github.com/Code7C26/67Games/issues) y [encuesta](https://docs.google.com/forms/d/e/1FAIpQLSdcVXtVcuFnc-ONDs5G1jO4dhMEx9lVbaN2AGFfKulQGXbKgg/viewform?usp=sharing&ouid=109783700324919521831).
 
 Fuentes oficiales consultadas el 06/11/2026: [Steam Direct](https://partner.steamgames.com/doc/gettingstarted/appfee), [registro de software DNDA](https://www.argentina.gob.ar/servicio/registrar-un-software-puesto-en-conocimiento-publico), [registro de marca INPI](https://www.argentina.gob.ar/inpi/marcas/registrar-una-marca), [aranceles INPI](https://www.argentina.gob.ar/inpi/aranceles-inpi) y [licencias de Godot](https://docs.godotengine.org/en/stable/about/complying_with_licenses.html).
 

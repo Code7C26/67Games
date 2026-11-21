@@ -1,67 +1,70 @@
 # FODA de Patogen y de 67Games
 
-Revisión del **06/11/2026**. Las fortalezas y debilidades se apoyan en el [estado documentado del prototipo](README.md). Las oportunidades y amenazas son hipótesis de planificación, no resultados de un estudio de mercado.
+Este análisis toma como referencia el [estado actual del juego](README.md) y las pruebas presenciales con parejas del curso.
 
 ## Patogen
 
-Corresponde a la imagen `Copia de Mapa Mental Foda Empresa Moderno Naranja y Negro.png`.
+Corresponde a la imagen [FODA_Patogen_actualizado.png](FODA_Patogen_actualizado.png).
 
 ### Fortalezas
 
-- Prototipo local para dos jugadores.
-- Tres cepas y tres mapas integrados.
-- Tutorial y mecánicas de evolución.
+- Juego local para dos jugadores en una misma computadora.
+- Seis cepas y tres mapas integrados.
+- Tutorial, evoluciones, habilidades y movimiento en los mapas.
+- La mayoría de los beta testers encontró cómodos los controles.
+- Los controles y las mecánicas se comprenden después de dos partidas.
+- La recomendación sobre movimiento del mapa se implementó.
+- Build de Windows publicada para compartir el juego.
 
 ### Oportunidades
 
-- Pruebas presenciales con amigos.
-- Difusión mediante clips y demos.
-- Validar una licencia de pago único.
+- Difundir el juego con clips, manual y demostraciones presenciales.
+- Aprovechar los comentarios de las parejas que prueban el juego.
+- Evaluar una licencia de pago único para una publicación futura.
 
 ### Debilidades
 
-- Balance humano aún pendiente.
-- Controles y contagio por validar.
-- Exportación distribuible pendiente.
+- La prueba de la build de Windows en otra computadora no está registrada en el repositorio.
+- No hay requisitos mínimos de hardware publicados a partir de pruebas.
+- El precio y la comercialización no están definidos.
 
 ### Amenazas
 
 - Competencia por la atención del público.
-- Dificultad para reunir a dos jugadores.
-- Interés o ventas menores a lo esperado.
+- Dificultad para reunir a dos jugadores frente a una computadora.
+- Interés o ventas menores a lo esperado en una eventual publicación.
 
-La selección de cepas y las mutaciones son decisiones de juego. No se presentan como personalización cosmética. La sincronización online queda fuera del alcance implementado y, por lo tanto, no se usa como debilidad de una función existente. La rejugabilidad y la facilidad de aprendizaje todavía necesitan evidencia de partidas humanas.
+La selección de cepas y las mutaciones son decisiones de juego, no personalización cosmética. La sincronización online, matchmaking y tienda de skins están fuera del alcance implementado.
 
 ## Equipo de 67Games
 
-Corresponde a la imagen `Copia de Mapa Mental Foda Empresa Moderno Naranja y Negro (1).png`.
+Corresponde a la imagen [FODA_67Games_actualizado.png](FODA_67Games_actualizado.png).
 
 ### Fortalezas
 
-- Trabajo integrado en Godot y GDScript.
-- Arte, audio y mapas en el repositorio.
-- Pruebas de varias mecánicas disponibles.
+- Desarrollo integrado en Godot y GDScript.
+- Arte, audio, mapas y seis cepas en el repositorio.
+- Pruebas técnicas y pruebas presenciales con parejas del curso.
+- Devolución de beta testers incorporada al juego.
 
 ### Oportunidades
 
-- Devoluciones de jugadores y docentes.
-- Documentación y herramientas accesibles.
-- Mostrar una demo y evaluar apoyos.
+- Mostrar una demo y compartir el manual de usuario.
+- Mantener accesible la documentación y las herramientas del proyecto.
+- Recibir devoluciones de jugadores y docentes.
 
 ### Debilidades
 
-- Copias del proyecto por unificar.
-- Tiempo de desarrollo limitado.
-- Pruebas y exportación por consolidar.
+- La build de Windows todavía no tiene una prueba externa registrada.
+- El rendimiento y las horas de trabajo no tienen mediciones consolidadas.
+- El arte del Coloso Antiviral sigue identificado como provisional en el proyecto.
 
 ### Amenazas
 
-- Baja participación en pruebas externas.
+- Disponibilidad limitada para reunir nuevos grupos de prueba.
 - Costos externos que superen lo previsto.
 - Dificultad para atraer público inicial.
 
-La existencia de distintas copias del proyecto y de pendientes de exportación y pruebas está documentada en el README y sus issues. La disponibilidad de tiempo debe contrastarse con el equipo. No se atribuyen mala comunicación, conflictos internos, solvencia financiera ni patrocinadores sin evidencia.
+## Estado de las pruebas
 
-## Qué falta comprobar
-
-La encuesta y los playtests deben comprobar interés, comprensión, repetición y disposición a pagar. El equipo debe registrar horas y gastos reales, acordar prioridades y verificar los costos externos antes de comprometerlos. No se infiere éxito comercial de la existencia de un prototipo o de un trailer.
+Las pruebas presenciales se realizaron con parejas del curso. La mayoría de los beta testers indicó que los controles resultaban cómodos y que los jugadores comprendían controles y mecánicas después de dos partidas. La única recomendación fue agregar movimiento al mapa; esa mejora ya está integrada.
